@@ -34,12 +34,12 @@ module.exports = {
     },
     perf: {
       description: '提高效能的程式碼修正',
-      emoji: '🪄',
+      emoji: '🍻',
       value: 'perf'
     },
     refactor: {
       description: '重構 or 優化，不屬於 bug 也不屬於新增功能等',
-      emoji: '💡',
+      emoji: '📽️',
       value: 'refactor'
     },
     release: {

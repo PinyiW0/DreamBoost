@@ -213,6 +213,7 @@ $utilities: map-merge(
     // scss-docs-start utils-sizing
     'width':
       (
+        responsive: true,
         property: width,
         class: w,
         values: (
@@ -587,6 +588,7 @@ $utilities: map-merge(
       ),
     'font-size': (
       rfs: true,
+      responsive: true,
       property: font-size,
       class: fs,
       values: $font-sizes
@@ -597,6 +599,7 @@ $utilities: map-merge(
       values: italic normal
     ),
     'font-weight': (
+      responsive: true,
       property: font-weight,
       class: fw,
       values: (
@@ -610,6 +613,7 @@ $utilities: map-merge(
       )
     ),
     'line-height': (
+      responsive: true,
       property: line-height,
       class: lh,
       values: (
@@ -773,6 +777,7 @@ $utilities: map-merge(
         10: 0.1,
         25: 0.25,
         50: 0.5,
+        60: 0.6,
         75: 0.75,
         100: 1
       )
@@ -892,14 +897,42 @@ $utilities: map-merge(
         )
       ),
     // scss-docs-end utils-visibility
+
+    //customer
+    "letter-spacing": (responsive: true,
+      property: letter-spacing,
+      class: lterSpc,
+      values: (0: 0,
+        5: 0.05em,
+        8: 0.08em,
+        10: 0.1em,
+      )),
+
     // scss-docs-start utils-zindex
     'z-index':
       (
+        responsive: true,
         property: z-index,
         class: z,
         values: $zindex-levels
       )
-      // scss-docs-end utils-zindex
+    // scss-docs-end utils-zindex
+    "object-fit": (responsive: true,
+      property: object-fit,
+      values: (contain: contain,
+        cover: cover,
+        fill: fill,
+        scale: scale-down,
+        none: none,
+      )),
+    "row-gap": (responsive: true,
+      property: row-gap,
+      class: row-gap,
+      values: $spacers ),
+    "column-gap": (responsive: true,
+      property: column-gap,
+      class: column-gap,
+      values: $spacers ),
   ),
   $utilities
 );
