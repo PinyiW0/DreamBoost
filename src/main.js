@@ -1,5 +1,6 @@
 import './assets/scss/all.scss'
-import 'bootstrap'
+import * as bootstrap from 'bootstrap'
+//import 'bootstrap'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -8,6 +9,11 @@ import VueAxios from 'vue-axios'
 
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
+
+import { LoadingPlugin } from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
+import mitt from 'mitt'
 
 import App from './App.vue'
 import router from './router'
@@ -18,5 +24,8 @@ app.use(createPinia())
 app.use(router)
 app.use(VueAxios, axios)
 app.use(VueSweetalert2)
+app.use(LoadingPlugin)
+app.config.globalProperties.$mitt = mitt()
+app.config.globalProperties.$bs = bootstrap
 
 app.mount('#app')

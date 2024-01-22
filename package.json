@@ -14,10 +14,12 @@
   "dependencies": {
     "axios": "^1.6.5",
     "bootstrap": "^5.3.2",
+    "mitt": "^3.0.1",
     "pinia": "^2.1.7",
     "vee-validate": "^4.12.4",
     "vue": "^3.3.11",
     "vue-axios": "^3.5.2",
+    "vue-loading-overlay": "^6.0.3",
     "vue-router": "^4.2.5",
     "vue-sweetalert2": "^5.0.5"
   },

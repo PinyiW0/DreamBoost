@@ -897,17 +897,19 @@ $utilities: map-merge(
         )
       ),
     // scss-docs-end utils-visibility
-
     //customer
-    "letter-spacing": (responsive: true,
-      property: letter-spacing,
-      class: lterSpc,
-      values: (0: 0,
-        5: 0.05em,
-        8: 0.08em,
-        10: 0.1em,
-      )),
-
+    'letter-spacing':
+      (
+        responsive: true,
+        property: letter-spacing,
+        class: lterSpc,
+        values: (
+          0: 0,
+          5: 0.05em,
+          8: 0.08em,
+          10: 0.1em
+        )
+      ),
     // scss-docs-start utils-zindex
     'z-index':
       (
@@ -916,23 +918,31 @@ $utilities: map-merge(
         class: z,
         values: $zindex-levels
       )
-    // scss-docs-end utils-zindex
-    "object-fit": (responsive: true,
-      property: object-fit,
-      values: (contain: contain,
-        cover: cover,
-        fill: fill,
-        scale: scale-down,
-        none: none,
-      )),
-    "row-gap": (responsive: true,
+      // scss-docs-end utils-zindex
+    'object-fit':
+      (
+        responsive: true,
+        property: object-fit,
+        values: (
+          contain: contain,
+          cover: cover,
+          fill: fill,
+          scale: scale-down,
+          none: none
+        )
+      ),
+    'row-gap': (
+      responsive: true,
       property: row-gap,
       class: row-gap,
-      values: $spacers ),
-    "column-gap": (responsive: true,
+      values: $spacers
+    ),
+    'column-gap': (
+      responsive: true,
       property: column-gap,
       class: column-gap,
-      values: $spacers ),
+      values: $spacers
+    )
   ),
   $utilities
 );
