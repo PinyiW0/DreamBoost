@@ -1,11 +1,12 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
+
 export default {
   mounted() {
-    console.log(this.$mitt)
-    console.log(this.$bs)
-  }
-}
+    console.log(this.$mitt);
+    console.log(this.$bs);
+  },
+};
 </script>
 <template>
   <header>
