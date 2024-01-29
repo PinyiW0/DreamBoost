@@ -1,15 +1,22 @@
 <template>
   <section
     class="bg-no-repeat bg-cover bg-center"
-    style="background-image: url('./images/launch/launchBanner.png'); height: 500px"
+    style="
+      background-image: url('./images/launch/launchBanner.png');
+      height: 500px;
+    "
   >
-    <div class="container d-flex justify-content-center align-items-center h-100">
+    <div
+      class="container d-flex justify-content-center align-items-center h-100"
+    >
       <div class="text-white text-center">
         <h2 class="mb-4">
           <img src="/images/launch/launchLogo.png" class="img-fluid" alt="" />
         </h2>
         <p>啟動群眾力量，讓有價值的事物獲得更好的機會</p>
-        <a href="#" class="btn btn-primary px-18 py-3 text-white border-secondary-light"
+        <a
+          href="#"
+          class="btn btn-primary px-18 py-3 text-white border-secondary-light"
           >開始提案</a
         >
       </div>
@@ -31,12 +38,17 @@
         <div class="col-lg-6 col-xl-4 pt-25 pt-sm-28 pt-lg-31 pb-20 pb-lg-30">
           <div class="w-lg-75">
             <h3 class="fs-3 text-primary">為什麼需要群眾集資？</h3>
-            <p class="mb-12 fs-6 text-primary-light">Why is crowdfunding needed?</p>
+            <p class="mb-12 fs-6 text-primary-light">
+              Why is crowdfunding needed?
+            </p>
             <ul class="list-unstyled text-justify">
               <li class="mb-8">
                 <h4 class="d-flex align-items-center gap-2">
                   品牌擴散
-                  <span class="d-block flex-grow-1 bg-primary-light" style="height: 1px"></span>
+                  <span
+                    class="d-block flex-grow-1 bg-primary-light"
+                    style="height: 1px"
+                  ></span>
                 </h4>
                 <p class="fs-6 text-gray-500">
                   DreamBoost
@@ -46,7 +58,10 @@
               <li class="mb-8">
                 <h4 class="d-flex align-items-center gap-2">
                   取得資源
-                  <span class="d-block flex-grow-1 bg-primary-light" style="height: 1px"></span>
+                  <span
+                    class="d-block flex-grow-1 bg-primary-light"
+                    style="height: 1px"
+                  ></span>
                 </h4>
                 <p class="fs-6 text-gray-500">
                   有許多想要實現的計畫，但卻缺乏資源嗎？透過眾人的力量，不僅能在平台上獲得資金和物資支持，更能逐步實現計畫目標！
@@ -55,7 +70,10 @@
               <li>
                 <h4 class="d-flex align-items-center gap-2">
                   測試市場
-                  <span class="d-block flex-grow-1 bg-primary-light" style="height: 1px"></span>
+                  <span
+                    class="d-block flex-grow-1 bg-primary-light"
+                    style="height: 1px"
+                  ></span>
                 </h4>
                 <p class="fs-6 text-gray-500 mb-0">
                   預先調查產品的特色是否足夠吸引人，並蒐集消費者對專案／產品的期待或建議，對未來的宣傳策略將會有顯著幫助！
@@ -68,7 +86,9 @@
           <span
             class="w-100 vh-100 bg-primary position-absolute start-50 top-50 translate-middle z-n1 rounded-pill"
           ></span>
-          <ul class="row justify-content-center gx-9 list-unstyled pt-30 pt-xxl-28">
+          <ul
+            class="row justify-content-center gx-9 list-unstyled pt-30 pt-xxl-28"
+          >
             <li class="col-5 col-xl-4 align-self-center position-relative">
               <img
                 src="/images/launch/launchWhyImgTwo.png"
@@ -112,7 +132,9 @@
         <span class="d-block my-3 fs-6">Why Choose DreamBoost ?</span>
       </h3>
       <p class="fs-6">
-        DreamBoost 不僅歡迎新興品牌，更是傳統品牌改頭換面、甚至擴展客群的夢想推送地。 <br />
+        DreamBoost
+        不僅歡迎新興品牌，更是傳統品牌改頭換面、甚至擴展客群的夢想推送地。
+        <br />
         透過群眾集資，您能夠輕鬆實現改變消費者心中觀念，探索全新族群，並實踐品牌形象的全新展現。
       </p>
     </div>
@@ -121,7 +143,9 @@
     <div class="mb-16 text-lg-center">
       <h3 class="mb-4 pt-25 text-primary">
         哪些人 / 專案可以使用群眾集資？
-        <span class="d-block fs-6 mt-1 text-primary-light" style="letter-spacing: 0.07px"
+        <span
+          class="d-block fs-6 mt-1 text-primary-light"
+          style="letter-spacing: 0.07px"
           >Who can use crowdfunding?</span
         >
       </h3>
@@ -192,7 +216,9 @@
           流程說明
           <span class="d-block fs-6 text-primary-light">Flow Description</span>
         </h3>
-        <p class="fw-semibold">請確認以下事項，確保您符合 DreamBoost 提案人的身份</p>
+        <p class="fw-semibold">
+          請確認以下事項，確保您符合 DreamBoost 提案人的身份
+        </p>
         <ol class="list-unstyled">
           <li class="d-flex align-items-center gap-2 mb-9">
             <span
@@ -239,12 +265,19 @@
             <a href="#" class="text-decoration-underline">提案者合約</a></label
           >
         </div>
-        <button type="button" class="btn btn-primary d-block mx-auto ms-sm-0 px-18 py-3 text-white">
+        <button
+          type="button"
+          class="btn btn-primary d-block mx-auto ms-sm-0 px-18 py-3 text-white"
+        >
           確認提案
         </button>
       </div>
       <div class="col-lg-6">
-        <img src="/images/launch/launchDescription.png" class="img-fluid object-fit-cover" alt="" />
+        <img
+          src="/images/launch/launchDescription.png"
+          class="img-fluid object-fit-cover"
+          alt=""
+        />
       </div>
     </div>
   </section>

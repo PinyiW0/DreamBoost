@@ -8,7 +8,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
@@ -16,7 +15,9 @@
     "bootstrap": "^5.3.2",
     "mitt": "^3.0.1",
     "pinia": "^2.1.7",
+    "sweetalert2": "^11.10.4",
     "vee-validate": "^4.12.4",
+    "vite-plugin-eslint": "^1.8.1",
     "vue": "^3.3.11",
     "vue-axios": "^3.5.2",
     "vue-loading-overlay": "^6.0.3",
@@ -26,11 +27,12 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",
     "@vitejs/plugin-vue": "^4.5.2",
-    "@vue/eslint-config-prettier": "^8.0.0",
     "eslint": "^8.49.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-vue": "^9.17.0",
     "gh-pages": "^6.1.1",
-    "prettier": "^3.0.3",
     "sass": "^1.70.0",
     "vite": "^5.0.10"
   }

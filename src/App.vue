@@ -1,15 +1,15 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router'
-export default {
-  mounted() {
-    console.log(this.$mitt)
-    console.log(this.$bs)
-  },
+import { RouterView } from 'vue-router';
 
+export default {
+  // mounted() {
+  //   console.log(this.$mitt);
+  //   console.log(this.$bs);
+  // },
   components: {
-    RouterView
-  }
-}
+    RouterView,
+  },
+};
 </script>
 <template>
   <header>
@@ -50,11 +50,19 @@ export default {
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Disabled</a
+              >
             </li>
           </ul>
           <form class="d-flex">
@@ -64,7 +72,9 @@ export default {
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
           </form>
         </div>
       </div>
@@ -101,7 +111,13 @@ export default {
         </div>
         <div class="modal-body">...</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
