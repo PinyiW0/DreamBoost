@@ -4,6 +4,10 @@ export default {
   mounted() {
     console.log(this.$mitt)
     console.log(this.$bs)
+  },
+
+  components: {
+    RouterView
   }
 }
 </script>
@@ -66,7 +70,7 @@ export default {
       </div>
     </nav>
   </header>
-  <!-- Button trigger modal -->
+  <!-- Button trigger modal
   <button
     type="button"
     class="btn btn-ad-default"
@@ -74,7 +78,7 @@ export default {
     data-bs-target="#exampleModal"
   >
     Launch demo modal
-  </button>
+  </button> -->
 
   <!-- Modal -->
   <div
@@ -104,5 +108,5 @@ export default {
     </div>
   </div>
 
-  <!-- <RouterView /> -->
+  <RouterView />
 </template>
