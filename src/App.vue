@@ -1,5 +1,4 @@
 <script>
-
 export default {
   mounted() {
 
@@ -45,11 +44,19 @@ export default {
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Disabled</a
+              >
             </li>
           </ul>
           <form class="d-flex">
@@ -59,13 +66,15 @@ export default {
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
           </form>
         </div>
       </div>
     </nav>
   </header>
-  <!-- Button trigger modal -->
+  <!-- Button trigger modal
   <button
     type="button"
     class="btn btn-ad-default"
@@ -73,7 +82,7 @@ export default {
     data-bs-target="#exampleModal"
   >
     Launch demo modal
-  </button>
+  </button> -->
 
   <!-- Modal -->
   <div
@@ -96,12 +105,18 @@ export default {
         </div>
         <div class="modal-body">...</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- <RouterView /> -->
+  <RouterView />
 </template>
