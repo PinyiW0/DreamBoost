@@ -1,13 +1,7 @@
 <script>
-import { RouterView } from 'vue-router';
-
 export default {
-  // mounted() {
-  //   console.log(this.$mitt);
-  //   console.log(this.$bs);
-  // },
-  components: {
-    RouterView,
+  mounted() {
+
   },
 };
 </script>
