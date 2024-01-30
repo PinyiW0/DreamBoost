@@ -108,14 +108,17 @@ $utilities: map-merge(
         values: static relative absolute fixed sticky
       ),
     'top': (
+      responsive: true,
       property: top,
       values: $position-values
     ),
     'bottom': (
+      responsive: true,
       property: bottom,
       values: $position-values
     ),
     'start': (
+      responsive: true,
       property: left,
       class: start,
       values: $position-values
@@ -630,7 +633,8 @@ $utilities: map-merge(
       values: (
         start: left,
         end: right,
-        center: center
+        center: center,
+        justify: justify
       )
     ),
     'text-decoration': (
@@ -917,31 +921,33 @@ $utilities: map-merge(
         property: z-index,
         class: z,
         values: $zindex-levels
-      )
-      // scss-docs-end utils-zindex
-    'object-fit':
-      (
-        responsive: true,
-        property: object-fit,
-        values: (
-          contain: contain,
-          cover: cover,
-          fill: fill,
-          scale: scale-down,
-          none: none
-        )
       ),
-    'row-gap': (
-      responsive: true,
-      property: row-gap,
-      class: row-gap,
-      values: $spacers
+    // scss-docs-end utils-zindex
+    'background-size': (
+      property: background-size,
+      class: bg,
+      values: (
+        contain: contain,
+        cover: cover
+      )
     ),
-    'column-gap': (
-      responsive: true,
-      property: column-gap,
-      class: column-gap,
-      values: $spacers
+    'background-repeat': (
+      property: background-repeat,
+      class: bg,
+      values: (
+        no-repeat: no-repeat
+      )
+    ),
+    'background-position': (
+      property: background-position,
+      class: bg,
+      values: (
+        top: top,
+        left: left,
+        right: right,
+        bottom: bottom,
+        center: center
+      )
     )
   ),
   $utilities
