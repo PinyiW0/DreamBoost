@@ -632,7 +632,8 @@ $utilities: map-merge(
         1: 1,
         sm: $line-height-sm,
         base: $line-height-base,
-        lg: $line-height-lg
+        lg: $line-height-lg,
+        md: 1.5
       )
     ),
     'text-align': (
