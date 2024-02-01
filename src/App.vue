@@ -103,5 +103,5 @@ export default {
     </div>
   </div>
 
-  <!-- <RouterView /> -->
+  <RouterView />
 </template>
