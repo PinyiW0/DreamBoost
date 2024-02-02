@@ -3,17 +3,19 @@
     <div class="container">
       <div class="row g-0 justify-content-around">
         <div class="col-lg-9 bgc-ff rounded-2">
-          <div class="row g-0">
-            <div class="col-lg-4 position-relative animationTime" :class="{'loginMove': loginMove}">
-          <img src="/images/member/login.png" alt="" class="rounded-start-3 w-100 object-fit-cover h-645" v-if="!loginMove">
-          <img src="/images/member/signup.png" alt="" class="rounded-end-3 w-100 object-fit-cover h-645" v-if="loginMove">
-          <button type="button" class="btn btn-outline-light
-          position-absolute lh-md px-lg-13 py-lg-3 loginBtn"
-          @click="moveLogin">{{ loginMove? '會員註冊' : '會員登入' }}</button>
+          <div class="row g-0 position-relative">
+            <div class="col-lg-4 animationTime" :class="{'loginMove': loginMove}">
+          <!-- <img src="../../../public/images/member/signInUp.jpg" alt="" class="rounded-start-3 object-fit-cover h-645 overflow-hidden"> -->
+          <div class="img">
+            <button type="button" class="btn btn-outline-light
+            position-absolute lh-md px-lg-13 py-lg-3 loginBtn"
+            @click="moveLogin">{{ loginMove? '會員註冊' : '會員登入' }}</button>
+          </div>
+          <!-- <img src="../../../public/images/member/signup.jpg" alt="" class="rounded-end-3 w-100 object-fit-cover h-645" v-if="loginMove"> -->
         </div>
         <div class="col-lg-8 bgc-ff pt-lg-10 pb-lg-13 rounded-end-3">
           <div class="row g-0 align-items-center justify-content-center mb-lg-10">
-            <img src="/images/member/logo.png"
+            <img src="../../../public/images/member/logo.png"
               alt="logo icon" class="me-3 w-auto"/>
             <h1 class="fs-lg-6 text-primary mb-0 lh-base w-auto">讓夢想不再只是夢想</h1>
           </div>
@@ -55,11 +57,11 @@
             </div>
             <div class="col-lg-6">
               <button type="button" class="btn btn-outline-primary px-6 py-3 lh-md d-block mx-auto mt-lg-8 mb-lg-8">
-                <img class="me-2" src="/images/member/twitter.png" alt="twitter icon">
+                <img class="me-2" src="../../../public/images/member/twitter.png" alt="twitter icon">
                 使用 twitter 註冊
               </button>
               <button type="button" class="btn btn-outline-primary px-6 py-3 lh-md d-block mx-auto">
-                <img class="me-2" src="/images/member/google.png" alt="google icon">
+                <img class="me-2" src="../../../public/images/member/google.png" alt="google icon">
                 使用 Google 註冊
               </button>
             </div>
@@ -137,13 +139,28 @@ label.required{
   color: #667085;
 }
 .loginMove{
-  transform: translateX(648px);
+  // transform: translateX(648px);
 }
 .animationTime{
   transition: all 3s ease;
 }
 .h-645{
   height: 645px;
+}
+.img{
+  background-color: transparent;
+  position: absolute;
+  // width: 100%;
+  // height: 100%;
+  &::before{
+    background: url(../../../public/images/member/signInUp.jpg) center center no-repeat;
+    position: absolute;
+    content: '';
+    width: 972px;
+    height: 100%;
+    right: 0;
+    top: 0;
+  }
 }
 </style>
 <!--  vee-validate example -->
