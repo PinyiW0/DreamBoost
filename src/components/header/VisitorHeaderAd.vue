@@ -1,35 +1,35 @@
 <template>
-  <div>
-    <!-- Swiper Container Ad -->
-    <div class="'visitorHdrAdSp'">
-      <!-- ... 其他 Swiper 內容 ... -->
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <span class="me-3">即刻成為會員，立享$100 折價券！金額不限，全額折抵！</span>
-          <img src="../../../public/headerdb-logo-hdr.svg" alt="logo">
-        </div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-      </div>
-    </div>
+  <div class="bg-primary-dark container-fluid">
      <swiper-container
-      :slides-per-view="3"
+      :slides-per-view="1"
       :space-between="spaceBetween"
       :centered-slides="true"
-      :pagination="{
-        hideOnClick: true
-      }"
-      :breakpoints="{
+      :breakpoints = "{
         768: {
-          slidesPerView: 3,
-        },
+          slidesPerView: 1,
+         },
       }"
       @swiperprogress="onProgress"
       @swiperslidechange="onSlideChange"
     >
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>
+        <div class="d-flex align-items-center justify-content-center">
+          <span class="fs-6 text-white me-8 mb-0">即刻成為會員，立享&nbsp;$100 折價券！金額不限，全額折抵！</span>
+          <img class="mb-0" src="/public/images/db-logo-hdr.svg" alt="logo">
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+          <div class="d-flex align-items-center justify-content-center">
+            <span class="fs-6 text-white me-8 mb-0">即刻成為會員，立享&nbsp;$100 折價券！金額不限，全額折抵！</span>
+            <img class="mb-0" src="/public/images/db-logo-hdr.svg" alt="logo">
+          </div>
+      </swiper-slide>
+      <swiper-slide>
+          <div class="d-flex align-items-center justify-content-center">
+            <span class="fs-6 text-white me-8 mb-0">即刻成為會員，立享&nbsp;$100 折價券！金額不限，全額折抵！</span>
+            <img class="mb-0" src="/public/images/db-logo-hdr.svg" alt="logo">
+          </div>
+      </swiper-slide>
     </swiper-container>
   </div>
 </template>
@@ -69,6 +69,14 @@
 //     });
 //   },
 // };
+// 原本放在template裡: breakpoints = "{
+// 768: {
+//   slidesPerView: 3,
+//         },
+//       }"
+// : pagination = "{
+// hideOnClick: true
+//       }"
 import { register } from 'swiper/element/bundle';
 
 register();
@@ -82,18 +90,18 @@ export default {
   },
   methods: {
     setup() {
-      const spaceBetween = 10;
+      const spaceBetween = 60;
       const onProgress = (e) => {
         const [swiper, progress] = e.detail;
       };
 
-      const onSlideChange = (e) => {
-      };
+      // const onSlideChange = (e) => {
+      // };
 
       return {
         spaceBetween,
         onProgress,
-        onSlideChange,
+        // onSlideChange,
       };
     },
   },
