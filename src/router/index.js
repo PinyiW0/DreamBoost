@@ -5,6 +5,10 @@ const router = createRouter({
   linkActiveClass: 'active',
   routes: [
     {
+      path: '/',
+      component: () => import('../views/front/LaunchView.vue'),
+    },
+    {
       path: '/launch',
       component: () => import('../views/front/LaunchView.vue'),
     },

@@ -8,3 +8,8 @@ export default {
 <template>
   <RouterView />
 </template>
+<style>
+.active {
+  color: red;
+}
+</style>
