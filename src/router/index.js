@@ -6,21 +6,39 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('../views/front/LaunchView.vue'),
+      component: () => import('../views/front/FrontView.vue'),
+      children: [
+        { // 首頁
+          path: 'home',
+          name: 'home',
+          component: () => import('../views/front/HomeViews.vue'),
+        },
+        {
+          path: 'explore',
+          name: 'explore',
+          component: () => import('../views/front/ExploreViews.vue'),
+        },
+        {
+          path: 'launch',
+          component: () => import('../views/front/LaunchView.vue'),
+        },
+        {
+          path: 'member',
+          name: 'member',
+          component: () => import('../views/front/MemberView.vue'),
+        },
+      ],
     },
     {
-      path: '/launch',
-      component: () => import('../views/front/LaunchView.vue'),
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: () => import('../views/front/HomeViews.vue'),
-    },
-    {
-      path: '/explore',
-      name: 'explore',
-      component: () => import('../views/front/ExploreViews.vue'),
+      path: '/admin',
+      component: () => import('../views/Dashboard/DashboardView.vue'),
+      children: [
+        {
+          path: 'login',
+          name: 'login',
+          component: () => import('../views/Dashboard/AdminViews.vue'),
+        },
+      ],
     },
   ],
 });

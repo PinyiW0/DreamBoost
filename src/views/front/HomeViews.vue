@@ -11,14 +11,14 @@
             </a>
           </RouterLink>
           <div class="d-flex justify-content-center align-items-center">
-            <RouterLink to="/explore" class="router-link-active">
-              <p class="text-gray-700 px-7 mb-0">探索</p>
+            <RouterLink to="/home" class="me-6 router-link-active RoterLink">
+              探索
             </RouterLink>
-            <RouterLink to="/launch">
-              <p class="text-gray-700 px-7 mb-0">發起專案</p>
+            <RouterLink to="/launch" class="me-6 router-link-active RoterLink">
+              發起專案
             </RouterLink>
-            <RouterLink to="/explore">
-              <p class="text-gray-700 px-7 mb-0">註冊登入</p>
+            <RouterLink to="/member" class="me-6 router-link-active RoterLink">
+              註冊登入
             </RouterLink>
           </div>
           <div class="d-flex justify-content-center align-items-center">
@@ -81,6 +81,7 @@
             <div class="d-flex align-items-center">
               <p class="mb-0 me-1">18</p>
               <StarFull class="fs-3 text-secondary pb-1" style="width:18px"></StarFull>
+              <StarHollow class="text-primary-dark d-none" style="width:18px"></StarHollow>
             </div>
           </div>
         </div>
@@ -107,7 +108,7 @@
                     </div>
                     <div>
                       <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                        <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;;" aria-valuenow="50"
+                        <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;" aria-valuenow="50"
                           aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                       <div class="d-flex justify-content-between align-items-center">
@@ -238,12 +239,14 @@
   </main>
 </template>
 
-<style></style>
+<style>
+</style>
 
 <script>
 import RightArrow from '@/components/icons/RightArrow.vue';
 import SearchIcon from '@/components/icons/SearchIcon.vue';
 import StarFull from '@/components/icons/StarFull.vue';
+import StarHollow from '@/components/icons/StarHollow.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
 import swiper1 from '../../components/header/VisitorHeaderAd.vue';
 
@@ -253,6 +256,7 @@ export default {
     RightArrow,
     SearchIcon,
     StarFull,
+    StarHollow,
     MessageIcon,
   },
 };
