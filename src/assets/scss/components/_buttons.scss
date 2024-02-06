@@ -65,4 +65,37 @@
       color: $gray-800;
     }
   }
+
+  &-pr {
+    color: var(--bs-primary);
+
+    &:hover {
+      color: $white;
+        background-color: var(--bs-primary);
+    }
+
+    &:hover::after {
+      top: 0px;
+      left: 0px;
+      transition: top 0.3s, left 0.3s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      border-radius: 8px;
+      background-color: var(--bs-primary);
+      z-index: -1;
+    }
+  }
+
+  &-search {
+    &:hover {
+      color: $white;
+    }
+  }
 }
