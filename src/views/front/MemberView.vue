@@ -5,15 +5,13 @@
         <div class="col-lg-9 bgc-ff rounded-2">
           <div class="row g-0 position-relative">
             <div class="col-lg-4 animationTime" :class="{'loginMove': loginMove}">
-          <!-- <img src="../../../public/images/member/signInUp.jpg" alt="" class="rounded-start-3 object-fit-cover h-645 overflow-hidden"> -->
-          <div class="img">
+          <div class="img position-absolute">
             <button type="button" class="btn btn-outline-light
-            position-absolute lh-md px-lg-13 py-lg-3 loginBtn"
+            position-absolute z-1 lh-md px-lg-13 py-lg-3 loginBtn"
             @click="moveLogin">{{ loginMove? '會員註冊' : '會員登入' }}</button>
           </div>
-          <!-- <img src="../../../public/images/member/signup.jpg" alt="" class="rounded-end-3 w-100 object-fit-cover h-645" v-if="loginMove"> -->
         </div>
-        <div class="col-lg-8 bgc-ff pt-lg-10 pb-lg-13 rounded-end-3">
+        <main class="col-lg-8 bgc-ff pt-lg-10 pb-lg-13 rounded-end-3">
           <div class="row g-0 align-items-center justify-content-center mb-lg-10">
             <img src="../../../public/images/member/logo.png"
               alt="logo icon" class="me-3 w-auto"/>
@@ -75,7 +73,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </main>
           </div>
         </div>
       </div>
@@ -139,27 +137,38 @@ label.required{
   color: #667085;
 }
 .loginMove{
-  // transform: translateX(648px);
-}
-.animationTime{
-  transition: all 3s ease;
-}
-.h-645{
-  height: 645px;
+  .img::after{
+    transform: translate3d(647px, 0, 0);
+  }
 }
 .img{
-  background-color: transparent;
-  position: absolute;
-  // width: 100%;
-  // height: 100%;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 325px;
   &::before{
-    background: url(../../../public/images/member/signInUp.jpg) center center no-repeat;
-    position: absolute;
-    content: '';
     width: 972px;
     height: 100%;
-    right: 0;
+    background: url(/public/images/member/signInUp.jpg) center center no-repeat;
+    position: absolute;
+    content: '';
+    left: 0;
     top: 0;
+  }
+  &::after {
+    transition: all 1.2s ease-in-out;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 0%, 0.5);
+  }
+}
+main{
+  .row{
+    // position: absolute;
+    // right: 0;
   }
 }
 </style>
