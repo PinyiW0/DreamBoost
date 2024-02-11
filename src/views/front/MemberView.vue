@@ -20,16 +20,16 @@
                   <div class="row g-0 justify-content-center">
                     <div class="d-flex flex-column align-items-center">
                       <div class="col-8 mb-4">
-                        <label for="email" class="form-label mb-1 fs-6 lh-md required">電子信箱</label>
-                        <v-field type="email" class="form-control fs-6 p-3" :class="{'is-invalid': errors['電子信箱']}" id="email" name="電子信箱" placeholder="請輸入註冊電子信箱"
+                        <label for="signInEmail" class="form-label mb-1 fs-6 lh-md required">電子信箱</label>
+                        <v-field type="email" class="form-control fs-6 p-3" :class="{'is-invalid': errors['電子信箱']}" id="signInEmail" name="電子信箱" placeholder="請輸入註冊電子信箱" v-model="user.username"
                         rules="required|email"></v-field>
                         <error-message class="invalid-feedback position-absolute m-0" name="電子信箱"></error-message>
                       </div>
                       <div class="col-8 mb-4">
-                        <label for="pwd" class="form-label mb-1 fs-6 lh-md required">密碼</label>
-                        <v-field type="password" class="form-control fs-6 p-3" :class="{'is-invalid': errors['密碼']}" id="pwd" name="密碼" placeholder="密碼至少6個字元" v-model="user.password"
+                        <label for="signInPwd" class="form-label mb-1 fs-6 lh-md required">密碼</label>
+                        <v-field type="password" class="form-control fs-6 p-3" :class="{'is-invalid': errors['登入密碼']}" id="signInPwd" name="登入密碼" placeholder="密碼至少6個字元" v-model="user.password"
                         :rules="isPwd"></v-field>
-                        <error-message class="invalid-feedback position-absolute m-0" name="密碼"></error-message>
+                        <error-message class="invalid-feedback position-absolute m-0" name="登入密碼"></error-message>
                       </div>
                     </div>
                     <div class="col-8">
@@ -74,26 +74,26 @@
                     <div class="row g-0">
                       <div class="d-flex flex-column align-items-center">
                         <div class="col-8 mb-4">
-                          <label for="name" class="form-label mb-1 fs-6 lh-md required">使用者名稱</label>
-                          <v-field type="text" class="form-control fs-6 p-3" :class="{'is-invalid': errors['姓名']}" id="name" name="姓名" placeholder="請輸入真實姓名"
+                          <label for="signUpName" class="form-label mb-1 fs-6 lh-md required">使用者名稱</label>
+                          <v-field type="text" class="form-control fs-6 p-3" :class="{'is-invalid': errors['姓名']}" id="signUpName" name="姓名" placeholder="請輸入真實姓名" v-model="user.name"
                           rules="required"></v-field>
                           <error-message class="invalid-feedback position-absolute m-0" name="姓名"></error-message>
                         </div>
                         <div class="col-8 mb-4">
-                          <label for="email" class="form-label mb-1 fs-6 lh-md required">電子信箱</label>
-                          <v-field type="text" class="form-control fs-6 p-3" :class="{'is-invalid': errors['電子信箱']}" id="email" name="電子信箱" placeholder="請輸入 Email"
+                          <label for="signUpEmail" class="form-label mb-1 fs-6 lh-md required">電子信箱</label>
+                          <v-field type="text" class="form-control fs-6 p-3" :class="{'is-invalid': errors['電子信箱']}" id="signUpEmail" name="電子信箱" placeholder="請輸入 Email" v-model="user.username"
                           rules="required|email"></v-field>
                           <error-message class="invalid-feedback position-absolute m-0" name="電子信箱"></error-message>
                         </div>
                         <div class="col-8 mb-4">
-                          <label for="pwd" class="form-label mb-1 fs-6 lh-md required">密碼</label>
-                          <v-field type="text" class="form-control fs-6 p-3" :class="{'is-invalid': errors['密碼']}" id="pwd" name="密碼" placeholder="密碼至少6個字元" v-model="user.password"
+                          <label for="signUpPwd" class="form-label mb-1 fs-6 lh-md required">密碼</label>
+                          <v-field type="password" class="form-control fs-6 p-3" :class="{'is-invalid': errors['註冊密碼']}" id="signUpPwd" name="註冊密碼" placeholder="密碼至少6個字元" v-model="user.password"
                           :rules="isPwd"></v-field>
-                          <error-message class="invalid-feedback position-absolute m-0" name="密碼"></error-message>
+                          <error-message class="invalid-feedback position-absolute m-0" name="註冊密碼"></error-message>
                         </div>
                         <div class="col-8 mb-4">
-                          <label for="pwdCheck" class="form-label mb-1 fs-6 lh-md required">請再次輸入密碼</label>
-                          <v-field type="text" class="form-control fs-6 p-3" :class="{'is-invalid': errors.pwdCheck}" id="pwdCheck" name="pwdCheck" placeholder="需與密碼相同"
+                          <label for="signUpPwdCheck" class="form-label mb-1 fs-6 lh-md required">請再次輸入密碼</label>
+                          <v-field type="password" class="form-control fs-6 p-3" :class="{'is-invalid': errors.pwdCheck}" id="signUpPwdCheck" name="pwdCheck" placeholder="需與密碼相同"
                           :rules="checkPwd"></v-field>
                           <error-message class="invalid-feedback position-absolute m-0" name="pwdCheck"></error-message>
                         </div>
@@ -131,6 +131,8 @@
 <script>
 import MixinVeeValidate from '../../js/mixins/mixinVeeValidate';
 
+const apiUrl = import.meta.env.VITE_URL;
+
 export default {
   data() {
     return {
@@ -153,17 +155,44 @@ export default {
     },
     moveLogin() {
       this.loginMove = !this.loginMove;
+      this.user = {
+        name: '',
+        username: '',
+        password: '',
+      };
     },
     async signUp(value) {
+      this.user = {};
       this.user.name = value['姓名'];
       this.user.username = value['電子信箱'];
-      this.user.password = value['密碼'];
-      console.log(this.user);
+      this.user.password = value['註冊密碼'];
+      try {
+        const result = (await this.axios.post(`${apiUrl}/dreamboost/signup`, this.user)).data;
+        console.log(result);
+        this.user = {
+          name: '',
+          username: '',
+          password: '',
+        };
+      } catch (err) {
+        console.log(err);
+      }
     },
     async signIn(value) {
+      this.user = {};
       this.user.username = value['電子信箱'];
-      this.user.password = value['密碼'];
-      console.log(this.user);
+      this.user.password = value['登入密碼'];
+      try {
+        const result = (await this.axios.post(`${apiUrl}/dreamboost/login`, this.user)).data;
+        console.log(result);
+        this.user = {
+          name: '',
+          username: '',
+          password: '',
+        };
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
 };
@@ -212,7 +241,6 @@ label.required{
   height: 640px;
 }
 .img{
-  // overflow: hidden;
   left: 0;
   top: 0;
   height: 100%;
@@ -232,7 +260,7 @@ label.required{
     content: '';
     width: 100%;
     height: 100%;
-    background-color: hsla(0, 0%, 0%, 0.3);
+    background-color: hsla(0, 0%, 0%, 0.2);
   }
 }
 main{
