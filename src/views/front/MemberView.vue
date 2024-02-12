@@ -113,7 +113,7 @@
                 </div>
                 <div class="row g-0 justify-content-around">
                   <div class="col-10 d-flex align-items-center justify-content-end">
-                    <span class="me-8"><a href="" class="text-decoration-underline fs-6">忘記密碼？</a></span>
+                    <router-link to="forgot" class="text-decoration-underline fs-6 me-8">忘記密碼？</router-link>
                     <div class="d-inline-block">
                       <button type="submit" class="btn btn-primary mb-2 py-3 px-lg-18 text-white lh-md">註冊會員</button>
                       <p class="fs-12 mb-0 text-gray500 text-center">註冊會員即表示同意網站使用條款</p>
