@@ -36,7 +36,29 @@ const router = createRouter({
         {
           path: 'login',
           name: 'login',
-          component: () => import('../views/Dashboard/AdminViews.vue'),
+          component: () => import('../views/Dashboard/AdminLogin.vue'),
+        },
+        {
+          path: 'home',
+          component: () => import('../views/Dashboard/AdminHome.vue'),
+          children: [
+            {
+              path: 'ManageAccount',
+              component: () => import('../views/Dashboard/AdminManageAccount.vue'),
+            },
+            {
+              path: 'ReviewProposals',
+              component: () => import('../views/Dashboard/AdminReviewProposals.vue'),
+            },
+            {
+              path: 'SalesData',
+              component: () => import('../views/Dashboard/AdminSalesData.vue'),
+            },
+            {
+              path: 'UpdateBanner',
+              component: () => import('../views/Dashboard/AdminUpdateBanner.vue'),
+            },
+          ],
         },
       ],
     },
