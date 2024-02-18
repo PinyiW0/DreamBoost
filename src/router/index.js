@@ -40,6 +40,11 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: '/forgot',
+      name: 'forgot',
+      component: () => import('../views/front/ForgotView.vue'),
+    },
   ],
 });
 
