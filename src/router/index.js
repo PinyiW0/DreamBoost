@@ -8,7 +8,8 @@ const router = createRouter({
       path: '/',
       component: () => import('../views/front/FrontView.vue'),
       children: [
-        { // 首頁
+        {
+          // 首頁
           path: 'home',
           name: 'home',
           component: () => import('../views/front/HomeView.vue'),
@@ -22,6 +23,24 @@ const router = createRouter({
           path: 'explore/designatepro',
           name: 'designatepro',
           component: () => import('../views/front/DesignateProject.vue'),
+        },
+        {
+          path: 'product/:id',
+          component: () => import('../views/front/SingleProductView.vue'),
+          children: [
+            {
+              path: 'info',
+              component: () => import('../views/front/SingleProductInfo.vue'),
+            },
+            {
+              path: 'qa',
+              component: () => import('../views/front/SingleProductQa.vue'),
+            },
+            {
+              path: 'commit',
+              component: () => import('../views/front/SingleProductCommit.vue'),
+            },
+          ],
         },
         { // 探索/指定專案頁面/常見問答區
           path: 'explore/recentqa',
@@ -51,6 +70,22 @@ const router = createRouter({
         { // 發起專案
           path: 'launch',
           component: () => import('../views/front/LaunchView.vue'),
+        },
+        {
+          path: 'launch/outline',
+          component: () => import('../views/front/LaunchOutline.vue'),
+        },
+        {
+          path: 'launch/content',
+          component: () => import('../views/front/LaunchContent.vue'),
+        },
+        {
+          path: 'launch/feedback',
+          component: () => import('../views/front/LaunchFeedback.vue'),
+        },
+        {
+          path: 'launch/data',
+          component: () => import('../views/front/LaunchData.vue'),
         },
         { // 登入註冊
           path: 'member',
