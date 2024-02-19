@@ -22,6 +22,20 @@ const router = createRouter({
         {
           path: 'product/:id',
           component: () => import('../views/front/SingleProductView.vue'),
+          children: [
+            {
+              path: 'info',
+              component: () => import('../views/front/SingleProductInfo.vue'),
+            },
+            {
+              path: 'qa',
+              component: () => import('../views/front/SingleProductQa.vue'),
+            },
+            {
+              path: 'commit',
+              component: () => import('../views/front/SingleProductCommit.vue'),
+            },
+          ],
         },
         {
           path: 'launch',
