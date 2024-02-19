@@ -1,0 +1,101 @@
+.btn {
+  // Btn 基本樣式
+  padding: map-get($spacers, 3) map-get($spacers, 21);
+  border-radius: 8px;
+
+  &-primary {
+    color: $white;
+
+    &:hover {
+      background-color: $primary-dark;
+      color: $white;
+    }
+
+    &-light {
+      color: $primary-dark;
+
+      &:hover {
+        outline: 1px solid $primary-dark;
+        color: $primary-dark;
+      }
+    }
+  }
+
+  &-gray-400 {
+    color: $white;
+
+    &:hover {
+      background-color: $gray-300;
+      color: $gray-600;
+      border-color: $gray-300;
+    }
+  }
+
+  &-gray-600:hover {
+    background-color: $gray-400;
+    border-color: $gray-400;
+  }
+
+  &-paper-outline {
+    background-color: $bgc-paper;
+    color: $primary-dark;
+    border-color: $primary-dark;
+
+    &:hover {
+      background-color: $primary-dark;
+      color: $white;
+    }
+  }
+
+  &-dark-pr {
+    color: $gray-700;
+
+    &:hover {
+      color: $dark-pr;
+      background-color: $gray-800;
+    }
+  }
+
+  &-dark-pr-outline {
+    color: $dark-pr;
+    border-color: $dark-pr;
+
+    &:hover {
+      background-color: $dark-pr;
+      color: $gray-800;
+    }
+  }
+
+  &-pr {
+    color: var(--bs-primary);
+
+    &:hover {
+      color: $white;
+        background-color: var(--bs-primary);
+    }
+
+    &:hover::after {
+      top: 0px;
+      left: 0px;
+      transition: top 0.3s, left 0.3s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      border-radius: 8px;
+      background-color: var(--bs-primary);
+      z-index: -2;
+    }
+  }
+
+  &-search {
+    &:hover {
+      color: $white;
+    }
+  }
+}
