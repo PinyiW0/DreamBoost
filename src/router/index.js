@@ -28,15 +28,15 @@ const router = createRouter({
           path: 'product/:id',
           component: () => import('../views/front/SingleProductView.vue'),
           children: [
-            {
+            { // 探索/指定專案頁面
               path: 'info',
               component: () => import('../views/front/SingleProductInfo.vue'),
             },
-            {
+            { // 探索/指定專案頁面/常見問答區
               path: 'qa',
               component: () => import('../views/front/SingleProductQa.vue'),
             },
-            {
+            { // 探索/指定專案頁面/留言區
               path: 'commit',
               component: () => import('../views/front/SingleProductCommit.vue'),
             },
@@ -46,11 +46,6 @@ const router = createRouter({
           path: 'explore/recentqa',
           name: 'recentqa',
           component: () => import('../views/front/DpRecentQa.vue'),
-        },
-        { // 探索/指定專案頁面/留言區
-          path: 'explore/leavemessage',
-          name: 'leavemessage',
-          component: () => import('../views/front/DpLeaveMessage.vue'),
         },
         { // 探索/指定專案頁面/贊助方案列表
           path: 'explore/projectchoose',
@@ -71,19 +66,19 @@ const router = createRouter({
           path: 'launch',
           component: () => import('../views/front/LaunchView.vue'),
         },
-        {
+        { // 專案大綱
           path: 'launch/outline',
           component: () => import('../views/front/LaunchOutline.vue'),
         },
-        {
+        { // 專案內容
           path: 'launch/content',
           component: () => import('../views/front/LaunchContent.vue'),
         },
-        {
+        { // 專案回饋設定
           path: 'launch/feedback',
           component: () => import('../views/front/LaunchFeedback.vue'),
         },
-        {
+        { // 提案資料
           path: 'launch/data',
           component: () => import('../views/front/LaunchData.vue'),
         },
@@ -96,32 +91,32 @@ const router = createRouter({
     },
     { // 後台
       path: '/admin',
-      component: () => import('../views/Dashboard/DashboardView.vue'),
+      component: () => import('../views/dashboard/DashboardView.vue'),
       children: [
         { // 管理員登入
           path: 'login',
           name: 'login',
-          component: () => import('../views/Dashboard/AdminLogin.vue'),
+          component: () => import('../views/dashboard/AdminLogin.vue'),
         },
         {
           path: 'home',
-          component: () => import('../views/Dashboard/AdminHome.vue'),
+          component: () => import('../views/dashboard/AdminHome.vue'),
           children: [
-            {
+            { // 管理帳號
               path: 'ManageAccount',
-              component: () => import('../views/Dashboard/AdminManageAccount.vue'),
+              component: () => import('../views/dashboard/AdminManageAccount.vue'),
             },
-            {
+            { // 方案審核
               path: 'ReviewProposals',
-              component: () => import('../views/Dashboard/AdminReviewProposals.vue'),
+              component: () => import('../views/dashboard/AdminReviewProposals.vue'),
             },
-            {
+            { // 銷售數據
               path: 'SalesData',
-              component: () => import('../views/Dashboard/AdminSalesData.vue'),
+              component: () => import('../views/dashboard/AdminSalesData.vue'),
             },
-            {
+            { // 更換首頁BN
               path: 'UpdateBanner',
-              component: () => import('../views/Dashboard/AdminUpdateBanner.vue'),
+              component: () => import('../views/dashboard/AdminUpdateBanner.vue'),
             },
           ],
         },
