@@ -19,7 +19,7 @@
         </h2>
         <p>啟動群眾力量，讓有價值的事物獲得更好的機會</p>
         <a
-          href="#"
+          href="#last"
           class="btn btn-primary px-18 py-3 text-white border-secondary-light"
           >開始提案</a
         >
@@ -99,7 +99,7 @@
                   src="/images/launch/launchWhyImgTwo.png"
                   class="img-fluid w-100 border border-3 border-top-0 border-start-0 border-secondary-light rounded-2 rounded-bottom-circle rounded-start-1"
                   alt="有三個人的手，其中一人帶著金色手錶"
-                  style="box-shadow: 0px 4px 10px 0px rgba(57, 87, 132, 0.20);"
+                  style="box-shadow: 0px 4px 10px 0px rgba(57, 87, 132, 0.2)"
                 />
                 <p
                   class="position-absolute py-1 px-3 fs-4 bg-secondary-light text-primary fw-medium"
@@ -121,7 +121,7 @@
                   src="/images/launch/launchWhyImg.png"
                   class="img-fluid w-100 border border-3 border-top-0 border-start-0 border-secondary-light rounded-2 rounded-bottom-circle rounded-start-1"
                   alt="一台 Mac 電腦的圖像"
-                  style="box-shadow: 0px 4px 10px 0px rgba(57, 87, 132, 0.20);"
+                  style="box-shadow: 0px 4px 10px 0px rgba(57, 87, 132, 0.2)"
                 />
                 <p
                   class="position-absolute py-1 px-3 fs-4 bg-secondary-light text-primary fw-medium"
@@ -135,7 +135,7 @@
                   src="/images/launch/launchWhyImgThree.png"
                   class="img-fluid w-100 border border-3 border-top-0 border-start-0 border-secondary-light rounded-2 rounded-bottom-circle rounded-start-1"
                   alt="兩個人正在講統計的圖表內容"
-                  style="box-shadow: 0px 4px 10px 0px rgba(57, 87, 132, 0.20);"
+                  style="box-shadow: 0px 4px 10px 0px rgba(57, 87, 132, 0.2)"
                 />
                 <p
                   class="position-absolute py-1 px-3 fs-4 bg-secondary-light text-primary fw-medium"
@@ -236,7 +236,7 @@
       </li>
     </ul>
   </section>
-  <section class="container pb-25">
+  <section class="container pb-25" id="last">
     <h3 class="d-lg-none text-primary mb-6">
       流程說明
       <span class="d-block fs-6 text-primary-light">Flow Description</span>
