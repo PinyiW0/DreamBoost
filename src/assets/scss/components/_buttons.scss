@@ -71,7 +71,7 @@
 
     &:hover {
       color: $white;
-        background-color: var(--bs-primary);
+      background-color: var(--bs-primary);
     }
 
     &:hover::after {
@@ -96,6 +96,24 @@
   &-search {
     &:hover {
       color: $white;
+    }
+  }
+
+  &-empty {
+    border: 2px solid $primary;
+    color: $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: $secondary-light;
+
+      i:first-child {
+        display: none;
+      }
+
+      i:last-child {
+        display: block !important;
+      }
     }
   }
 }

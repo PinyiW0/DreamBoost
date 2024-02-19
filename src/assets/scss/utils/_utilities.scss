@@ -632,6 +632,7 @@ $utilities: map-merge(
         1: 1,
         sm: $line-height-sm,
         base: $line-height-base,
+        md: 1.5,
         lg: $line-height-lg
       )
     ),
@@ -918,6 +919,7 @@ $utilities: map-merge(
         class: lterSpc,
         values: (
           0: 0,
+          2: 0.02em,
           5: 0.05em,
           8: 0.08em,
           10: 0.1em
@@ -956,6 +958,15 @@ $utilities: map-merge(
         right: right,
         bottom: bottom,
         center: center
+      )
+    ),
+    'list-style-position': (
+      responsive: true,
+      property: list-style-position,
+      class: list-style,
+      values: (
+        inside: inside,
+        outside: outside
       )
     )
   ),
