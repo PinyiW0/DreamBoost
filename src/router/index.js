@@ -61,12 +61,12 @@ const router = createRouter({
     },
     { // 後台
       path: '/admin',
-      component: () => import('../views/Dashboard/DashboardView.vue'),
+      component: () => import('../views/dashboard/DashboardView.vue'),
       children: [
         { // 管理員登入
           path: 'login',
           name: 'login',
-          component: () => import('../views/Dashboard/AdminView.vue'),
+          component: () => import('../views/dashboard/AdminView.vue'),
         },
       ],
     },
