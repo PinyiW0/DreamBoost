@@ -42,24 +42,16 @@ const router = createRouter({
             },
           ],
         },
-        { // 探索/指定專案頁面/常見問答區
-          path: 'explore/recentqa',
-          name: 'recentqa',
-          component: () => import('../views/front/DpRecentQa.vue'),
-        },
         { // 探索/指定專案頁面/贊助方案列表
-          path: 'explore/projectchoose',
-          name: 'projectchoose',
+          path: 'choose',
           component: () => import('../views/front/DpProjectChoose.vue'),
         },
         { // 探索/指定專案頁面/付款頁面
-          path: 'explore/payinfo',
-          name: 'payinfo',
+          path: 'payinfo',
           component: () => import('../views/front/DpPayInfo.vue'),
         },
         { // 探索/指定專案頁面/信用卡付款頁面
-          path: 'explore/cardpay',
-          name: 'cardpay',
+          path: 'cardpay',
           component: () => import('../views/front/DpCardPay.vue'),
         },
         { // 發起專案
@@ -126,6 +118,10 @@ const router = createRouter({
       path: '/forgot',
       name: 'forgot',
       component: () => import('../views/front/ForgotView.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: () => import('../views/NotFound.vue'),
     },
   ],
 });

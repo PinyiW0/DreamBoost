@@ -33,7 +33,7 @@
             <br><br>不只守護你的程式碼，更守護你的肝臟！從忙碌的工作間隙中，讓你的肝臟放個假！我們關注你工作時肝臟的健康，讓你在敲程式碼的同時感受到樂趣與關懷！
           </p>
           <div class="progress bg-secondary-light mb-7" style="height: 10px;">
-            <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;;" aria-valuenow="50" aria-valuemin="0"
+            <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50" aria-valuemin="0"
               aria-valuemax="100"></div>
           </div>
           <div class="d-flex align-items-center justify-content-between">
@@ -52,7 +52,7 @@
               </a>
               <a href="" class="d-flex align-items-center message-star-hover">
                 <p class="mb-0 me-1">18</p>
-                <StarFull class="fs-3 text-secondary pb-1" style="width:18px"></StarFull>
+                <StarFull class="fs-3 text-secondary-dark pb-1" style="width:18px"></StarFull>
                 <StarHollow class="text-primary-dark d-none" style="width:18px"></StarHollow>
               </a>
             </div>
@@ -88,7 +88,7 @@
                       </div>
                       <div>
                         <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;" aria-valuenow="50"
+                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;" aria-valuenow="50"
                             aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -103,7 +103,7 @@
                             </a>
                             <a href="" class="d-flex align-items-center message-star-hover">
                               <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary pb-1" style="width:18px"></StarFull>
+                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
                             </a>
                           </div>
                         </div>
@@ -130,7 +130,7 @@
                       </div>
                       <div>
                         <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;;" aria-valuenow="50"
+                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50"
                             aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -145,7 +145,7 @@
                             </a>
                             <a href="" class="d-flex align-items-center message-star-hover">
                               <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary pb-1" style="width:18px"></StarFull>
+                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
                             </a>
                           </div>
                         </div>
@@ -172,7 +172,7 @@
                       </div>
                       <div>
                         <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;;" aria-valuenow="50"
+                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50"
                             aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -187,7 +187,7 @@
                             </a>
                             <a href="" class="d-flex align-items-center message-star-hover">
                               <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary pb-1" style="width:18px"></StarFull>
+                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
                             </a>
                           </div>
                         </div>
@@ -201,7 +201,7 @@
           <!-- 按鈕 -->
           <div class="d-flex justify-content-center justify-content-lg-end align-items-center">
             <RouterLink to="/explore">
-              <button
+              <button type="button"
                 class="col-12 btn btn-secondary-light border border-2 border-primary rounded-3 px-lg-5 py-4 py-md-3 mt-5 mt-md-0 me-5 d-flex align-items-center justify-content-center btn-pr position-relative">
                 <span class="px-3 d-flex justify-content-center align-items-center">
                   <p class="mb-0 pe-2 fw-semibold">查看更多</p>
@@ -640,13 +640,7 @@
 </template>
 
 <style lang="scss">
-//卡片標題 hover 效果
-.title-hover {
-  color: var(--bs-gray-700);
-  :hover {
-    color: var(--bs-danger);
-  }
-}
+
 //卡片 icon 留言＋星星 hover 效果
 .message-star-hover {
   color: var(--bs-gray-700);

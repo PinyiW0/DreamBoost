@@ -1,4 +1,5 @@
 import './assets/scss/all.scss';
+import Popper from 'vue3-popper';
 import * as bootstrap from 'bootstrap';
 
 import { createApp } from 'vue';
@@ -27,6 +28,7 @@ app.use(VueAxios, axios);
 app.use(VueSweetalert2);
 app.use(LoadingPlugin);
 app.use(register);
+app.use(Popper);
 app.config.globalProperties.$mitt = mitt();
 app.config.globalProperties.$bs = bootstrap;
 
