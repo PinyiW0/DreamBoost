@@ -3,7 +3,8 @@
     <VisitorHeaderAd2></VisitorHeaderAd2>
     <VisitorHeader></VisitorHeader>
   </header>
-  <main></main>
+  <main>
+  </main>
   <!-- footer 區域 -->
   <UserFooter></UserFooter>
 </template>
