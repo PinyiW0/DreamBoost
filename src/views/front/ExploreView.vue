@@ -16,7 +16,7 @@
       </div>
       <!-- 篩選欄位 -->
       <!-- <AngleDown class="text-primary" style="width: 16px;"></AngleDown> -->
-      <div class="row col-12 col-lg-7 col-xl-6 mx-auto align-items-center gx-7 mb-7">
+      <div class="row col-12 col-lg-7 col-xl-6 mx-auto align-items-center gx-7">
         <div class="col-7 col-lg-6 mb-8 mx-auto">
           <label class="fw-medium mb-1" for="pr">專案狀態</label>
           <select class="form-select col-3 border-primary" aria-label="Default select example">
@@ -36,13 +36,6 @@
       </div>
       <!-- 專案類別 -->
       <div class="container pt-8 pb-5">
-        <!-- 專案類別標題 -->
-        <div class="d-flex justify-content-center pb-5 position-relative">
-          <div class="mb-5 mb-lg-3">
-            <h2 class="title-center text-center position-relative">專案類別</h2>
-            <p class="fs-6 text-primary-light mb-0">Which Categories Interest You?</p>
-          </div>
-        </div>
         <!-- 專案類別 -->
         <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-1">
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
@@ -89,7 +82,41 @@
         </div>
       </div>
     </section>
-    <div class="container-fluid bg-primary-light py-20 py-lg-8 mb-xl-10 mt-5">
+    <div class="container-fluid bg-primary-light py-30 py-lg-24 py-xl-8 mb-lg-8 mb-xl-14 mt-5">
+    </div>
+    <div class="d-block d-lg-none container-fluid bg-primary-light py-28 py-md-29 mb-4">
+    </div>
+    <!-- 卡片渲染區 -->
+    <section class="container">
+      <ul class="row list-unstyled pt-5">
+        <li class="col-12 col-md-6 col-lg-4">
+          <CardDefault />
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+          <CardDefault />
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+          <CardDefault />
+        </li>
+        <li class="col-12 col-md-6 col-lg-4">
+            <CardDefault />
+          </li>
+          <li class="col-12 col-md-6 col-lg-4">
+            <CardDefault />
+          </li>
+          <li class="col-12 col-md-6 col-lg-4">
+            <CardDefault />
+          </li>
+      </ul>
+    </section>
+    <div class="container d-flex flex-column">
+      <button
+        type="button"
+        class="btn angle-down">
+        <span class=" d-flex flex-column align-items-center fs-18 fw-blod mb-1">載入更多
+        <AnglesDown class="pb-10" style="width: 18px;"></AnglesDown>
+        </span>
+      </button>
     </div>
   </main>
   <!-- footer 區域 -->
@@ -97,6 +124,11 @@
 </template>
 
 <style lang="scss">
+.angle-down {
+  :hover {
+    color: var(--bs-primary);
+  }
+}
 //專案類別按鈕
 .categorylink {
   display: block;
@@ -144,13 +176,16 @@
 import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
 import VisitorHeader from '@/components/header/VisitorHeader.vue';
 import UserFooter from '@/components/footer/UserFooter.vue';
-// import AngleDown from '@/components/icons/AngleDown.vue';
+import CardDefault from '@/components/cards/CardDefault.vue';
+import AnglesDown from '@/components/icons/AnglesDown.vue';
 
 export default {
   components: {
     VisitorHeader,
     VisitorHeaderAd2,
     UserFooter,
+    CardDefault,
+    AnglesDown,
   },
 };
 </script>

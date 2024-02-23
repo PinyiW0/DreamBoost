@@ -42,24 +42,16 @@ const router = createRouter({
             },
           ],
         },
-        { // 探索/指定專案頁面/常見問答區
-          path: 'explore/recentqa',
-          name: 'recentqa',
-          component: () => import('../views/front/DpRecentQa.vue'),
-        },
         { // 探索/指定專案頁面/贊助方案列表
-          path: 'explore/projectchoose',
-          name: 'projectchoose',
+          path: 'choose',
           component: () => import('../views/front/DpProjectChoose.vue'),
         },
         { // 探索/指定專案頁面/付款頁面
-          path: 'explore/payinfo',
-          name: 'payinfo',
+          path: 'payinfo',
           component: () => import('../views/front/DpPayInfo.vue'),
         },
         { // 探索/指定專案頁面/信用卡付款頁面
-          path: 'explore/cardpay',
-          name: 'cardpay',
+          path: 'cardpay',
           component: () => import('../views/front/DpCardPay.vue'),
         },
         { // 發起專案
@@ -86,6 +78,37 @@ const router = createRouter({
           path: 'member',
           name: 'member',
           component: () => import('../views/front/MemberView.vue'),
+        },
+        { // 忘記密碼
+          path: 'forgetpassord',
+          name: 'forgetpassord',
+          component: () => import('../views/front/ForgetPassord.vue'),
+        },
+        { // 會員後台
+          path: 'userboard/:id',
+          component: () => import('../views/front/UserBoard.vue'),
+          children: [
+            { // 會員/個人頁面
+              path: 'personal',
+              component: () => import('../views/front/UbPersonal.vue'),
+            },
+            { // 會員/收藏專案
+              path: 'favorite',
+              component: () => import('../views/front/UbFavorite.vue'),
+            },
+            { // 會員/贊助紀錄
+              path: 'sponsorrecord',
+              component: () => import('../views/front/UbSponsor.vue'),
+            },
+            { // 會員/提案紀錄
+              path: 'proposalrecord',
+              component: () => import('../views/front/UbProposal.vue'),
+            },
+            { // 會員/最新通知（缺設計稿但只要有通知就好）
+              path: 'news',
+              component: () => import('../views/front/UbNews.vue'),
+            },
+          ],
         },
       ],
     },
@@ -123,9 +146,13 @@ const router = createRouter({
       ],
     },
     {
-      path: '/forgot',
-      name: 'forgot',
-      component: () => import('../views/front/ForgotView.vue'),
+      path: '/forgetpassord',
+      name: 'forgetpassord',
+      component: () => import('../views/front/ForgetPassord.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: () => import('../views/NotFound.vue'),
     },
   ],
 });

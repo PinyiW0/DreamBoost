@@ -35,3 +35,11 @@
     z-index: -1;
   }
 }
+//卡片標題 hover 效果
+.title-hover {
+  color: var(--bs-gray-700);
+
+  :hover {
+    color: var(--bs-danger);
+  }
+}
