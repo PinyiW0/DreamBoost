@@ -15,15 +15,17 @@
               記住本次持卡人交易資料
             </label>
           </div>
-          <!-- 信用卡圖 -->
-          <img
-            src="../../../public/images/explore/light-credit-card.png"
-            class="img-fluid position-absolute top-41 start-50 translate-middle"
-            alt="信用卡示意圖"
-          >
-          <div class="credit-card fs-3 text-gray-600 bg-white position-absolute top-45 start-39" v-if="formattedCreditCardNumber">
-            <!-- 顯示信用卡卡號 -->
-            {{ formattedCreditCardNumber }}
+          <div class="position-relative">
+            <!-- 信用卡圖 -->
+            <img
+              src="../../../public/images/explore/light-credit-card.png"
+              class="img-fluid position-absolute top-41 start-50 translate-middle"
+              alt="信用卡示意圖"
+            >
+            <div class="credit-card fs-3 text-gray-600 bg-white position-absolute top-45 start-39" v-if="formattedCreditCardNumber">
+              <!-- 顯示信用卡卡號 -->
+              {{ formattedCreditCardNumber }}
+            </div>
           </div>
         </div>
       </section>
