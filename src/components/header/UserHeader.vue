@@ -16,7 +16,7 @@
         <ul class="navbar-nav ms-0 ms-md-20 mb-2 mb-md-0">
           <li class="nav-item">
             <RouterLink to="/explore" aria-current="page"
-              class="nav-link active text-center fs-18 fs-lg-5 me-6 router-link-active RoterLink py-4 py-md-0 py-lg-4">
+              class="nav-link text-center fs-18 fs-lg-5 me-6 router-link-active RoterLink py-4 py-md-0 py-lg-4">
               探索
             </RouterLink>
           </li>

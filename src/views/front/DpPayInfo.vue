@@ -1,12 +1,12 @@
 <template>
   <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
+    <UserHeaderAd></UserHeaderAd>
+    <UserHeader></UserHeader>
   </header>
   <main>
     <DpInfo></DpInfo>
     <section class="container pt-14">
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <!-- 方案卡 -->
         <div class="col-12 col-lg-4">
           <!-- 方案卡 -->
@@ -170,13 +170,49 @@
             <!-- 收件人姓名 -->
             <div class="col mb-6">
               <label for="addressee" class="form-label fw-medium position-relative">
-                收件人姓名 <span class="text-danger">*</span>
+                收件人姓名
+                <span class="text-danger">*
+                  <button
+                    type="button"
+                    class="btn px-1 py-0 border-0"
+                    ref="name"
+                    data-bs-toggle="tooltip-name"
+                    data-bs-placement="right"
+                    data-bs-custom-class="customTooltip"
+                    data-bs-title="寄送贊助回饋使用，若不正確可能造成投遞失敗。">
+                    <span class="" style="width: 20px;">
+                      <img
+                        src="../../../public/images/explore/info.svg"
+                        class="img-fluid"
+                        style="margin-top: -6px;"
+                        alt="">
+                    </span>
+                  </button>
+                </span>
               </label>
               <input class="form-control fs-6 border-primary-light" id="addressee" placeholder="請輸入真實姓名">
             </div>
             <div class="col mb-6">
               <label for="phone" type="text" class="form-label fw-medium">
-                行動電話 <span class="text-danger">*</span>
+                行動電話
+                <span class="text-danger">*
+                  <button
+                    type="button"
+                    class="btn px-1 py-0 border-0"
+                    ref="phone"
+                    data-bs-toggle="tooltip-phone"
+                    data-bs-placement="right"
+                    data-bs-custom-class="customTooltip"
+                    data-bs-title="寄送人聯絡及付款確認使用。請填寫全碼，如 0912123456">
+                    <span class="" style="width: 20px;">
+                      <img
+                        src="../../../public/images/explore/info.svg"
+                        class="img-fluid"
+                        style="margin-top: -6px;"
+                        alt="">
+                    </span>
+                  </button>
+                </span>
                 <div></div>
               </label>
               <input class="form-control fs-6 border-primary-light" id="phone" placeholder="請輸入聯絡電話">
@@ -263,7 +299,7 @@
             </label>
           </div>
           <button class="btn btn-primary mb-9 col-12 col-lg-7" type="button">
-            立即贊助 NT$2,580
+            立即贊助<span>NT$2,580</span>
           </button>
           <p class="fs-6 text-gray-500">
             提案人有權決定是否接受贊助。<br>
@@ -272,15 +308,7 @@
         </div>
       </div>
     </section>
-    <!-- <button
-      type="button"
-      class="btn btn-secondary"
-      data-bs-toggle="tooltip"
-      data-bs-placement="top"
-      data-bs-custom-class="customTooltip"
-      data-bs-title="This top tooltip is themed via CSS variables.">
-    Custom tooltip
-  </button> -->
+    <InfoIcon />
   </main>
   <!-- footer 區域 -->
   <UserFooter></UserFooter>
@@ -291,25 +319,29 @@
 </style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
+import UserHeaderAd from '@/components/header/UserHeaderAd.vue';
+import UserHeader from '@/components/header/UserHeader.vue';
 import DpInfo from '@/components/designedproject/DpInfo.vue';
 import UserFooter from '@/components/footer/UserFooter.vue';
-// import InfoIcon from '@/components/icons/InfoIcon.vue';
-
-// const tooltipTriggerList = document.querySelectorAll(
-//   '[data-bs-toggle="tooltip"]',
-// );
-// const customTooltip = [...tooltipTriggerList].map(
-//   (tooltipTriggerEl) => new this.$bs.Tooltip(tooltipTriggerEl),
-// );
+import InfoIcon from '@/components/icons/InfoIcon.vue';
 
 export default {
+  data() {
+    return {
+      tooltipName: '', // 賦予狀態然後用ref去監聽取
+      tooltipPhone: '',
+    };
+  },
+  mounted() {
+    this.tooltipName = new this.$bs.Tooltip(this.$refs.name);
+    this.tooltipPhone = new this.$bs.Tooltip(this.$refs.phone);
+  },
   components: {
-    VisitorHeader,
-    VisitorHeaderAd2,
+    UserHeader,
+    UserHeaderAd,
     DpInfo,
     UserFooter,
+    InfoIcon,
   },
 };
 </script>

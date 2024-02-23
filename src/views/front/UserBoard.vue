@@ -1,7 +1,7 @@
 <template>
   <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
+    <UserHeaderAd></UserHeaderAd>
+    <UserHeader></UserHeader>
   </header>
   <!-- 頁面區塊 -->
   <div class="bg-bgc-paper py-8">
@@ -50,7 +50,7 @@
       </ul>
     </nav>
   </div>
-  <Routerview />
+  <RouterView />
 </template>
 
 <style lang="scss">
@@ -94,13 +94,13 @@
 </style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
+import UserHeaderAd from '@/components/header/UserHeaderAd.vue';
+import UserHeader from '@/components/header/UserHeader.vue';
 
 export default {
   components: {
-    VisitorHeader,
-    VisitorHeaderAd2,
+    UserHeader,
+    UserHeaderAd,
   },
 };
 
