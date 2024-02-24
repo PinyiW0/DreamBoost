@@ -24,24 +24,6 @@ const router = createRouter({
           name: 'designatepro',
           component: () => import('../views/front/DesignateProject.vue'),
         },
-        {
-          path: 'product/:id',
-          component: () => import('../views/front/SingleProductView.vue'),
-          children: [
-            {
-              path: 'info',
-              component: () => import('../views/front/SingleProductInfo.vue'),
-            },
-            {
-              path: 'qa',
-              component: () => import('../views/front/SingleProductQa.vue'),
-            },
-            {
-              path: 'commit',
-              component: () => import('../views/front/SingleProductCommit.vue'),
-            },
-          ],
-        },
         { // 探索/指定專案頁面/常見問答區
           path: 'explore/recentqa',
           name: 'recentqa',
@@ -67,23 +49,41 @@ const router = createRouter({
           name: 'cardpay',
           component: () => import('../views/front/DpCardPay.vue'),
         },
+        { // 單一產品頁面
+          path: 'product/:id',
+          component: () => import('../views/front/SingleProductView.vue'),
+          children: [
+            {
+              path: 'info',
+              component: () => import('../views/front/SingleProductInfo.vue'),
+            },
+            {
+              path: 'qa',
+              component: () => import('../views/front/SingleProductQa.vue'),
+            },
+            {
+              path: 'commit',
+              component: () => import('../views/front/SingleProductCommit.vue'),
+            },
+          ],
+        },
         { // 發起專案
           path: 'launch',
           component: () => import('../views/front/LaunchView.vue'),
         },
-        {
+        { // 發起大綱
           path: 'launch/outline',
           component: () => import('../views/front/LaunchOutline.vue'),
         },
-        {
+        { // 發起內容
           path: 'launch/content',
           component: () => import('../views/front/LaunchContent.vue'),
         },
-        {
+        { // 發起回饋
           path: 'launch/feedback',
           component: () => import('../views/front/LaunchFeedback.vue'),
         },
-        {
+        { // 發起資料
           path: 'launch/data',
           component: () => import('../views/front/LaunchData.vue'),
         },

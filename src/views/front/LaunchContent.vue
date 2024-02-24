@@ -10,7 +10,12 @@
         <p class="fs-6">
           請提供 JPEG 或 PNG 檔，圖片尺寸至少 1200x 800 px (3:2)； 2MB 以內。
         </p>
-        <textarea class="form-control" id="content" rows="7"></textarea>
+        <Ckeditor
+          :editor="editor"
+          v-model="editorData"
+          :config="editorConfig"
+          tag-name="textarea"
+        />
       </div>
       <div>
         <div class="d-flex justify-content-between align-items-center mb-6">
@@ -72,15 +77,40 @@
 </template>
 
 <script>
+import CKEditor from '@ckeditor/ckeditor5-vue';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import '@ckeditor/ckeditor5-build-classic/build/translations/zh';
+
 import LaunchNav from '@/components/launch/LaunchNav.vue';
 import PlusIcon from '@/components/icons/PlusIcon.vue';
 import XmarkIcon from '@/components/icons/XmarkIcon.vue';
 
+import imageUploadAdapter from '@/js/imageUploadAdapter';
+
 export default {
+  data() {
+    return {
+      editor: ClassicEditor,
+      editorData: '',
+      editorConfig: {
+        placeholder: '請輸入提案內容....',
+        language: 'zh',
+        extraPlugins: [imageUploadAdapter],
+      },
+    };
+  },
+
   components: {
     LaunchNav,
     PlusIcon,
     XmarkIcon,
+    Ckeditor: CKEditor.component,
   },
 };
 </script>
+
+<style lang="scss">
+.ck-editor__editable_inline:not(.ck-comment__input *) {
+  min-height: 350px;
+}
+</style>
