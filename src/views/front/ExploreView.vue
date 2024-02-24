@@ -1,9 +1,4 @@
 <template>
-  <!-- header 區域 -->
-  <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
-  </header>
   <main>
     <!-- 篩選區域 -->
     <section class="container">
@@ -173,17 +168,11 @@
 </style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
-import UserFooter from '@/components/footer/UserFooter.vue';
 import CardDefault from '@/components/cards/CardDefault.vue';
 import AnglesDown from '@/components/icons/AnglesDown.vue';
 
 export default {
   components: {
-    VisitorHeader,
-    VisitorHeaderAd2,
-    UserFooter,
     CardDefault,
     AnglesDown,
   },

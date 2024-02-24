@@ -52,8 +52,6 @@
       </div>
     </section>
   </main>
-  <!-- footer 區域 -->
-  <UserFooter></UserFooter>
 </template>
 
 <style lang="scss">
@@ -65,12 +63,10 @@
 </style>
 
 <script>
-import UserFooter from '@/components/footer/UserFooter.vue';
 import AnglesDown from '@/components/icons/AnglesDown.vue';
 
 export default {
   components: {
-    UserFooter,
     AnglesDown,
   },
 };

@@ -66,8 +66,6 @@
       </div>
     </section>
   </main>
-  <!-- footer 區域 -->
-  <UserFooter></UserFooter>
 </template>
 
 <style lang="scss">
@@ -81,7 +79,6 @@
 </style>
 
 <script>
-import UserFooter from '@/components/footer/UserFooter.vue';
 import CardDefault from '@/components/cards/CardDefault.vue';
 import AngleLeft from '@/components/icons/AngleLeft.vue';
 import AnglesLeft from '@/components/icons/AnglesLeft.vue';
@@ -90,7 +87,6 @@ import AnglesRight from '@/components/icons/AnglesRight.vue';
 
 export default {
   components: {
-    UserFooter,
     CardDefault,
     AnglesLeft,
     AngleLeft,

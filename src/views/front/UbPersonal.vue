@@ -72,8 +72,6 @@
       </div>
     </section>
   </main>
-  <!-- footer 區域 -->
-  <UserFooter></UserFooter>
 </template>
 
 <style lang="scss">
@@ -88,12 +86,10 @@
 </style>
 
 <script>
-import UserFooter from '@/components/footer/UserFooter.vue';
 import UpLoad from '@/components/icons/UpLoad.vue';
 
 export default {
   components: {
-    UserFooter,
     UpLoad,
   },
 };

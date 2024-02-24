@@ -117,16 +117,12 @@
       </div>
     </div>
   </div>
-  <!-- footer 區域 -->
-  <UserFooter></UserFooter>
 </template>
 
 <script>
-import UserFooter from '@/components/footer/UserFooter.vue';
 
 export default {
   components: {
-    UserFooter,
   },
 };
 </script>

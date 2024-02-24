@@ -1,8 +1,4 @@
 <template>
-  <header>
-      <VisitorHeaderAd2></VisitorHeaderAd2>
-      <VisitorHeader></VisitorHeader>
-  </header>
   <main>
     <DpInfo />
     <!-- 贊助方案列表 -->
@@ -66,25 +62,17 @@
       </div>
     </section>
   </main>
-  <!-- footer 區域 -->
-  <UserFooter></UserFooter>
 </template>
 
 <style lang="scss"></style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
-import UserFooter from '@/components/footer/UserFooter.vue';
 import DpInfo from '@/components/designedproject/DpInfo.vue';
 import AngleRight from '@/components/icons/AngleRight.vue';
 import AngleLeft from '@/components/icons/AngleLeft.vue';
 
 export default {
   components: {
-    VisitorHeader,
-    VisitorHeaderAd2,
-    UserFooter,
     AngleRight,
     AngleLeft,
     DpInfo,
