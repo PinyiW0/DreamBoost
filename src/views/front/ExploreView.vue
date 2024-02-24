@@ -88,7 +88,7 @@
     </div>
     <!-- 卡片渲染區 -->
     <section class="container">
-      <ul class="row list-unstyled pt-5">
+      <ul class="row gx-10 list-unstyled pt-5">
         <li class="col-12 col-md-6 col-lg-4">
           <CardDefault />
         </li>
