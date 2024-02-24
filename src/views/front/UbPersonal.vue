@@ -31,14 +31,14 @@
         <label for="addressee" class="form-label fw-medium text-gray-500">
           註冊信箱
         </label>
-        <input class="form-control fs-6 border-primary-light" id="addressee" placeholder="abc@gmail.com.tw" disabled>
+        <input class="form-control fs-6 border-primary-light py-2" id="addressee" placeholder="abc@gmail.com.tw" disabled>
         <p class="fs-6 text-gray-500 mt-1">此為您的登入帳號</p>
       </div>
       <div class="col-12 col-lg-10 mb-6 mb-lg-11 mx-auto">
         <label for="addressee" class="form-label fw-medium">
           聯絡信箱
         </label>
-        <input class="form-control fs-6 border-primary-light text-gray-500" id="addressee" placeholder="abc@mail.com">
+        <input class="form-control fs-6 border-primary-light text-gray-500 py-2" id="addressee" placeholder="abc@mail.com">
       </div>
       <div class="col-12 col-lg-10 mb-17 mx-auto">
         <div class="row gy-3">
@@ -55,7 +55,7 @@
           <div class="col-12 col-lg-6">
             <label for="discount" class="form-label fw-medium lh-md">性別</label>
             <select class="form-select border-primary-light fs-6 text-gray-500 py-2" aria-label="inTwOrOut">
-              <option selected disabled value="choose ">請選擇</option>
+              <option selected disabled value="choose">請選擇</option>
               <option value="male">男性</option>
               <option value="female">女性</option>
             </select>
