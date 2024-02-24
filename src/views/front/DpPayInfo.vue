@@ -1,8 +1,4 @@
 <template>
-  <header>
-    <UserHeaderAd></UserHeaderAd>
-    <UserHeader></UserHeader>
-  </header>
   <main>
     <DpInfo></DpInfo>
     <section class="container pt-14">
@@ -310,8 +306,6 @@
     </section>
     <InfoIcon />
   </main>
-  <!-- footer 區域 -->
-  <UserFooter></UserFooter>
 </template>
 
 <style lang="scss">
@@ -319,10 +313,7 @@
 </style>
 
 <script>
-import UserHeaderAd from '@/components/header/UserHeaderAd.vue';
-import UserHeader from '@/components/header/UserHeader.vue';
 import DpInfo from '@/components/designedproject/DpInfo.vue';
-import UserFooter from '@/components/footer/UserFooter.vue';
 import InfoIcon from '@/components/icons/InfoIcon.vue';
 
 export default {
@@ -337,10 +328,7 @@ export default {
     this.tooltipPhone = new this.$bs.Tooltip(this.$refs.phone);
   },
   components: {
-    UserHeader,
-    UserHeaderAd,
     DpInfo,
-    UserFooter,
     InfoIcon,
   },
 };

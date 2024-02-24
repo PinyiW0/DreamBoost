@@ -1,8 +1,4 @@
 <template>
-  <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
-  </header>
   <!-- 1400px以上畫面 -->
   <div class="bg-bgc-default pt-lg-25 pb-lg-27 d-none d-xxl-block">
     <div class="container">
@@ -390,9 +386,6 @@ main {
 }</style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
-import UserFooter from '@/components/footer/UserFooter.vue';
 import GoogleIcon from '@/components/icons/GoogleIcon.vue';
 import TwitterIcon from '@/components/icons/TwitterIcon.vue';
 import MixinVeeValidate from '../../js/mixins/mixinVeeValidate';
@@ -462,9 +455,6 @@ export default {
     },
   },
   components: {
-    VisitorHeader,
-    VisitorHeaderAd2,
-    UserFooter,
     GoogleIcon,
     TwitterIcon,
   },

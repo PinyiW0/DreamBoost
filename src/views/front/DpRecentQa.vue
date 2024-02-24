@@ -1,8 +1,4 @@
 <template>
-  <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
-  </header>
   <main>
     <!-- 指定專案資訊區 -->
     <section class="container pt-19">
@@ -93,17 +89,11 @@
       </div>
     </section>
   </main>
-  <!-- footer 區域 -->
-  <UserFooter></UserFooter>
 </template>
 
 <style lang="scss"></style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
-import UserFooter from '@/components/footer/UserFooter.vue';
-
 const faqButton = document.querySelectorAll('.faq__button');
 let openedButton = null;
 
@@ -134,9 +124,6 @@ faqButton.forEach((button) => {
 
 export default {
   components: {
-    VisitorHeader,
-    VisitorHeaderAd2,
-    UserFooter,
   },
 };
 </script>

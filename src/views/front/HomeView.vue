@@ -664,7 +664,6 @@
         </li>
       </ul>
     </section>
-    <UserFooter></UserFooter>
   </main>
 </template>
 
@@ -797,9 +796,6 @@
 </style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
-import UserFooter from '@/components/footer/UserFooter.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
@@ -807,12 +803,9 @@ import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
 
 export default {
   components: {
-    VisitorHeader,
     RightArrow,
     StarFull,
     MessageIcon,
-    VisitorHeaderAd2,
-    UserFooter,
     MarqueeDark,
   },
 };
