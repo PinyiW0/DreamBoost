@@ -44,7 +44,7 @@
               <p class="mb-0"> DreamBoost, 您好</p>
             </button>
             <ul class="dropdown-menu ms-8">
-              <li><a class="dropdown-item text-center" href="#">個人頁面</a></li>
+              <li><RouterLink to="userboard/:personal" class="dropdown-item text-center">個人頁面</RouterLink></li>
               <li><hr class="dropdown-divider mx-6"></li>
               <li><a class="dropdown-item text-center" href="#">專案收藏</a></li>
               <li><a class="dropdown-item text-center" href="#">贊助紀錄</a></li>

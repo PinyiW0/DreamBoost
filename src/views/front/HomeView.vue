@@ -46,15 +46,30 @@
                 <p class="mb-0 me-1">已募資</p>
                 <p class="fw-bold text-danger mb-0">80%</p>
               </div>
-              <a href="" class="d-flex me-3 align-items-center message-star-hover">
-                <p class="mb-0 me-1">15</p>
-                <MessageIcon class="fs-3 text-primary-dark" style="width:16px"></MessageIcon>
+              <div class="d-flex align-items-center gap-3">
+              <a href="">
+                <span class="d-flex gap-1 message-star-hover"
+                  >11
+                  <i
+                    class="d-block text-primary-dark"
+                    style="width: 14px; margin-top: -1px"
+                  >
+                    <MessageIcon />
+                  </i>
+                </span>
               </a>
-              <a href="" class="d-flex align-items-center message-star-hover">
-                <p class="mb-0 me-1">18</p>
-                <StarFull class="fs-3 text-secondary-dark pb-1" style="width:18px"></StarFull>
-                <StarHollow class="text-primary-dark d-none" style="width:18px"></StarHollow>
+              <a href="">
+                <span class="d-flex gap-1 message-star-hover">
+                  18
+                  <i
+                    class="d-block text-secondary-dark"
+                    style="width: 16px; margin-top: -2px"
+                  >
+                    <StarFull />
+                  </i>
+                </span>
               </a>
+            </div>
             </div>
           </div>
         </div>
@@ -96,14 +111,28 @@
                             <p class="fs-5 mb-0 me-1">已募資</p>
                             <p class="fs-5 fw-bold text-danger mb-0">80%</p>
                           </div>
-                          <div class="d-flex">
-                            <a href="" class="d-flex me-3 align-items-center message-star-hover">
-                              <p class="mb-0 me-1">11</p>
-                              <MessageIcon class="text-primary-dark" style="width:16px"></MessageIcon>
+                          <div class="d-flex align-items-center gap-3">
+                            <a href="">
+                              <span class="d-flex gap-1 message-star-hover"
+                                >11
+                                <i
+                                  class="d-block text-primary-dark"
+                                  style="width: 14px; margin-top: -1px"
+                                >
+                                  <MessageIcon />
+                                </i>
+                              </span>
                             </a>
-                            <a href="" class="d-flex align-items-center message-star-hover">
-                              <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
+                            <a href="">
+                              <span class="d-flex gap-1 message-star-hover">
+                                18
+                                <i
+                                  class="d-block text-secondary-dark"
+                                  style="width: 16px; margin-top: -2px"
+                                >
+                                  <StarFull />
+                                </i>
+                              </span>
                             </a>
                           </div>
                         </div>
@@ -773,7 +802,6 @@ import VisitorHeader from '@/components/header/VisitorHeader.vue';
 import UserFooter from '@/components/footer/UserFooter.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
-import StarHollow from '@/components/icons/StarHollow.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
 import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
 
@@ -782,7 +810,6 @@ export default {
     VisitorHeader,
     RightArrow,
     StarFull,
-    StarHollow,
     MessageIcon,
     VisitorHeaderAd2,
     UserFooter,
