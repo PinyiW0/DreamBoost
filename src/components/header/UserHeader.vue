@@ -16,7 +16,7 @@
         <ul class="navbar-nav ms-0 ms-md-20 mb-2 mb-md-0">
           <li class="nav-item">
             <RouterLink to="/explore" aria-current="page"
-              class="nav-link active text-center fs-18 fs-lg-5 me-6 router-link-active RoterLink py-4 py-md-0 py-lg-4">
+              class="nav-link text-center fs-18 fs-lg-5 me-6 router-link-active RoterLink py-4 py-md-0 py-lg-4">
               探索
             </RouterLink>
           </li>
@@ -44,7 +44,7 @@
               <p class="mb-0"> DreamBoost, 您好</p>
             </button>
             <ul class="dropdown-menu ms-8">
-              <li><a class="dropdown-item text-center" href="#">個人頁面</a></li>
+              <li><RouterLink to="userboard/:personal" class="dropdown-item text-center">個人頁面</RouterLink></li>
               <li><hr class="dropdown-divider mx-6"></li>
               <li><a class="dropdown-item text-center" href="#">專案收藏</a></li>
               <li><a class="dropdown-item text-center" href="#">贊助紀錄</a></li>

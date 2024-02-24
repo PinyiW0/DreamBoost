@@ -7,22 +7,22 @@
     <main>
       <section class="container pt-22">
         <!-- 標題 -->
-        <div class="d-flex flex-column justify-content-center align-items-center mb-30">
-          <h1 class="fs-3 text-center position-relative">輸入信用卡資料</h1>
+        <div class="d-flex flex-column justify-content-center align-items-center pb-30 position-relative">
+          <h1 class="fs-3 text-center">輸入信用卡資料</h1>
           <div class="form-check mb-8">
             <input class="form-check-input" type="checkbox" value="" id="agreement" checked>
             <label class="form-check-label text-gray-600 fs-6" for="remember">
               記住本次持卡人交易資料
             </label>
           </div>
-          <div class="position-relative">
+          <div>
             <!-- 信用卡圖 -->
             <img
               src="../../../public/images/explore/light-credit-card.png"
-              class="img-fluid position-absolute top-41 start-50 translate-middle"
+              class="img-fluid position-absolute translate-middle top-90"
               alt="信用卡示意圖"
             >
-            <div class="credit-card fs-3 text-gray-600 bg-white position-absolute top-45 start-39" v-if="formattedCreditCardNumber">
+            <div class="credit-card fs-3 text-gray-600 bg-white position-absolute top-108 start-22 start-sm-28 start-md-33 start-lg-37 start-xl-39 start-xxl-41" v-if="formattedCreditCardNumber">
               <!-- 顯示信用卡卡號 -->
               {{ formattedCreditCardNumber }}
             </div>
@@ -33,7 +33,7 @@
       <section class="container">
         <form action="">
           <div class="row d-flex justify-content-center mb-28">
-            <div class="col-11 col-sm-8 col-md-7 col-lg-6 px-sm-15 px-xl-27 pt-29 pb-21 border border-2 border-primary rounded-4">
+            <div class="col-11 col-sm-8 col-lg-6 px-sm-15 px-xl-27 pt-29 pb-21 border border-2 border-primary rounded-4">
               <div class="row">
                 <!-- 信用卡號 -->
                 <div class="col-12 mb-7">

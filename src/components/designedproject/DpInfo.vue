@@ -1,7 +1,7 @@
 <template>
   <!-- 指定專案資訊區 -->
   <section class="container pt-19 mb-15 mb-md-21">
-    <div class="row gx-0 gx-lg-8 d-flex align-items-center align-items-lg-stretch">
+    <div class="row gx-0 gx-lg-8 d-flex align-items-center align-items-lg-stretch justify-content-center">
       <div class="col-12 col-lg-4 mb-8 mb-lg-0">
         <img
           src="https://fakeimg.pl/416x236/"

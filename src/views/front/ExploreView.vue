@@ -82,7 +82,7 @@
         </div>
       </div>
     </section>
-    <div class="container-fluid bg-primary-light py-30 py-lg-24 py-xl-8 mb-lg-8 mb-xl-14 mt-5">
+    <div class="container-fluid bg-primary-light py-30 py-lg-24 py-xl-23 py-xxl-8 mb-lg-8 mb-xl-14 mt-5">
     </div>
     <div class="d-block d-lg-none container-fluid bg-primary-light py-28 py-md-29 mb-4">
     </div>
