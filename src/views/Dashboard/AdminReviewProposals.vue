@@ -40,8 +40,8 @@
   </div>
 </template>
 <script>
-import ProposalCard from '@/components/Dashboard/ProposalCard.vue';
-import ProposalModal from '@/components/Dashboard/ProposalModal.vue';
+import ProposalCard from '@/components/dashboard/ProposalCard.vue';
+import ProposalModal from '@/components/dashboard/ProposalModal.vue';
 
 export default {
   data() {
