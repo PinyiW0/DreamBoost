@@ -126,19 +126,19 @@ const router = createRouter({
           component: () => import('../views/dashboard/AdminHome.vue'),
           children: [
             { // 管理帳號
-              path: 'ManageAccount',
+              path: 'manageaccount',
               component: () => import('../views/dashboard/AdminManageAccount.vue'),
             },
             { // 方案審核
-              path: 'ReviewProposals',
+              path: 'reviewproposals',
               component: () => import('../views/dashboard/AdminReviewProposals.vue'),
             },
             { // 銷售數據
-              path: 'SalesData',
+              path: 'salesdata',
               component: () => import('../views/dashboard/AdminSalesData.vue'),
             },
             { // 更換首頁BN
-              path: 'UpdateBanner',
+              path: 'updatebanner',
               component: () => import('../views/dashboard/AdminUpdateBanner.vue'),
             },
           ],
