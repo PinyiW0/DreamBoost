@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-import UpdateBannerImgCard from '@/components/Dashboard/UpdateBannerImgCard.vue';
+import UpdateBannerImgCard from '@/components/dashboard/UpdateBannerImgCard.vue';
 import CameraIcon from '@/components/icons/DashboardCameraIcon.vue';
 
 const { VITE_URL, VITE_WEIKEY } = import.meta.env;
@@ -119,7 +119,7 @@ export default {
         //   // alert(`所選檔案的格式是：${file.type}`);
         // };
         // reader.readAsDataURL(file);
-        console.log(file);
+        // console.log(file);
 
         const formData = new FormData();
         formData.append('image', file);
@@ -127,7 +127,7 @@ export default {
           headers: { Authorization: VITE_WEIKEY },
         })
           .then((res) => {
-            console.log(res.data.data.result);
+            // console.log(res.data.data.result);
             const uploadObj = {
               imgUrl: res.data.data.result,
               orderBy: this.bannerAry.length + 1,
@@ -139,9 +139,9 @@ export default {
           .then(() => {
             this.getBannerData();
           })
-          .catch((err) => {
-            console.log('someting error');
-            console.log(err);
+          .catch(() => {
+            // console.log('someting error');
+            // console.log(err);
           });
       });
 
