@@ -1,11 +1,7 @@
 <template>
-  <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
-  </header>
-  <main>
-    <section class="container" style="height: 100vh;">
-      <div class="py-25">
+  <main class="main">
+    <section class="container">
+      <div class="py-20 mb-30">
         <h1 class="text-center fs-3 text-primary mb-lg-1">忘記密碼</h1>
         <p class="text-center fs-6 text-primary-light mb-9">Forget the Password</p>
         <div class="row flex-column align-items-center">
@@ -25,6 +21,15 @@
 </template>
 
 <style scope>
+/* .wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.main {
+  flex-grow: 1;
+} */
+
 </style>
 
 <script>

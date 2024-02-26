@@ -146,11 +146,6 @@ const router = createRouter({
       ],
     },
     {
-      path: '/forgetpassord',
-      name: 'forgetpassord',
-      component: () => import('../views/front/ForgetPassord.vue'),
-    },
-    {
       path: '/:pathMatch(.*)*',
       component: () => import('../views/NotFound.vue'),
     },
