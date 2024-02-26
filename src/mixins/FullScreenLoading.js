@@ -1,4 +1,3 @@
-<script>
 export default {
   data() {
     return {
@@ -26,9 +25,6 @@ export default {
         opacity,
         'z-index': zIndex,
       });
-      setTimeout(() => {
-        this.hideFullScreenLoading();
-      }, 1000);
     },
     hideFullScreenLoading() {
       this.fullScreenLoadingInstance.hide();
@@ -37,6 +33,3 @@ export default {
   mounted() {
   },
 };
-</script>
-<style scoped>
-</style>

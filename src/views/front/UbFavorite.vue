@@ -68,7 +68,7 @@
   </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .arrow-hover {
   color: var(--bs-gray-500);
   &:hover {
