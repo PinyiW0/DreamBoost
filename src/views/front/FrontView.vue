@@ -1,18 +1,19 @@
 <template>
-  <VisitorHeaderAd2 />
-  <VisitorHeader />
-  <RouterView></RouterView>
-  <UserFooter />
+  <div class="min-vh-100 d-flex flex-column">
+    <VisitorHeader />
+    <div class="flex-grow-1">
+      <RouterView></RouterView>
+    </div>
+    <UserFooter />
+  </div>
 </template>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
 import VisitorHeader from '@/components/header/VisitorHeader.vue';
 import UserFooter from '@/components/footer/UserFooter.vue';
 
 export default {
   components: {
-    VisitorHeaderAd2,
     VisitorHeader,
     UserFooter,
   },

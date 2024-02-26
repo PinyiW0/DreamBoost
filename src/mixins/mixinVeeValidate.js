@@ -5,7 +5,7 @@ import {
   required, email, regex, is,
 } from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
-import zhTw from '../json/zh_TW.json';
+import zhTw from '../assets/js/zh_TW.json';
 
 defineRule('required', required);
 defineRule('email', email);

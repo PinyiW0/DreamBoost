@@ -37,7 +37,7 @@
 </template>
 <script>
 import LogoIcon from '@/components/icons/AdminLogo.vue';
-import LoadingComponent from '@/components/mixins/FullScreenLoading.vue';
+import LoadingComponent from '@/mixins/FullScreenLoading';
 
 export default {
   data() {
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.showFullScreenLoading();
+      this.showFullScreenLoading({ backgroundColor: '#FAA', loader: 'dots' });
     },
   },
   mounted() {

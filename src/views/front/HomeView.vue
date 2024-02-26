@@ -1,14 +1,18 @@
 <template>
   <main>
-      <!-- header 區域 -->
-      <header>
-        <VisitorHeaderAd2></VisitorHeaderAd2>
-        <VisitorHeader></VisitorHeader>
-      </header>
     <!-- banner 區域 -->
-    <!-- <div class="container-fluid pt-9">
-      <img src="../../../public/images/home/bn_01.png" class="img-fluid" alt="">
-    </div> -->
+    <div class="container position-relative py-8">
+      <HomeBn></HomeBn>
+      <div class="position-absolute end-5 top-90 z-1">
+        <button type="button"
+          class="col-12 btn btn-secondary-light border border-2 border-primary rounded-3 px-lg-5 py-4 py-md-3 mt-5 mt-md-0 me-5 d-flex align-items-center justify-content-center btn-pr position-relative">
+          <span class="px-3 d-flex justify-content-center align-items-center">
+            <p class="mb-0 pe-2 fw-semibold">加入會員  一起追夢</p>
+            <RightArrow class="fs-3" style="width:18px"></RightArrow>
+          </span>
+        </button>
+      </div>
+    </div>
     <!-- 熱門推薦 -->
     <div class="container">
       <div class="row pt-18 pb-20 justify-content-center">
@@ -24,7 +28,7 @@
               <p class="fs-6 text-primary-light text-center mb-0">Current Hot Projects</p>
             </div>
           </div>
-          <img src="/public/images/home/liver.jpg" class="imgcover img-fluid rounded-3 mb-7 col-12" alt="">
+          <img src="/images/home/liver.jpg" class="imgcover img-fluid rounded-3 mb-7 col-12" alt="">
           <p class="fs-6 text-primary mb-3">#&nbsp;健康生活</p>
           <a class="title-hover" href="">
             <h4 class="mb-3">CodeGuardian - 工程師顧肝必備良品：LiverCare</h4>
@@ -87,11 +91,11 @@
           </div>
           <ul class="list-unstyled px-0 px-lg-8 px-xl-0">
             <li class="mb-8">
-              <!-- 第一張卡片 -->
+              <!-- 第1張卡片 -->
               <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
                 <div class="row g-2 align-items-stretch">
                   <div class="col-md-4 pb-4">
-                    <img src="/public/images/home/liver.jpg" class="img-fluid object-fit-cover h-100 rounded-2" alt="">
+                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover h-100 rounded-2" alt="">
                   </div>
                   <div class="col-md-8 pb-4 mt-0">
                     <div class="card-body d-flex flex-column justify-items-between p-3">
@@ -147,7 +151,7 @@
               <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
                 <div class="row g-2 align-items-stretch">
                   <div class="col-md-4 pb-4">
-                    <img src="/public/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
+                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
                   </div>
                   <div class="col-md-8 pb-4 mt-0">
                     <div class="card-body d-flex flex-column justify-items-between p-3">
@@ -189,7 +193,7 @@
               <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
                 <div class="row g-2 align-items-stretch">
                   <div class="col-md-4 pb-4">
-                    <img src="/public/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
+                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
                   </div>
                   <div class="col-md-8 pb-4 mt-0">
                     <div class="card-body d-flex flex-column justify-items-between p-3">
@@ -296,72 +300,72 @@
         </div>
       </div>
     </div>
-    <!-- 暫定跑馬燈效果 -->
+    <!-- 跑馬燈效果 -->
     <div class="container-fluid d-flex">
       <marquee width="100%" behavior="scroll" direction="right" scrollamount="10">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
         <img
           class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
+          src="/images/home/pr-light-logo.svg"
           alt="pr-light-logo">
       </marquee>
     </div>
@@ -399,98 +403,98 @@
         ></span>
       </div>
       <!-- 即將推出專案區 -->
-        <div class="container d-flex flex-column justify-content-center">
-          <div class="row g-10 mb-7 pb-27">
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_01.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+      <div class="container d-flex flex-column justify-content-center">
+        <div class="row g-10 mb-7 pb-27">
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_01.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_02.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_02.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_03.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_03.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_04.jpg"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_04.jpg"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_05.jpg"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_05.jpg"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_06.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_06.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_07.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_07.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_08.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_08.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
           </div>
         </div>
+      </div>
     </div>
     <!-- 將創意專案轉換為現實 -->
     <section>
@@ -527,51 +531,51 @@
           <div class="d-flex align-items-center animateforrunright">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
+              src="/images/home/big_DREAMBOOST.svg"
               alt="big_DREAMBOOST-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
+              src="/images/home/db_logoAlong.svg"
               alt="white-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
+              src="/images/home/big_DREAMBOOST.svg"
               alt="big_DREAMBOOST-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
+              src="/images/home/db_logoAlong.svg"
               alt="white-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
+              src="/images/home/big_DREAMBOOST.svg"
               alt="big_DREAMBOOST-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
+              src="/images/home/db_logoAlong.svg"
               alt="white-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
+              src="/images/home/big_DREAMBOOST.svg"
               alt="big_DREAMBOOST-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
+              src="/images/home/db_logoAlong.svg"
               alt="white-logo">
             <img
                 class="img-fluid me-10"
-                src="../../../public/images/home/big_DREAMBOOST.svg"
+                src="/images/home/big_DREAMBOOST.svg"
                 alt="big_DREAMBOOST-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
+              src="/images/home/db_logoAlong.svg"
               alt="white-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
+              src="/images/home/big_DREAMBOOST.svg"
               alt="big_DREAMBOOST-logo">
             <img
               class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
+              src="/images/home/db_logoAlong.svg"
               alt="white-logo">
           </div>
       </div>
@@ -579,7 +583,7 @@
       <MarqueeDark></MarqueeDark>
     </section>
     <!-- 合作聯繫 -->
-    <section class="container">
+    <section class="container position-relative">
       <!-- 合作聯繫標題 -->
       <div class="pt-19 mb-3 d-none d-lg-block position-relative">
         <h2 class="fs-3 title position-relative">合作聯繫</h2>
@@ -601,7 +605,7 @@
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">媒體採訪</p>
               <div class="mx-5">
                 <img
-                 src="/public/images/home/cowork_01.png"
+                 src="/images/home/cowork_01.png"
                  class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
                  style="max-width: 296px;"
                  alt="活動邀約媒體採訪照片"
@@ -624,7 +628,7 @@
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">團隊提案</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">平台問題</p>
               <img
-                src="/public/images/home/cowork_02.png"
+                src="/images/home/cowork_02.png"
                 class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
                 style="max-width: 296px;"
                 alt="團隊提案平台問題照片"
@@ -646,7 +650,7 @@
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">集資產業相關</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">報導聯繫</p>
               <img
-                src="/public/images/home/cowork_03.png"
+                src="/images/home/cowork_03.png"
                 class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
                 style="max-width: 296px;"
                 alt="集資產業相關報導聯繫照片"
@@ -663,12 +667,12 @@
           </div>
         </li>
       </ul>
+      <CouponCircle class="postion-absolute top-0 start-40"></CouponCircle>
     </section>
   </main>
 </template>
 
 <style lang="scss">
-
 //卡片 icon 留言＋星星 hover 效果
 .message-star-hover {
   color: var(--bs-gray-700);
@@ -695,27 +699,27 @@
 }
 // 挺好夢
 .categorylink1 {
-  background-image: url('../../../public/images/home/categorie_01.png');
+  background-image: url('/images/home/categorie_01.png');
 }
 //科技設計
 .categorylink2 {
-  background-image: url('../../../public/images/home/categorie_02.png');
+  background-image: url('/images/home/categorie_02.png');
 }
 //健康生活
 .categorylink3 {
-  background-image: url('../../../public/images/home/categorie_03.png');
+  background-image: url('/images/home/categorie_03.png');
 }
 //時尚
 .categorylink4 {
-  background-image: url('../../../public/images/home/categorie_04.png');
+  background-image: url('/images/home/categorie_04.png');
 }
 //公共在地
 .categorylink5 {
-  background-image: url('../../../public/images/home/categorie_05.png');
+  background-image: url('/images/home/categorie_05.png');
 }
 //美妝
 .categorylink6 {
-  background-image: url('../../../public/images/home/categorie_06.png');
+  background-image: url('/images/home/categorie_06.png');
 }
 //即將推出
 .csImage {
@@ -800,6 +804,8 @@ import RightArrow from '@/components/icons/RightArrow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
 import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
+import CouponCircle from '@/components/rotate/CuponCircle.vue';
+import HomeBn from '@/components/bn/HomeBn.vue';
 
 export default {
   components: {
@@ -807,6 +813,8 @@ export default {
     StarFull,
     MessageIcon,
     MarqueeDark,
+    CouponCircle,
+    HomeBn,
   },
 };
 </script>
