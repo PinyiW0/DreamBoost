@@ -667,7 +667,7 @@
           </div>
         </li>
       </ul>
-      <CouponCircle class="postion-absolute top-10 start-100"></CouponCircle>
+      <CouponCircle class="postion-absolute top-0 start-40"></CouponCircle>
     </section>
   </main>
 </template>
