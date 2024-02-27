@@ -178,7 +178,7 @@
                     data-bs-title="寄送贊助回饋使用，若不正確可能造成投遞失敗。">
                     <span class="" style="width: 20px;">
                       <img
-                        src="../../../public/images/explore/info.svg"
+                        src="/images/explore/info.svg"
                         class="img-fluid"
                         style="margin-top: -6px;"
                         alt="">
@@ -202,7 +202,7 @@
                     data-bs-title="寄送人聯絡及付款確認使用。請填寫全碼，如 0912123456">
                     <span class="" style="width: 20px;">
                       <img
-                        src="../../../public/images/explore/info.svg"
+                        src="/images/explore/info.svg"
                         class="img-fluid"
                         style="margin-top: -6px;"
                         alt="">
