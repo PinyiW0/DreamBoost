@@ -1,6 +1,8 @@
 <template>
-  <div class="bg-gray-800 min-vh-100">
-    <RouterView></RouterView>
+  <div class="bg-gray-800 min-vh-100 d-flex flex-column">
+    <div class="flex-grow-1">
+      <RouterView></RouterView>
+    </div>
     <DashboardFooter></DashboardFooter>
   </div>
 </template>
@@ -14,7 +16,4 @@ export default {
 };
 </script>
 <style>
-*{
-  /* outline: 1px solid red; */
-}
 </style>
