@@ -3,67 +3,67 @@
     <div class="d-flex animateforrun">
       <img
         class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
+        src="/images/home/white-logo.svg"
         alt="white-logo">
       <img
         class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
-        alt="white-logo">
-      <img
-          class="img-fluid me-22"
-          src="../../../public/images/home/white-logo.svg"
-          alt="white-logo">
-      <img
-        class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
-        alt="white-logo">
-      <img
-        class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
-        alt="white-logo">
-      <img
-        class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
+        src="/images/home/white-logo.svg"
         alt="white-logo">
       <img
           class="img-fluid me-22"
-          src="../../../public/images/home/white-logo.svg"
+          src="/images/home/white-logo.svg"
           alt="white-logo">
       <img
         class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
+        src="/images/home/white-logo.svg"
         alt="white-logo">
       <img
         class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
+        src="/images/home/white-logo.svg"
         alt="white-logo">
       <img
         class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
-        alt="white-logo">
-      <img
-        class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
-        alt="white-logo">
-      <img
-        class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
-        alt="white-logo">
-      <img
-        class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
-        alt="white-logo">
-      <img
-        class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
+        src="/images/home/white-logo.svg"
         alt="white-logo">
       <img
           class="img-fluid me-22"
-          src="../../../public/images/home/white-logo.svg"
+          src="/images/home/white-logo.svg"
           alt="white-logo">
       <img
         class="img-fluid me-22"
-        src="../../../public/images/home/white-logo.svg"
+        src="/images/home/white-logo.svg"
+        alt="white-logo">
+      <img
+        class="img-fluid me-22"
+        src="/images/home/white-logo.svg"
+        alt="white-logo">
+      <img
+        class="img-fluid me-22"
+        src="/images/home/white-logo.svg"
+        alt="white-logo">
+      <img
+        class="img-fluid me-22"
+        src="/images/home/white-logo.svg"
+        alt="white-logo">
+      <img
+        class="img-fluid me-22"
+        src="/images/home/white-logo.svg"
+        alt="white-logo">
+      <img
+        class="img-fluid me-22"
+        src="/images/home/white-logo.svg"
+        alt="white-logo">
+      <img
+        class="img-fluid me-22"
+        src="/images/home/white-logo.svg"
+        alt="white-logo">
+      <img
+          class="img-fluid me-22"
+          src="/images/home/white-logo.svg"
+          alt="white-logo">
+      <img
+        class="img-fluid me-22"
+        src="/images/home/white-logo.svg"
         alt="white-logo">
     </div>
   </div>

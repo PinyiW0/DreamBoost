@@ -23,7 +23,7 @@
   width: 100%;
   height: 600px;
   border-radius: 35px;
-  background: url('/public/images/home/test1.jpg') no-repeat center center fixed;
+  background: url('/images/home/test1.jpg') no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
   clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 68% 85%, 68% 100%, 0 100%);
