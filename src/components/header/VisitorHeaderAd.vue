@@ -1,109 +1,107 @@
 <template>
   <div class="bg-primary-dark container-fluid">
-     <swiper-container
-      :slides-per-view="1"
-      :space-between="spaceBetween"
-      :centered-slides="true"
-      :breakpoints = "{
-        768: {
-          slidesPerView: 1,
-         },
-      }"
-      @swiperprogress="onProgress"
-      @swiperslidechange="onSlideChange"
-    >
-      <swiper-slide>
-        <div class="d-flex align-items-center justify-content-center">
-          <span class="fs-6 text-white me-8 mb-0">即刻成為會員，立享&nbsp;$100 折價券！金額不限，全額折抵！</span>
-          <img class="mb-0" src="/public/images/db-logo-hdr.svg" alt="logo">
-        </div>
+     <swiper
+        class="swiper-wrapper"
+        ref="swiper"
+        :modules="modules"
+        :allowTouchMove="false"
+        :slides-per-view="auto"
+        :centered-slides="true"
+        :speed="8000"
+        :loop="true"
+        :autoplay="{
+          delay: 0,
+          disableOnInteraction: false,
+        }"
+      >
+      <swiper-slide class="fs-6 text-white py-1 mb-0 d-flex align-items-center">
+        <img src="/images/home/pr-light-logo.svg" class="img-fluid mb-0 mx-2" alt="">
+        <span class="letSpc-8" style="margin-top: 1px;">即刻成為會員，立享&nbsp;$100 折價券！&nbsp;金額不限，全額折抵！&nbsp;</span>
+        <img src="/images/home/pr-light-logo.svg" class="img-fluid mb-0 mx-2" alt="">
+        <span class="letSpc-8" style="margin-top: 1px;">即刻成為會員，立享&nbsp;$100 折價券！&nbsp;金額不限，全額折抵！&nbsp;</span>
       </swiper-slide>
-      <swiper-slide>
-          <div class="d-flex align-items-center justify-content-center">
-            <span class="fs-6 text-white me-8 mb-0">即刻成為會員，立享&nbsp;$100 折價券！金額不限，全額折抵！</span>
-            <img class="mb-0" src="/public/images/db-logo-hdr.svg" alt="logo">
-          </div>
+      <swiper-slide class="fs-6 text-white py-1 mb-0 d-flex align-items-center">
+        <img src="/images/home/pr-light-logo.svg" class="img-fluid mb-0 mx-2" alt="">
+        <span class="letSpc-8" style="margin-top: 1px;">即刻成為會員，立享&nbsp;$100 折價券！&nbsp;金額不限，全額折抵！&nbsp;</span>
+        <img src="/images/home/pr-light-logo.svg" class="img-fluid mb-0 mx-2" alt="">
+        <span class="letSpc-8" style="margin-top: 1px;">即刻成為會員，立享&nbsp;$100 折價券！&nbsp;金額不限，全額折抵！&nbsp;</span>
       </swiper-slide>
-      <swiper-slide>
-          <div class="d-flex align-items-center justify-content-center">
-            <span class="fs-6 text-white me-8 mb-0">即刻成為會員，立享&nbsp;$100 折價券！金額不限，全額折抵！</span>
-            <img class="mb-0" src="/public/images/db-logo-hdr.svg" alt="logo">
-          </div>
+      <swiper-slide class="fs-6 text-white py-1 mb-0 d-flex align-items-center">
+        <img src="/images/home/pr-light-logo.svg" class="img-fluid mb-0 mx-2" alt="">
+        <span class="letSpc-8" style="margin-top: 1px;">即刻成為會員，立享&nbsp;$100 折價券！&nbsp;金額不限，全額折抵！&nbsp;</span>
+        <img src="/images/home/pr-light-logo.svg" class="img-fluid mb-0 mx-2" alt="">
+        <span class="letSpc-8" style="margin-top: 1px;">即刻成為會員，立享&nbsp;$100 折價券！&nbsp;金額不限，全額折抵！&nbsp;</span>
       </swiper-slide>
-    </swiper-container>
+    </swiper>
   </div>
+  <div class="bg-primary-dark container-fluid">
+       <swiper
+          class="swiper-wrapper"
+          ref="swiper"
+          :modules="modules"
+          :allowTouchMove="false"
+          :slides-per-view="auto"
+          :centered-slides="true"
+          :speed="8000"
+          :loop="true"
+          :autoplay="{
+            delay: 0,
+            disableOnInteraction: false,
+          }"
+          style="width: 600px;max-height: 25px;"
+        >
+        <swiper-slide class="fs-6 text-secondary-light py-1 mb-0 d-flex align-items-center" style="width: auto;">
+          與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 ! 與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 !
+        </swiper-slide>
+        <swiper-slide class="fs-6 text-secondary-light py-1 mb-0 d-flex align-items-center" style="width: auto;">
+          與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 ! 與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 !
+        </swiper-slide>
+        <swiper-slide class="fs-6 text-secondary-light py-1 mb-0 d-flex align-items-center" style="width: auto;">
+          與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 ! 與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 !
+        </swiper-slide>
+      </swiper>
+    </div>
 </template>
 
+<style lang="scss" scoped>
+.swiper-wrapper {
+  transition-timing-function: linear;
+  animation: marquee 10s linear;
+}
+@keyframes marquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+</style>
+
 <script>
-/* eslint-disable no-unused-vars */
-// 引入 Swiper
-// import SwiperCore, { Pagination, Navigation } from 'swiper/core';
-// import 'swiper/swiper-bundle.css';
-// import headerswiper from '路徑';
-
-// // 使用所需的 Swiper 模組
-// SwiperCore.use([Pagination, Navigation]);
-
-// export default {
-//   data() {
-//     return {
-//       modules: [Navigation, Pagination],
-//     };
-//   },
-//   components: {
-//     aaa: headerswiper;
-//   },
-//   name: 'visitorHdrAdSp',
-//   mounted() {
-//     // 初始化 Swiper
-//     const visitorHdrAdSp = new SwiperCore('.visitorHdrAdSp', {
-//       // ... Swiper 選項/配置 ...
-//       allowTouchMove: false,
-//       slidesPerView: 'auto',
-//       speed: 18000,
-//       loop: true,
-//       autoplay: {
-//         delay: 0,
-//         disableOnInteraction: false,
-//       },
-//     });
-//   },
-// };
-// 原本放在template裡: breakpoints = "{
-// 768: {
-//   slidesPerView: 3,
-//         },
-//       }"
-// : pagination = "{
-// hideOnClick: true
-//       }"
-import { register } from 'swiper/element/bundle';
-
-register();
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default {
+  data() {
+    return {
+      modules: [Navigation, Pagination],
+    };
+  },
   mounted() {
-    this.setup();
   },
   created() {
-    // this.setup();
   },
   methods: {
-    setup() {
-      const spaceBetween = 60;
-      const onProgress = (e) => {
-        const [swiper, progress] = e.detail;
-      };
-
-      // const onSlideChange = (e) => {
-      // };
-
-      return {
-        spaceBetween,
-        onProgress,
-        // onSlideChange,
-      };
-    },
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
   },
 };
+
 </script>

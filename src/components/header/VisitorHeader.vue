@@ -5,7 +5,7 @@
       <div class="container d-flex justify-content-between align-items-center">
         <RouterLink to="/home">
           <a href="">
-            <img class="img-fluid" src="/public/images/header/mainLogo.svg" alt="首頁">
+            <img class="img-fluid" src="/images/header/mainLogo.svg" alt="首頁">
           </a>
         </RouterLink>
         <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

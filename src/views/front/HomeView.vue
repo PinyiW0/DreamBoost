@@ -1,18 +1,8 @@
 <template>
   <main>
+    <HomeBn></HomeBn>
+    <!-- <VisitorHeaderAd /> -->
     <!-- banner 區域 -->
-    <div class="container position-relative py-8">
-      <HomeBn></HomeBn>
-      <div class="position-absolute end-5 top-90 z-1">
-        <button type="button"
-          class="col-12 btn btn-secondary-light border border-2 border-primary rounded-3 px-lg-5 py-4 py-md-3 mt-5 mt-md-0 me-5 d-flex align-items-center justify-content-center btn-pr position-relative">
-          <span class="px-3 d-flex justify-content-center align-items-center">
-            <p class="mb-0 pe-2 fw-semibold">加入會員  一起追夢</p>
-            <RightArrow class="fs-3" style="width:18px"></RightArrow>
-          </span>
-        </button>
-      </div>
-    </div>
     <!-- 熱門推薦 -->
     <div class="container">
       <div class="row pt-18 pb-20 justify-content-center">
@@ -301,74 +291,7 @@
       </div>
     </div>
     <!-- 跑馬燈效果 -->
-    <div class="container-fluid d-flex">
-      <marquee width="100%" behavior="scroll" direction="right" scrollamount="10">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-      </marquee>
-    </div>
+    <MarqueeLight />
     <!-- 底色色塊裝飾 -->
     <div class="container-fluid bg-primary-light py-31 py-lg-13 mb-xl-2">
     </div>
@@ -519,7 +442,7 @@
               <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">1,766</p>
               <p class="fs-5 fs-lg-12 text-white text-center mb-0">人已經參與募資計畫</p>
             </div>
-            <div class="col-11 col-md-5 col-lg-3 border border-white rounded-4 me-0 me-md-5 p-6">
+            <div class="col-11 col-md-5 col-lg-3 border border-white rounded-4 me-0 me-md-5 py-6 h-100">
               <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">123,766</p>
               <p class="fs-5 fs-lg-12 text-white text-center mb-0">贊助計畫</p>
             </div>
@@ -527,58 +450,7 @@
         </div>
       </div>
       <!-- 大logo跑馬燈 -->
-      <div class="container-fluid overflow-hidden">
-          <div class="d-flex align-items-center animateforrunright">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-                class="img-fluid me-10"
-                src="/images/home/big_DREAMBOOST.svg"
-                alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="/images/home/db_logoAlong.svg"
-              alt="white-logo">
-          </div>
-      </div>
+      <MarqueeBiglogo></MarqueeBiglogo>
       <!-- 跑馬燈-下 -->
       <MarqueeDark></MarqueeDark>
     </section>
@@ -667,7 +539,9 @@
           </div>
         </li>
       </ul>
-      <CouponCircle class="postion-absolute top-0 start-40"></CouponCircle>
+      <div class="postion-relative">
+        <CouponCircle class=""></CouponCircle>
+      </div>
     </section>
   </main>
 </template>
@@ -683,7 +557,7 @@
 //專案類別按鈕
 .categorylink {
   display: block;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 4px 6px rgba(14, 87, 106, 0.1);
@@ -766,46 +640,18 @@
   }
 }
 
-//跑馬燈動畫
-:root {
-  --gap: 0px;
-  --scroll-end:-1500px;
-}
-.animateforrun {
-  animation : slide 30s linear infinite ;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-}
-@keyframes slide {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(var(--scroll-end));
-  }
-}
-.animateforrunright {
-  animation : slide2 30s linear infinite ;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-}
-@keyframes slide2 {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
 </style>
 
 <script>
 import RightArrow from '@/components/icons/RightArrow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
+import MarqueeLight from '@/components/decoration/MarqueeLight.vue';
 import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
+import MarqueeBiglogo from '@/components/decoration/MarqueeBiglogo.vue';
 import CouponCircle from '@/components/rotate/CuponCircle.vue';
 import HomeBn from '@/components/bn/HomeBn.vue';
+// import VisitorHeaderAd from '@/components/header/VisitorHeaderAd.vue';
 
 export default {
   components: {
@@ -815,6 +661,9 @@ export default {
     MarqueeDark,
     CouponCircle,
     HomeBn,
+    MarqueeBiglogo,
+    MarqueeLight,
+    // VisitorHeaderAd,
   },
 };
 </script>

@@ -4,7 +4,7 @@
     <div class="container-fluid border-bottom border-primary-light">
       <div class="container d-flex justify-content-center">
         <img
-          src="/public/images/home/wt-big-logo.svg"
+          src="/images/home/wt-big-logo.svg"
           class="img-fluid pt-6 pb-2"
           alt="dream boost 白色logo">
       </div>
