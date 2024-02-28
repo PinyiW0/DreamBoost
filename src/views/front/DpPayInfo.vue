@@ -315,6 +315,7 @@
 <script>
 import DpInfo from '@/components/designedproject/DpInfo.vue';
 import InfoIcon from '@/components/icons/InfoIcon.vue';
+import MixinVeeValidate from '../../mixins/mixinVeeValidate';
 
 export default {
   data() {
@@ -323,6 +324,7 @@ export default {
       tooltipPhone: '',
     };
   },
+  mixins: [MixinVeeValidate],
   mounted() {
     this.tooltipName = new this.$bs.Tooltip(this.$refs.name);
     this.tooltipPhone = new this.$bs.Tooltip(this.$refs.phone);

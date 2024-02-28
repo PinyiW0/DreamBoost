@@ -19,72 +19,19 @@
       @swiperprogress="onProgress"
       @swiperslidechange="onSlideChange"
       class="rounded-5 col-12 object-fit-cover"
-      style="max-height: 650px;"
+      style="height: 650px;"
     >
-      <swiper-slide>
+      <swiper-slide
+        v-for="(item, index) in bnData"
+        :key="`${index}-bn`"
+        >
         <div class="rounded-5">
           <div class="d-flex flex-column justify-content-center align-items-center">
             <RouterLink to="/member" class="position-relative col-12 rounded-5 shadow">
               <img
-                src="/images/home/bn_01.jpg"
+                :src="item.imgUrl"
                 class="img-fluid rounded-5 w-100 object-fit-cover"
-                style="max-height: 650px;"
-                alt="推動夢想不是夢概念圖">
-              <div class="bg-primary-dark col-12 py-7 rounded-bottom-5 position-absolute bottom-0">
-                <h4 class="text-secondary-light text-center lterSpc-10 mb-0 mx-8 bn-hover">
-                  立刻加入會員，一起追夢去
-                  <span>
-                    <RightArrow style="width:24px;color: var(--bs-secondary-light);margin-top: -2 px;" ></RightArrow>
-                  </span>
-                </h4>
-              </div>
-            </RouterLink>
-            <div class="d-flex flex-column align-items-center position-absolute top-24 top-sm-24 px-10">
-              <img
-                src="/images/home/w-biglogo.svg"
-                class="img-fluid mb-5 col-12"
-                alt="">
-              <p class="fs-3 fw-light text-white mb-0 lterSpc-10">推動夢想不是夢 !</p>
-            </div>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="rounded-5">
-          <div class="d-flex flex-column justify-content-center align-items-center">
-            <RouterLink to="/member" class="position-relative col-12 rounded-5 shadow">
-              <img
-                src="/images/home/bn_02.jpg"
-                class="img-fluid rounded-5 w-100 object-fit-cover"
-                style="max-height: 650px;"
-                alt="推動夢想不是夢概念圖">
-              <div class="bg-primary-dark col-12 py-7 rounded-bottom-5 position-absolute bottom-0">
-                <h4 class="text-secondary-light text-center lterSpc-10 mb-0 mx-8 bn-hover">
-                  立刻加入會員，一起追夢去
-                  <span>
-                    <RightArrow style="width:24px;color: var(--bs-secondary-light);margin-top: -2 px;" ></RightArrow>
-                  </span>
-                </h4>
-              </div>
-            </RouterLink>
-            <div class="d-flex flex-column align-items-center position-absolute top-24 top-sm-24 px-10">
-              <img
-                src="/images/home/w-biglogo.svg"
-                class="img-fluid mb-5 col-12"
-                alt="">
-              <p class="fs-3 fw-light text-white mb-0 lterSpc-10">推動夢想不是夢 !</p>
-            </div>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="rounded-5">
-          <div class="d-flex flex-column justify-content-center align-items-center">
-            <RouterLink to="/member" class="position-relative col-12 rounded-5 shadow">
-              <img
-                src="/images/home/bn_03.jpg"
-                class="img-fluid rounded-5 w-100 object-fit-cover"
-                style="max-height: 650px;"
+                style="height: 650px;"
                 alt="推動夢想不是夢概念圖">
               <div class="bg-primary-dark col-12 py-7 rounded-bottom-5 position-absolute bottom-0">
                 <h4 class="text-secondary-light text-center lterSpc-10 mb-0 mx-8 bn-hover">
@@ -129,22 +76,36 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+const { VITE_URL, VITE_PATH } = import.meta.env;
+
 export default {
   data() {
     return {
       modules: [Navigation, Pagination],
+      bnData: [],
     };
   },
-  mounted() {
-  },
-  created() {
-  },
   methods: {
+    onSlideChange() {
+    },
+    getBnUrl() {
+      this.$http.get(`${VITE_URL}/dreamboost/banner/guest/banner`)
+        .then((response) => {
+          this.bnData = response.data.data.result;
+        })
+        .catch(() => {
+        });
+    },
   },
   components: {
     RightArrow,
     Swiper,
     SwiperSlide,
+  },
+  mounted() {
+    this.getBnUrl();
+  },
+  created() {
   },
 };
 </script>
