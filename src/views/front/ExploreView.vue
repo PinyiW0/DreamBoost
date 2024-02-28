@@ -29,6 +29,9 @@
           </select>
         </div>
       </div>
+      <div class="postion-relative d-none d-xxl-block">
+        <CouponCircle class="top-24 start-20"></CouponCircle>
+      </div>
       <!-- 專案類別 -->
       <div class="container pt-8 pb-5">
         <!-- 專案類別 -->
@@ -127,7 +130,7 @@
 //專案類別按鈕
 .categorylink {
   display: block;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 4px 6px rgba(14, 87, 106, 0.1);
@@ -170,11 +173,13 @@
 <script>
 import CardDefault from '@/components/cards/CardDefault.vue';
 import AnglesDown from '@/components/icons/AnglesDown.vue';
+import CouponCircle from '@/components/rotate/CuponCircle.vue';
 
 export default {
   components: {
     CardDefault,
     AnglesDown,
+    CouponCircle,
   },
 };
 </script>
