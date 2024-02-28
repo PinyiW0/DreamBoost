@@ -31,7 +31,7 @@ app.use(VueAxios, axios);
 app.use(VueSweetalert2);
 app.use(LoadingPlugin);
 app.use(register);
-app.use(Swiper, SwiperSlide);
+app.component(Swiper, SwiperSlide);
 app.use(Vue3Marquee);
 app.use(Popper);
 app.config.globalProperties.$mitt = mitt();
