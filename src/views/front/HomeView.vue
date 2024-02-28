@@ -1,7 +1,6 @@
 <template>
   <main>
     <HomeBn></HomeBn>
-    <!-- <VisitorHeaderAd /> -->
     <!-- banner 區域 -->
     <!-- 熱門推薦 -->
     <div class="container">
@@ -246,7 +245,7 @@
         </div>
       </div>
       <!-- 專案類別 -->
-      <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-1">
+      <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-3">
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <a
             class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
@@ -291,7 +290,7 @@
       </div>
     </div>
     <!-- 跑馬燈效果 -->
-    <MarqueeLight />
+    <MarqueeLight></MarqueeLight>
     <!-- 底色色塊裝飾 -->
     <div class="container-fluid bg-primary-light py-31 py-lg-13 mb-xl-2">
     </div>
@@ -651,7 +650,6 @@ import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
 import MarqueeBiglogo from '@/components/decoration/MarqueeBiglogo.vue';
 import CouponCircle from '@/components/rotate/CuponCircle.vue';
 import HomeBn from '@/components/bn/HomeBn.vue';
-// import VisitorHeaderAd from '@/components/header/VisitorHeaderAd.vue';
 
 export default {
   components: {
@@ -663,7 +661,6 @@ export default {
     HomeBn,
     MarqueeBiglogo,
     MarqueeLight,
-    // VisitorHeaderAd,
   },
 };
 </script>

@@ -1,75 +1,34 @@
 <template>
-  <div class="container-fluid overflow-hidden">
-      <div class="d-flex align-items-center animateforrunright">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/big_DREAMBOOST.svg"
-          alt="big_DREAMBOOST-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/db_logoAlong.svg"
-          alt="white-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/big_DREAMBOOST.svg"
-          alt="big_DREAMBOOST-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/db_logoAlong.svg"
-          alt="white-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/big_DREAMBOOST.svg"
-          alt="big_DREAMBOOST-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/db_logoAlong.svg"
-          alt="white-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/big_DREAMBOOST.svg"
-          alt="big_DREAMBOOST-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/db_logoAlong.svg"
-          alt="white-logo">
-        <img
-            class="img-fluid me-10"
-            src="/images/home/big_DREAMBOOST.svg"
-            alt="big_DREAMBOOST-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/db_logoAlong.svg"
-          alt="white-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/big_DREAMBOOST.svg"
-          alt="big_DREAMBOOST-logo">
-        <img
-          class="img-fluid me-10"
-          src="/images/home/db_logoAlong.svg"
-          alt="white-logo">
-      </div>
+  <div class="container-fluid">
+    <Vue3Marquee :clone="true" :duration="10" :direction="'reverse'">
+      <img v-for="img in imgArray" :key="img" :src="img" class="img-fluid me-10" />
+    </Vue3Marquee>
   </div>
 </template>
 
-<style lang="scss" scoped>
-//跑馬燈動畫
-:root {
-  --gap: 0px;
-  --scroll-end:-1500px;
-}
-.animateforrunright {
-  animation : slide2 30s linear infinite ;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-}
-@keyframes slide2 {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
-</style>
+<script>
+import { Vue3Marquee } from 'vue3-marquee';
+
+export default {
+  data() {
+    return {
+      imgArray: [],
+    };
+  },
+  methods: {
+    imgData() {
+      this.imgArray = [
+        'https://raw.githubusercontent.com/PinyiW0/DreamBoost/880674654e4e31b44e5ab98a0beb1e0f948fc539/public/images/home/big_DREAMBOOST.svg',
+        'https://raw.githubusercontent.com/PinyiW0/DreamBoost/880674654e4e31b44e5ab98a0beb1e0f948fc539/public/images/home/db_logoAlong.svg',
+      ];
+    },
+  },
+  components: {
+    Vue3Marquee,
+  },
+  mounted() {
+    this.imgData();
+  },
+};
+
+</script>
