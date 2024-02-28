@@ -388,7 +388,7 @@ main {
 <script>
 import GoogleIcon from '@/components/icons/GoogleIcon.vue';
 import TwitterIcon from '@/components/icons/TwitterIcon.vue';
-import MixinVeeValidate from '../../js/mixins/mixinVeeValidate';
+import MixinVeeValidate from '../../mixins/mixinVeeValidate';
 
 const apiUrl = import.meta.env.VITE_URL;
 

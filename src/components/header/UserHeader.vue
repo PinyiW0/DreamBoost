@@ -8,13 +8,16 @@
             <img class="img-fluid" src="/images/header/mainLogo.svg" alt="首頁">
           </a>
         </RouterLink>
-        <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        <button class="navbar-toggler bg-primary" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon">
           </span>
         </button>
-        <div class="collapse navbar-collapse d-md-flex justify-content-lg-between" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse d-md-flex justify-content-lg-between" id="navbarSupportedContent" ref="userHeader">
           <ul class="navbar-nav ms-0 ms-md-20 mb-2 mb-md-0">
             <li class="nav-item">
               <RouterLink to="/explore" aria-current="page"
@@ -108,6 +111,20 @@ import SearchIcon from '@/components/icons/SearchIcon.vue';
 import UserHeaderAd from '@/components/header/UserHeaderAd.vue';
 
 export default {
+  data() {
+    return {
+      userHeader: {},
+    };
+  },
+  watch: {
+    $route() {
+      this.vistorHeader.hide();
+    },
+  },
+  mounted() {
+    // 將 Collapse 實體化，設定一開始的 toggle 為 false，選單在一開始維持折疊狀態
+    this.vistorHeader = new this.$bs.Collapse(this.$refs.vistorHeader, { toggle: false });
+  },
   components: {
     SearchIcon,
     UserHeaderAd,
