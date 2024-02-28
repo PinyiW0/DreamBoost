@@ -2,7 +2,8 @@
   <div class="container py-15 bg-white">
     <swiper
       ref="swiper"
-      :modules="modules"
+      :modules="[EffectFade]"
+      effect="fade"
       :slides-per-view="3"
       :space-between="120"
       :centered-slides="true"
@@ -12,11 +13,9 @@
           },
         }"
       :autoplay="{
-        delay: 6000,
+        delay: 5000,
         disableOnInteraction: false,
       }"
-      :effect="fade"
-      @swiperprogress="onProgress"
       @swiperslidechange="onSlideChange"
       class="rounded-5 col-12 object-fit-cover"
       style="height: 650px;"
@@ -70,11 +69,12 @@
 /* eslint-disable no-unused-vars */
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Navigation } from 'swiper/modules';
+import { EffectFade, Pagination, Navigation } from 'swiper/modules';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
@@ -83,6 +83,7 @@ export default {
     return {
       modules: [Navigation, Pagination],
       bnData: [],
+      EffectFade,
     };
   },
   methods: {

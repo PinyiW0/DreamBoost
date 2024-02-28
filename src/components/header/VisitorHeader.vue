@@ -1,6 +1,6 @@
 <template>
   <header>
-    <VisitorHeaderAd2 />
+    <VisitorHeaderAd />
     <nav class="navbar navbar-expand-md container-fluid border-bottom border-primary-light shadow-sm">
       <div class="container d-flex justify-content-between align-items-center">
         <RouterLink to="/home">
@@ -63,7 +63,7 @@
 <script>
 import RightArrow from '@/components/icons/RightArrow.vue';
 import SearchIcon from '@/components/icons/SearchIcon.vue';
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
+import VisitorHeaderAd from '@/components/header/VisitorHeaderAd.vue';
 
 export default {
   data() {
@@ -83,7 +83,7 @@ export default {
   components: {
     SearchIcon,
     RightArrow,
-    VisitorHeaderAd2,
+    VisitorHeaderAd,
   },
 };
 </script>

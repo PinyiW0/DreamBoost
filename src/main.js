@@ -16,6 +16,8 @@ import 'vue-loading-overlay/dist/css/index.css';
 import { register } from 'swiper/element/bundle';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
+import Vue3Marquee from 'vue3-marquee';
+
 import mitt from 'mitt';
 
 import App from './App.vue';
@@ -30,6 +32,7 @@ app.use(VueSweetalert2);
 app.use(LoadingPlugin);
 app.use(register);
 app.use(Swiper, SwiperSlide);
+app.use(Vue3Marquee);
 app.use(Popper);
 app.config.globalProperties.$mitt = mitt();
 app.config.globalProperties.$bs = bootstrap;

@@ -18,9 +18,22 @@
       </div>
       <!-- 中-跑馬燈宗旨 -->
       <div class="d-none d-lg-block p-6">
-        <marquee width="100%" behavior="scroll" direction="right" scrollamount="8">
-          <p class="text-center text-secondary-light lterSpc-8 mb-0">與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 !</p>
-        </marquee>
+        <div class="container-fluid bg-primary-dark d-flex justify-content-center">
+        <div style="height: 28px;">
+          <Vue3Marquee  :scrollamount="4000"
+          class=""
+          style="--duration: 10s; --delay: 6s;"
+          >
+              <span
+                  v-for="(word, index) in adArray"
+                  :key="index"
+                  class="fs-5 text-secondary-light mb-0 lterSpc-10 me-16 mt-1"
+              >
+                  {{ word }}
+              </span>
+          </Vue3Marquee>
+        </div>
+      </div>
       </div>
       <!-- 右-社群聯繫 -->
       <div class="border-start-lg border-primary-light d-flex justify-content-center align-items-center ps-0 ps-lg-16 py-6">
@@ -61,6 +74,7 @@
 </style>
 
 <script>
+import { Vue3Marquee } from 'vue3-marquee';
 import FaceBook from '@/components/icons/FaceBook.vue';
 import InstaGram from '@/components/icons/InstaGram.vue';
 import LinkeDin from '@/components/icons/LinkeDin.vue';
@@ -68,7 +82,21 @@ import TwitterIcon from '@/components/icons/TwitterIcon.vue';
 import LineIcon from '@/components/icons/LineIcon.vue';
 
 export default {
+  data() {
+    return {
+      adArray: [],
+    };
+  },
+  methods: {
+    adData() {
+      this.adArray = ['與 DreamBoost 攜手，實現你的夢想！成為我們的一份子，推動夢想不是夢 !'];
+    },
+  },
+  mounted() {
+    this.adData();
+  },
   components: {
+    Vue3Marquee,
     FaceBook,
     InstaGram,
     LinkeDin,
