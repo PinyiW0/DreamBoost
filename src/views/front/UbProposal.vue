@@ -15,47 +15,40 @@
     </div>
     <div class="mt-13">
       <div class="l-proposalCardGapY">
-        <div class="l-gridCard text-center" v-for="(item,index) in 2" :key="`${index}-list`">
-          <div class="l-gridCard--centerChild l-gridCard__status bg-primary text-white px-5 d-flex align-items-center justify-content-center">創建中專案</div>
-          <div class="l-gridCard--centerChild l-gridCard__titleName">專案名稱</div>
-          <div class="l-gridCard--centerChild l-gridCard__titleTarget">目標金額</div>
-          <div class="l-gridCard--centerChild l-gridCard__titleCreatedDate">創建日期</div>
-          <div class="l-gridCard--centerChild l-gridCard__titleSubmitDate">提交日期</div>
-          <div class="l-gridCard--centerChild l-gridCard__titleUpdateDate">上次修改日期</div>
-          <div class="l-gridCard--centerChild l-gridCard__btnDeleteProposal"><button type="button" class="btn btn-light rounded-0 p-0 h-100 w-100"><CloseButtonIcon></CloseButtonIcon></button></div>
-          <div class="l-gridCard--centerChild l-gridCard__contentName">專案內容</div>
-          <div class="l-gridCard--centerChild l-gridCard__contentTarget">$2000</div>
-          <div class="l-gridCard--centerChild l-gridCard__contentCreatedDate">2023.12.31</div>
-          <div class="l-gridCard--centerChild l-gridCard__contentSubmitDate">2023.12.31</div>
-          <div class="l-gridCard--centerChild l-gridCard__contentUpdateDate">2023.12.31</div>
-          <div class="l-gridCard--centerChild l-gridCard__btnViewDetail"><button type="button" class="btn p-0 rounded-0 bg-primary-light w-100 h-100">
-            <DoubleAngleDownIcon width="24" height="24"></DoubleAngleDownIcon>
-          </button></div>
-        </div>
+        <ProposalRecordCard></ProposalRecordCard>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import CloseButtonIcon from '@/components/icons/CloseButton.vue';
-import DoubleAngleDownIcon from '@/components/icons/DoubleAngleDown.vue';
+import ProposalRecordCard from '@/components/member/ProposalRecordCard.vue';
 
 export default {
   components: {
-    DoubleAngleDownIcon,
-    CloseButtonIcon,
+    ProposalRecordCard,
   },
 };
 
 </script>
 <style scope lang="scss">
+.l-btn-close{
+  &:hover{
+    color:var(--bs-primary) !important;
+  }
+}
+.l-btn-detail{
+  &:hover{
+    background-color: var(--bs-primary) !important;
+    color:var(--bs-secondary) !important;
+  }
+}
+
 .l-proposalCardGapY{
   .l-gridCard + .l-gridCard{
     margin-top: 40px;
   }
 }
-
 .l-gridCard{
   display: grid;
   grid-template-columns: 54px 3fr repeat(4,1fr) 54px ;
