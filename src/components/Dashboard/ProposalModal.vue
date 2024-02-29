@@ -14,7 +14,21 @@
             <p class="mb-8 text-dark-pr text-center fs-18">請輸入退回原因</p>
           </div>
           <!-- 我覺得這段寬度很亂，看有沒有需要調整一下 -->
-          ｀
+          <div class="mt-12 px-10">
+              <div class="card bg-transparent border-0">
+                <div class="card-body bg-transparent pt-3 pb-6 ps-8 pe-3 border-gray-500 border-bottom d-flex justify-content-between">
+                  <div class="d-flex align-items-stretch">
+                    <img src="https://picsum.photos/id/684/600/400" alt="" class="rounded-pill me-10" width="48"
+                      height="48">
+                    <div class="d-flex flex-column justify-content-center text-white">
+                      <p class="mb-0  fs-12 lh-sm mb-1">2024.02.13</p>
+                      <p class="mb-0  ">小智的 MIT 夢 - 台灣學生的教育之旅</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <textarea class="form-control bg-transparent text-white mt-16" placeholder="輸入退回原因" id="" style="height: 150px"></textarea>
+            </div>
         </div>
         <div class="modal-footer border-top-0">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
