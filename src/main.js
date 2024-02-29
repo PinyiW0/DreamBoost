@@ -2,7 +2,7 @@ import './assets/scss/all.scss';
 import Popper from 'vue3-popper';
 import * as bootstrap from 'bootstrap';
 
-import { createApp } from 'vue';
+import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
@@ -24,8 +24,15 @@ import App from './App.vue';
 import router from './router';
 
 const app = createApp(App);
+const pinia = createPinia();
 
-app.use(createPinia());
+pinia.use(({ store }) => {
+  const tempStore = store;
+  tempStore.$router = markRaw(router);
+  tempStore.$http = markRaw(axios);
+});
+
+app.use(pinia);
 app.use(router);
 app.use(VueAxios, axios);
 app.use(VueSweetalert2);
