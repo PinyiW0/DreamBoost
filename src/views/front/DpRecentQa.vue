@@ -42,20 +42,6 @@
                   <h3 class="accordion-header" id="flush-headingOne">
                     <button class="accordion-button border-0 collapsed justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#faq-one">
                       <span class="fw-medium text-primary">請問如何收到產品呢？</span>
-                      <!-- <svg width="20" height="20"
-                        fill="currentColor"
-                        class="bi bi-plus-square faq__button-plus text-primary"
-                        viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                      </svg>
-                      <svg width="20" height="20"
-                        fill="currentColor"
-                        class="bi bi-dash-square faq__button-minus d-none"
-                        viewBox="0 0 16 16">
-                          <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                          <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
-                        </svg> -->
                     </button>
                   </h3>
                   <div id="faq-one" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
