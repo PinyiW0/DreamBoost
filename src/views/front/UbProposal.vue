@@ -15,22 +15,22 @@
     </div>
     <div class="mt-13">
       <div class="l-proposalCardGapY">
-        <div class="l-gridCard text-center">
-          <div class="l-gridCard__status bg-primary text-white px-5 d-flex align-items-center justify-content-center">創建中專案</div>
-          <!-- 要測試一下vertical-rl 為什麼左方會有一個空白，跟使用padding去強制變成一行有什麼不一樣（需要雙螢幕測試） -->
-          <!-- <div class="l-gridCard__status bg-primary px-5 d-flex align-items-center">創建中專案</div> -->
-          <div class="l-gridCard__titleName">專案名稱</div>
-          <div class="l-gridCard__titleTarget">目標金額</div>
-          <div class="l-gridCard__titleCreatedDate">創建日期</div>
-          <div class="l-gridCard__titleSubmitDate">提交日期</div>
-          <div class="l-gridCard__titleUpdateDate">上次修改日期</div>
-          <div class="l-gridCard__btnDeleteProposal"><button type="button" class="btn rounded-0 p-0 h-100 w-100">X</button></div>
-          <div class="l-gridCard__contentName">專案內容</div>
-          <div class="l-gridCard__contentTarget">$2000</div>
-          <div class="l-gridCard__contentCreatedDate">2023.12.31</div>
-          <div class="l-gridCard__contentSubmitDate">2023.12.31</div>
-          <div class="l-gridCard__contentUpdateDate">2023.12.31</div>
-          <div class="l-gridCard__btnViewDetail"><button type="button" class="btn p-0 rounded-0 bg-primary-light w-100 h-100">V</button></div>
+        <div class="l-gridCard text-center" v-for="(item,index) in 2" :key="`${index}-list`">
+          <div class="l-gridCard--centerChild l-gridCard__status bg-primary text-white px-5 d-flex align-items-center justify-content-center">創建中專案</div>
+          <div class="l-gridCard--centerChild l-gridCard__titleName">專案名稱</div>
+          <div class="l-gridCard--centerChild l-gridCard__titleTarget">目標金額</div>
+          <div class="l-gridCard--centerChild l-gridCard__titleCreatedDate">創建日期</div>
+          <div class="l-gridCard--centerChild l-gridCard__titleSubmitDate">提交日期</div>
+          <div class="l-gridCard--centerChild l-gridCard__titleUpdateDate">上次修改日期</div>
+          <div class="l-gridCard--centerChild l-gridCard__btnDeleteProposal"><button type="button" class="btn btn-light rounded-0 p-0 h-100 w-100"><CloseButtonIcon></CloseButtonIcon></button></div>
+          <div class="l-gridCard--centerChild l-gridCard__contentName">專案內容</div>
+          <div class="l-gridCard--centerChild l-gridCard__contentTarget">$2000</div>
+          <div class="l-gridCard--centerChild l-gridCard__contentCreatedDate">2023.12.31</div>
+          <div class="l-gridCard--centerChild l-gridCard__contentSubmitDate">2023.12.31</div>
+          <div class="l-gridCard--centerChild l-gridCard__contentUpdateDate">2023.12.31</div>
+          <div class="l-gridCard--centerChild l-gridCard__btnViewDetail"><button type="button" class="btn p-0 rounded-0 bg-primary-light w-100 h-100">
+            <DoubleAngleDownIcon width="24" height="24"></DoubleAngleDownIcon>
+          </button></div>
         </div>
       </div>
     </div>
@@ -38,16 +38,20 @@
 </template>
 
 <script>
+import CloseButtonIcon from '@/components/icons/CloseButton.vue';
+import DoubleAngleDownIcon from '@/components/icons/DoubleAngleDown.vue';
 
 export default {
   components: {
+    DoubleAngleDownIcon,
+    CloseButtonIcon,
   },
 };
 
 </script>
 <style scope lang="scss">
 .l-proposalCardGapY{
-  .l-proposalCardContainer + .l-proposalCardContainer{
+  .l-gridCard + .l-gridCard{
     margin-top: 40px;
   }
 }
@@ -60,6 +64,12 @@ export default {
     "status titleName titleTarget titleCreatedDate titleSubmitDate titleUpdateDate btnDeleteProposal"
     "status contentName contentTarget contentCreatedDate contentSubmitDate contentUpdateDate btnViewDetail";
 }
+.l-gridCard--centerChild{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .l-gridCard__status{
   grid-area:status;
 }
@@ -99,16 +109,32 @@ export default {
 .l-gridCard__btnViewDetail{
   grid-area:btnViewDetail;
 }
+// 以下沒有使用到
 .l-vertical-rl{
     writing-mode: vertical-rl;
 }
-// .l-margin-inline-start-0{
-//   margin-inline-start: 0;
-// }
-// .l-margin-inline-end-0{
-//   margin-inline-end: 0;
-// }
-*{
-  // outline: 1px solid red;
+.l-margin-inline-start-0{
+  margin-inline-start: 0;
+}
+.l-margin-inline-end-0{
+  margin-inline-end: 0;
+}
+.l-margin-block-start-0{
+  margin-block-start: 0;
+}
+.l-margin-block-end-0{
+  margin-block-end: 0;
+}
+.l-letter-spacing-1{
+  letter-spacing: 1px;
+}
+.l-letter-spacing-2{
+  letter-spacing: 2px;
+}
+.l-letter-spacing-3{
+  letter-spacing: 3px;
+}
+.l-letter-spacing-4{
+  letter-spacing: 4px;
 }
 </style>
