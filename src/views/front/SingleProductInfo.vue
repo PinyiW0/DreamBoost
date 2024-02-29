@@ -64,7 +64,7 @@
       </div>
       <div class="col-md-5">
         <div
-          class="mb-7 p-4 p-lg-12 pe-lg-23 border border-2 border-primary rounded-3"
+          class="mb-7 p-4 p-lg-12 pe-lg-23 border border-2 border-primary rounded-4"
         >
           <div class="d-flex align-items-center gap-6 mb-9">
             <div
@@ -73,28 +73,36 @@
             >
               <img
                 class="img-fluid object-fit-cover"
-                src="/images/logo-lg.png"
+                src="/images/home/icon112.svg"
                 alt=""
               />
             </div>
-            <h3 class="mb-0 fs-5 text-primary">樂樂許願池</h3>
+            <div class="d-flex flex-column">
+              <h3 class="mb-1 fs-4 text-primary">樂樂許願池</h3>
+              <div class="d-flex">
+                <i class="me-1 text-gray-600" style="width: 20px; margin-top: -3px">
+                  <UserGroup />
+                </i>
+                <p class="mb-0 text-gray-600">團隊提案者</p>
+              </div>
+            </div>
           </div>
           <div
             class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center"
           >
             <div class="mb-4 mb-lg-0">
-              <p class="mb-2 fw-bold">提案者名稱</p>
-              <h4 class="mb-0 fs-6">樂樂許願池文化有限公司</h4>
+              <p class="mb-2 fw-medium">提案者名稱</p>
+              <h4 class="mb-0 fs-6 fw-normal text-gray-600">樂樂許願池文化有限公司</h4>
             </div>
             <div>
-              <p class="mb-2 fw-bold">統一編號</p>
-              <h5 class="mb-0 fs-6">20230999</h5>
+              <p class="mb-2 fw-medium">統一編號</p>
+              <h5 class="mb-0 fs-6 fw-normal text-gray-600">20230999</h5>
             </div>
           </div>
         </div>
         <ul class="d-flex flex-column row-gap-7 list-unstyled">
           <li>
-            <div class="card py-9 px-6 border-2 border-primary">
+            <div class="card py-9 px-6 rounded-4 border-2 border-primary">
               <div
                 class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-2 text-white"
               >
@@ -102,7 +110,7 @@
                 <p class="d-flex align-items-end column-gap-1 mb-0 fs-5 lh-md">
                   只要
                   <span
-                    class="fs-3 text-secondary-light fw-bold lterSpc-8 lh-1"
+                    class="color-changing-text fs-3  fw-bold lterSpc-8 lh-1"
                   >
                     NT$666
                   </span>
@@ -213,12 +221,12 @@
           </li>
           <li class="position-relative">
             <div
-              class="position-absolute top-50 start-50 translate-middle z-1 d-flex justify-content-center align-items-center w-100 h-100 rounded-3 fs-2 text-white fw-bold"
+              class="position-absolute top-50 start-50 translate-middle z-1 d-flex justify-content-center align-items-center w-100 h-100 rounded-4 fs-2 text-white fw-bold"
               style="background: rgba(0, 0, 0, 0.5)"
             >
               已結束
             </div>
-            <div class="card py-9 px-6 border-2 border-primary">
+            <div class="card py-9 px-6 rounded-4 border-2 border-primary">
               <div
                 class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-2 text-white"
               >
@@ -341,11 +349,24 @@
   </section>
 </template>
 
+<style lang="scss" scoped>
+.color-changing-text {
+  animation: changeColor 1s infinite; /* 使用动画效果，持续5秒，无限循环 */
+}
+
+@keyframes changeColor {
+  0% { color: var(--bs-secondary-light); }
+  50% { color: var(--bs-secondary-light); }
+  100% { color: var(--bs-white);}
+}
+</style>
+
 <script>
 import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import CheckIcon from '@/components/icons/CheckIcon.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
+import UserGroup from '@/components/icons/UserGroup.vue';
 
 export default {
   components: {
@@ -353,6 +374,7 @@ export default {
     StarHollow,
     CheckIcon,
     RightArrow,
+    UserGroup,
   },
 };
 </script>

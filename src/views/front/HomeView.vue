@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row pt-18 pb-20 justify-content-center">
         <!-- 當前熱門專案 -->
-        <div class="col-12 col-xl-6 mb-18 mb-md-20 mb-xl-0 px-0 px-sm-6 px-lg-10 me-0 me-xl-10">
+        <div class="col-12 col-xl-6 mb-18 mb-md-20 mb-xl-0 px-3 px-sm-6 px-lg-10 me-0 me-xl-10">
           <div class="mb-3 d-none d-xl-block">
             <h1 class="title position-relative">當前熱門專案</h1>
             <p class="fs-6 text-primary-light mb-0">Current Hot Projects</p>
