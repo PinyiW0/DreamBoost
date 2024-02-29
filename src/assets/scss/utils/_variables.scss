@@ -515,15 +515,27 @@ $position-values: (
   n7: -7%,
   n5: 25%,
   0: 0,
+  1: 1%,
+  1a5: 1.7%,
+  2: 2%,
+  5: 5%,
   10: 10%,
   12: 12%,
   15: 15%,
+  17: 17%,
+  18: 18%,
   20: 20%,
+  22: 22%,
   24: 24%,
+  28: 28%,
   30: 30%,
   33: 33%,
   35: 35%,
+  37: 37%,
+  39: 39%,
   40: 40%,
+  41: 41%,
+  45: 45.3%,
   50: 50%,
   60: 60%,
   65: 65%,
@@ -534,6 +546,10 @@ $position-values: (
   85: 85%,
   90: 90%,
   100: 100%,
+  105: 105%,
+  108: 108%,
+  110: 110%,
+  120: 120%,
   150: 150%,
   180: 180%,
   450: 450%
@@ -1053,7 +1069,7 @@ $input-disabled-bg: var(--#{$prefix}secondary-bg) !default;
 $input-disabled-border-color: null !default;
 
 $input-color: var(--#{$prefix}body-color) !default;
-$input-border-color: var(--#{$prefix}border-color) !default;
+$input-border-color: $primary-light !default;//var(--#{$prefix}border-color) !default;
 $input-border-width: $input-btn-border-width !default;
 $input-box-shadow: var(--#{$prefix}box-shadow-inset) !default;
 
@@ -1482,20 +1498,20 @@ $pagination-border-width: var(--#{$prefix}border-width) !default;
 $pagination-margin-start: calc(
   #{$pagination-border-width} * -1
 ) !default; // stylelint-disable-line function-disallowed-list
-$pagination-border-color: var(--#{$prefix}border-color) !default;
+$pagination-border-color: $white;//var(--#{$prefix}border-color) !default;
 
-$pagination-focus-color: var(--#{$prefix}link-hover-color) !default;
-$pagination-focus-bg: var(--#{$prefix}secondary-bg) !default;
+$pagination-focus-color: $primary; //var(--#{$prefix}link-hover-color) !default;
+$pagination-focus-bg: $secondary;//var(--#{$prefix}secondary-bg) !default;
 $pagination-focus-box-shadow: $focus-ring-box-shadow !default;
 $pagination-focus-outline: 0 !default;
 
-$pagination-hover-color: var(--#{$prefix}link-hover-color) !default;
-$pagination-hover-bg: var(--#{$prefix}tertiary-bg) !default;
-$pagination-hover-border-color: var(--#{$prefix}border-color) !default; // Todo in v6: remove this?
+$pagination-hover-color: $primary; //var(--#{$prefix}link-hover-color) !default;
+$pagination-hover-bg: $white;//var(--#{$prefix}tertiary-bg) !default;
+$pagination-hover-border-color: $primary; //var(--#{$prefix}border-color) !default; // Todo in v6: remove this?
 
 $pagination-active-color: $component-active-color !default;
-$pagination-active-bg: $component-active-bg !default;
-$pagination-active-border-color: $component-active-bg !default;
+$pagination-active-bg:$secondary; // $component-active-bg !default;
+$pagination-active-border-color: $primary; //$component-active-bg !default;
 
 $pagination-disabled-color: var(--#{$prefix}secondary-color) !default;
 $pagination-disabled-bg: var(--#{$prefix}secondary-bg) !default;

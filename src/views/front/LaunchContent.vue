@@ -85,7 +85,7 @@ import LaunchNav from '@/components/launch/LaunchNav.vue';
 import PlusIcon from '@/components/icons/PlusIcon.vue';
 import XmarkIcon from '@/components/icons/XmarkIcon.vue';
 
-import imageUploadAdapter from '@/js/imageUploadAdapter';
+import imageUploadAdapter from '@/assets/js/imageUploadAdapter';
 
 export default {
   data() {

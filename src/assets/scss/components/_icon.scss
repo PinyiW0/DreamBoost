@@ -1,0 +1,15 @@
+//卡片 icon 留言＋星星 hover 效果
+.message-star-hover {
+  color: var(--bs-gray-700);
+
+  :hover {
+    color: var(--bs-primary);
+  }
+}
+
+.share-hover {
+  color: var(--bs-primary);
+  :hover {
+    color: var(--bs-danger)!important;
+  }
+}

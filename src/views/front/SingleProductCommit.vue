@@ -1,5 +1,5 @@
 <template>
-  <section class="container py-14">
+  <section class="container py-14 mb-16">
     <div class="row gy-10">
       <div class="col-lg-8">
         <p class="mb-8 py-6 text-center text-primary-dark lh-md bg-gray-200">
@@ -80,7 +80,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <img class="w-100 h-100" src="https://fakeimg.pl/416x489" alt="" />
+        <img class="w-100 h-100" src="/images/explore/ad.png" alt="" />
       </div>
     </div>
   </section>
@@ -118,3 +118,11 @@
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+  components: {
+  },
+};
+</script>

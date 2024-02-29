@@ -1,14 +1,7 @@
 <template>
   <main>
-      <!-- header 區域 -->
-      <header>
-        <VisitorHeaderAd2></VisitorHeaderAd2>
-        <VisitorHeader></VisitorHeader>
-      </header>
+    <HomeBn></HomeBn>
     <!-- banner 區域 -->
-    <!-- <div class="container-fluid pt-9">
-      <img src="../../../public/images/home/bn_01.png" class="img-fluid" alt="">
-    </div> -->
     <!-- 熱門推薦 -->
     <div class="container">
       <div class="row pt-18 pb-20 justify-content-center">
@@ -24,7 +17,7 @@
               <p class="fs-6 text-primary-light text-center mb-0">Current Hot Projects</p>
             </div>
           </div>
-          <img src="/public/images/home/liver.jpg" class="imgcover img-fluid rounded-3 mb-7 col-12" alt="">
+          <img src="/images/home/liver.jpg" class="imgcover img-fluid rounded-3 mb-7 col-12" alt="">
           <p class="fs-6 text-primary mb-3">#&nbsp;健康生活</p>
           <a class="title-hover" href="">
             <h4 class="mb-3">CodeGuardian - 工程師顧肝必備良品：LiverCare</h4>
@@ -33,7 +26,7 @@
             <br><br>不只守護你的程式碼，更守護你的肝臟！從忙碌的工作間隙中，讓你的肝臟放個假！我們關注你工作時肝臟的健康，讓你在敲程式碼的同時感受到樂趣與關懷！
           </p>
           <div class="progress bg-secondary-light mb-7" style="height: 10px;">
-            <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;;" aria-valuenow="50" aria-valuemin="0"
+            <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50" aria-valuemin="0"
               aria-valuemax="100"></div>
           </div>
           <div class="d-flex align-items-center justify-content-between">
@@ -46,15 +39,30 @@
                 <p class="mb-0 me-1">已募資</p>
                 <p class="fw-bold text-danger mb-0">80%</p>
               </div>
-              <a href="" class="d-flex me-3 align-items-center message-star-hover">
-                <p class="mb-0 me-1">15</p>
-                <MessageIcon class="fs-3 text-primary-dark" style="width:16px"></MessageIcon>
+              <div class="d-flex align-items-center gap-3">
+              <a href="">
+                <span class="d-flex gap-1 message-star-hover"
+                  >11
+                  <i
+                    class="d-block text-primary-dark"
+                    style="width: 14px; margin-top: -1px"
+                  >
+                    <MessageIcon />
+                  </i>
+                </span>
               </a>
-              <a href="" class="d-flex align-items-center message-star-hover">
-                <p class="mb-0 me-1">18</p>
-                <StarFull class="fs-3 text-secondary pb-1" style="width:18px"></StarFull>
-                <StarHollow class="text-primary-dark d-none" style="width:18px"></StarHollow>
+              <a href="">
+                <span class="d-flex gap-1 message-star-hover">
+                  18
+                  <i
+                    class="d-block text-secondary-dark"
+                    style="width: 16px; margin-top: -2px"
+                  >
+                    <StarFull />
+                  </i>
+                </span>
               </a>
+            </div>
             </div>
           </div>
         </div>
@@ -72,11 +80,11 @@
           </div>
           <ul class="list-unstyled px-0 px-lg-8 px-xl-0">
             <li class="mb-8">
-              <!-- 第一張卡片 -->
+              <!-- 第1張卡片 -->
               <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
                 <div class="row g-2 align-items-stretch">
                   <div class="col-md-4 pb-4">
-                    <img src="/public/images/home/liver.jpg" class="img-fluid object-fit-cover h-100 rounded-2" alt="">
+                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover h-100 rounded-2" alt="">
                   </div>
                   <div class="col-md-8 pb-4 mt-0">
                     <div class="card-body d-flex flex-column justify-items-between p-3">
@@ -88,7 +96,7 @@
                       </div>
                       <div>
                         <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;" aria-valuenow="50"
+                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;" aria-valuenow="50"
                             aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -96,14 +104,28 @@
                             <p class="fs-5 mb-0 me-1">已募資</p>
                             <p class="fs-5 fw-bold text-danger mb-0">80%</p>
                           </div>
-                          <div class="d-flex">
-                            <a href="" class="d-flex me-3 align-items-center message-star-hover">
-                              <p class="mb-0 me-1">11</p>
-                              <MessageIcon class="text-primary-dark" style="width:16px"></MessageIcon>
+                          <div class="d-flex align-items-center gap-3">
+                            <a href="">
+                              <span class="d-flex gap-1 message-star-hover"
+                                >11
+                                <i
+                                  class="d-block text-primary-dark"
+                                  style="width: 14px; margin-top: -1px"
+                                >
+                                  <MessageIcon />
+                                </i>
+                              </span>
                             </a>
-                            <a href="" class="d-flex align-items-center message-star-hover">
-                              <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary pb-1" style="width:18px"></StarFull>
+                            <a href="">
+                              <span class="d-flex gap-1 message-star-hover">
+                                18
+                                <i
+                                  class="d-block text-secondary-dark"
+                                  style="width: 16px; margin-top: -2px"
+                                >
+                                  <StarFull />
+                                </i>
+                              </span>
                             </a>
                           </div>
                         </div>
@@ -118,7 +140,7 @@
               <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
                 <div class="row g-2 align-items-stretch">
                   <div class="col-md-4 pb-4">
-                    <img src="/public/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
+                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
                   </div>
                   <div class="col-md-8 pb-4 mt-0">
                     <div class="card-body d-flex flex-column justify-items-between p-3">
@@ -130,7 +152,7 @@
                       </div>
                       <div>
                         <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;;" aria-valuenow="50"
+                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50"
                             aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -145,7 +167,7 @@
                             </a>
                             <a href="" class="d-flex align-items-center message-star-hover">
                               <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary pb-1" style="width:18px"></StarFull>
+                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
                             </a>
                           </div>
                         </div>
@@ -160,7 +182,7 @@
               <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
                 <div class="row g-2 align-items-stretch">
                   <div class="col-md-4 pb-4">
-                    <img src="/public/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
+                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
                   </div>
                   <div class="col-md-8 pb-4 mt-0">
                     <div class="card-body d-flex flex-column justify-items-between p-3">
@@ -172,7 +194,7 @@
                       </div>
                       <div>
                         <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar rounded-5" role="progressbar" style="width: 80%;;" aria-valuenow="50"
+                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50"
                             aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -187,7 +209,7 @@
                             </a>
                             <a href="" class="d-flex align-items-center message-star-hover">
                               <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary pb-1" style="width:18px"></StarFull>
+                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
                             </a>
                           </div>
                         </div>
@@ -201,7 +223,7 @@
           <!-- 按鈕 -->
           <div class="d-flex justify-content-center justify-content-lg-end align-items-center">
             <RouterLink to="/explore">
-              <button
+              <button type="button"
                 class="col-12 btn btn-secondary-light border border-2 border-primary rounded-3 px-lg-5 py-4 py-md-3 mt-5 mt-md-0 me-5 d-flex align-items-center justify-content-center btn-pr position-relative">
                 <span class="px-3 d-flex justify-content-center align-items-center">
                   <p class="mb-0 pe-2 fw-semibold">查看更多</p>
@@ -223,7 +245,7 @@
         </div>
       </div>
       <!-- 專案類別 -->
-      <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-1">
+      <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-3">
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <a
             class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
@@ -267,75 +289,8 @@
         </div>
       </div>
     </div>
-    <!-- 暫定跑馬燈效果 -->
-    <div class="container-fluid d-flex">
-      <marquee width="100%" behavior="scroll" direction="right" scrollamount="10">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-        <img
-          class="img-fluid me-7"
-          src="../../../public/images/home/pr-light-logo.svg"
-          alt="pr-light-logo">
-      </marquee>
-    </div>
+    <!-- 跑馬燈效果 -->
+    <MarqueeLight></MarqueeLight>
     <!-- 底色色塊裝飾 -->
     <div class="container-fluid bg-primary-light py-31 py-lg-13 mb-xl-2">
     </div>
@@ -370,98 +325,98 @@
         ></span>
       </div>
       <!-- 即將推出專案區 -->
-        <div class="container d-flex flex-column justify-content-center">
-          <div class="row g-10 mb-7 pb-27">
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_01.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+      <div class="container d-flex flex-column justify-content-center">
+        <div class="row g-10 mb-7 pb-27">
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_01.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_02.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_02.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_03.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_03.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_04.jpg"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_04.jpg"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_05.jpg"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_05.jpg"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_06.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_06.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_07.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_07.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-              <div class="position-relative rounded-3 h-100 csImage">
-                <a class="position-relative" href="">
-                  <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                  <img
-                  src="/public/images/home/cs_08.png"
-                  alt=""
-                  class="img-fluid object-fit-cover h-100 rounded-3">
-                </a>
-              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
+            <div class="position-relative rounded-3 h-100 csImage">
+              <a class="position-relative" href="">
+                <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
+                <img
+                src="/images/home/cs_08.png"
+                alt=""
+                class="img-fluid object-fit-cover h-100 rounded-3">
+              </a>
             </div>
           </div>
         </div>
+      </div>
     </div>
     <!-- 將創意專案轉換為現實 -->
     <section>
@@ -486,7 +441,7 @@
               <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">1,766</p>
               <p class="fs-5 fs-lg-12 text-white text-center mb-0">人已經參與募資計畫</p>
             </div>
-            <div class="col-11 col-md-5 col-lg-3 border border-white rounded-4 me-0 me-md-5 p-6">
+            <div class="col-11 col-md-5 col-lg-3 border border-white rounded-4 me-0 me-md-5 py-6 h-100">
               <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">123,766</p>
               <p class="fs-5 fs-lg-12 text-white text-center mb-0">贊助計畫</p>
             </div>
@@ -494,63 +449,12 @@
         </div>
       </div>
       <!-- 大logo跑馬燈 -->
-      <div class="container-fluid overflow-hidden">
-          <div class="d-flex align-items-center animateforrunright">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-                class="img-fluid me-10"
-                src="../../../public/images/home/big_DREAMBOOST.svg"
-                alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
-              alt="white-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/big_DREAMBOOST.svg"
-              alt="big_DREAMBOOST-logo">
-            <img
-              class="img-fluid me-10"
-              src="../../../public/images/home/db_logoAlong.svg"
-              alt="white-logo">
-          </div>
-      </div>
+      <MarqueeBiglogo></MarqueeBiglogo>
       <!-- 跑馬燈-下 -->
       <MarqueeDark></MarqueeDark>
     </section>
     <!-- 合作聯繫 -->
-    <section class="container">
+    <section class="container position-relative">
       <!-- 合作聯繫標題 -->
       <div class="pt-19 mb-3 d-none d-lg-block position-relative">
         <h2 class="fs-3 title position-relative">合作聯繫</h2>
@@ -572,7 +476,7 @@
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">媒體採訪</p>
               <div class="mx-5">
                 <img
-                 src="/public/images/home/cowork_01.png"
+                 src="/images/home/cowork_01.png"
                  class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
                  style="max-width: 296px;"
                  alt="活動邀約媒體採訪照片"
@@ -595,7 +499,7 @@
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">團隊提案</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">平台問題</p>
               <img
-                src="/public/images/home/cowork_02.png"
+                src="/images/home/cowork_02.png"
                 class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
                 style="max-width: 296px;"
                 alt="團隊提案平台問題照片"
@@ -617,7 +521,7 @@
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">集資產業相關</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">報導聯繫</p>
               <img
-                src="/public/images/home/cowork_03.png"
+                src="/images/home/cowork_03.png"
                 class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
                 style="max-width: 296px;"
                 alt="集資產業相關報導聯繫照片"
@@ -634,19 +538,14 @@
           </div>
         </li>
       </ul>
+      <div class="postion-relative">
+        <CouponCircle class=""></CouponCircle>
+      </div>
     </section>
-    <UserFooter></UserFooter>
   </main>
 </template>
 
 <style lang="scss">
-//卡片標題 hover 效果
-.title-hover {
-  color: var(--bs-gray-700);
-  :hover {
-    color: var(--bs-danger);
-  }
-}
 //卡片 icon 留言＋星星 hover 效果
 .message-star-hover {
   color: var(--bs-gray-700);
@@ -657,7 +556,7 @@
 //專案類別按鈕
 .categorylink {
   display: block;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 4px 6px rgba(14, 87, 106, 0.1);
@@ -673,27 +572,27 @@
 }
 // 挺好夢
 .categorylink1 {
-  background-image: url('../../../public/images/home/categorie_01.png');
+  background-image: url('/images/home/categorie_01.png');
 }
 //科技設計
 .categorylink2 {
-  background-image: url('../../../public/images/home/categorie_02.png');
+  background-image: url('/images/home/categorie_02.png');
 }
 //健康生活
 .categorylink3 {
-  background-image: url('../../../public/images/home/categorie_03.png');
+  background-image: url('/images/home/categorie_03.png');
 }
 //時尚
 .categorylink4 {
-  background-image: url('../../../public/images/home/categorie_04.png');
+  background-image: url('/images/home/categorie_04.png');
 }
 //公共在地
 .categorylink5 {
-  background-image: url('../../../public/images/home/categorie_05.png');
+  background-image: url('/images/home/categorie_05.png');
 }
 //美妝
 .categorylink6 {
-  background-image: url('../../../public/images/home/categorie_06.png');
+  background-image: url('/images/home/categorie_06.png');
 }
 //即將推出
 .csImage {
@@ -740,59 +639,28 @@
   }
 }
 
-//跑馬燈動畫
-:root {
-  --gap: 0px;
-  --scroll-end:-1500px;
-}
-.animateforrun {
-  animation : slide 30s linear infinite ;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-}
-@keyframes slide {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(var(--scroll-end));
-  }
-}
-.animateforrunright {
-  animation : slide2 30s linear infinite ;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-}
-@keyframes slide2 {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
 </style>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
-import UserFooter from '@/components/footer/UserFooter.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
-import StarHollow from '@/components/icons/StarHollow.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
+import MarqueeLight from '@/components/decoration/MarqueeLight.vue';
 import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
+import MarqueeBiglogo from '@/components/decoration/MarqueeBiglogo.vue';
+import CouponCircle from '@/components/rotate/CuponCircle.vue';
+import HomeBn from '@/components/bn/HomeBn.vue';
 
 export default {
   components: {
-    VisitorHeader,
     RightArrow,
     StarFull,
-    StarHollow,
     MessageIcon,
-    VisitorHeaderAd2,
-    UserFooter,
     MarqueeDark,
+    CouponCircle,
+    HomeBn,
+    MarqueeBiglogo,
+    MarqueeLight,
   },
 };
 </script>
