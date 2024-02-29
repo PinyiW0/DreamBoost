@@ -522,7 +522,8 @@ $position-values: (
   10: 10%,
   12: 12%,
   15: 15%,
-  16: 17%,
+  17: 17%,
+  18: 18%,
   20: 20%,
   22: 22%,
   24: 24%,
@@ -1068,7 +1069,7 @@ $input-disabled-bg: var(--#{$prefix}secondary-bg) !default;
 $input-disabled-border-color: null !default;
 
 $input-color: var(--#{$prefix}body-color) !default;
-$input-border-color: var(--#{$prefix}border-color) !default;
+$input-border-color: $primary-light !default;//var(--#{$prefix}border-color) !default;
 $input-border-width: $input-btn-border-width !default;
 $input-box-shadow: var(--#{$prefix}box-shadow-inset) !default;
 

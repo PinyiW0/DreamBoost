@@ -14,7 +14,7 @@
         <div>
           <!-- 信用卡圖 -->
           <img
-            src="../../../public/images/explore/light-credit-card.png"
+            src="/images/explore/light-credit-card.png"
             class="img-fluid position-absolute translate-middle top-90"
             alt="信用卡示意圖"
           >

@@ -80,7 +80,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <img class="w-100 h-100" src="../../../public/images/explore/ad.png" alt="" />
+        <img class="w-100 h-100" src="/images/explore/ad.png" alt="" />
       </div>
     </div>
   </section>
