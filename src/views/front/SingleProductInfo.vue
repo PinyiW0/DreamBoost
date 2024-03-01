@@ -64,7 +64,7 @@
       </div>
       <div class="col-md-5">
         <div
-          class="mb-7 p-4 p-lg-12 pe-lg-23 border border-2 border-primary rounded-4"
+          class="mb-7 p-4 p-lg-12 pe-lg-23 border border-2 border-primary rounded-3"
         >
           <div class="d-flex align-items-center gap-6 mb-9">
             <div
@@ -101,6 +101,9 @@
           </div>
         </div>
         <ul class="d-flex flex-column row-gap-7 list-unstyled">
+          <li>
+            <PlanCard />
+          </li>
           <li>
             <div class="card py-9 px-6 rounded-4 border-2 border-primary">
               <div
@@ -221,14 +224,14 @@
           </li>
           <li class="position-relative">
             <div
-              class="position-absolute top-50 start-50 translate-middle z-1 d-flex justify-content-center align-items-center w-100 h-100 rounded-4 fs-2 text-white fw-bold"
+              class="position-absolute top-50 start-50 translate-middle z-1 d-flex justify-content-center align-items-center w-100 h-100 rounded-3 fs-2 text-white fw-bold"
               style="background: rgba(0, 0, 0, 0.5)"
             >
               已結束
             </div>
-            <div class="card py-9 px-6 rounded-4 border-2 border-primary">
+            <div class="card pt-6 pb-9 px-6 rounded-3 border-2 border-primary">
               <div
-                class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-2 text-white"
+                class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-1 text-white"
               >
                 <h3 class="card-title fs-5 mb-0">相信他，所以支持他</h3>
                 <p class="d-flex align-items-end column-gap-1 mb-0 fs-5 lh-md">
@@ -241,7 +244,7 @@
                 </p>
               </div>
               <img
-                class="img-fluid mb-3 w-100 rounded-3"
+                class="img-fluid mb-6 w-100 rounded-3"
                 src="https://fakeimg.pl/375x210"
                 alt=""
               />
@@ -249,7 +252,7 @@
                 class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-6"
               >
                 <div>
-                  <h4 class="mb-0 fw-bold text-primary">早鳥價 ｜系列全套組</h4>
+                  <h4 class="mb-1 fw-bold text-primary">早鳥價 ｜系列全套組</h4>
                   <p class="mb-0 text-gray-500">
                     預定售價 NT$ 5,290 ，現省 NT$ 2,710
                   </p>
@@ -349,24 +352,13 @@
   </section>
 </template>
 
-<style lang="scss" scoped>
-.color-changing-text {
-  animation: changeColor 1s infinite; /* 使用动画效果，持续5秒，无限循环 */
-}
-
-@keyframes changeColor {
-  0% { color: var(--bs-secondary-light); }
-  50% { color: var(--bs-secondary-light); }
-  100% { color: var(--bs-white);}
-}
-</style>
-
 <script>
 import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import CheckIcon from '@/components/icons/CheckIcon.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import UserGroup from '@/components/icons/UserGroup.vue';
+import PlanCard from '@/components/cards/PlanCard.vue';
 
 export default {
   components: {
@@ -375,6 +367,7 @@ export default {
     CheckIcon,
     RightArrow,
     UserGroup,
+    PlanCard,
   },
 };
 </script>

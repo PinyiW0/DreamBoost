@@ -1,8 +1,4 @@
 <template>
-  <header>
-    <UserHeaderAd></UserHeaderAd>
-    <UserHeader></UserHeader>
-  </header>
   <!-- 頁面區塊 -->
   <div class="bg-bgc-paper py-8">
     <nav class="container">
@@ -94,13 +90,9 @@
 </style>
 
 <script>
-import UserHeaderAd from '@/components/header/UserHeaderAd.vue';
-import UserHeader from '@/components/header/UserHeader.vue';
 
 export default {
   components: {
-    UserHeader,
-    UserHeaderAd,
   },
 };
 

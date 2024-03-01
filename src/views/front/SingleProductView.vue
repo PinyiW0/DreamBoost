@@ -35,7 +35,7 @@
           ></div>
           <div class="d-flex mb-10">
             <div class="d-flex align-items-center gap-1 me-21">
-              <i style="width: 24px; margin-top: -4px">
+              <i style="width: 22px; margin-top: -2px">
                 <UserIcon />
               </i>
               <p class="mb-0 text-gray-600">
