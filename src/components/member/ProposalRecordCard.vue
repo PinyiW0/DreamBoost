@@ -40,12 +40,12 @@
     </div>
     <div class="l-gridCard--centerChild l-gridCard__btnViewDetail ">
       <button type="button"
-        class="btn p-0 rounded-0 bg-primary-light w-100 h-100 l-btn-detail border border-primary border-top-0"
-        data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        class="btn p-0 rounded-0 bg-primary-light w-100 h-100 l-btn-detail border border-primary border-top-0" @click="show">
         <DoubleAngleDownIcon width="24" height="24"></DoubleAngleDownIcon>
       </button>
     </div>
-    <div class="collapse" id="collapseExample">
+    <!-- collapse -->
+    <div ref="collapseContent" class="collapse">
       <p>展開內容</p>
     </div>
   </div>
@@ -57,13 +57,27 @@ import DoubleAngleDownIcon from '@/components/icons/DoubleAngleDown.vue';
 export default {
   data() {
     return {
+      collapseInstance: '',
     };
   },
   methods: {
+    show() {
+      this.collapseInstance.show();
+    },
+    hide() {
+      this.collapseInstance.hide();
+    },
   },
   components: {
     DoubleAngleDownIcon,
     CloseButtonIcon,
+  },
+  mounted() {
+    // console.log('hi');
+    // console.log(this.$bs);
+    this.collapseInstance = new this.$bs.Collapse(this.$refs.collapseContent, {
+      toggle: false,
+    });
   },
 };
 </script>
@@ -78,12 +92,6 @@ export default {
   &:hover {
     background-color: var(--bs-primary) !important;
     color: var(--bs-secondary) !important;
-  }
-}
-
-.l-proposalCardGapY {
-  .l-gridCard+.l-gridCard {
-    margin-top: 40px;
   }
 }
 
@@ -155,39 +163,4 @@ export default {
 }
 
 // 以下沒有使用到
-.l-vertical-rl {
-  writing-mode: vertical-rl;
-}
-
-.l-margin-inline-start-0 {
-  margin-inline-start: 0;
-}
-
-.l-margin-inline-end-0 {
-  margin-inline-end: 0;
-}
-
-.l-margin-block-start-0 {
-  margin-block-start: 0;
-}
-
-.l-margin-block-end-0 {
-  margin-block-end: 0;
-}
-
-.l-letter-spacing-1 {
-  letter-spacing: 1px;
-}
-
-.l-letter-spacing-2 {
-  letter-spacing: 2px;
-}
-
-.l-letter-spacing-3 {
-  letter-spacing: 3px;
-}
-
-.l-letter-spacing-4 {
-  letter-spacing: 4px;
-}
 </style>
