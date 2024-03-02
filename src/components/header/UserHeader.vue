@@ -1,6 +1,6 @@
 <template>
   <header>
-    <UserHeaderAd />
+    <VisitorHeaderAd />
     <nav class="navbar navbar-expand-md container-fluid border-bottom border-primary-light shadow-sm">
       <div class="container d-flex justify-content-between align-items-center">
         <RouterLink to="/home">
@@ -32,7 +32,7 @@
               </RouterLink>
             </li>
             <li class="nav-item d-block d-lg-none">
-              <RouterLink to="/member"
+              <RouterLink to="/userboard/user/personal"
                 class="nav-link me-6 router-link-active text-center fs-18 fs-lg-5 RoterLink py-4 py-md-0 py-lg-4">
                 會員中心
               </RouterLink>
@@ -49,16 +49,40 @@
                 <p class="mb-0"> DreamBoost, 您好</p>
               </button>
               <ul class="dropdown-menu ms-8">
-                <li><RouterLink to="userboard/:personal" class="dropdown-item text-center">個人頁面</RouterLink></li>
+                <li>
+                  <RouterLink to="/userboard/user/personal" class="dropdown-item text-center">
+                    個人頁面
+                  </RouterLink>
+                </li>
                 <li><hr class="dropdown-divider mx-6"></li>
-                <li><a class="dropdown-item text-center" href="#">專案收藏</a></li>
-                <li><a class="dropdown-item text-center" href="#">贊助紀錄</a></li>
-                <li><a class="dropdown-item text-center" href="#">提案紀錄</a></li>
-                <li><a class="dropdown-item text-center" href="#">最新通知</a></li>
+                <li>
+                  <router-link to="/userboard/user/favorite" class="dropdown-item text-center">
+                    專案收藏
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/userboard/user/sponsorrecord" class="dropdown-item text-center">
+                    贊助紀錄
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/userboard/user/proposalrecord" class="dropdown-item text-center">
+                    提案紀錄
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/userboard/user/news" class="dropdown-item text-center">
+                    最新通知
+                  </router-link>
+                </li>
                 <li><hr class="dropdown-divider mx-6 mb-7"></li>
                 <li>
-                  <button class="dropdown-item text-center mb-1">
-                    <span class="px-9 py-2 position-relative border border-2 border-primary text-primary rounded-3">登出</span>
+                  <button
+                    @click.prevent="logout"
+                    class="dropdown-item text-center mb-1">
+                    <span class="px-9 py-2 position-relative border border-2 border-primary text-primary rounded-3">
+                      登出
+                    </span>
                   </button>
                 </li>
               </ul>
@@ -108,26 +132,40 @@
 
 <script>
 import SearchIcon from '@/components/icons/SearchIcon.vue';
-import UserHeaderAd from '@/components/header/UserHeaderAd.vue';
+import VisitorHeaderAd from '@/components/header/VisitorHeaderAd.vue';
 
 export default {
   data() {
     return {
-      userHeader: {},
+      userHeader: null,
     };
   },
   watch: {
     $route() {
-      this.vistorHeader.hide();
+      this.userHeader.hide();
+    },
+  },
+  methods: {
+    logout() {
+      document.cookie = ' db=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      this.$emit('logout');
+      this.$router.push({ name: 'home' });
     },
   },
   mounted() {
     // 將 Collapse 實體化，設定一開始的 toggle 為 false，選單在一開始維持折疊狀態
-    this.vistorHeader = new this.$bs.Collapse(this.$refs.vistorHeader, { toggle: false });
+    this.userHeader = new this.$bs.Collapse(this.$refs.userHeader, { toggle: false });
+    // this.logout();
+  },
+  beforeUnmount() {
+    // 在組件被銷毀前清理或銷毀 Collapse 實例
+    if (this.userHeader) {
+      this.userHeader.dispose();
+    }
   },
   components: {
     SearchIcon,
-    UserHeaderAd,
+    VisitorHeaderAd,
   },
 };
 </script>

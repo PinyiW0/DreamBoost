@@ -73,28 +73,39 @@
             >
               <img
                 class="img-fluid object-fit-cover"
-                src="/images/logo-lg.png"
+                src="/images/home/icon112.svg"
                 alt=""
               />
             </div>
-            <h3 class="mb-0 fs-5 text-primary">樂樂許願池</h3>
+            <div class="d-flex flex-column">
+              <h3 class="mb-1 fs-4 text-primary">樂樂許願池</h3>
+              <div class="d-flex">
+                <i class="me-1 text-gray-600" style="width: 20px; margin-top: -3px">
+                  <UserGroup />
+                </i>
+                <p class="mb-0 text-gray-600">團隊提案者</p>
+              </div>
+            </div>
           </div>
           <div
             class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center"
           >
             <div class="mb-4 mb-lg-0">
-              <p class="mb-2 fw-bold">提案者名稱</p>
-              <h4 class="mb-0 fs-6">樂樂許願池文化有限公司</h4>
+              <p class="mb-2 fw-medium">提案者名稱</p>
+              <h4 class="mb-0 fs-6 fw-normal text-gray-600">樂樂許願池文化有限公司</h4>
             </div>
             <div>
-              <p class="mb-2 fw-bold">統一編號</p>
-              <h5 class="mb-0 fs-6">20230999</h5>
+              <p class="mb-2 fw-medium">統一編號</p>
+              <h5 class="mb-0 fs-6 fw-normal text-gray-600">20230999</h5>
             </div>
           </div>
         </div>
         <ul class="d-flex flex-column row-gap-7 list-unstyled">
           <li>
-            <div class="card py-9 px-6 border-2 border-primary">
+            <PlanCard />
+          </li>
+          <li>
+            <div class="card py-9 px-6 rounded-4 border-2 border-primary">
               <div
                 class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-2 text-white"
               >
@@ -102,7 +113,7 @@
                 <p class="d-flex align-items-end column-gap-1 mb-0 fs-5 lh-md">
                   只要
                   <span
-                    class="fs-3 text-secondary-light fw-bold lterSpc-8 lh-1"
+                    class="color-changing-text fs-3  fw-bold lterSpc-8 lh-1"
                   >
                     NT$666
                   </span>
@@ -218,9 +229,9 @@
             >
               已結束
             </div>
-            <div class="card py-9 px-6 border-2 border-primary">
+            <div class="card pt-6 pb-9 px-6 rounded-3 border-2 border-primary">
               <div
-                class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-2 text-white"
+                class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-1 text-white"
               >
                 <h3 class="card-title fs-5 mb-0">相信他，所以支持他</h3>
                 <p class="d-flex align-items-end column-gap-1 mb-0 fs-5 lh-md">
@@ -233,7 +244,7 @@
                 </p>
               </div>
               <img
-                class="img-fluid mb-3 w-100 rounded-3"
+                class="img-fluid mb-6 w-100 rounded-3"
                 src="https://fakeimg.pl/375x210"
                 alt=""
               />
@@ -241,7 +252,7 @@
                 class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-6"
               >
                 <div>
-                  <h4 class="mb-0 fw-bold text-primary">早鳥價 ｜系列全套組</h4>
+                  <h4 class="mb-1 fw-bold text-primary">早鳥價 ｜系列全套組</h4>
                   <p class="mb-0 text-gray-500">
                     預定售價 NT$ 5,290 ，現省 NT$ 2,710
                   </p>
@@ -346,6 +357,8 @@ import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import CheckIcon from '@/components/icons/CheckIcon.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
+import UserGroup from '@/components/icons/UserGroup.vue';
+import PlanCard from '@/components/cards/PlanCard.vue';
 
 export default {
   components: {
@@ -353,6 +366,8 @@ export default {
     StarHollow,
     CheckIcon,
     RightArrow,
+    UserGroup,
+    PlanCard,
   },
 };
 </script>

@@ -1,0 +1,77 @@
+<template>
+  <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
+    <div class="row g-2 align-items-stretch">
+      <div class="col-md-4 pb-4">
+        <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover h-100 rounded-2" alt="">
+      </div>
+      <div class="col-md-8 pb-4 mt-0">
+        <div class="card-body d-flex flex-column justify-items-between p-3">
+          <div>
+            <p class="card-text fs-6 text-primary mb-1">#&nbsp;健康生活</p>
+            <a class="title-hover" href="">
+              <h4 class="card-title fs-5 mb-11">CodeGuardian - 工程師顧肝必備良品：LiverCare</h4>
+            </a>
+          </div>
+          <div>
+            <div class="progress bg-secondary-light mb-4" style="height: 6px;">
+              <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;" aria-valuenow="50"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex me-3">
+                <p class="fs-5 mb-0 me-1">已募資</p>
+                <p class="fs-5 fw-bold text-danger mb-0">80%</p>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <a href="">
+                  <span class="d-flex gap-1 message-star-hover"
+                    >11
+                    <i
+                      class="d-block text-primary-dark"
+                      style="width: 14px; margin-top: -1px"
+                    >
+                      <MessageIcon />
+                    </i>
+                  </span>
+                </a>
+                <a href="">
+                  <span class="d-flex gap-1 message-star-hover">
+                    18
+                    <i
+                      class="d-block text-secondary-dark"
+                      style="width: 16px; margin-top: -2px"
+                    >
+                      <StarFull />
+                    </i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+//卡片 icon 留言＋星星 hover 效果
+.message-star-hover {
+  color: var(--bs-gray-700);
+  :hover {
+    color: var(--bs-primary);
+  }
+}
+</style>
+
+<script>
+import StarFull from '@/components/icons/StarFull.vue';
+import MessageIcon from '@/components/icons/MessageIcon.vue';
+
+export default {
+  components: {
+    StarFull,
+    MessageIcon,
+  },
+};
+</script>
