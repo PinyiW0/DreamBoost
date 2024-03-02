@@ -32,7 +32,7 @@
               </RouterLink>
             </li>
             <li class="nav-item d-block d-lg-none">
-              <RouterLink to="/member"
+              <RouterLink to="/userboard/user/personal"
                 class="nav-link me-6 router-link-active text-center fs-18 fs-lg-5 RoterLink py-4 py-md-0 py-lg-4">
                 會員中心
               </RouterLink>
@@ -50,28 +50,28 @@
               </button>
               <ul class="dropdown-menu ms-8">
                 <li>
-                  <RouterLink to="userboard/user/personal" class="dropdown-item text-center">
+                  <RouterLink to="/userboard/user/personal" class="dropdown-item text-center">
                     個人頁面
                   </RouterLink>
                 </li>
                 <li><hr class="dropdown-divider mx-6"></li>
                 <li>
-                  <router-link to="userboard/user/favorite" class="dropdown-item text-center">
+                  <router-link to="/userboard/user/favorite" class="dropdown-item text-center">
                     專案收藏
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="userboard/user/sponsorrecord" class="dropdown-item text-center">
+                  <router-link to="/userboard/user/sponsorrecord" class="dropdown-item text-center">
                     贊助紀錄
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="userboard/user/proposalrecord" class="dropdown-item text-center">
+                  <router-link to="/userboard/user/proposalrecord" class="dropdown-item text-center">
                     提案紀錄
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="userboard/user/news" class="dropdown-item text-center">
+                  <router-link to="/userboard/user/news" class="dropdown-item text-center">
                     最新通知
                   </router-link>
                 </li>
@@ -148,13 +148,14 @@ export default {
   methods: {
     logout() {
       document.cookie = ' db=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      this.$emit('logout');
       this.$router.push({ name: 'home' });
     },
   },
   mounted() {
     // 將 Collapse 實體化，設定一開始的 toggle 為 false，選單在一開始維持折疊狀態
     this.userHeader = new this.$bs.Collapse(this.$refs.userHeader, { toggle: false });
-    this.logout();
+    // this.logout();
   },
   beforeUnmount() {
     // 在組件被銷毀前清理或銷毀 Collapse 實例

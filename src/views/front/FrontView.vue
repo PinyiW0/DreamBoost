@@ -1,10 +1,10 @@
 <template>
   <div class="min-vh-100 d-flex flex-column">
     <div v-if="isLoggedIn">
-      <VisitorHeader />
+        <UserHeader  @logout="logout"/>
     </div>
     <div v-else>
-      <UserHeader />
+      <VisitorHeader />
     </div>
     <div class="flex-grow-1">
       <RouterView></RouterView>
@@ -27,25 +27,34 @@ export default {
     };
   },
   methods: {
-    async checkUser() {
-      try {
-        const token = document.cookie.replace(/(?:(?:^|.*;\s*)leleToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-        this.$http.defaults.headers.common.Authorization = token;
-        await this.$http.get(`${VITE_URL}/dreamboost/user/normal/userprofile`);
-        this.isLoggedIn = true;
-      } catch (error) {
-        this.$router.push({ name: 'member' });
-        // 這邊要加請先登入會員提示
-      }
+    checkUser() {
+      const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
+      this.$http.defaults.headers.common.Authorization = token;
+      this.$http.post(`${VITE_URL}/dreamboost/checktoken`)
+        .then((res) => {
+          if (res.data.success) {
+            this.isLoggedIn = true;
+          }
+        })
+        .catch(() => {
+          this.$router.push({ name: 'member' });
+          // 這邊要加請先登入會員提示
+        });
+    },
+    logout() {
+      this.isLoggedIn = false;
+    },
+  },
+  watch: {
+    // 因為用cookie操控所以要用router監控
+    $route() {
+      this.checkUser();
     },
   },
   components: {
     VisitorHeader,
     UserHeader,
     UserFooter,
-  },
-  mounted() {
-    this.checkUser();
   },
 };
 </script>
