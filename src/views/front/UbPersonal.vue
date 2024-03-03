@@ -4,7 +4,7 @@
     <section class="container pt-20 mx-auto">
       <div class="col-7 d-flex flex-column flex-lg-row align-items-center justify-content-center mx-auto mb-14">
         <img
-          :src="imageURL"
+          src=""
           class="rounded-circle img-fluid object-fit-cover d-block me-0 me-lg-14 mb-6 mb-lg-0"
           style="width: 180px;height: 180px;"
           alt="會員自行上傳的圖像">
@@ -33,7 +33,7 @@
         <label for="addressee" class="form-label fw-medium text-gray-500">
           註冊信箱
         </label>
-        <input class="form-control fs-6 border-primary-light py-2" id="addressee" placeholder="abc@gmail.com.tw" disabled>
+        <input class="form-control fs-6 border-primary-light py-2" id="addressee" :placeholder="userMail" disabled>
         <p class="fs-6 text-gray-500 mt-1">此為您的登入帳號</p>
       </div>
       <div class="col-12 col-lg-10 mb-6 mb-lg-11 mx-auto">
@@ -87,38 +87,76 @@ export default {
   },
   data() {
     return {
-      imageURL: {},
+      imageURL: '',
+      userInfo: {
+        userAvatarImage: {},
+        userBirthday: {},
+        userGender: {},
+        userTelephone: '',
+        customizeProperty: '',
+        userMail: '',
+      },
     };
   },
   mounted() {
-    this.userUploadImage();
+    // this.getBannerData();
+    // this.userUploadImage();
+    this.checkUser();
+    // this.getUserData();
   },
   methods: {
-    userUploadImage() {
+    // API限制所以要先驗證登入狀態
+    checkUser() {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
       this.$http.defaults.headers.common.Authorization = token;
-      // 創建一個隱藏的 input[type="file"] 元素
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.style.display = 'none';
-      // 當選擇檔案時執行的處理函數
-      input.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        const formData = new FormData();
-        formData.append('image', file);
-        this.$http.post(`${VITE_URL}/dreamboost/upload`, formData, { Authorization: token })
-          .then((res) => {
-            if (res.data.success) {
-              this.imageURL = res.data.data.result;
-            }
-          })
-          .catch((err) => {
-            console.log(err, '沒有上傳成功');
-          });
-      });
-      input.click();
+      this.$http.post(`${VITE_URL}/dreamboost/checktoken`)
+        .then((res) => {
+          if (res.data.success) {
+            this.userMail = res.data.data.result.username;
+          }
+        })
+        .catch(() => {
+          this.$router.push({ name: 'member' });
+        });
     },
   },
+  // getUserData() {
+  //   const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
+  //   this.$http.defaults.headers.common.Authorization = token;
+  //   // const userInfo = {};
+  //   this.$http.get(`${VITE_URL}/dreamboost/user/normal/userprofile`, { Authorization: token })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.response);
+  //     });
+  // },
+  // userUploadImage() {
+  //   const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
+  //   this.$http.defaults.headers.common.Authorization = token;
+  //   // 創建一個隱藏的 input[type="file"] 元素
+  //   const input = document.createElement('input');
+  //   input.type = 'file';
+  //   input.style.display = 'none';
+  //   // 當選擇檔案時執行的處理函數
+  //   input.addEventListener('change', (event) => {
+  //     const file = event.target.files[0];
+  //     const formData = new FormData();
+  //     formData.append('image', file);
+  //     this.$http.post(`${VITE_URL}/dreamboost/upload`, formData, { Authorization: token })
+  //       .then((res) => {
+  //         if (res.data.success) {
+  //           this.imageURL = res.data.data.result;
+  //
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.log(err, '沒有上傳成功');
+  //       });
+  //   });
+  //   input.click();
+  // },
 };
 
 </script>
