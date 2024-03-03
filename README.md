@@ -1,4 +1,4 @@
-# - ![db-logo](https://raw.githubusercontent.com/PinyiW0/DreamBoost/b9f75522c7091e2a7e1dae8c7cb7e818b6974727/public/images/home/userIcon36.svg) Dreamboost 募資夢想網
+# ![db-logo](https://raw.githubusercontent.com/PinyiW0/DreamBoost/b9f75522c7091e2a7e1dae8c7cb7e818b6974727/public/images/home/userIcon36.svg) Dreamboost 募資夢想網
 
 * [GitHub repo](https://github.com/PinyiW0/DreamBoost/tree/main)
 * [gh-pages](https://pinyiw0.github.io/DreamBoost/#/home)
@@ -48,13 +48,15 @@
 - [Pixels](https://www.pexels.com/zh-tw/)
 - [Unsplash](https://unsplash.com/)
 
+
+---
+
 本專題僅為學習用途,不做任何商業使用
 
 ---
 
-## Recommended IDE Setup
 
----
+## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
