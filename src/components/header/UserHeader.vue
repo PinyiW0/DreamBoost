@@ -155,7 +155,6 @@ export default {
   mounted() {
     // 將 Collapse 實體化，設定一開始的 toggle 為 false，選單在一開始維持折疊狀態
     this.userHeader = new this.$bs.Collapse(this.$refs.userHeader, { toggle: false });
-    // this.logout();
   },
   beforeUnmount() {
     // 在組件被銷毀前清理或銷毀 Collapse 實例

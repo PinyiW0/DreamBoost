@@ -5,7 +5,7 @@
       <ul class="nav justify-content-md-center gap-19">
         <li class="nav-item">
           <RouterLink
-            to="/userboard/動態路由需改成v-bind/personal"
+            to="/userboard/user/personal"
             class="userbd-link"
           >
             個人頁面
@@ -13,7 +13,7 @@
         </li>
         <li class="nav-item">
           <RouterLink
-            to="/userboard/動態路由需改成v-bind/favorite"
+            to="/userboard/user/favorite"
             class="userbd-link"
           >
             收藏專案
@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item">
           <RouterLink
-            to="/userboard/動態路由需改成v-bind/sponsorrecord"
+            to="/userboard/user/sponsorrecord"
             class="userbd-link"
           >
             贊助紀錄
@@ -29,7 +29,7 @@
         </li>
         <li class="nav-item">
           <RouterLink
-            to="/userboard/動態路由需改成v-bind/proposalrecord"
+            to="/userboard/user/proposalrecord"
             class="userbd-link"
           >
             提案紀錄
@@ -37,7 +37,7 @@
         </li>
         <li class="nav-item">
           <RouterLink
-            to="/userboard/動態路由需改成v-bind/news"
+            to="/userboard/user/news"
             class="userbd-link"
           >
             最新通知
