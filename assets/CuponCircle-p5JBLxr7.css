@@ -1,0 +1,1 @@
+.cuponcircle{width:120px;animation-name:rotate;animation-duration:8s;animation-timing-function:linear;animation-iteration-count:infinite;animation-fill-mode:both}.cupon-hover:hover{scale:1.1;transition:.3s}@keyframes rotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
