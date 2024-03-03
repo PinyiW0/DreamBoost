@@ -101,6 +101,24 @@ const router = createRouter({
           component: () => import('../views/front/ForgetPassord.vue'),
         },
         {
+          path: 'proposalmanage/:id',
+          component: () => import('../views/front/ProposalManage.vue'),
+          children: [
+            {
+              path: 'salesdata',
+              component: () => import('../views/front/ProposalManageSalesData.vue'),
+            },
+            {
+              path: 'orders',
+              component: () => import('../views/front/ProposalManageOrders.vue'),
+            },
+            {
+              path: 'replymessage',
+              component: () => import('../views/front/ProposalManageReplyMessage.vue'),
+            },
+          ],
+        },
+        {
           // 會員後台
           path: 'userboard/:id',
           component: () => import('../views/front/UserBoard.vue'),

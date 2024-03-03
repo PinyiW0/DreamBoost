@@ -31,5 +31,5 @@
       </div>
     </div>
   </section>
-  <hr class="border-2 border-primary-light">
+  <!-- <hr class="border-2 border-primary-light"> -->
 </template>
