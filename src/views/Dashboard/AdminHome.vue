@@ -18,10 +18,10 @@
     <div class="bg-gray-800">
       <div class="bg-white bg-opacity-25" :style="{'--bs-bg-opacity': '.2'}">
         <ul class="list-unstyled d-flex justify-content-center py-4 l-ListGap">
-          <li><RouterLink href="" class="pt-2 pb-2 d-block px-8 l-NavLink" to="/admin/home/ManageAccount">管理帳號</RouterLink></li>
-          <li><RouterLink href="" class="pt-2 pb-2 d-block px-8 l-NavLink" to="/admin/home/ReviewProposals">方案審核</RouterLink></li>
-          <li><RouterLink href="" class="pt-2 pb-2 d-block px-8 l-NavLink" to="/admin/home/SalesData">銷售數據</RouterLink></li>
-          <li><RouterLink href="" class="pt-2 pb-2 d-block px-8 l-NavLink" to="/admin/home/UpdateBanner">更換BN</RouterLink></li>
+          <li><RouterLink  class="pt-2 pb-2 d-block px-0 px-sm-8 l-NavLink" to="/admin/home/manageaccount">管理帳號</RouterLink></li>
+          <li><RouterLink  class="pt-2 pb-2 d-block px-0 px-sm-8 l-NavLink" to="/admin/home/reviewproposals">方案審核</RouterLink></li>
+          <li><RouterLink  class="pt-2 pb-2 d-block px-0 px-sm-8 l-NavLink" to="/admin/home/salesdata">銷售數據</RouterLink></li>
+          <li><RouterLink  class="pt-2 pb-2 d-block px-0 px-sm-8 l-NavLink" to="/admin/home/updatebanner">更換BN</RouterLink></li>
         </ul>
       </div>
     </div>

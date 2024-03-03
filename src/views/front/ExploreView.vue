@@ -29,6 +29,9 @@
           </select>
         </div>
       </div>
+      <div class="postion-relative d-none d-xxl-block">
+        <CouponCircle class="top-24 start-20"></CouponCircle>
+      </div>
       <!-- 專案類別 -->
       <div class="container pt-8 pb-5">
         <!-- 專案類別 -->
@@ -127,7 +130,7 @@
 //專案類別按鈕
 .categorylink {
   display: block;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 4px 6px rgba(14, 87, 106, 0.1);
@@ -143,38 +146,40 @@
 }
 // 挺好夢
 .categorylink1 {
-  background-image: url('../../../public/images/home/categorie_01.png');
+  background-image: url('/images/home/categorie_01.png');
 }
 //科技設計
 .categorylink2 {
-  background-image: url('../../../public/images/home/categorie_02.png');
+  background-image: url('/images/home/categorie_02.png');
 }
 //健康生活
 .categorylink3 {
-  background-image: url('../../../public/images/home/categorie_03.png');
+  background-image: url('/images/home/categorie_03.png');
 }
 //時尚
 .categorylink4 {
-  background-image: url('../../../public/images/home/categorie_04.png');
+  background-image: url('/images/home/categorie_04.png');
 }
 //公共在地
 .categorylink5 {
-  background-image: url('../../../public/images/home/categorie_05.png');
+  background-image: url('/images/home/categorie_05.png');
 }
 //美妝
 .categorylink6 {
-  background-image: url('../../../public/images/home/categorie_06.png');
+  background-image: url('/images/home/categorie_06.png');
 }
 </style>
 
 <script>
 import CardDefault from '@/components/cards/CardDefault.vue';
 import AnglesDown from '@/components/icons/AnglesDown.vue';
+import CouponCircle from '@/components/rotate/CuponCircle.vue';
 
 export default {
   components: {
     CardDefault,
     AnglesDown,
+    CouponCircle,
   },
 };
 </script>

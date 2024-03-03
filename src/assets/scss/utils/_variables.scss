@@ -515,9 +515,15 @@ $position-values: (
   n7: -7%,
   n5: 25%,
   0: 0,
+  1: 1%,
+  1a5: 1.7%,
+  2: 2%,
+  5: 5%,
   10: 10%,
   12: 12%,
   15: 15%,
+  17: 17%,
+  18: 18%,
   20: 20%,
   22: 22%,
   24: 24%,
@@ -1063,7 +1069,7 @@ $input-disabled-bg: var(--#{$prefix}secondary-bg) !default;
 $input-disabled-border-color: null !default;
 
 $input-color: var(--#{$prefix}body-color) !default;
-$input-border-color: var(--#{$prefix}border-color) !default;
+$input-border-color: $primary-light !default;//var(--#{$prefix}border-color) !default;
 $input-border-width: $input-btn-border-width !default;
 $input-box-shadow: var(--#{$prefix}box-shadow-inset) !default;
 
@@ -1442,8 +1448,8 @@ $dropdown-link-color: var(--#{$prefix}body-color) !default;
 $dropdown-link-hover-color: $dropdown-link-color !default;
 $dropdown-link-hover-bg: $success; //var(--#{$prefix}tertiary-bg) !default;
 
-$dropdown-link-active-color: $component-active-color !default;
-$dropdown-link-active-bg: $component-active-bg !default;
+$dropdown-link-active-color: $primary;//$component-active-color !default;
+$dropdown-link-active-bg: $success; //$component-active-bg !default;
 
 $dropdown-link-disabled-color: var(--#{$prefix}tertiary-color) !default;
 

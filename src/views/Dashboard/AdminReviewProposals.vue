@@ -1,5 +1,5 @@
 <template>
-  <ProposalModal></ProposalModal>
+  <ProposalModal ref="proposalModal"></ProposalModal>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
@@ -37,11 +37,16 @@
         </div>
       </div>
     </div> -->
+    <div class="row justify-content-center mt-20">
+      <div class="col-10">
+        <button type="button" class="btn btn-dark-pr" @click="showProposalModal">Modal測試按鈕</button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import ProposalCard from '@/components/Dashboard/ProposalCard.vue';
-import ProposalModal from '@/components/Dashboard/ProposalModal.vue';
+import ProposalCard from '@/components/dashboard/ProposalCard.vue';
+import ProposalModal from '@/components/dashboard/ProposalModal.vue';
 
 export default {
   data() {
@@ -51,6 +56,9 @@ export default {
     };
   },
   methods: {
+    showProposalModal() {
+      this.$refs.proposalModal.show();
+    },
   },
   components: {
     ProposalCard,

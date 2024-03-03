@@ -178,7 +178,7 @@
                     data-bs-title="寄送贊助回饋使用，若不正確可能造成投遞失敗。">
                     <span class="" style="width: 20px;">
                       <img
-                        src="../../../public/images/explore/info.svg"
+                        src="/images/explore/info.svg"
                         class="img-fluid"
                         style="margin-top: -6px;"
                         alt="">
@@ -202,7 +202,7 @@
                     data-bs-title="寄送人聯絡及付款確認使用。請填寫全碼，如 0912123456">
                     <span class="" style="width: 20px;">
                       <img
-                        src="../../../public/images/explore/info.svg"
+                        src="/images/explore/info.svg"
                         class="img-fluid"
                         style="margin-top: -6px;"
                         alt="">
@@ -304,7 +304,6 @@
         </div>
       </div>
     </section>
-    <InfoIcon />
   </main>
 </template>
 
@@ -314,7 +313,8 @@
 
 <script>
 import DpInfo from '@/components/designedproject/DpInfo.vue';
-import InfoIcon from '@/components/icons/InfoIcon.vue';
+// import InfoIcon from '@/components/icons/InfoIcon.vue';
+import MixinVeeValidate from '../../mixins/mixinVeeValidate';
 
 export default {
   data() {
@@ -323,13 +323,14 @@ export default {
       tooltipPhone: '',
     };
   },
+  mixins: [MixinVeeValidate],
   mounted() {
     this.tooltipName = new this.$bs.Tooltip(this.$refs.name);
     this.tooltipPhone = new this.$bs.Tooltip(this.$refs.phone);
   },
   components: {
     DpInfo,
-    InfoIcon,
+    // InfoIcon,
   },
 };
 </script>
