@@ -90,7 +90,6 @@
 </style>
 
 <script>
-
 export default {
   components: {
   },
