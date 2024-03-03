@@ -36,8 +36,14 @@ export default {
 
 </script>
 <style scope lang="scss">
+// .l-proposalCardGapY{
+//   .l-gridCard + .l-gridCard{
+//     margin-top: 40px;
+//   }
+// }
+
 .l-proposalCardGapY{
-  .l-gridCard + .l-gridCard{
+  > div + div{
     margin-top: 40px;
   }
 }
