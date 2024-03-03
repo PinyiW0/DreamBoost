@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="overflow-hidden">
     <VisitorHeaderAd />
     <nav class="navbar navbar-expand-md container-fluid border-bottom border-primary-light shadow-sm">
       <div class="container d-flex justify-content-between align-items-center">

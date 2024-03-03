@@ -1,9 +1,4 @@
 <template>
-  <!-- header 區域 -->
-  <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
-  </header>
   <main>
     <!-- 產品信息 -->
     <section class="container mb-14 pt-23">
@@ -40,7 +35,7 @@
           ></div>
           <div class="d-flex mb-10">
             <div class="d-flex align-items-center gap-1 me-21">
-              <i style="width: 24px; margin-top: -4px">
+              <i style="width: 22px; margin-top: -2px">
                 <UserIcon />
               </i>
               <p class="mb-0 text-gray-600">
@@ -77,28 +72,28 @@
               class="d-flex align-items-center list-unstyled mb-0 column-gap-3"
             >
               <li style="width: 28px">
-                <a href="#">
+                <a href="https://zh-tw.facebook.com/login/device-based/regular/login/?login_attempt=1">
                   <i>
                     <FaceBook />
                   </i>
                 </a>
               </li>
               <li style="width: 28px">
-                <a href="#">
+                <a href="https://www.instagram.com/accounts/login/?next=%2Fchin_goods%2F&source=desktop_nav">
                   <i>
                     <InstaGram />
                   </i>
                 </a>
               </li>
               <li style="width: 28px">
-                <a href="#">
+                <a href="https://twitter.com/i/flow/login">
                   <i>
                     <TwitterIcon />
                   </i>
                 </a>
               </li>
               <li style="width: 28px">
-                <a href="#">
+                <a href="#" @click.prevent="copyURL">
                   <i>
                     <LinkIcon />
                   </i>
@@ -189,9 +184,9 @@
     </section>
 
     <!-- 頁面區塊 -->
-    <div class="position-sticky top-0 z-2 bg-primary py-8">
+    <div class="position-sticky top-0 z-2 bg-primary py-7">
       <nav class="container">
-        <ul class="nav justify-content-between justify-content-md-start gap-19">
+        <ul class="nav justify-content-between justify-content-md-start align-items-center gap-19">
           <li class="nav-item">
             <RouterLink
               to="/product/動態路由需改成v-bind/info"
@@ -216,6 +211,17 @@
               留言區
             </RouterLink>
           </li>
+          <li v-show="showButton" @click="handleButtonClick" class="ms-auto">
+            <button
+              type="button"
+              class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold"
+            >
+              贊助專案
+              <i style="width: 18px; margin-top: -3px">
+                <RightArrow />
+              </i>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -225,8 +231,6 @@
 </template>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
 import UserIcon from '@/components/icons/UserIcon.vue';
 import ClockIcon from '@/components/icons/ClockIcon.vue';
 import TwitterIcon from '@/components/icons/TwitterIcon.vue';
@@ -239,9 +243,55 @@ import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 
 export default {
+  data() {
+    return {
+      showButton: false,
+    };
+  },
+  mounted() {
+    // 監聽滾動事件
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    // 執行前移除滾動事件
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      // 選取區塊元素
+      const blockElement = document.querySelector('.position-sticky');
+      if (!blockElement) return;
+
+      // 選取區塊元素距視窗頂部的距離
+      const blockTop = blockElement.getBoundingClientRect().top;
+
+      // 當所屬區塊元素距離視窗頂部小於0，置頂在最上方並顯示按鈕
+      this.showButton = blockTop <= 0;
+    },
+    handleButtonClick() {
+      // 按钮點擊事件
+      console.log('按钮被點擊了');
+    },
+    copyURL() {
+      // 賦予當前網址 value 屬性
+      const textarea = document.createElement('textarea');
+      textarea.value = window.location.href;
+
+      // 將textarea加到DOM中，並選取内容
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      // 複製
+      document.execCommand('copy');
+
+      // 移除 textarea 元素
+      document.body.removeChild(textarea);
+
+      // 複製成功提示
+      alert('網址複製成功');
+    },
+  },
   components: {
-    VisitorHeaderAd2,
-    VisitorHeader,
     UserIcon,
     ClockIcon,
     TwitterIcon,
@@ -298,7 +348,7 @@ export default {
   &::after {
     position: absolute;
     content: '';
-    height: 4px;
+    height: 3px;
     width: 100%;
     background-color: #fff48a;
     top: 100%;
@@ -315,5 +365,11 @@ export default {
     transform-origin: left;
     transform: scale(1, 1);
   }
+}
+.slide-in-enter-active {
+  transition: all 0.5s ease; /* 定义过渡的时间和动画效果 */
+}
+.slide-in-enter {
+  transform: translateX(100%); /* 初始位置为右边界外 */
 }
 </style>

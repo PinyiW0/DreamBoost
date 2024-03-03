@@ -304,7 +304,6 @@
         </div>
       </div>
     </section>
-    <InfoIcon />
   </main>
 </template>
 
@@ -314,7 +313,7 @@
 
 <script>
 import DpInfo from '@/components/designedproject/DpInfo.vue';
-import InfoIcon from '@/components/icons/InfoIcon.vue';
+// import InfoIcon from '@/components/icons/InfoIcon.vue';
 import MixinVeeValidate from '../../mixins/mixinVeeValidate';
 
 export default {
@@ -331,7 +330,7 @@ export default {
   },
   components: {
     DpInfo,
-    InfoIcon,
+    // InfoIcon,
   },
 };
 </script>

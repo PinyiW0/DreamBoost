@@ -28,12 +28,6 @@ const router = createRouter({
           component: () => import('../views/front/ExploreView.vue'),
         },
         {
-          // 探索/指定專案頁面
-          path: 'explore/designatepro',
-          name: 'designatepro',
-          component: () => import('../views/front/DesignateProject.vue'),
-        },
-        {
           path: 'product/:id',
           component: () => import('../views/front/SingleProductView.vue'),
           children: [

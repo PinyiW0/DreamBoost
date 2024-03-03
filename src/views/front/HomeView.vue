@@ -1,70 +1,17 @@
 <template>
   <main>
-    <HomeBn></HomeBn>
     <!-- banner 區域 -->
+    <HomeBn></HomeBn>
     <!-- 熱門推薦 -->
     <div class="container">
       <div class="row pt-18 pb-20 justify-content-center">
         <!-- 當前熱門專案 -->
-        <div class="col-12 col-xl-6 mb-18 mb-md-20 mb-xl-0 px-0 px-sm-6 px-lg-10 me-0 me-xl-10">
+        <div class="col-12 col-xl-6 mb-18 mb-md-20 mb-xl-0 px-3 px-sm-6 px-lg-10 me-0 me-xl-10">
           <div class="mb-3 d-none d-xl-block">
             <h1 class="title position-relative">當前熱門專案</h1>
             <p class="fs-6 text-primary-light mb-0">Current Hot Projects</p>
           </div>
-          <div class="d-flex justify-content-center mb-6 d-block d-xl-none position-relative">
-            <div class="mb-5 mb-lg-3">
-              <h2 class="title-center text-center position-relative">當前熱門專案</h2>
-              <p class="fs-6 text-primary-light text-center mb-0">Current Hot Projects</p>
-            </div>
-          </div>
-          <img src="/images/home/liver.jpg" class="imgcover img-fluid rounded-3 mb-7 col-12" alt="">
-          <p class="fs-6 text-primary mb-3">#&nbsp;健康生活</p>
-          <a class="title-hover" href="">
-            <h4 class="mb-3">CodeGuardian - 工程師顧肝必備良品：LiverCare</h4>
-          </a>
-          <p class="mb-9">讓 CodeGuardian - 肝心（LiverCare）來了解解解解解解解（解酒解肝解痛苦）你！我們希望能為前端工程師提供一個超酷的、有趣的、關心你肝臟的數字助手！
-            <br><br>不只守護你的程式碼，更守護你的肝臟！從忙碌的工作間隙中，讓你的肝臟放個假！我們關注你工作時肝臟的健康，讓你在敲程式碼的同時感受到樂趣與關懷！
-          </p>
-          <div class="progress bg-secondary-light mb-7" style="height: 10px;">
-            <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50" aria-valuemin="0"
-              aria-valuemax="100"></div>
-          </div>
-          <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-              <img src="/images/home/userIcon36.svg" class="img-fluid me-6 rounded-5" style="max-width: 36px;" alt="會員頭貼">
-              <p class="mb-0">發起人：樂樂</p>
-            </div>
-            <div class="d-flex">
-              <div class="d-flex me-3">
-                <p class="mb-0 me-1">已募資</p>
-                <p class="fw-bold text-danger mb-0">80%</p>
-              </div>
-              <div class="d-flex align-items-center gap-3">
-              <a href="">
-                <span class="d-flex gap-1 message-star-hover"
-                  >11
-                  <i
-                    class="d-block text-primary-dark"
-                    style="width: 14px; margin-top: -1px"
-                  >
-                    <MessageIcon />
-                  </i>
-                </span>
-              </a>
-              <a href="">
-                <span class="d-flex gap-1 message-star-hover">
-                  18
-                  <i
-                    class="d-block text-secondary-dark"
-                    style="width: 16px; margin-top: -2px"
-                  >
-                    <StarFull />
-                  </i>
-                </span>
-              </a>
-            </div>
-            </div>
-          </div>
+          <PopularCard></PopularCard>
         </div>
         <!-- 為您推薦 -->
         <div class="col-12 col-xl-5">
@@ -78,146 +25,15 @@
               <p class="fs-6 text-primary-light text-center mb-0">Recommended for You</p>
             </div>
           </div>
-          <ul class="list-unstyled px-0 px-lg-8 px-xl-0">
-            <li class="mb-8">
-              <!-- 第1張卡片 -->
-              <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
-                <div class="row g-2 align-items-stretch">
-                  <div class="col-md-4 pb-4">
-                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover h-100 rounded-2" alt="">
-                  </div>
-                  <div class="col-md-8 pb-4 mt-0">
-                    <div class="card-body d-flex flex-column justify-items-between p-3">
-                      <div>
-                        <p class="card-text fs-6 text-primary mb-1">#&nbsp;健康生活</p>
-                        <a class="title-hover" href="">
-                          <h4 class="card-title fs-5 mb-11">CodeGuardian - 工程師顧肝必備良品：LiverCare</h4>
-                        </a>
-                      </div>
-                      <div>
-                        <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="d-flex me-3">
-                            <p class="fs-5 mb-0 me-1">已募資</p>
-                            <p class="fs-5 fw-bold text-danger mb-0">80%</p>
-                          </div>
-                          <div class="d-flex align-items-center gap-3">
-                            <a href="">
-                              <span class="d-flex gap-1 message-star-hover"
-                                >11
-                                <i
-                                  class="d-block text-primary-dark"
-                                  style="width: 14px; margin-top: -1px"
-                                >
-                                  <MessageIcon />
-                                </i>
-                              </span>
-                            </a>
-                            <a href="">
-                              <span class="d-flex gap-1 message-star-hover">
-                                18
-                                <i
-                                  class="d-block text-secondary-dark"
-                                  style="width: 16px; margin-top: -2px"
-                                >
-                                  <StarFull />
-                                </i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <ul class="list-unstyled px-0 px-lg-8 px-xl-0 mb-8">
+            <li>
+              <SuggestCard></SuggestCard>
             </li>
-            <!-- 第2張卡片 -->
-            <li class="mb-8">
-              <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
-                <div class="row g-2 align-items-stretch">
-                  <div class="col-md-4 pb-4">
-                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
-                  </div>
-                  <div class="col-md-8 pb-4 mt-0">
-                    <div class="card-body d-flex flex-column justify-items-between p-3">
-                      <div>
-                        <p class="card-text fs-6 text-primary mb-1">#&nbsp;健康生活</p>
-                        <a class="title-hover" href="">
-                          <h4 class="card-title fs-5 mb-11">CodeGuardian - 工程師顧肝必備良品：LiverCare</h4>
-                        </a>
-                      </div>
-                      <div>
-                        <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="d-flex me-3">
-                            <p class="fs-6 mb-0 me-1">已募資</p>
-                            <p class="fs-6 fw-bold text-danger mb-0">80%</p>
-                          </div>
-                          <div class="d-flex">
-                            <a href="" class="d-flex me-3 align-items-center message-star-hover">
-                              <p class="mb-0 me-1">11</p>
-                              <MessageIcon class="text-primary-dark" style="width:16px"></MessageIcon>
-                            </a>
-                            <a href="" class="d-flex align-items-center message-star-hover">
-                              <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <li>
+              <SuggestCard></SuggestCard>
             </li>
-            <!-- 第3張卡片 -->
-            <li class="mb-8">
-              <div class="card col-12 mb-3 border border-top-0 border-start-0 border-end-0 rounded-0">
-                <div class="row g-2 align-items-stretch">
-                  <div class="col-md-4 pb-4">
-                    <img src="/images/home/liver.jpg" class="img-fluid object-fit-cover rounded-2" alt="">
-                  </div>
-                  <div class="col-md-8 pb-4 mt-0">
-                    <div class="card-body d-flex flex-column justify-items-between p-3">
-                      <div>
-                        <p class="card-text fs-6 text-primary mb-1">#&nbsp;健康生活</p>
-                        <a class="title-hover" href="">
-                          <h4 class="card-title fs-5 mb-11">CodeGuardian - 工程師顧肝必備良品：LiverCare</h4>
-                        </a>
-                      </div>
-                      <div>
-                        <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-                          <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 80%;;" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="d-flex me-3">
-                            <p class="fs-6 mb-0 me-1">已募資</p>
-                            <p class="fs-6 fw-bold text-danger mb-0">80%</p>
-                          </div>
-                          <div class="d-flex">
-                            <a href="" class="d-flex me-3 align-items-center message-star-hover">
-                              <p class="mb-0 me-1">11</p>
-                              <MessageIcon class="text-primary-dark" style="width:16px"></MessageIcon>
-                            </a>
-                            <a href="" class="d-flex align-items-center message-star-hover">
-                              <p class="mb-0 me-1">18</p>
-                              <StarFull class="text-secondary-dark pb-1" style="width:18px"></StarFull>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <li>
+              <SuggestCard></SuggestCard>
             </li>
           </ul>
           <!-- 按鈕 -->
@@ -546,13 +362,6 @@
 </template>
 
 <style lang="scss">
-//卡片 icon 留言＋星星 hover 效果
-.message-star-hover {
-  color: var(--bs-gray-700);
-  :hover {
-    color: var(--bs-primary);
-  }
-}
 //專案類別按鈕
 .categorylink {
   display: block;
@@ -643,24 +452,24 @@
 
 <script>
 import RightArrow from '@/components/icons/RightArrow.vue';
-import StarFull from '@/components/icons/StarFull.vue';
-import MessageIcon from '@/components/icons/MessageIcon.vue';
 import MarqueeLight from '@/components/decoration/MarqueeLight.vue';
 import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
 import MarqueeBiglogo from '@/components/decoration/MarqueeBiglogo.vue';
 import CouponCircle from '@/components/rotate/CuponCircle.vue';
 import HomeBn from '@/components/bn/HomeBn.vue';
+import PopularCard from '@/components/cards/PopularCard.vue';
+import SuggestCard from '@/components/cards/SuggestCard.vue';
 
 export default {
   components: {
     RightArrow,
-    StarFull,
-    MessageIcon,
     MarqueeDark,
     CouponCircle,
     HomeBn,
     MarqueeBiglogo,
     MarqueeLight,
+    PopularCard,
+    SuggestCard,
   },
 };
 </script>
