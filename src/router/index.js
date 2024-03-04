@@ -63,8 +63,7 @@ const router = createRouter({
           path: 'cardpay',
           component: () => import('../views/front/DpCardPay.vue'),
         },
-        {
-          // 發起專案
+        { // 發起專案
           path: 'launch',
           component: () => import('../views/front/LaunchView.vue'),
         },
