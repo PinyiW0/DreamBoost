@@ -18,36 +18,45 @@
           </p>
           <label
             for="file"
-            class="btn btn-primary-light d-flex justify-content-center align-items-center text-gray-700 fs-6 rounded-0"
+            class="btn btn-primary-light d-flex justify-content-center align-items-center gap-2 text-gray-700 fs-6 rounded-0"
           >
+            <i style="width: 20px; margin-top: -2px">
+              <CameraIcon />
+            </i>
             上傳封面照片
           </label>
-          <input type="file" id="file" class="form-control d-none" />
+          <input
+            type="file"
+            id="file"
+            name="image"
+            class="form-control d-none"
+            @change="imageHandler"
+          />
         </div>
         <div class="col-12 mb-11">
           <div class="row gy-3">
             <div class="col-md-6 col-lg-3">
-              <label for="start-time" class="form-label lh-md">
+              <label for="start-date" class="form-label lh-md">
                 專案開始時間
                 <span class="text-danger"> * </span>
               </label>
               <input
                 type="date"
-                class="form-control border-primary-light"
-                id="start-time"
-                placeholder="name@example.com"
+                class="form-control py-3"
+                id="start-date"
+                v-model="launchData.proposalStartTime"
               />
             </div>
             <div class="col-md-6 col-lg-3">
-              <label for="end-time" class="form-label lh-md">
+              <label for="end-date" class="form-label lh-md">
                 專案結束時間
                 <span class="text-danger"> * </span>
               </label>
               <input
                 type="date"
-                class="form-control border-primary-light"
-                id="end-time"
-                placeholder="name@example.com"
+                class="form-control py-3"
+                id="end-date"
+                v-model="launchData.proposalEndTime"
               />
             </div>
             <div class="col-lg-6">
@@ -67,10 +76,11 @@
               <span class="text-danger"> * </span>
             </label>
             <input
-              type="email"
-              class="form-control border-primary-light fs-6"
+              type="text"
+              class="form-control py-3 fs-6"
               id="title"
               placeholder="40個字以內的標題"
+              v-model="launchData.proposalTitle"
             />
           </div>
           <div class="mb-7">
@@ -79,13 +89,17 @@
               <span class="text-danger"> * </span>
             </label>
             <select
-              type="email"
-              class="form-control border-primary-light fs-6"
+              class="form-control py-3 fs-6"
               id="category"
+              v-model="launchData.proposalCategory"
             >
               <option value="" disabled selected>請選擇一種類別</option>
-              <option value="">科技</option>
-              <option value="">社群</option>
+              <option value="挺好夢">挺好夢</option>
+              <option value="科技設計">科技設計</option>
+              <option value="健康生活">健康生活</option>
+              <option value="時尚">時尚</option>
+              <option value="公共在地">公共在地</option>
+              <option value="美妝">美妝</option>
             </select>
           </div>
           <div class="mb-7">
@@ -94,12 +108,14 @@
               <span class="text-danger"> * </span>
             </label>
             <input
-              type="email"
-              class="form-control mb-2 border-primary-light fs-6"
+              type="number"
+              class="form-control mb-2 py-3 fs-6"
               id="target"
+              min="5000"
               placeholder="5000"
+              v-model="launchData.proposalTargetMoney"
             />
-            <p class="fs-6 mb-0 text-gray-300">
+            <p class="fs-6 mb-0 text-gray-500">
               募資目標金額最低為 $5,000
               元。設定目標金額時，除了考量專案執行的成本支出外，也必須考慮回饋項目的成本，總體而言必須滿足「最低計畫可執行資金」的門檻，才是合理的募資目標。
             </p>
@@ -110,26 +126,31 @@
               <span class="text-danger"> * </span>
             </label>
             <textarea
-              type="email"
-              class="form-control border-primary-light fs-6"
+              class="form-control py-3 fs-6"
               id="summary"
               placeholder="請在65個字以內簡短描述專案內容，吸引瀏覽者點擊你的專案"
               rows="6"
-            />
+              v-model="launchData.proposalSummary"
+            ></textarea>
           </div>
         </div>
         <div class="col-md-6 mx-auto">
           <p class="mb-7">專案卡片預覽</p>
           <div class="card py-9 px-7 mb-16 border-2 border-primary">
             <img
-              src="https://fakeimg.pl/350x250"
-              class="card-img-top rounded-2 mb-12"
+              :src="
+                launchData.proposalMainImage || 'https://fakeimg.pl/350x250'
+              "
+              class="card-img-top object-fit-cover rounded-2 mb-12"
               alt="..."
+              style="height: 250px"
             />
             <div class="card-body p-0">
-              <span class="fs-6 text-primary">#類別</span>
+              <span class="d-block mb-1 fs-6 text-primary"
+                ># {{ launchData.proposalCategory || '類別' }}</span
+              >
               <h3 class="card-title mb-7 fs-5 fw-semibold text-gray-700">
-                產品名稱
+                {{ launchData.proposalTitle || '產品名稱' }}
               </h3>
               <h4
                 class="d-flex align-items-center gap-3 mb-7 fw-normal text-gray-600 fs-5"
@@ -147,22 +168,23 @@
                 發起人：Andrea Blanchard
               </h4>
               <div
-                class="progress mb-7"
+                class="progress bg-secondary-light mb-7 rounded-pill"
                 role="progressbar"
                 aria-label="Basic example"
-                aria-valuenow="100"
+                aria-valuenow="80"
                 aria-valuemin="0"
                 aria-valuemax="100"
+                style="height: 10px; width: 100%"
               >
                 <div
-                  class="progress-bar bg-secondary-light text-black"
-                  style="width: 100%"
-                >
-                  100%
-                </div>
+                  class="progress-bar text-white bg-primary-dark rounded-pill"
+                  style="width: 80%"
+                ></div>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <p class="mb-0 fs-5">已募資1000%</p>
+                <p class="mb-0 fs-5">已募資
+                  <span class="fw-bold text-danger mb-0">80%</span>
+                </p>
                 <div class="d-flex align-items-center gap-3">
                   <span class="d-flex gap-1"
                     >11
@@ -189,7 +211,13 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary w-100">下一步</button>
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            @click.prevent="nextStep"
+          >
+            下一步
+          </button>
         </div>
       </form>
     </div>
@@ -197,17 +225,48 @@
 </template>
 
 <script>
+import { mapWritableState, mapActions } from 'pinia';
+
+import launchStore from '@/stores/launchStore';
+import memberStore from '@/stores/memberStore';
+import mixinUploadImage from '@/mixins/mixinUploadImage';
+
 import LaunchNav from '@/components/launch/LaunchNav.vue';
+import CameraIcon from '@/components/icons/CameraIcon.vue';
 import ShareIcon from '@/components/icons/ShareIcon.vue';
 import MessageIcon from '@/components/icons/MessageIcon.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 
 export default {
+  mixins: [mixinUploadImage],
+
+  methods: {
+    ...mapActions(memberStore, ['postCheckToken']),
+
+    async imageHandler(e) {
+      const imageUrl = await this.uploadImage(e);
+      if (imageUrl) this.launchData.proposalMainImage = imageUrl;
+    },
+
+    nextStep() {
+      this.$router.push('/launch/content');
+    },
+  },
+
+  computed: {
+    ...mapWritableState(launchStore, ['launchData']),
+  },
+
+  mounted() {
+    this.postCheckToken();
+  },
+
   components: {
     LaunchNav,
     ShareIcon,
     MessageIcon,
     StarFull,
+    CameraIcon,
   },
 };
 </script>
