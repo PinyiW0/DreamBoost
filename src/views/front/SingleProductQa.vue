@@ -1,9 +1,8 @@
 <template>
   <section class="container py-17">
     <div
-      class="accordion p-4 border-primary-light rounded-3"
+      class="accordion p-4 border border-primary rounded-3"
       id="accordionExample"
-      style="border-style: dashed"
     >
       <div
         class="accordion-item border-0 border-bottom border-primary-light rounded-0"

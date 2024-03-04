@@ -28,12 +28,6 @@ const router = createRouter({
           component: () => import('../views/front/ExploreView.vue'),
         },
         {
-          // 探索/指定專案頁面
-          path: 'explore/designatepro',
-          name: 'designatepro',
-          component: () => import('../views/front/DesignateProject.vue'),
-        },
-        {
           path: 'product/:id',
           component: () => import('../views/front/SingleProductView.vue'),
           children: [
@@ -104,6 +98,24 @@ const router = createRouter({
           path: 'forgetpassord',
           name: 'forgetpassord',
           component: () => import('../views/front/ForgetPassord.vue'),
+        },
+        {
+          path: 'proposalmanage/:id',
+          component: () => import('../views/front/ProposalManage.vue'),
+          children: [
+            {
+              path: 'salesdata',
+              component: () => import('../views/front/ProposalManageSalesData.vue'),
+            },
+            {
+              path: 'orders',
+              component: () => import('../views/front/ProposalManageOrders.vue'),
+            },
+            {
+              path: 'replymessage',
+              component: () => import('../views/front/ProposalManageReplyMessage.vue'),
+            },
+          ],
         },
         {
           // 會員後台
