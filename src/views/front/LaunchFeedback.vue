@@ -24,88 +24,154 @@
             已額滿/到期
           </li>
         </ul>
-        <button type="button" class="btn btn-primary" @click="sortModal">自訂排序回饋</button>
+        <button type="button" class="btn btn-primary" @click="sortModal">
+          自訂排序回饋
+        </button>
       </nav>
     </div>
     <div class="col-xl-9 mx-auto mb-27">
-      <div class="p-7 p-lg-13 mb-9 border border-gray-700 rounded-3">
+      <div
+        class="p-7 p-lg-13 mb-9 border border-gray-700 rounded-3"
+        v-for="feedback in feedbackSet"
+        :key="feedback.feedbackID"
+      >
         <div class="row gx-11 gy-7">
           <div class="col-md-6 col-lg-7">
-            <div class="card p-7 p-lg-9 border-primary border-2 shadow">
+            <div class="card py-9 px-6 border-2 border-primary">
+              <div
+                class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center py-7 px-6 mb-6 bg-primary rounded-2 text-white"
+              >
+                <h3 class="card-title fs-5 mb-0">
+                  {{ feedback.feedbackTitle }}
+                </h3>
+                <p class="d-flex align-items-end column-gap-1 mb-0 fs-5 lh-md">
+                  只要
+                  <span
+                    class="fs-3 text-secondary-light fw-bold lterSpc-8 lh-1"
+                  >
+                    NT$ {{ feedback.feedbackSettingMoney }}
+                  </span>
+                </p>
+              </div>
               <img
-                src="https://fakeimg.pl/350x250"
-                class="card-img-top mb-12 rounded-2"
-                alt="..."
+                class="img-fluid mb-3 w-100 rounded-3 object-fit-cover"
+                :src="feedback.feedbackImage"
+                :alt="feedback.feedbackName"
               />
-              <div class="card-body">
-                <span class="text-primary fs-6"> #類別 </span>
-                <h5 class="card-title mb-7 text-gray-700 fw-bold">
-                  40字以內的標題
-                </h5>
-                <div class="card-text d-flex justify-content-between fs-6">
-                  <p class="mb-0">
-                    寄送地點 <br />
-                    只寄送台灣本島
-                  </p>
-                  <p class="mb-0">
-                    預計寄送時間 <br />
-                    2024/12
-                  </p>
+              <div
+                class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-6"
+              >
+                <div>
+                  <h4 class="mb-0 fw-bold text-primary">
+                    {{ feedback.feedbackName }}
+                  </h4>
                 </div>
               </div>
+              <div class="d-flex text-white mb-8">
+                <p
+                  class="mb-0 py-1 px-2 border-2 border-end border-secondary-light bg-primary lh-md"
+                >
+                  剩餘
+                  <span class="text-secondary-light">{{
+                    feedback.feedbackLimitAmount
+                  }}</span>
+                  份
+                </p>
+                <p class="mb-0 py-1 px-2 bg-primary lh-md">
+                  已經被贊助
+                  <span class="text-secondary-light">0</span>
+                  / {{ feedback.feedbackLimitAmount }} 次
+                </p>
+              </div>
+              <div class="mb-8">
+                <h5 class="mb-3">【方案內容】</h5>
+                {{ feedback.feedbackArticle }}
+              </div>
+              <button
+                type="button"
+                class="btn btn-primary d-flex align-items-center justify-content-center column-gap-1 mb-4 px-14 fw-bold disabled"
+              >
+                贊助專案
+              </button>
             </div>
           </div>
           <div class="col-md-6 col-lg-5 align-self-end">
             <div class="row gy-7">
               <div class="col-12">
-                <a
-                  href="#"
+                <button
+                  type="button"
                   class="btn btn-primary w-100"
-                  @click.prevent="infoModal"
+                  @click="infoModal('edit', feedback)"
                 >
                   編輯回饋資訊
-                </a>
+                </button>
               </div>
               <div class="col-12">
                 <a href="#" class="btn btn-gray-600 w-100"> 隱藏此回饋 </a>
               </div>
               <div class="col-lg-6">
-                <a href="#" class="btn btn-gray-400 px-0 w-100"> 刪除回饋 </a>
+                <button
+                  type="button"
+                  class="btn btn-gray-400 px-0 w-100"
+                  @click="deleteFeedback(feedback.feedbackID)"
+                >
+                  刪除回饋
+                </button>
               </div>
               <div class="col-lg-6">
-                <a href="#" class="btn btn-primary-light px-0 w-100">
+                <button
+                  type="button"
+                  class="btn btn-primary-light px-0 w-100"
+                  @click="postFeedback(feedback)"
+                >
                   複製此回饋
-                </a>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a
-        href="#"
-        class="btn btn-outline-primary d-flex justify-content-center align-items-center gap-2 mb-13"
-        @click.prevent="infoModal"
+      <button
+        type="button"
+        class="btn btn-outline-primary d-flex justify-content-center align-items-center gap-2 mb-13 w-100"
+        @click="infoModal('add')"
       >
         新增一個回饋
         <i style="width: 16px; margin-top: -6px">
           <PlusIcon />
         </i>
-      </a>
+      </button>
       <div class="row justify-content-lg-end gy-7">
         <div class="col-md-6 col-lg-4">
-          <a href="#" class="btn btn-primary-light w-100">上一步</a>
+          <button
+            type="button"
+            class="btn btn-primary-light w-100"
+            @click="previousStep"
+          >
+            上一步
+          </button>
         </div>
         <div class="col-md-6 col-lg-4">
-          <a href="#" class="btn btn-primary w-100">下一步</a>
+          <button type="button" class="btn btn-primary w-100" @click="nextStep">
+            下一步
+          </button>
         </div>
       </div>
     </div>
   </div>
-  <FeedbackInfo ref="feedbackInfo" />
+  <FeedbackInfo
+    ref="feedbackInfo"
+    :temp-data="tempData"
+    @feedback-handler="feedbackHandler"
+  />
   <FeedbackSort ref="feedbackSort" />
 </template>
 
 <script>
+import { mapActions, mapState } from 'pinia';
+import feedbackStore from '@/stores/feedbackStore';
+import memberStore from '@/stores/memberStore';
+
 // component 引入
 import LaunchNav from '@/components/launch/LaunchNav.vue';
 import FeedbackInfo from '@/components/launch/FeedbackInfo.vue';
@@ -115,14 +181,75 @@ import FeedbackSort from '@/components/launch/FeedbackSort.vue';
 import PlusIcon from '@/components/icons/PlusIcon.vue';
 
 export default {
+  data() {
+    return {
+      tempData: {},
+      currentState: '',
+    };
+  },
+
   methods: {
-    infoModal() {
+    ...mapActions(feedbackStore, [
+      'getFeedback',
+      'postFeedback',
+      'putFeedback',
+      'deleteFeedback',
+    ]),
+    ...mapActions(memberStore, ['postCheckToken']),
+
+    feedbackHandler(data) {
+      if (this.currentState === 'add') {
+        this.postFeedback(data);
+      } else {
+        const { feedbackID } = data;
+        this.putFeedback(data, feedbackID);
+      }
+    },
+
+    infoModal(state, currentData) {
+      this.currentState = state;
+      if (this.currentState === 'add') {
+        this.tempData = {
+          feedbackName: '',
+          feedbackTitle: '',
+          feedbackImage: '',
+          feedbackSettingMoney: 100,
+          feedbackArticle: '',
+          feedbackLimitAmount: 0,
+          feedbackLimitTime: 'temp',
+          feedbackStartTime: '',
+          feedbackEndTime: '',
+          customizeProperty: {
+            shippingArea: '',
+          },
+        };
+      } else {
+        console.log(currentData);
+        this.tempData = currentData;
+      }
       this.$refs.feedbackInfo.openModal();
     },
 
     sortModal() {
       this.$refs.feedbackSort.openModal();
     },
+
+    previousStep() {
+      this.$router.go(-1);
+    },
+
+    nextStep() {
+      this.$router.push('/launch/data');
+    },
+  },
+
+  computed: {
+    ...mapState(feedbackStore, ['feedbackSet']),
+  },
+
+  async mounted() {
+    await this.postCheckToken();
+    await this.getFeedback();
   },
 
   components: {

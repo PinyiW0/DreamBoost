@@ -9,6 +9,7 @@ export default defineStore('memberStore', {
       username: '',
       password: '',
     },
+    userEmail: '',
   }),
 
   actions: {
@@ -18,7 +19,7 @@ export default defineStore('memberStore', {
         const res = await this.$http.post(`${VITE_URL}/dreamboost/login`, this.userData);
         const { token, expired } = res.data.data;
         document.cookie = `db=${token}; expires=${new Date(expired * 1000)};`;
-        this.$router.push('/home');
+        this.$router.go(-1);
       } catch (error) {
         console.log(error.response.data.message);
       }
@@ -32,6 +33,21 @@ export default defineStore('memberStore', {
         console.log(message);
       } catch (error) {
         console.log(error);
+      }
+    },
+
+    // 檢查使用者是否登入
+    async postCheckToken() {
+      const token = document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('db'))
+        ?.split('=')[1];
+      this.$http.defaults.headers.common.Authorization = token;
+      try {
+        const res = await this.$http.post(`${VITE_URL}/dreamboost/checktoken`);
+        this.userEmail = await res.data.data.result.username;
+      } catch (error) {
+        this.$router.push('/member');
       }
     },
   },
