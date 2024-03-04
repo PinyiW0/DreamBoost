@@ -8,7 +8,7 @@
           <!-- 登入區塊 -->
           <div
             class="login-animation col-md-7 py-10 bg-white"
-            :class="{'toggle-view': isLogin}"
+            :class="{ 'toggle-view': isLogin }"
           >
             <!-- 登入元件 -->
             <MemberSignin @toggle-view="isLogin = !isLogin">
@@ -36,7 +36,7 @@
           <!-- 註冊區塊 -->
           <div
             class="register-animation col-md-8 py-10 bg-white"
-            :class="{'toggle-view': isLogin}"
+            :class="{ 'toggle-view': isLogin }"
           >
             <!-- 註冊元件 -->
             <MemberSingup @toggle-view="isLogin = !isLogin">
@@ -133,7 +133,7 @@ export default {
       z-index: -1;
       width: 100%;
       height: 100%;
-      background: url(./images/member/signInUp.jpg);
+      background-image: url('/images/member/signInUp.jpg');
       background-size: cover;
       background-position: right;
       transition: background-position 1.5s ease;
