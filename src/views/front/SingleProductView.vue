@@ -1,9 +1,4 @@
 <template>
-  <!-- header 區域 -->
-  <header>
-    <VisitorHeaderAd2></VisitorHeaderAd2>
-    <VisitorHeader></VisitorHeader>
-  </header>
   <main>
     <!-- 產品信息 -->
     <section class="container mb-14 pt-23">
@@ -225,8 +220,6 @@
 </template>
 
 <script>
-import VisitorHeaderAd2 from '@/components/header/VisitorHeaderAd2.vue';
-import VisitorHeader from '@/components/header/VisitorHeader.vue';
 import UserIcon from '@/components/icons/UserIcon.vue';
 import ClockIcon from '@/components/icons/ClockIcon.vue';
 import TwitterIcon from '@/components/icons/TwitterIcon.vue';
@@ -240,8 +233,6 @@ import StarFull from '@/components/icons/StarFull.vue';
 
 export default {
   components: {
-    VisitorHeaderAd2,
-    VisitorHeader,
     UserIcon,
     ClockIcon,
     TwitterIcon,

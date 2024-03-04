@@ -23,13 +23,17 @@ class MyUploadAdapter {
 
   initRequest() {
     const xhr = new XMLHttpRequest();
+    const token = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('db'))
+      ?.split('=')[1];
     this.xhr = xhr;
 
     xhr.open('POST', uploadUrl, true);
 
     xhr.setRequestHeader(
       'Authorization',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QxMTExQGdtYWlsLmNvbSIsInVzZXJJRCI6IjQ4NzRiNTM2LWM2MmYtNGQ3ZS05MzExLWU1YjJkNTVhYjUyYSIsImlhdCI6MTcwODY5MTA0MSwiZXhwIjoxNzA5Mjk1ODQxfQ.8Das-QKINaBu9SigBU_SHaeLjK2nvg-IEjH-VGUxlJc',
+      token,
     );
 
     xhr.responseType = 'json';

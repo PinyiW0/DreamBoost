@@ -3,59 +3,73 @@
   <div class="container">
     <form class="col-lg-8 mx-auto mb-24 text-gray-700">
       <div class="mb-14">
-        <label for="content" class="form-label lh-md lterSpc-2">
+        <p class="form-label lh-md lterSpc-2">
           專案內容
           <span class="text-danger"> * </span>
-        </label>
+        </p>
         <p class="fs-6">
           請提供 JPEG 或 PNG 檔，圖片尺寸至少 1200x 800 px (3:2)； 2MB 以內。
         </p>
         <Ckeditor
           :editor="editor"
-          v-model="editorData"
+          v-model="launchData.proposalArticle"
           :config="editorConfig"
-          tag-name="textarea"
         />
       </div>
       <div>
         <div class="d-flex justify-content-between align-items-center mb-6">
           <p class="mb-0 lh-md lterSpc-2">常見問題</p>
-          <a
-            href="#"
+          <button
+            type="button"
             class="btn btn-primary px-7 d-flex gap-2 align-items-center"
+            @click="addFaq"
           >
             增加常見問題
             <i style="width: 16px; height: 16px; margin-top: -12px">
               <PlusIcon />
             </i>
-          </a>
+          </button>
         </div>
-        <ul class="list-unstyled">
+        <ul
+          class="list-unstyled"
+          v-for="(faq, index) in launchData.proposalFAQs"
+          :key="faq.id"
+        >
           <li>
             <div class="card px-4 px-md-9 px-lg-11 py-10 mb-11">
-              <a href="#" class="ms-auto link-dark link-opacity-50-hover">
+              <button
+                type="button"
+                class="bg-transparent border-0 ms-auto link-dark link-opacity-50-hover"
+                @click="deleteFaq(index)"
+              >
                 <i class="d-block" style="width: 24px">
                   <XmarkIcon />
                 </i>
-              </a>
+              </button>
               <div class="mb-3">
-                <label for="question" class="form-label mb-3">問題</label>
+                <label :for="`question + ${index}`" class="form-label mb-3"
+                  >問題
+                </label>
                 <textarea
                   name="question"
-                  id="question"
+                  :id="`question + ${index}`"
                   class="form-control"
                   rows="5"
                   placeholder="請在50個字以內輸入此專案的常見問題"
+                  v-model="faq.question"
                 ></textarea>
               </div>
               <div class="">
-                <label for="answer" class="form-label mb-3">回覆答案</label>
+                <label :for="`answer + ${index}`" class="form-label mb-3"
+                  >回覆答案
+                </label>
                 <textarea
                   name="answer"
-                  id="answer"
+                  :id="`answer + ${index}`"
                   class="form-control"
                   rows="10"
                   placeholder="請在500個字以內輸入上述問題的正確回覆答案"
+                  v-model="faq.answer"
                 ></textarea>
               </div>
             </div>
@@ -64,12 +78,22 @@
       </div>
       <div class="row justify-content-end g-6">
         <div class="col-md-4 col-lg-5 col-xl-4">
-          <button type="button" class="btn btn-primary-light w-100">
+          <button
+            type="button"
+            class="btn btn-primary-light w-100"
+            @click="previousStep"
+          >
             上一步
           </button>
         </div>
         <div class="col-md-4 col-lg-5 col-xl-4">
-          <button type="button" class="btn btn-primary w-100">下一步</button>
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            @click.prevent="nextStep"
+          >
+            儲存並新增回饋
+          </button>
         </div>
       </div>
     </form>
@@ -77,21 +101,25 @@
 </template>
 
 <script>
+// CkEditor 5 載入
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import '@ckeditor/ckeditor5-build-classic/build/translations/zh';
+// pinia 載入
+import { mapWritableState, mapActions } from 'pinia';
+import launchStore from '@/stores/launchStore';
 
 import LaunchNav from '@/components/launch/LaunchNav.vue';
 import PlusIcon from '@/components/icons/PlusIcon.vue';
 import XmarkIcon from '@/components/icons/XmarkIcon.vue';
 
+// 上傳圖片連接器
 import imageUploadAdapter from '@/assets/js/imageUploadAdapter';
 
 export default {
   data() {
     return {
       editor: ClassicEditor,
-      editorData: '',
       editorConfig: {
         placeholder: '請輸入提案內容....',
         language: 'zh',
@@ -100,17 +128,39 @@ export default {
     };
   },
 
+  methods: {
+    ...mapActions(launchStore, ['postLaunch']),
+
+    addFaq() {
+      this.launchData.proposalFAQs.push({
+        id: new Date().getTime(),
+        question: '',
+        answer: '',
+      });
+    },
+
+    deleteFaq(index) {
+      this.launchData.proposalFAQs.splice(index, 1);
+    },
+
+    previousStep() {
+      this.$router.go(-1);
+    },
+    async nextStep() {
+      await this.postLaunch();
+      this.$router.push('/launch/feedback');
+    },
+  },
+
+  computed: {
+    ...mapWritableState(launchStore, ['launchData']),
+  },
+
   components: {
+    Ckeditor: CKEditor.component,
     LaunchNav,
     PlusIcon,
     XmarkIcon,
-    Ckeditor: CKEditor.component,
   },
 };
 </script>
-
-<style lang="scss">
-.ck-editor__editable_inline:not(.ck-comment__input *) {
-  min-height: 350px;
-}
-</style>

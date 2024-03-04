@@ -7,15 +7,16 @@
       </p>
       <form class="row gy-6">
         <div class="col-lg-6">
-          <label for="launchPerson" class="form-label">
+          <label for="launchLeader" class="form-label">
             提案負責人姓名
             <span class="text-danger"> * </span>
           </label>
           <input
             type="text"
-            id="launchPerson"
+            id="launchLeader"
             class="form-control border-primary-light py-3"
             placeholder="為核實及平台提案資料留存用，請填寫真實姓名。"
+            v-model="userData.customizeProperty.launchLeader"
           />
         </div>
         <div class="col-12">
@@ -31,7 +32,8 @@
                 name="email"
                 class="form-control border-primary-light py-3"
                 placeholder="預設帶入會員的電子郵件"
-                autocomplete="email"
+                disabled
+                v-model="userData.customizeProperty.userEmail"
               />
             </div>
             <div class="col-md-6 align-self-end">
@@ -56,8 +58,8 @@
                 id="tel"
                 name="tel"
                 class="form-control border-primary-light py-3"
-                placeholder="請輸入身分證字號"
-                autocomplete="tel"
+                placeholder="+8869-XX-XXX-XXX"
+                v-model="userData.userTelephone"
               />
             </div>
             <div class="col-md-6 align-self-end">
@@ -86,7 +88,8 @@
                   type="text"
                   id="identity1"
                   class="form-control border-primary-light py-3"
-                  placeholder="+8869-XX-XXX-XXX"
+                  placeholder="請輸入身分證字號"
+                  v-model="userData.customizeProperty.launchIdentity"
                 />
               </div>
               <p class="mt-1 fs-12 text-gray-300">
@@ -103,6 +106,7 @@
                 id="registerName"
                 name="registerName"
                 class="form-control border-primary-light py-3"
+                v-model="userData.customizeProperty.registerName"
               />
               <p class="mt-1 fs-6 text-gray-300">
                 請填寫與上方身分證字號 /
@@ -117,7 +121,9 @@
             <div class="col-md-6">
               <div class="d-flex align-items-center mb-9">
                 <img
-                  src="https://fakeimg.pl/120x120"
+                  :src="
+                    userData.userAvatarImage || 'https://fakeimg.pl/120x120'
+                  "
                   class="flex-shrink-0 me-7 img-fluid object-fit-cover"
                   style="width: 120px; height: 120px"
                   alt="..."
@@ -127,7 +133,7 @@
                   <p class="mb-2 fs-6">
                     圖片為目前的會員圖片，建議更新為適合此專案的個人或團隊照片。
                   </p>
-                  <input type="file" id="feedbackImg" class="d-none" />
+                  <input type="file" id="feedbackImg" class="d-none" @change="imageHandler"/>
                   <label
                     for="feedbackImg"
                     class="btn btn-primary d-flex justify-content-center gap-2 px-0 py-2 w-100 rounded-0"
@@ -150,6 +156,7 @@
                   name="registerName"
                   class="form-control border-primary-light py-3"
                   placeholder="預設帶入會員名稱"
+                  v-model="userData.customizeProperty.displayName"
                 />
                 <p class="mt-1 fs-6 text-gray-300">
                   顯示名稱將會被瀏覽者視為此計畫的執行團隊。此名稱為您目前的會員名稱，建議更新為適合此專案的個人或團隊名稱。
@@ -166,6 +173,7 @@
                 id="selfIntroduction"
                 rows="10"
                 class="form-control border-primary-light py-3"
+                v-model="userData.customizeProperty.introduction"
               ></textarea>
             </div>
           </div>
@@ -178,6 +186,7 @@
             name="fansPage"
             class="form-control border-primary-light py-3"
             placeholder="如果有和計畫相關的粉絲專頁，請直接貼上完整網址。"
+            v-model="userData.customizeProperty.fanPage"
           />
         </div>
         <div class="col-12">
@@ -188,6 +197,7 @@
             name="fansPage"
             class="form-control border-primary-light py-3"
             placeholder="如果有和計畫相關的粉絲專頁，請直接貼上完整網址。"
+            v-model="userData.customizeProperty.projectPage"
           />
         </div>
         <div class="col-12 mt-17">
@@ -208,8 +218,9 @@
                 預覽專案
               </button>
               <button
-                type="button"
+                type="submit"
                 class="btn btn-primary px-17 w-100 w-md-auto"
+                @click.prevent="postUserData"
               >
                 提交專案
               </button>
@@ -222,11 +233,37 @@
 </template>
 
 <script>
+import { mapActions, mapWritableState } from 'pinia';
+
+import userStore from '@/stores/userStore';
+import memberStore from '@/stores/memberStore';
 import LaunchNav from '@/components/launch/LaunchNav.vue';
+
+import mixinUploadImage from '@/mixins/mixinUploadImage';
 
 import CameraIcon from '@/components/icons/CameraIcon.vue';
 
 export default {
+  mixins: [mixinUploadImage],
+
+  methods: {
+    ...mapActions(userStore, ['getUserData', 'postUserData']),
+    ...mapActions(memberStore, ['postCheckToken']),
+
+    async imageHandler(value) {
+      this.userData.userAvatarImage = await this.uploadImage(value);
+    },
+  },
+
+  computed: {
+    ...mapWritableState(userStore, ['userData']),
+  },
+
+  async mounted() {
+    await this.postCheckToken();
+    await this.getUserData();
+  },
+
   components: {
     LaunchNav,
     CameraIcon,

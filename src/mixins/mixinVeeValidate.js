@@ -35,6 +35,11 @@ export default {
     checkPassword(value) {
       return value === this.userData?.password ? true : '與密碼不符！！！';
     },
+
+    // 確認單選框驗證
+    checkConfirm(value) {
+      return value || '需勾選同意框';
+    },
   },
 
   components: {

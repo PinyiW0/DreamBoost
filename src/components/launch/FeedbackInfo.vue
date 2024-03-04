@@ -24,15 +24,31 @@
           <div class="row gy-4 mb-10">
             <div class="col-lg-6">
               <div class="mb-4">
+                <label for="feedbackName" class="form-label">
+                  回饋名稱
+                  <span class="text-danger"> * </span>
+                </label>
+                <input
+                  type="text"
+                  id="feedbackName"
+                  class="form-control border-primary-light mb-1 py-3"
+                  placeholder="100"
+                  min="100"
+                  v-model="copyTempData.feedbackName"
+                />
+              </div>
+              <div class="mb-4">
                 <label for="feedbackPrice" class="form-label">
                   回饋金額
                   <span class="text-danger"> * </span>
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   id="feedbackPrice"
                   class="form-control border-primary-light mb-1 py-3"
                   placeholder="100"
+                  min="100"
+                  v-model="copyTempData.feedbackSettingMoney"
                 />
                 <p class="fs-6 text-gray-400">最低金額為 $100 元</p>
               </div>
@@ -46,42 +62,62 @@
                   id="abstract"
                   rows="10"
                   placeholder="請在150字內"
+                  v-model="copyTempData.feedbackArticle"
                 ></textarea>
               </div>
+              <template v-if="copyTempData.customizeProperty">
+                <div class="mb-4">
+                  <label for="shippingArea" class="form-label">
+                    寄送區域
+                    <span class="text-danger"> * </span>
+                  </label>
+                  <select
+                    name=""
+                    id="shippingArea"
+                    class="form-select border-primary-light py-3"
+                    v-model="copyTempData.customizeProperty.shippingArea"
+                  >
+                    <option value="" selected disabled>請選擇一個區域</option>
+                    <option value="台灣">台灣</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="shippingTime" class="form-label">
+                    預計寄送時間
+                    <span class="text-danger"> * </span>
+                  </label>
+                  <input
+                    type="date"
+                    id="shippingTime"
+                    class="form-control border-primary-light py-3"
+                    v-model="copyTempData.customizeProperty.shippingTime"
+                  />
+                </div>
+              </template>
+            </div>
+            <div class="col-lg-6 d-flex flex-column">
               <div class="mb-4">
-                <label for="shippingArea" class="form-label">
-                  寄送區域
-                  <span class="text-danger"> * </span>
-                </label>
-                <select
-                  name=""
-                  id="shippingArea"
-                  class="form-select border-primary-light py-3"
-                >
-                  <option value="" selected disabled>請選擇一個區域</option>
-                  <option value="">苗栗</option>
-                  <option value="">台中</option>
-                </select>
-              </div>
-              <div>
-                <label for="shippingTime" class="form-label">
-                  預計寄送時間
+                <label for="feedbackTitle" class="form-label">
+                  回饋標題
                   <span class="text-danger"> * </span>
                 </label>
                 <input
-                  type="date"
-                  id="shippingTime"
-                  class="form-control border-primary-light py-3"
+                  type="text"
+                  id="feedbackTitle"
+                  class="form-control border-primary-light mb-1 py-3"
+                  placeholder="100"
+                  min="100"
+                  v-model="copyTempData.feedbackTitle"
                 />
               </div>
-            </div>
-            <div class="col-lg-6 d-flex flex-column">
               <p>
                 回饋封面
                 <span class="text-danger"> * </span>
               </p>
               <img
-                src="https://fakeimg.pl/1200x800"
+                :src="
+                  copyTempData.feedbackImage || 'https://fakeimg.pl/1200x800'
+                "
                 class="img-fluid mb-4"
                 alt=""
               />
@@ -89,7 +125,12 @@
                 請提供 JPEG 或 PNG 檔，圖片尺寸至少 1200x 800 PX (3:2)； 2MB
                 以內。
               </p>
-              <input type="file" id="feedbackImg" class="d-none" />
+              <input
+                type="file"
+                id="feedbackImg"
+                class="d-none"
+                @change="imageHandler"
+              />
               <label
                 for="feedbackImg"
                 class="btn btn-primary d-flex justify-content-center gap-2 px-8 w-100 mb-3"
@@ -101,8 +142,8 @@
               </label>
               <div class="mt-auto">
                 <label for="feedbackQtyText" class="form-label"
-                  >回饋數量限制</label
-                >
+                  >回饋數量限制
+                </label>
                 <div class="input-group border-primary-light">
                   <div
                     class="input-group-text gap-1 py-3 bg-transparent border-primary-light"
@@ -114,8 +155,8 @@
                       value=""
                     />
                     <label for="feedbackQty" class="text-gray-400 lh-1"
-                      >限量</label
-                    >
+                      >限量
+                    </label>
                   </div>
                   <input
                     type="text"
@@ -123,6 +164,7 @@
                     class="form-control py-3 border-primary-light"
                     aria-label="Text input with checkbox"
                     placeholder="0"
+                    v-model.number="copyTempData.feedbackLimitAmount"
                   />
                 </div>
               </div>
@@ -149,13 +191,14 @@
                 type="date"
                 id="startDate"
                 class="form-control border-primary-light py-3 mb-6"
+                v-model="copyTempData.feedbackStartTime"
               />
               <div class="input-group">
                 <span
                   class="input-group-text py-3 border-primary-light bg-transparent"
                   id="startTime"
-                  >開始時間</span
-                >
+                  >開始時間
+                </span>
                 <input
                   type="time"
                   class="form-control py-3 border-primary-light"
@@ -169,6 +212,7 @@
                 type="date"
                 id="endDate"
                 class="form-control border-primary-light py-3 mb-6"
+                v-model="copyTempData.feedbackEndTime"
               />
               <div class="input-group">
                 <span
@@ -195,7 +239,11 @@
               </button>
             </div>
             <div class="col-lg-3">
-              <button type="button" class="btn btn-primary px-0 w-100">
+              <button
+                type="button"
+                class="btn btn-primary px-0 w-100"
+                @click="saveFeedback"
+              >
                 儲存回饋
               </button>
             </div>
@@ -207,16 +255,30 @@
 </template>
 
 <script>
+import mixinUploadImage from '@/mixins/mixinUploadImage';
 import CameraIcon from '../icons/CameraIcon.vue';
 
 export default {
+  props: ['tempData'],
+  mixins: [mixinUploadImage],
+
   data() {
     return {
       feedbackModal: null,
+      copyTempData: {},
     };
   },
 
   methods: {
+    saveFeedback() {
+      this.$emit('feedback-handler', this.copyTempData);
+      this.closeModal();
+    },
+
+    async imageHandler(value) {
+      this.copyTempData.feedbackImage = await this.uploadImage(value);
+    },
+
     openModal() {
       this.feedbackModal.show();
     },
@@ -230,6 +292,12 @@ export default {
     this.feedbackModal = new this.$bs.Modal(this.$refs.feedbackInfoModal, {
       backdrop: 'static',
     });
+  },
+
+  watch: {
+    tempData() {
+      this.copyTempData = JSON.parse(JSON.stringify(this.tempData));
+    },
   },
 
   components: {
