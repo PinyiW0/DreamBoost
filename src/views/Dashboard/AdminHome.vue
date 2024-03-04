@@ -31,21 +31,40 @@
 <script>
 import LogoIcon from '@/components/icons/AdminLogo.vue';
 import LogoAvatar from '@/components/icons/AdministratorIcon.vue';
+import MixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
+import MixinSwalToast from '@/mixins/mixinSwalToast';
+
+const { VITE_URL } = import.meta.env;
 
 export default {
   data() {
     return {
-      toggle: false,
     };
   },
   methods: {
-    toggleActive() {
-      this.toggle = !this.toggle;
+    checkToken() {
+      this.showFullScreenLoading();
+      const token = document.cookie.replace(/(?:(?:^|.*;\s*)dreamboostAdminToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+      this.$http.post(`${VITE_URL}/dreamboost/administrator/checktoken`, null, {
+        headers: { Authorization: token },
+      })
+        .then((res) => {
+          this.hideFullScreenLoading();
+          console.log(res);
+        })
+        .catch((err) => {
+          this.hideFullScreenLoading();
+          console.log(err);
+        });
     },
   },
   components: {
     LogoIcon,
     LogoAvatar,
+  },
+  mixins: [MixinFullScreenLoading, MixinSwalToast],
+  mounted() {
+    this.checkToken();
   },
 };
 </script>

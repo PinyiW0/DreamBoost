@@ -12,16 +12,19 @@
         <div class="px-4 px-md-10 py-5 py-md-10 py-xxl-16  border border-white bg-gray-700 rounded rounded-3">
           <p class="mb-5 fs-3 text-white text-center text-md-start">管理員登入<span
               class="lh-1 fs-6 ms-2 text-dark-pr d-none d-md-block">Sign In</span></p>
-          <form @submit="onSubmit" @keydown.enter="onSubmit">
+          <form @submit="onSubmit">
             <div class="mb-6">
               <label for="adminEmail" class="form-label text-gray-300">帳號</label>
               <input type="email" class="form-control borderl bg-white text-white" style="--bs-bg-opacity: .15;"
-                placeholder="電子郵件" id="adminEmail" aria-describedby="emailHelp">
+              placeholder="電子郵件" id="adminEmail" aria-describedby="emailHelp"
+              v-model="userdata.username">
             </div>
             <div class="mb-8 mb-md-16 mb-xxl-24">
               <label for="adminPwd" class="form-label text-gray-300">密碼</label>
               <input type="password" class="form-control borderl bg-white text-white" style="--bs-bg-opacity: .15;"
-                placeholder="密碼" id="adminPwd" aria-describedby="emailHelp">
+              placeholder="密碼" id="adminPwd" aria-describedby="emailHelp"
+              v-model="userdata.password"
+              >
             </div>
             <button type="submit" class="btn btn-dark-pr d-block mx-auto px-21 mb-6">登入
             </button>
@@ -35,11 +38,18 @@
 </template>
 <script>
 import LogoIcon from '@/components/icons/AdminLogo.vue';
-import LoadingComponent from '@/mixins/FullScreenLoading';
+import MixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
+import MixinSwalToast from '@/mixins/mixinSwalToast';
+
+const { VITE_URL } = import.meta.env;
 
 export default {
   data() {
     return {
+      userdata: {
+        username: '',
+        password: '',
+      },
     };
   },
   components: {
@@ -47,12 +57,27 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.showFullScreenLoading({ backgroundColor: '#FAA', loader: 'dots' });
+      this.login();
+    },
+    login() {
+      this.showFullScreenLoading();
+      this.$http.post(`${VITE_URL}/dreamboost/administrator/login`, this.userdata)
+        .then((res) => {
+          this.hideFullScreenLoading();
+          const { token, expired } = res.data.data;
+          // 轉換時間戳記成可以存到cookie內的格式,必須要是UNIX TimeStmap
+          document.cookie = `dreamboostAdminToken=${token};expires=${new Date(expired * 1000)};`;
+          this.$router.push('/admin/home');
+        })
+        .catch((err) => {
+          this.hideFullScreenLoading();
+          this.addToast({ content: err.response.data.message, style: 'error' });
+        });
     },
   },
   mounted() {
   },
-  mixins: [LoadingComponent],
+  mixins: [MixinFullScreenLoading, MixinSwalToast],
 };
 </script>
 <style lang="scss">
