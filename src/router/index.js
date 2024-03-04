@@ -17,7 +17,7 @@ const router = createRouter({
       children: [
         {
           // 首頁
-          path: 'home',
+          path: '',
           name: 'home',
           component: () => import('../views/front/HomeView.vue'),
         },
