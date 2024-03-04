@@ -37,8 +37,7 @@ export default {
           }
         })
         .catch(() => {
-          this.$router.push({ name: 'member' });
-          // 這邊要加請先登入會員提示
+          this.isLoggedIn = false;
         });
     },
     logout() {
