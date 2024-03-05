@@ -5,13 +5,13 @@
         <img src="https://picsum.photos/id/684/600/400" alt="" class="rounded-pill me-2 me-lg-4" width="48" height="48">
         <div class="d-flex flex-column justify-content-center text-white">
           <p class="mb-0  fs-12 lh-sm mb-1">2024.02.13</p>
-          <p class="mb-0  ">小智的 MIT 夢 - 台灣學生的教育之旅</p>
+          <p class="mb-0  ">{{proposalData.proposalTitle}}</p>
         </div>
       </div>
       <!-- 按鈕 -->
       <div class="d-flex" v-if="proposalData.proposalStatus==='review'">
         <button class="btn btn-outline-dark-pr px-8">查看</button>
-        <button class="btn btn-outline-dark-pr px-8 ms-4">通過</button>
+        <button class="btn btn-outline-dark-pr px-8 ms-4" @click="emitActive">通過</button>
         <button class="btn btn-outline-dark-pr px-8 ms-4">退回</button>
       </div>
       <div class="d-flex align-items-center" v-else-if="proposalData.proposalStatus==='active'">
@@ -29,6 +29,12 @@ export default {
     };
   },
   methods: {
+    emitActive() {
+      this.$emit('emitActive', this.proposalData.proposalID, this.proposalData.proposalTitle);
+    },
+    emitDeny() {
+      this.$emit('emitDeny', this.proposalData.proposalID);
+    },
   },
 };
 </script>
