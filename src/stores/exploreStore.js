@@ -24,10 +24,20 @@ export default defineStore('prposalsStore', {
           console.log(err);
         });
     },
-    filterProposal() {},
+
+    // 取得路由 id
+    getProposalID() {
+      return this.$route.params.id;
+    },
   },
 
   getters: {
     useProposals: ({ proposals }) => proposals,
+
+    // 選出單一產品
+    singleProposal: ({ proposals, getProposalID }) => {
+      const id = getProposalID();
+      return proposals[id];
+    },
   },
 });

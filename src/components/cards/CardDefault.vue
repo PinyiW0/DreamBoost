@@ -1,5 +1,5 @@
 <template>
-  <a class="card-shadow">
+  <RouterLink :to="`/product/${proposals.proposalID}/info`" class="card-shadow">
     <div class="card py-8 px-7 mb-16 border-2 border-primary rounded-4 card-shadow">
       <div class="position-relative">
         <img
@@ -100,7 +100,7 @@
         </div>
       </div>
     </div>
-  </a>
+  </RouterLink>
 </template>
 
 <script>
