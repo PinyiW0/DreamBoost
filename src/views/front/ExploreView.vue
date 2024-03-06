@@ -87,24 +87,13 @@
     <!-- 卡片渲染區 -->
     <section class="container">
       <ul class="row gx-10 list-unstyled pt-5">
-        <li class="col-12 col-md-6 col-lg-4">
-          <CardDefault />
+        <li
+          class="col-12 col-md-6 col-lg-4"
+          v-for="(proposal, proposalId) in proposals"
+          :key="proposalId"
+          >
+          <CardDefault :proposals="proposal" />
         </li>
-        <li class="col-12 col-md-6 col-lg-4">
-          <CardDefault />
-        </li>
-        <li class="col-12 col-md-6 col-lg-4">
-          <CardDefault />
-        </li>
-        <li class="col-12 col-md-6 col-lg-4">
-            <CardDefault />
-          </li>
-          <li class="col-12 col-md-6 col-lg-4">
-            <CardDefault />
-          </li>
-          <li class="col-12 col-md-6 col-lg-4">
-            <CardDefault />
-          </li>
       </ul>
     </section>
     <div class="container d-flex flex-column">
@@ -117,9 +106,54 @@
       </button>
     </div>
   </main>
-  <!-- footer 區域 -->
-   <UserFooter></UserFooter>
 </template>
+
+<script>
+import AnglesDown from '@/components/icons/AnglesDown.vue';
+import CouponCircle from '@/components/rotate/CuponCircle.vue';
+import CardDefault from '@/components/cards/CardDefault.vue';
+import exploreStore from '@/stores/exploreStore';
+import { mapState, mapActions } from 'pinia';
+
+// const { VITE_URL } = import.meta.env;
+
+export default {
+  components: {
+    AnglesDown,
+    CouponCircle,
+    CardDefault,
+  },
+  data() {
+    return {
+      // proposals: [],
+    };
+  },
+  computed: {
+    ...mapState(exploreStore, ['proposals']),
+  },
+  mounted() {
+    this.getProposals();
+    console.log(this.proposals);
+    // this.getProposalsData();
+  },
+  methods: {
+    ...mapActions(exploreStore, ['getProposals']),
+    // getProposalsData() {
+    //   this.$http.get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)
+    //     .then((res) => {
+    //       if (res.data.success) {
+    //         this.proposals = res.data.data.result;
+    //         console.log(this.proposals);
+    //         console.log(res.data.data.result);
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       console.log(err.message);
+    //     });
+    // },
+  },
+};
+</script>
 
 <style lang="scss">
 .angle-down {
@@ -127,6 +161,7 @@
     color: var(--bs-primary);
   }
 }
+
 //專案類別按鈕
 .categorylink {
   display: block;
@@ -144,42 +179,34 @@
     background-blend-mode: darken;
   }
 }
+
 // 挺好夢
 .categorylink1 {
   background-image: url('/images/home/categorie_01.png');
 }
+
 //科技設計
 .categorylink2 {
   background-image: url('/images/home/categorie_02.png');
 }
+
 //健康生活
 .categorylink3 {
   background-image: url('/images/home/categorie_03.png');
 }
+
 //時尚
 .categorylink4 {
   background-image: url('/images/home/categorie_04.png');
 }
+
 //公共在地
 .categorylink5 {
   background-image: url('/images/home/categorie_05.png');
 }
+
 //美妝
 .categorylink6 {
   background-image: url('/images/home/categorie_06.png');
 }
 </style>
-
-<script>
-import CardDefault from '@/components/cards/CardDefault.vue';
-import AnglesDown from '@/components/icons/AnglesDown.vue';
-import CouponCircle from '@/components/rotate/CuponCircle.vue';
-
-export default {
-  components: {
-    CardDefault,
-    AnglesDown,
-    CouponCircle,
-  },
-};
-</script>

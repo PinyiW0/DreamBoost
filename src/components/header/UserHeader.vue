@@ -147,7 +147,7 @@ export default {
   },
   methods: {
     logout() {
-      document.cookie = ' db=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = ' db = ""';
       this.$emit('logout');
       this.$router.push({ name: 'home' });
     },

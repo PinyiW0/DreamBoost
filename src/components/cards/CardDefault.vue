@@ -3,9 +3,10 @@
     <div class="card py-8 px-7 mb-16 border-2 border-primary rounded-4 card-shadow">
       <div class="position-relative">
         <img
-            src="https://fakeimg.pl/350x250"
-            class="card-img-top rounded-3 mb-12"
-            alt="..."
+            :src="proposals.proposalMainImage"
+            class="card-img-top rounded-3 mb-12 object-fit-cover"
+            alt="提案主要照片"
+            style="min-height: 250px;"
           />
         <button
             type="button"
@@ -20,10 +21,10 @@
           </button>
       </div>
       <div class="card-body p-0">
-        <span class="fs-6 text-primary">#類別</span>
+        <span class="fs-6 text-primary">#{{ proposals.proposalCategory }}</span>
           <a href="" class="title-hover">
           <h3 class="card-title title-hover mb-7 fs-5 fw-semibold">
-            產品名稱
+            {{ proposals.proposalTitle }}
           </h3>
           </a>
         <h4
@@ -39,7 +40,7 @@
               alt="DreamBoost Logo"
             />
           </span>
-          發起人：Andrea Blanchard
+          發起人：{{ proposals.customizeProperty?.displayName }}
         </h4>
         <div
           class="progress bg-secondary-light mb-7 rounded-pill"
@@ -85,7 +86,8 @@
               </span>
             </a>
           </div>
-          <a href="">
+          <router-link
+            :to="{ name: 'product-info', params: { id: proposals.proposalID.trim() } }">
             <span class="share-hover">
             <i
               class="d-block"
@@ -94,36 +96,57 @@
                 <ArrowUpRight />
             </i>
             </span>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
   </a>
 </template>
 
-<style lang="scss">
-.card-shadow {
-  transition: box-shadow 0.2s ease;
-  &:hover {
-    box-shadow: 2px 4px 6px rgba(57, 87, 132, 0.4);
-    cursor: pointer;
-  }
-}
-// 0 4px 10px rgba(57, 87, 132, 0.2);
-</style>
-
 <script>
 import MessageIcon from '@/components/icons/MessageIcon.vue';
 import ArrowUpRight from '@/components/icons/ArrowUpRight.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import StarHollow from '@/components/icons/StarHollow.vue';
+import exploreStore from '@/stores/exploreStore';
+import { mapState } from 'pinia';
 
+// const { VITE_URL } = import.meta.env;
 export default {
+  // props: ['proposals'],
+  props: {
+    proposals: {
+      type: Object,
+      required: true,
+    },
+  },
   components: {
     MessageIcon,
     StarFull,
     StarHollow,
     ArrowUpRight,
   },
+  data() {
+    return {
+    };
+  },
+  computed: {
+    ...mapState(exploreStore, ['proposals']),
+  },
+  mounted() {
+  },
+  methods: {
+  },
 };
 </script>
+
+<style lang="scss">
+.card-shadow {
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 2px 4px 6px rgba(57, 87, 132, 0.4);
+    cursor: pointer;
+  }
+}
+</style>

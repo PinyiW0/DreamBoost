@@ -8,7 +8,7 @@
         健康生活
       </span>
       <h2 class="mb-8 fs-3 text-primary-dark">
-        CodeGuardian - 工程師顧肝必備良品：LiverCare
+        題目
       </h2>
       <div class="row gy-8">
         <div class="col-lg-6">
@@ -241,6 +241,9 @@ import CheckIcon from '@/components/icons/CheckIcon.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
+// pinia 載入
+// import { mapWritableState, mapActions } from 'pinia';
+// import launchStore from '@/stores/launchStore';
 
 export default {
   data() {
