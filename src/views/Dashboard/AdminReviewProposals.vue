@@ -98,6 +98,7 @@ export default {
         .then((res) => {
           this.reviewProposals = res[0].data.data.result;
           this.activeProposals = res[1].data.data.result;
+          this.addToast({ content: '提案資料取得完畢' });
           this.hideFullScreenLoading();
         })
         .catch(() => {
@@ -116,10 +117,10 @@ export default {
         allowOutsideClick: false,
         showCancelButton: true,
         buttonsStyling: true,
-        customClass: {
-          confirmButton: 'btn btn-primary',
-          cancelButton: 'btn btn-outline-dark ms-3',
-        },
+        // customClass: {
+        //   confirmButton: 'btn btn-primary',
+        //   cancelButton: 'btn btn-outline-dark ms-3',
+        // },
         confirmButtonText: '確認',
         cancelButtonText: '取消',
       })

@@ -1,34 +1,53 @@
 <template>
   <template v-if="tokenChecked">
     <div class="sticky-top">
-      <nav class="navbar navbar-expand-md container-fluid border-bottom border-5 border-dark-pr bg-gray-800 p-0">
-        <div class="container">
-          <div class="w-100 d-flex justify-content-between">
-            <RouterLink to="/admin/home/manageaccount" class="p-0 d-block">
-              <LogoIcon :style="{ height: '72px' }"></LogoIcon>
-            </RouterLink>
-            <div class="d-flex align-items-center">
-              <LogoAvatar :style="{height:'45px'} "></LogoAvatar>
-              <p class="ms-4 me-2 mb-0 text-white fs-5">管理員，您好</p>
-              <button class="l-logout btn px-4 py-2 text-white" @click="logout">登出</button>
-            </div>
+      <nav class="navbar navbar-expand-sm border-bottom border-5 border-dark-pr bg-gray-800">
+        <div class="container-fluid">
+          <RouterLink to="/admin/home/manageaccount" class="p-0 d-block">
+            <LogoIcon :style="{ height: '72px' }"></LogoIcon>
+          </RouterLink>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle"
+            aria-controls="navbar-toggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-toggle">
+            <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
+              <li class="nav-item flex-shrink-0 d-none d-sm-block">
+                <LogoAvatar :style="{height:'45px'} "></LogoAvatar>
+                <span class="ms-4 me-2 mb-0 text-white fs-5">管理員，您好</span>
+              </li>
+              <li class="nav-item">
+                <button class="l-logout btn px-4 py-2 text-white" @click="logout">登出</button>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
       <!-- 為了避免透過去只能新增這層.. -->
       <div class="bg-gray-800">
         <div class="bg-white bg-opacity-25" :style="{'--bs-bg-opacity': '.2'}">
-          <ul class="list-unstyled d-flex px-2 justify-sm-content-center justify-content-between py-4 l-ListGap">
-            <li><RouterLink  class="pt-2 pb-2 d-block px-1 px-sm-8 l-NavLink" to="/admin/home/manageaccount">管理帳號</RouterLink></li>
-            <li><RouterLink  class="pt-2 pb-2 d-block px-1 px-sm-8 l-NavLink" to="/admin/home/reviewproposals">方案審核</RouterLink></li>
-            <li><RouterLink  class="pt-2 pb-2 d-block px-1 px-sm-8 l-NavLink" to="/admin/home/salesdata">銷售數據</RouterLink></li>
-            <li><RouterLink  class="pt-2 pb-2 d-block px-1 px-sm-8 l-NavLink" to="/admin/home/updatebanner">更換BN</RouterLink></li>
+          <ul class="list-unstyled d-flex px-2 justify-content-around justify-content-lg-center  py-4 l-ListGap">
+            <li>
+              <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/manageaccount">管理帳號
+              </RouterLink>
+            </li>
+            <li>
+              <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/reviewproposals">方案審核
+              </RouterLink>
+            </li>
+            <li>
+              <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/salesdata">銷售數據</RouterLink>
+            </li>
+            <li>
+              <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/updatebanner">更換BN
+              </RouterLink>
+            </li>
           </ul>
         </div>
       </div>
     </div>
     <div class="flex-grow-1">
-      <!-- <RouterView></RouterView> -->
+      <RouterView></RouterView>
     </div>
     <DashboardFooter></DashboardFooter>
   </template>
@@ -93,11 +112,11 @@ export default {
         icon: 'question',
         allowOutsideClick: false,
         showCancelButton: true,
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'btn btn-primary',
-          cancelButton: 'btn btn-outline-dark ms-3',
-        },
+        buttonsStyling: true,
+        // customClass: {
+        //   confirmButton: 'btn btn-primary',
+        //   cancelButton: 'btn btn-outline-dark ms-3',
+        // },
         confirmButtonText: '確認',
         cancelButtonText: '取消',
       })
@@ -158,36 +177,15 @@ export default {
   }
 
 }
-.l-ListGap{
-  li + li{
-    margin-left: 20px;
-  }
-}
-
-// sm
-@media(min-width: 576px) {
-  .l-ListGap {
-    li+li {
-      margin-left: 80px;
-    }
-  }
-}
-
-// md
-@media(min-width:768px){
-  .l-ListGap {
-    li+li {
-      margin-left: 80px;
-    }
-  }
-}
-
 // lg
 @media(min-width:992px){
   .l-ListGap {
     li+li {
       margin-left: 80px;
     }
+  }
+  .l-NavLink.active::before{
+    width: 70%;
   }
 }
 </style>
