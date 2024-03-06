@@ -1,5 +1,9 @@
 import { defineStore } from 'pinia';
+import sweetAlert2Store from './sweetAlert2Store';
+import launchStore from './launchStore';
 
+const { successAlert, errorAlert } = sweetAlert2Store();
+const { setUserEmail } = launchStore();
 const { VITE_URL } = import.meta.env;
 
 export default defineStore('memberStore', {
@@ -9,7 +13,6 @@ export default defineStore('memberStore', {
       username: '',
       password: '',
     },
-    userEmail: '',
   }),
 
   actions: {
@@ -19,21 +22,26 @@ export default defineStore('memberStore', {
         const res = await this.$http.post(`${VITE_URL}/dreamboost/login`, this.userData);
         const { token, expired } = res.data.data;
         document.cookie = `db=${token}; expires=${new Date(expired * 1000)};`;
+        successAlert(res.data.message);
+        console.log(res);
         this.$router.go(-1);
       } catch (error) {
-        console.log(error.response.data.message);
+        errorAlert(error.response.data.message);
       }
     },
 
     // 註冊功能
     async postSignup() {
+      let apiState;
       try {
         const res = await this.$http.post(`${VITE_URL}/dreamboost/signup`, this.userData);
-        const { message } = res.data;
-        console.log(message);
+        const { message, success } = res.data;
+        apiState = success;
+        successAlert(message);
       } catch (error) {
-        console.log(error);
+        errorAlert(error.response.data.message);
       }
+      return apiState;
     },
 
     // 檢查使用者是否登入
@@ -45,7 +53,8 @@ export default defineStore('memberStore', {
       this.$http.defaults.headers.common.Authorization = token;
       try {
         const res = await this.$http.post(`${VITE_URL}/dreamboost/checktoken`);
-        this.userEmail = await res.data.data.result.username;
+        const userEmail = res.data.data.result.username;
+        setUserEmail(userEmail);
       } catch (error) {
         this.$router.push('/member');
       }

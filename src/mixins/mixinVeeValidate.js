@@ -1,17 +1,14 @@
 import {
   Form, Field, ErrorMessage, defineRule, configure,
 } from 'vee-validate';
-import {
-  required, email, regex, is,
-} from '@vee-validate/rules';
+import * as AllRules from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 
 import zhTw from '../assets/js/zh_TW.json';
 
-defineRule('required', required);
-defineRule('email', email);
-defineRule('regex', regex);
-defineRule('is', is);
+Object.keys(AllRules).forEach((rule) => {
+  defineRule(rule, AllRules[rule]);
+});
 
 setLocale('zhTw');
 
@@ -39,6 +36,16 @@ export default {
     // 確認單選框驗證
     checkConfirm(value) {
       return value || '需勾選同意框';
+    },
+
+    // 檢查提案圖片上傳
+    checkLaunchImage() {
+      return this.launchData.proposalMainImage ? true : '請上傳圖片';
+    },
+
+    // 檢查回饋圖片上傳
+    checkFeedbackImage() {
+      return this.copyTempData.feedbackImage ? true : '請上傳圖片';
     },
   },
 
