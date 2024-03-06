@@ -1,5 +1,5 @@
 <template>
-  <a class=" card-shadow">
+  <RouterLink :to="`/product/${proposals.proposalID}/info`" class="card-shadow">
     <div class="card py-8 px-7 mb-16 border-2 border-primary rounded-4 card-shadow">
       <div class="position-relative">
         <img :src="proposals.proposalMainImage" class="card-img-top rounded-3 mb-12 object-fit-cover" alt="提案主要照片"
@@ -65,7 +65,7 @@
         </div>
       </div>
     </div>
-    </a>
+  </RouterLink>
 </template>
 
 <script>
