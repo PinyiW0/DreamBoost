@@ -11,8 +11,8 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbar-toggle">
-            <ul class="navbar-nav ms-auto mb-0 align-items-lg-center">
-              <li class="nav-item flex-shrink-0 d-none d-sm-block">
+            <ul class="navbar-nav ms-auto mb-0 align-items-sm-center">
+              <li class="nav-item flex-shrink-0 d-none d-sm-flex align-items-center">
                 <LogoAvatar :style="{height:'45px'} "></LogoAvatar>
                 <span class="ms-4 me-2 mb-0 text-white fs-5">管理員，您好</span>
               </li>
@@ -26,7 +26,7 @@
       <!-- 為了避免透過去只能新增這層.. -->
       <div class="bg-gray-800">
         <div class="bg-white bg-opacity-25" :style="{'--bs-bg-opacity': '.2'}">
-          <ul class="list-unstyled d-flex px-2 justify-content-around justify-content-lg-center  py-4 l-ListGap">
+          <ul class="mb-0 list-unstyled d-flex px-2 justify-content-around justify-content-lg-center  py-4 l-ListGap">
             <li>
               <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/manageaccount">管理帳號
               </RouterLink>

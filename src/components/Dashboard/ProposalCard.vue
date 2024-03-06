@@ -19,7 +19,7 @@
             <button class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-8">查看</button>
             <button class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-8 ms-1 ms-sm-2 ms-md-4"
               @click="emitActive">通過</button>
-            <button class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-8 ms-1 ms-sm-2 ms-md-4">退回</button>
+            <button class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-8 ms-1 ms-sm-2 ms-md-4" @click="emitDeny">退回</button>
           </div>
           <div class="d-flex justify-content-end align-items-center" v-else-if="proposalData.proposalStatus==='active'">
             <p class="mb-0 text-secondary-light">審查通過</p>

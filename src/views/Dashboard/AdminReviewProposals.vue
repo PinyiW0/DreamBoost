@@ -11,6 +11,7 @@
           <ProposalCard v-for="item in reviewProposals" :proposal-data="item" :key="item.proposalID"
           @emit-active="activateProposal"
           >
+          <!-- @emit-deny="denyProposal" -->
           </ProposalCard>
         </div>
       </div>
@@ -146,15 +147,9 @@ export default {
             this.addToast({ content: '取消通過審核流程。提案並未上架。', style: 'info' });
           }
         });
-      // this.showFullScreenLoading();
-      // this.$http.post(`${VITE_URL}/dreamboost/proposal/admin/changeToActive`, { proposalID })
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
     },
+    // denyProposal(proposalID) {
+    // },
   },
   components: {
     ProposalCard,
