@@ -1,7 +1,12 @@
 <template>
   <LaunchNav current-page="專案內容" />
-  <div class="container">
-    <form class="col-lg-8 mx-auto mb-24 text-gray-700">
+  <main class="container">
+    <!-- 表單 -->
+    <VForm
+      class="col-lg-8 mx-auto mb-24 text-gray-700"
+      v-slot="{ errors }"
+      @submit="$router.push('/launch/data')"
+    >
       <div class="mb-14">
         <p class="form-label lh-md lterSpc-2">
           專案內容
@@ -10,11 +15,22 @@
         <p class="fs-6">
           請提供 JPEG 或 PNG 檔，圖片尺寸至少 1200x 800 px (3:2)； 2MB 以內。
         </p>
+        <VField
+          type="text"
+          id="content"
+          name="專案內容"
+          class="form-control py-3 d-none"
+          :class="{ 'is-invalid': errors['專案內容'] }"
+          v-model="launchData.proposalArticle"
+          rules="required"
+        >
+        </VField>
         <Ckeditor
           :editor="editor"
           v-model="launchData.proposalArticle"
           :config="editorConfig"
         />
+        <ErrorMessage class="invalid-feedback" name="專案內容"></ErrorMessage>
       </div>
       <div>
         <div class="d-flex justify-content-between align-items-center mb-6">
@@ -77,27 +93,23 @@
         </ul>
       </div>
       <div class="row justify-content-end g-6">
-        <div class="col-md-4 col-lg-5 col-xl-4">
+        <div class="col-md-4 col-lg-5 col-xl-3">
           <button
             type="button"
-            class="btn btn-primary-light w-100"
-            @click="previousStep"
+            class="btn btn-primary-light px-0 w-100"
+            @click="$router.go(-1)"
           >
             上一步
           </button>
         </div>
-        <div class="col-md-4 col-lg-5 col-xl-4">
-          <button
-            type="submit"
-            class="btn btn-primary w-100"
-            @click.prevent="nextStep"
-          >
-            儲存並新增回饋
+        <div class="col-md-4 col-lg-5 col-xl-3">
+          <button type="submit" class="btn btn-primary px-0 w-100">
+            下一步
           </button>
         </div>
       </div>
-    </form>
-  </div>
+    </VForm>
+  </main>
 </template>
 
 <script>
@@ -108,7 +120,9 @@ import '@ckeditor/ckeditor5-build-classic/build/translations/zh';
 // pinia 載入
 import { mapWritableState, mapActions } from 'pinia';
 import launchStore from '@/stores/launchStore';
-
+// 驗證載入
+import mixinVeeValidate from '@/mixins/mixinVeeValidate';
+// 元件載入
 import LaunchNav from '@/components/launch/LaunchNav.vue';
 import PlusIcon from '@/components/icons/PlusIcon.vue';
 import XmarkIcon from '@/components/icons/XmarkIcon.vue';
@@ -117,6 +131,7 @@ import XmarkIcon from '@/components/icons/XmarkIcon.vue';
 import imageUploadAdapter from '@/assets/js/imageUploadAdapter';
 
 export default {
+  mixins: [mixinVeeValidate],
   data() {
     return {
       editor: ClassicEditor,
@@ -141,14 +156,6 @@ export default {
 
     deleteFaq(index) {
       this.launchData.proposalFAQs.splice(index, 1);
-    },
-
-    previousStep() {
-      this.$router.go(-1);
-    },
-    async nextStep() {
-      await this.postLaunch();
-      this.$router.push('/launch/feedback');
     },
   },
 
