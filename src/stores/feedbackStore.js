@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia';
 
+import sweetAlert2Store from './sweetAlert2Store';
+
+const { successAlert, errorAlert, confirmAlert } = sweetAlert2Store();
 const { VITE_URL } = import.meta.env;
 
 function getLaunchID() {
@@ -15,53 +18,69 @@ export default defineStore('feedbackStore', {
     // 取得所有回饋
     getFeedback() {
       this.$http
-        .get(`${VITE_URL}/dreamboost/proposal/admin/feedbacks?proposalID=${getLaunchID()}`)
+        .get(
+          `${VITE_URL}/dreamboost/proposal/admin/feedbacks?proposalID=${getLaunchID()}`,
+        )
         .then((res) => {
-          console.log(res);
           this.feedbackSet = res.data.data.result;
         })
         .catch((err) => {
-          console.log(err);
+          errorAlert(err.response.data.message);
+          this.$router.push('/launch');
         });
     },
 
     // 新增回饋
-    postFeedback(data) {
-      this.$http
-        .post(`${VITE_URL}/dreamboost/proposal/normal/feedback?proposalID=${getLaunchID()}`, data)
-        .then((res) => {
-          console.log('success', res);
-          this.getFeedback();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    async postFeedback(data) {
+      let state;
+      try {
+        const res = await this.$http.post(
+          `${VITE_URL}/dreamboost/proposal/normal/feedback?proposalID=${getLaunchID()}`,
+          data,
+        );
+        this.getFeedback();
+        successAlert('已新增回饋');
+        state = res.data.success;
+      } catch (error) {
+        errorAlert(error.response.data.message);
+      }
+      return state;
     },
 
     // 修改回饋
-    putFeedback(data, feedbackID) {
-      this.$http
-        .put(`${VITE_URL}/dreamboost/proposal/admin/feedback/${feedbackID}?proposalID=${getLaunchID()}`, data)
-        .then((res) => {
-          console.log(res);
-          this.getFeedback();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    async putFeedback(data, feedbackID) {
+      let state;
+      try {
+        const res = await this.$http.put(
+          `${VITE_URL}/dreamboost/proposal/admin/feedback/${feedbackID}?proposalID=${getLaunchID()}`,
+          data,
+        );
+        this.getFeedback();
+        successAlert('成功修改回饋');
+        state = res.data.success;
+      } catch (error) {
+        errorAlert(error.response.data.message);
+      }
+      return state;
     },
 
     // 刪除回饋
     deleteFeedback(feedbackID) {
-      this.$http
-        .delete(`${VITE_URL}/dreamboost/proposal/admin/feedback/${feedbackID}?proposalID=${getLaunchID()}`)
-        .then((res) => {
-          console.log(res);
-          this.getFeedback();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      confirmAlert('確定要刪除嗎').then((result) => {
+        if (result.isConfirmed) {
+          this.$http
+            .delete(
+              `${VITE_URL}/dreamboost/proposal/admin/feedback/${feedbackID}?proposalID=${getLaunchID()}`,
+            )
+            .then(() => {
+              successAlert('成功刪除提案');
+              this.getFeedback();
+            })
+            .catch((err) => {
+              errorAlert(err.response.data.message);
+            });
+        }
+      });
     },
   },
 });
