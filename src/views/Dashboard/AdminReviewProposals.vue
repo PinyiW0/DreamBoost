@@ -10,8 +10,8 @@
         <div class="l-CardGapY">
           <ProposalCard v-for="item in reviewProposals" :proposal-data="item" :key="item.proposalID"
           @emit-active="activateProposal"
+          @emit-deny="showDenyProposalModal"
           >
-          <!-- @emit-deny="denyProposal" -->
           </ProposalCard>
         </div>
       </div>
@@ -68,7 +68,7 @@ export default {
     };
   },
   methods: {
-    showProposalModal() {
+    showDenyProposalModal() {
       this.$refs.proposalModal.show();
     },
     // 分開取得的兩個方法
@@ -94,7 +94,7 @@ export default {
     // },
     // 合併成一起取得的方法
     getDatas() {
-      this.showFullScreenLoading();
+      this.showFullScreenLoading({ canCancel: false, loader: 'dots' });
       Promise.all([this.$http.get(`${VITE_URL}/dreamboost/proposal/admin/inReviewProposals`), this.$http.get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)])
         .then((res) => {
           this.reviewProposals = res[0].data.data.result;
@@ -109,7 +109,7 @@ export default {
     },
     activateProposal(proposalID, proposalTitle) {
       // console.log('activateProposal');
-      console.log(proposalID, proposalTitle);
+      // console.log(proposalID, proposalTitle);
       Swal.fire({
         title: '確認審核？',
         text: `${proposalTitle}`,

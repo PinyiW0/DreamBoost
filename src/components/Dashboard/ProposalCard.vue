@@ -48,6 +48,9 @@
   </div>
 </template>
 <script>
+import adminStore from '@/stores/adminStore';
+import { mapActions } from 'pinia';
+
 export default {
   props: ['proposalData'],
   data() {
@@ -55,11 +58,13 @@ export default {
     };
   },
   methods: {
+    ...mapActions(adminStore, ['updateDenyModalData']),
     emitActive() {
       this.$emit('emitActive', this.proposalData.proposalID, this.proposalData.proposalTitle);
     },
     emitDeny() {
-      this.$emit('emitDeny', this.proposalData.proposalID);
+      this.updateDenyModalData(this.proposalData.proposalID, this.proposalData.proposalByUserID);
+      this.$emit('emitDeny');
     },
   },
 };
