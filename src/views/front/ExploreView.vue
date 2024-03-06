@@ -2,7 +2,7 @@
   <main>
     <!-- 篩選區域 -->
     <section class="container">
-       <!-- 標題 -->
+      <!-- 標題 -->
       <div class="d-flex justify-content-center mt-15 mb-5 position-relative">
         <div class="mb-5 mb-lg-3">
           <h1 class="title-center text-center position-relative">探索專案</h1>
@@ -37,43 +37,38 @@
         <!-- 專案類別 -->
         <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-1">
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a
-              class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="">
+            <a class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+              href="" @click.prevent="filterByCategory('挺好夢')">
               挺好夢
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a
-              class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="">
+            <a class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+              href="" @click.prevent="filterByCategory('科技設計')">
               科技設計
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3"><a
               class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="">
+              href="" @click.prevent="filterByCategory('健康生活')">
               健康生活
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a
-              class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="">
+            <a class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+              href="" @click.prevent="filterByCategory('時尚')">
               時尚
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a
-              class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="">
+            <a class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+              href="" @click.prevent="filterByCategory('公共在地')">
               公共在地
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a
-              class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="">
+            <a class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+              href="" @click.prevent="filterByCategory('美妝')">
               美妝
             </a>
           </div>
@@ -87,21 +82,15 @@
     <!-- 卡片渲染區 -->
     <section class="container">
       <ul class="row gx-10 list-unstyled pt-5">
-        <li
-          class="col-12 col-md-6 col-lg-4"
-          v-for="(proposal, proposalId) in proposals"
-          :key="proposalId"
-          >
+        <li class="col-12 col-md-6 col-lg-4" v-for="(proposal, proposalId) in proposals" :key="proposalId">
           <CardDefault :proposals="proposal" />
         </li>
       </ul>
     </section>
     <div class="container d-flex flex-column">
-      <button
-        type="button"
-        class="btn angle-down">
+      <button type="button" class="btn angle-down">
         <span class=" d-flex flex-column align-items-center fs-18 fw-blod mb-1">載入更多
-        <AnglesDown class="pb-10" style="width: 18px;"></AnglesDown>
+          <AnglesDown class="pb-10" style="width: 18px;"></AnglesDown>
         </span>
       </button>
     </div>
@@ -115,8 +104,6 @@ import CardDefault from '@/components/cards/CardDefault.vue';
 import exploreStore from '@/stores/exploreStore';
 import { mapState, mapActions } from 'pinia';
 
-// const { VITE_URL } = import.meta.env;
-
 export default {
   components: {
     AnglesDown,
@@ -125,19 +112,28 @@ export default {
   },
   data() {
     return {
-      // proposals: [],
+      filterProposals: null,
     };
   },
   computed: {
     ...mapState(exploreStore, ['proposals']),
   },
+  created() {
+  },
   mounted() {
     this.getProposals();
-    console.log(this.proposals);
+    // console.log(this.proposals);
     // this.getProposalsData();
   },
   methods: {
     ...mapActions(exploreStore, ['getProposals']),
+
+    // 根據類別篩選提案
+    filterByCategory(category) {
+      this.filterProposals = [...this.proposals];
+      // console.log(this.filterProposals);
+      this.filterProposals = this.proposals.filter((proposal) => proposal.proposalCategory === category);
+    },
     // getProposalsData() {
     //   this.$http.get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)
     //     .then((res) => {

@@ -7,6 +7,7 @@ export default defineStore('prposalsStore', {
   // state,actions, getters
   state: () => ({
     proposals: [],
+    product: null,
   }),
 
   actions: {
