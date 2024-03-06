@@ -127,7 +127,7 @@ export default {
             this.$router.push('/admin/login');
           }
           if (result.isDismissed) {
-            this.addToast({ content: '取消登出', style: 'info' });
+            // this.addToast({ content: '取消登出', style: 'info' });
           }
         })
         .catch(() => {

@@ -58,6 +58,8 @@ export default {
       denyMessages: '',
     };
   },
+  // 3/7代辦
+  // 改成直接在元件內就觸發API，這樣就可以在AJAX結束的時候關閉modal，也可以比較好的控制loading。
   methods: {
     ...mapActions(adminStore, ['denyProposal']),
     show() {
@@ -98,17 +100,12 @@ export default {
     this.modalInstance = new this.$bs.Modal(this.$refs.modalInstance);
   },
   computed: {
-    ...mapState(adminStore, ['shouldLoading', 'shouldClose']),
+    ...mapState(adminStore, ['shouldLoading']),
   },
   components: {
     Loading,
   },
   watch: {
-    shouldClose(n) {
-      if (n === true) {
-        this.hide();
-      }
-    },
   },
   mixins: [mixinFullScreenLoading, mixinSwalToast],
 };
