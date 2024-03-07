@@ -124,7 +124,7 @@
                   class="btn btn-primary-light px-0 w-100"
                   @click="
                     () => {
-                      currentState = 'add';
+                      currentState = 'copy';
                       feedbackHandler(feedback);
                     }
                   "
@@ -180,11 +180,10 @@
 // pinia 載入
 import { mapActions, mapState } from 'pinia';
 import feedbackStore from '@/stores/feedbackStore';
-import memberStore from '@/stores/memberStore';
 import launchStore from '@/stores/launchStore';
 
 // mixins 載入
-import FullScreenLoading from '@/mixins/FullScreenLoading';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 
 // component 載入
 import LaunchNav from '@/components/launch/LaunchNav.vue';
@@ -195,7 +194,7 @@ import FeedbackSort from '@/components/launch/FeedbackSort.vue';
 import PlusIcon from '@/components/icons/PlusIcon.vue';
 
 export default {
-  mixins: [FullScreenLoading],
+  mixins: [mixinFullScreenLoading],
 
   data() {
     return {
@@ -212,21 +211,20 @@ export default {
       'putFeedback',
       'deleteFeedback',
     ]),
-    ...mapActions(memberStore, ['postCheckToken']),
     ...mapActions(launchStore, ['submitLaunch']),
 
     // 呼叫新增回饋或修改回饋
     async feedbackHandler(data) {
       this.showFullScreenLoading();
       let state;
-      if (this.currentState === 'add') {
+      if (this.currentState === 'add' || this.currentState === 'copy') {
         state = await this.postFeedback(data);
       } else {
         const { feedbackID } = data;
         state = await this.putFeedback(data, feedbackID);
       }
 
-      if (state) {
+      if (state && this.currentState !== 'copy') {
         this.$refs.feedbackInfo.closeModal();
       }
       this.hideFullScreenLoading();
@@ -279,7 +277,6 @@ export default {
 
   async mounted() {
     this.showFullScreenLoading();
-    await this.postCheckToken();
     await this.getFeedback();
     this.hideFullScreenLoading();
   },

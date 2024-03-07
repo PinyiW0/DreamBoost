@@ -37,16 +37,6 @@ export default {
     checkConfirm(value) {
       return value || '需勾選同意框';
     },
-
-    // 檢查提案圖片上傳
-    checkLaunchImage() {
-      return this.launchData.proposalMainImage ? true : '請上傳圖片';
-    },
-
-    // 檢查回饋圖片上傳
-    checkFeedbackImage() {
-      return this.copyTempData.feedbackImage ? true : '請上傳圖片';
-    },
   },
 
   components: {

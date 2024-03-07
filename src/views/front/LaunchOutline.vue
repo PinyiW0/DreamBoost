@@ -37,7 +37,7 @@
             name="圖片上傳"
             class="form-control d-none"
             :class="{ 'is-invalid': errors['圖片上傳'] }"
-            :rules="checkLaunchImage"
+            rules="image|required"
             @change="imageHandler"
           ></VField>
           <ErrorMessage class="invalid-feedback" name="圖片上傳"></ErrorMessage>
@@ -275,13 +275,13 @@ import { mapWritableState, mapActions } from 'pinia';
 
 // pinia Store 載入
 import launchStore from '@/stores/launchStore';
-import memberStore from '@/stores/memberStore';
 import dateStore from '@/stores/dateStore';
+import memberStore from '@/stores/memberStore';
 
 // mixins 載入
 import mixinUploadImage from '@/mixins/mixinUploadImage';
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
-import FullScreenLoading from '@/mixins/FullScreenLoading';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 
 // 元件載入
 import LaunchNav from '@/components/launch/LaunchNav.vue';
@@ -291,11 +291,11 @@ import MessageIcon from '@/components/icons/MessageIcon.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 
 export default {
-  mixins: [mixinUploadImage, mixinVeeValidate, FullScreenLoading],
+  mixins: [mixinUploadImage, mixinVeeValidate, mixinFullScreenLoading],
 
   methods: {
-    ...mapActions(memberStore, ['postCheckToken']),
     ...mapActions(launchStore, ['getLaunch']),
+    ...mapActions(memberStore, ['postCheckToken']),
     ...mapActions(dateStore, ['minDay']),
 
     // 圖片上傳
@@ -313,8 +313,8 @@ export default {
 
   async mounted() {
     this.showFullScreenLoading();
-    const launchID = sessionStorage.getItem('launchID');
     this.postCheckToken();
+    const launchID = sessionStorage.getItem('launchID');
     if (launchID) {
       await this.getLaunch(launchID);
       this.launchState = 'put';
