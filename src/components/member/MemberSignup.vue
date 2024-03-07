@@ -164,9 +164,10 @@
 </template>
 
 <script>
+// pinia 載入
 import { mapState, mapActions } from 'pinia';
 import memberStore from '@/stores/memberStore';
-
+// mixins 載入
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
 
 export default {
@@ -177,8 +178,10 @@ export default {
     ...mapActions(memberStore, ['postSignup']),
 
     async submit() {
-      await this.postSignup();
-      this.$refs.signupForm.resetForm();
+      const state = await this.postSignup();
+      if (state) {
+        this.$refs.signupForm.resetForm();
+      }
     },
   },
 

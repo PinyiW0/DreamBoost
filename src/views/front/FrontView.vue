@@ -44,6 +44,9 @@ export default {
       this.isLoggedIn = false;
     },
   },
+  mounted() {
+    this.checkUser();
+  },
   watch: {
     // 因為用cookie操控所以要用router監控
     $route() {

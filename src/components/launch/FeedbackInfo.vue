@@ -18,8 +18,11 @@
           ></button>
           <h1 class="modal-title fs-3 text-primary fw-normal">編輯回饋資訊</h1>
         </div>
-        <div
+        <VForm
           class="modal-body mx-xl-7 px-lg-26 border-2 border-top border-primary-light text-gray-800"
+          v-if="showForm"
+          v-slot="{ errors }"
+          @submit="saveFeedback"
         >
           <div class="row gy-4 mb-10">
             <div class="col-lg-6">
@@ -28,28 +31,41 @@
                   回饋名稱
                   <span class="text-danger"> * </span>
                 </label>
-                <input
+                <VField
                   type="text"
                   id="feedbackName"
-                  class="form-control border-primary-light mb-1 py-3"
-                  placeholder="100"
-                  min="100"
+                  name="回饋名稱"
+                  class="form-control mb-1 py-3"
+                  :class="{ 'is-invalid': errors['回饋名稱'] }"
                   v-model="copyTempData.feedbackName"
-                />
+                  rules="required"
+                  placeholder="請輸入回饋名稱"
+                ></VField>
+                <ErrorMessage
+                  class="invalid-feedback"
+                  name="回饋名稱"
+                ></ErrorMessage>
               </div>
               <div class="mb-4">
                 <label for="feedbackPrice" class="form-label">
                   回饋金額
                   <span class="text-danger"> * </span>
                 </label>
-                <input
+                <VField
                   type="number"
                   id="feedbackPrice"
-                  class="form-control border-primary-light mb-1 py-3"
+                  name="回饋金額"
+                  class="form-control mb-1 py-3"
+                  :class="{ 'is-invalid': errors['回饋金額'] }"
+                  v-model="copyTempData.feedbackSettingMoney"
+                  rules="required|min_value:100"
                   placeholder="100"
                   min="100"
-                  v-model="copyTempData.feedbackSettingMoney"
-                />
+                ></VField>
+                <ErrorMessage
+                  class="invalid-feedback"
+                  name="回饋金額"
+                ></ErrorMessage>
                 <p class="fs-6 text-gray-400">最低金額為 $100 元</p>
               </div>
               <div class="mb-4">
@@ -57,13 +73,21 @@
                   內容摘要
                   <span class="text-danger"> * </span>
                 </label>
-                <textarea
-                  class="form-control border-primary-light mb-0"
+                <VField
                   id="abstract"
-                  rows="10"
-                  placeholder="請在150字內"
+                  name="內容摘要"
+                  class="form-control mb-0"
+                  :class="{ 'is-invalid': errors['內容摘要'] }"
                   v-model="copyTempData.feedbackArticle"
-                ></textarea>
+                  rules="required|max:150"
+                  as="textarea"
+                  placeholder="請在150字內"
+                  rows="10"
+                ></VField>
+                <ErrorMessage
+                  class="invalid-feedback"
+                  name="內容摘要"
+                ></ErrorMessage>
               </div>
               <template v-if="copyTempData.customizeProperty">
                 <div class="mb-4">
@@ -71,27 +95,41 @@
                     寄送區域
                     <span class="text-danger"> * </span>
                   </label>
-                  <select
-                    name=""
+                  <VField
                     id="shippingArea"
-                    class="form-select border-primary-light py-3"
+                    name="寄送區域"
+                    class="form-select py-3"
+                    :class="{ 'is-invalid': errors['寄送區域'] }"
                     v-model="copyTempData.customizeProperty.shippingArea"
+                    rules="required"
+                    as="select"
                   >
                     <option value="" selected disabled>請選擇一個區域</option>
                     <option value="台灣">台灣</option>
-                  </select>
+                  </VField>
+                  <ErrorMessage
+                    class="invalid-feedback"
+                    name="寄送區域"
+                  ></ErrorMessage>
                 </div>
                 <div>
                   <label for="shippingTime" class="form-label">
                     預計寄送時間
                     <span class="text-danger"> * </span>
                   </label>
-                  <input
+                  <VField
                     type="date"
                     id="shippingTime"
-                    class="form-control border-primary-light py-3"
+                    name="預計寄送時間"
+                    class="form-control py-3"
+                    :class="{ 'is-invalid': errors['預計寄送時間'] }"
                     v-model="copyTempData.customizeProperty.shippingTime"
-                  />
+                    rules="required"
+                  ></VField>
+                  <ErrorMessage
+                    class="invalid-feedback position-absolute"
+                    name="預計寄送時間"
+                  ></ErrorMessage>
                 </div>
               </template>
             </div>
@@ -101,14 +139,20 @@
                   回饋標題
                   <span class="text-danger"> * </span>
                 </label>
-                <input
+                <VField
                   type="text"
                   id="feedbackTitle"
-                  class="form-control border-primary-light mb-1 py-3"
-                  placeholder="100"
-                  min="100"
+                  name="回饋標題"
+                  class="form-control mb-1 py-3"
+                  :class="{ 'is-invalid': errors['回饋標題'] }"
                   v-model="copyTempData.feedbackTitle"
-                />
+                  rules="required"
+                  placeholder="請輸入回饋標題"
+                ></VField>
+                <ErrorMessage
+                  class="invalid-feedback"
+                  name="回饋標題"
+                ></ErrorMessage>
               </div>
               <p>
                 回饋封面
@@ -119,27 +163,35 @@
                   copyTempData.feedbackImage || 'https://fakeimg.pl/1200x800'
                 "
                 class="img-fluid mb-4"
-                alt=""
+                alt="提案回饋圖片"
               />
               <p>
                 請提供 JPEG 或 PNG 檔，圖片尺寸至少 1200x 800 PX (3:2)； 2MB
                 以內。
               </p>
-              <input
+              <VField
                 type="file"
                 id="feedbackImg"
+                name="圖片上傳"
                 class="d-none"
+                :class="{ 'is-invalid': errors['圖片上傳'] }"
                 @change="imageHandler"
-              />
+                :rules="checkFeedbackImage"
+              ></VField>
               <label
                 for="feedbackImg"
-                class="btn btn-primary d-flex justify-content-center gap-2 px-8 w-100 mb-3"
+                class="btn btn-primary d-flex justify-content-center gap-2 px-8 w-100"
+                :class="{ 'border-danger': errors['圖片上傳'] }"
               >
                 <i style="width: 20px; margin-top: -2px">
                   <CameraIcon />
                 </i>
                 上傳封面照片
               </label>
+              <ErrorMessage
+                class="invalid-feedback"
+                name="圖片上傳"
+              ></ErrorMessage>
               <div class="mt-auto">
                 <label for="feedbackQtyText" class="form-label"
                   >回饋數量限制
@@ -152,18 +204,20 @@
                       class="form-check-input mt-0"
                       type="checkbox"
                       id="feedbackQty"
-                      value=""
+                      v-if="copyTempData.customizeProperty"
+                      v-model="copyTempData.customizeProperty.limitNum"
                     />
                     <label for="feedbackQty" class="text-gray-400 lh-1"
                       >限量
                     </label>
                   </div>
                   <input
-                    type="text"
+                    type="number"
                     id="feedbackQtyText"
                     class="form-control py-3 border-primary-light"
                     aria-label="Text input with checkbox"
                     placeholder="0"
+                    :disabled="!copyTempData.customizeProperty?.limitNum"
                     v-model.number="copyTempData.feedbackLimitAmount"
                   />
                 </div>
@@ -179,12 +233,18 @@
               id="feedbackTime"
               class="form-check-input me-1"
               style="margin-top: 2px"
+              v-model="copyTempData.feedbackLimitTime"
+              true-value="啟用"
+              false-value="未啟用"
             />
             <label for="feedbackTime" class="form-label mb-0">
               啟用限時回饋
             </label>
           </div>
-          <div class="row gy-3 mb-13">
+          <div
+            class="row gy-3 mb-13"
+            v-show="copyTempData.feedbackLimitTime === '啟用'"
+          >
             <div class="col-lg-6">
               <label for="startDate" class="form-label mb-3">開始時間</label>
               <input
@@ -239,52 +299,59 @@
               </button>
             </div>
             <div class="col-lg-3">
-              <button
-                type="button"
-                class="btn btn-primary px-0 w-100"
-                @click="saveFeedback"
-              >
+              <button type="submit" class="btn btn-primary px-0 w-100">
                 儲存回饋
               </button>
             </div>
           </div>
-        </div>
+        </VForm>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// mixins 載入
 import mixinUploadImage from '@/mixins/mixinUploadImage';
+import mixinVeeValidate from '@/mixins/mixinVeeValidate';
+import FullScreenLoading from '@/mixins/FullScreenLoading';
+
+// Icon 載入
 import CameraIcon from '../icons/CameraIcon.vue';
 
 export default {
   props: ['tempData'],
-  mixins: [mixinUploadImage],
+  mixins: [mixinUploadImage, mixinVeeValidate, FullScreenLoading],
 
   data() {
     return {
       feedbackModal: null,
       copyTempData: {},
+      showForm: false,
     };
   },
 
   methods: {
     saveFeedback() {
       this.$emit('feedback-handler', this.copyTempData);
-      this.closeModal();
     },
 
     async imageHandler(value) {
+      this.showFullScreenLoading();
       this.copyTempData.feedbackImage = await this.uploadImage(value);
+      this.hideFullScreenLoading();
     },
 
     openModal() {
       this.feedbackModal.show();
+      this.showForm = !this.showForm;
     },
 
     closeModal() {
       this.feedbackModal.hide();
+      setTimeout(() => {
+        this.showForm = !this.showForm;
+      }, 500);
     },
   },
 
