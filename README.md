@@ -7,19 +7,21 @@
 
 ## 🕺💃&ensp;程式專題作者
 
-  - [Pinyi Wu](https://github.com/PinyiW0): PM、UI、前端協作
+  - [Pinyi Wu](https://github.com/PinyiW0): PM、UI、前端開發
   - [Eero](https://github.com/sksak75312): 主要前端開發
-  - [Weiwei](https://github.com/cieliscute): 主要後端開發、前端協作
+  - [Weiwei](https://github.com/cieliscute): 主要後端開發、前端開發
   - [BF Tsai](https://github.com/bftsai): 前端協作
 
 ---
 
-##  🧑‍💻👩‍💻&ensp;前端
+##  🧑‍💻👩‍💻&ensp;前、後端
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Scss](https://img.shields.io/badge/sass-%23CC6699?style=for-the-badge&logo=sass&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Vue](https://img.shields.io/badge/Vue3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Airbnb]()
 
 ---
@@ -55,7 +57,7 @@
 
 ---
 
-
+<!-- 
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
@@ -86,4 +88,4 @@ npm run build
 
 ```sh
 npm run lint
-```
+``` -->

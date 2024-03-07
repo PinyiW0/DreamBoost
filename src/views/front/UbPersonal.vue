@@ -89,7 +89,7 @@
 
 <script>
 import UpLoad from '@/components/icons/UpLoad.vue';
-import FullScreenLoading from '@/mixins/FullScreenLoading';
+import FullScreenLoading from '@/mixins/mixinFullScreenLoading';
 
 const { VITE_URL } = import.meta.env;
 

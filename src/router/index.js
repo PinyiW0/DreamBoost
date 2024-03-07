@@ -52,6 +52,7 @@ const router = createRouter({
         {
           // 探索/指定專案頁面/贊助方案列表
           path: 'choose',
+          name: 'choose',
           component: () => import('../views/front/DpProjectChoose.vue'),
         },
         {
