@@ -26,6 +26,7 @@ const pinia = createPinia();
 pinia.use(({ store }) => {
   const tempStore = store;
   tempStore.$router = markRaw(router);
+  tempStore.$route = markRaw(router.currentRoute);
   tempStore.$http = markRaw(axios);
 });
 
