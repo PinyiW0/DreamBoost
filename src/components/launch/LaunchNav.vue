@@ -26,7 +26,7 @@ export default {
 
   data() {
     return {
-      launchStep: ['專案大綱', '專案內容', '回饋設定', '提案資料'],
+      launchStep: ['專案大綱', '專案內容', '提案資料', '回饋設定'],
     };
   },
 };

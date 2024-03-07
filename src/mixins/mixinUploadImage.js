@@ -1,3 +1,7 @@
+import sweetAlert2Store from '@/stores/sweetAlert2Store';
+
+const { successAlert } = sweetAlert2Store();
+
 export default {
   methods: {
     async uploadImage(value) {
@@ -19,7 +23,7 @@ export default {
         form.append('image', file);
         const res = await this.$http.post(`${VITE_URL}/dreamboost/upload`, form);
         imageUrl = res.data.data.result;
-        console.log(res);
+        successAlert(res.data.message);
       } catch (error) {
         throw new Error(error);
       }

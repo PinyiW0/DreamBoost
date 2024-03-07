@@ -17,7 +17,7 @@ const router = createRouter({
       children: [
         {
           // 首頁
-          path: 'home',
+          path: '',
           name: 'home',
           component: () => import('../views/front/HomeView.vue'),
         },
@@ -34,6 +34,7 @@ const router = createRouter({
             {
               // 探索/指定專案頁面
               path: 'info',
+              name: 'product-info',
               component: () => import('../views/front/SingleProductInfo.vue'),
             },
             {

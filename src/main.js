@@ -7,9 +7,6 @@ import { createPinia } from 'pinia';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
-import VueSweetalert2 from 'vue-sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
-
 import { LoadingPlugin } from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
 
@@ -29,13 +26,13 @@ const pinia = createPinia();
 pinia.use(({ store }) => {
   const tempStore = store;
   tempStore.$router = markRaw(router);
+  tempStore.$route = markRaw(router.currentRoute);
   tempStore.$http = markRaw(axios);
 });
 
 app.use(pinia);
 app.use(router);
 app.use(VueAxios, axios);
-app.use(VueSweetalert2);
 app.use(LoadingPlugin);
 app.use(register);
 app.component(Swiper, SwiperSlide);

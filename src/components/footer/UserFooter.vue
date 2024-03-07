@@ -62,17 +62,6 @@
   </footer>
 </template>
 
-<style lang="scss">
-.link-hover {
-  color: var(--bs-secondary-light);
-  &:hover {
-    opacity: 0.6;
-    transform: translate3d(0, -.125rem, 0);
-    transition: opacity 0.3s, transform 0.3s;
-  }
-}
-</style>
-
 <script>
 import { Vue3Marquee } from 'vue3-marquee';
 import FaceBook from '@/components/icons/FaceBook.vue';
@@ -105,3 +94,15 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.link-hover {
+  color: var(--bs-secondary-light);
+
+  &:hover {
+    opacity: 0.6;
+    transform: translate3d(0, -.125rem, 0);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+}
+</style>

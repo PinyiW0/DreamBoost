@@ -2,37 +2,26 @@
   <main>
     <!-- 產品信息 -->
     <section class="container mb-14 pt-23">
-      <span
-        class="badge px-3 mb-2 rounded-pill bg-primary fs-5 lh-md fw-normal"
-      >
-        健康生活
+      <span class="badge px-3 mb-2 rounded-pill bg-primary fs-5 lh-md fw-normal">
+        {{ singleProposal.proposalCategory }}
       </span>
       <h2 class="mb-8 fs-3 text-primary-dark">
-        CodeGuardian - 工程師顧肝必備良品：LiverCare
+        {{ singleProposal.proposalTitle }}
       </h2>
       <div class="row gy-8">
         <div class="col-lg-6">
-          <img
-            src="https://fakeimg.pl/635x360/?retina=1&text=fake&font=noto"
-            class="w-100 object-fit-cover rounded-2"
-            alt=""
-            style="height: 360px"
-          />
+          <img :src="singleProposal.proposalMainImage" class="w-100 object-fit-cover rounded-2" alt=""
+            style="height: 360px" />
         </div>
-        <div
-          class="order-2 order-lg-1 col-lg-6 d-flex flex-column text-gray-600"
-        >
+        <div class="order-2 order-lg-1 col-lg-6 d-flex flex-column text-gray-600">
           <div class="d-flex justify-content-between mb-7">
             <div>
-              <p class="mb-3 text-primary lh-md">目標 NT$ 100,000</p>
+              <p class="mb-3 text-primary lh-md">目標 NT$ {{ singleProposal.proposalTargetMoney }}</p>
               <p class="mb-0 fs-4 text-danger fw-bold">NT $ 2,250,005</p>
             </div>
-            <img src="https://fakeimg.pl/64x64" alt="" style="width: 64px" />
+            <img class="d-none" src="https://fakeimg.pl/64x64" alt="" style="width: 64px" />
           </div>
-          <div
-            class="mb-8 w-100 bg-primary rounded-pill"
-            style="height: 6px"
-          ></div>
+          <div class="mb-8 w-100 bg-primary rounded-pill" style="height: 6px"></div>
           <div class="d-flex mb-10">
             <div class="d-flex align-items-center gap-1 me-21">
               <i style="width: 22px; margin-top: -2px">
@@ -52,25 +41,17 @@
               </p>
             </div>
           </div>
-          <p>專案時間：2024.02.14 12 : 00 ~ 2024.03.10 23 : 59</p>
+          <p>專案時間：{{ singleProposal.proposalStartTime }} ~ {{ singleProposal.proposalEndTime }}</p>
           <p class="mb-4">
-            讓 CodeGuardian -
-            肝心（LiverCare）來了解解解解解解解（解酒解肝解痛苦）你！我們希望能為前端工程師提供一個超酷的、有趣的、關心你肝臟的數字助手！
+            {{ singleProposal.proposalSummary }}
           </p>
-          <div
-            class="d-flex justify-content-between align-items-center mt-auto"
-          >
+          <div class="d-flex justify-content-between align-items-center mt-auto">
             <div class="d-flex align-items-center gap-2">
-              <img
-                class="img-fluid rounded-circle object-fit-cover"
-                src="https://fakeimg.pl/36x36"
-                alt=""
-              />
-              <p class="mb-0 text-gray-700 lh-md">發起人：樂樂許願池</p>
+              <img class="img-fluid rounded-circle object-fit-cover" :src="singleProposal.customizeProperty.userImage"
+                style="height: 36px;width: 36px;" alt="" />
+              <p class="mb-0 text-gray-700 lh-md">發起人：{{ singleProposal.customizeProperty.userName }}</p>
             </div>
-            <ul
-              class="d-flex align-items-center list-unstyled mb-0 column-gap-3"
-            >
+            <ul class="d-flex align-items-center list-unstyled mb-0 column-gap-3">
               <li style="width: 28px">
                 <a href="https://zh-tw.facebook.com/login/device-based/regular/login/?login_attempt=1">
                   <i>
@@ -102,46 +83,32 @@
             </ul>
           </div>
         </div>
-        <ol
-          class="order-1 order-lg-2 col-lg-6 d-flex justify-content-center gap-20 mb-0 list-unstyled"
-        >
+        <ol class="order-1 order-lg-2 col-lg-6 d-flex justify-content-center gap-20 mb-0 list-unstyled">
           <li class="position-relative check-line">
-            <div
-              class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
-              style="width: 32px; height: 32px"
-            >
-              <i
-                class="d-block mx-auto text-secondary-light"
-                style="width: 24px; height: 24px"
-              >
+            <div class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
+              style="width: 32px; height: 32px">
+              <i class="d-block mx-auto text-secondary-light" style="width: 24px; height: 24px">
                 <CheckIcon />
               </i>
             </div>
             <p class="mb-0 text-gray-500">企劃概念</p>
           </li>
           <li class="position-relative check-line">
-            <div
-              class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
-              style="width: 32px; height: 32px"
-            >
-              <i
-                class="d-block mx-auto text-secondary-light"
-                style="width: 24px; height: 24px"
-              >
+            <div class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
+              style="width: 32px; height: 32px">
+              <i class="d-block mx-auto text-secondary-light" style="width: 24px; height: 24px">
                 <CheckIcon />
               </i>
             </div>
             <p class="mb-0 text-gray-500">樣品狀態</p>
           </li>
           <li class="position-relative no-check-line">
-            <div
-              class="d-flex align-items-center mx-auto mb-1 border border-2 border-primary bg-primary rounded-circle"
+            <div class="d-flex align-items-center mx-auto mb-1 border border-2 border-primary bg-primary rounded-circle"
               style="
                 width: 32px;
                 height: 32px;
                 box-shadow: inset 0 0 0px 3px #ffff;
-              "
-            ></div>
+              "></div>
             <p class="mb-0 text-gray-primary">生產階段</p>
           </li>
           <li>
@@ -151,18 +118,12 @@
                 width: 32px;
                 height: 32px;
                 box-shadow: inset 0 0 0px 7px #ffff;
-              "
-            ></div>
+              "></div>
             <p class="mb-0 text-gray-300">產品寄送</p>
           </li>
         </ol>
-        <div
-          class="order-3 col-lg-6 d-flex justify-content-end align-items-center column-gap-4"
-        >
-          <button
-            type="button"
-            class="btn btn-empty d-flex align-items-center p-3"
-          >
+        <div class="order-3 col-lg-6 d-flex justify-content-end align-items-center column-gap-4">
+          <button type="button" class="btn btn-empty d-flex align-items-center p-3">
             <i style="width: 24px">
               <StarHollow />
             </i>
@@ -170,10 +131,8 @@
               <StarFull />
             </i>
           </button>
-          <button
-            type="button"
-            class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold"
-          >
+          <button type="button"
+            class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
             贊助專案
             <i style="width: 18px; margin-top: -3px">
               <RightArrow />
@@ -188,34 +147,23 @@
       <nav class="container">
         <ul class="nav justify-content-between justify-content-md-start align-items-center gap-19">
           <li class="nav-item">
-            <RouterLink
-              to="/product/動態路由需改成v-bind/info"
-              class="custom-link"
-            >
+            <RouterLink to="`/product/123/info`" class="custom-link">
               專案介紹
             </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink
-              to="/product/動態路由需改成v-bind/qa"
-              class="custom-link"
-            >
+            <RouterLink to="`/product/123/qa`" class="custom-link">
               常見問答
             </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink
-              to="/product/動態路由需改成v-bind/commit"
-              class="custom-link"
-            >
+            <RouterLink to="`/product/123/commit`" class="custom-link">
               留言區
             </RouterLink>
           </li>
           <li v-show="showButton" @click="handleButtonClick" class="ms-auto">
-            <button
-              type="button"
-              class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold"
-            >
+            <button type="button"
+              class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
               贊助專案
               <i style="width: 18px; margin-top: -3px">
                 <RightArrow />
@@ -241,14 +189,27 @@ import CheckIcon from '@/components/icons/CheckIcon.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
+import { mapState, mapActions } from 'pinia';
+import exploreStore from '@/stores/exploreStore';
 
 export default {
+  props: {
+    proposals: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       showButton: false,
     };
   },
+  computed: {
+    ...mapState(exploreStore, ['singleProposal']),
+  },
   mounted() {
+    this.getProposals();
+    console.log(this.singleProposal);
     // 監聽滾動事件
     window.addEventListener('scroll', this.handleScroll);
   },
@@ -257,6 +218,7 @@ export default {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
+    ...mapActions(exploreStore, ['getProposals']),
     handleScroll() {
       // 選取區塊元素
       const blockElement = document.querySelector('.position-sticky');
