@@ -89,6 +89,7 @@
 
 <script>
 import UpLoad from '@/components/icons/UpLoad.vue';
+import FullScreenLoading from '@/mixins/FullScreenLoading';
 
 const { VITE_URL } = import.meta.env;
 
@@ -111,9 +112,14 @@ export default {
       },
     };
   },
+  mixins: [FullScreenLoading],
   mounted() {
+    this.showFullScreenLoading({ backgroundColor: '#258794' });
     this.checkUser();
     this.getUserData();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 1500);
   },
   methods: {
     // API限制所以要先驗證登入狀態並填入所有欄位資料

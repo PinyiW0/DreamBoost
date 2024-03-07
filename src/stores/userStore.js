@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia';
 
-import memberStore from './memberStore';
-
 const { VITE_URL } = import.meta.env;
 
 export default defineStore('userStore', {
@@ -11,16 +9,6 @@ export default defineStore('userStore', {
       userBirthday: '1970/01/01',
       userGender: 'male',
       userTelephone: '',
-      customizeProperty: {
-        userEmail: '',
-        launchLeader: '',
-        launchIdentity: '',
-        registerName: '',
-        displayName: '',
-        introduction: '',
-        fanPage: '',
-        projectPage: '',
-      },
     },
   }),
 
@@ -33,8 +21,6 @@ export default defineStore('userStore', {
         })
         .catch((err) => {
           console.log(err);
-          const { userEmail } = memberStore();
-          this.userData.customizeProperty.userEmail = userEmail;
         });
     },
 

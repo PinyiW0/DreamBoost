@@ -1,6 +1,6 @@
 <template>
   <LaunchNav current-page="回饋設定" />
-  <div class="container">
+  <main class="container">
     <div class="col-xl-8 mx-auto mb-8">
       <p class="mb-7">
         在這個區塊您將制定本次募資專案提供的回饋項目，回饋內容可以十分多元，但是必須清楚寫明回饋金額、內容說明、運費及寄送時間等必要資訊。
@@ -122,7 +122,12 @@
                 <button
                   type="button"
                   class="btn btn-primary-light px-0 w-100"
-                  @click="postFeedback(feedback)"
+                  @click="
+                    () => {
+                      currentState = 'add';
+                      feedbackHandler(feedback);
+                    }
+                  "
                 >
                   複製此回饋
                 </button>
@@ -142,23 +147,27 @@
         </i>
       </button>
       <div class="row justify-content-lg-end gy-7">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-3">
           <button
             type="button"
-            class="btn btn-primary-light w-100"
+            class="btn btn-primary-light px-0 w-100"
             @click="previousStep"
           >
             上一步
           </button>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <button type="button" class="btn btn-primary w-100" @click="nextStep">
-            下一步
+        <div class="col-md-6 col-lg-3">
+          <button
+            type="button"
+            class="btn btn-primary px-0 w-100"
+            @click="finishLaunch"
+          >
+            送出提案
           </button>
         </div>
       </div>
     </div>
-  </div>
+  </main>
   <FeedbackInfo
     ref="feedbackInfo"
     :temp-data="tempData"
@@ -168,19 +177,26 @@
 </template>
 
 <script>
+// pinia 載入
 import { mapActions, mapState } from 'pinia';
 import feedbackStore from '@/stores/feedbackStore';
 import memberStore from '@/stores/memberStore';
+import launchStore from '@/stores/launchStore';
 
-// component 引入
+// mixins 載入
+import FullScreenLoading from '@/mixins/FullScreenLoading';
+
+// component 載入
 import LaunchNav from '@/components/launch/LaunchNav.vue';
 import FeedbackInfo from '@/components/launch/FeedbackInfo.vue';
 import FeedbackSort from '@/components/launch/FeedbackSort.vue';
 
-// Icon 引入
+// Icon 載入
 import PlusIcon from '@/components/icons/PlusIcon.vue';
 
 export default {
+  mixins: [FullScreenLoading],
+
   data() {
     return {
       tempData: {},
@@ -189,6 +205,7 @@ export default {
   },
 
   methods: {
+    // 取用 pinia store 資料
     ...mapActions(feedbackStore, [
       'getFeedback',
       'postFeedback',
@@ -196,16 +213,26 @@ export default {
       'deleteFeedback',
     ]),
     ...mapActions(memberStore, ['postCheckToken']),
+    ...mapActions(launchStore, ['submitLaunch']),
 
-    feedbackHandler(data) {
+    // 呼叫新增回饋或修改回饋
+    async feedbackHandler(data) {
+      this.showFullScreenLoading();
+      let state;
       if (this.currentState === 'add') {
-        this.postFeedback(data);
+        state = await this.postFeedback(data);
       } else {
         const { feedbackID } = data;
-        this.putFeedback(data, feedbackID);
+        state = await this.putFeedback(data, feedbackID);
       }
+
+      if (state) {
+        this.$refs.feedbackInfo.closeModal();
+      }
+      this.hideFullScreenLoading();
     },
 
+    // 將資料寫入並打開 modal
     infoModal(state, currentData) {
       this.currentState = state;
       if (this.currentState === 'add') {
@@ -215,16 +242,16 @@ export default {
           feedbackImage: '',
           feedbackSettingMoney: 100,
           feedbackArticle: '',
-          feedbackLimitAmount: 0,
-          feedbackLimitTime: 'temp',
-          feedbackStartTime: '',
-          feedbackEndTime: '',
+          feedbackLimitAmount: null,
+          feedbackLimitTime: '未啟用',
+          feedbackStartTime: '2024-01-01',
+          feedbackEndTime: '2024-01-01',
           customizeProperty: {
             shippingArea: '',
+            limitNum: false,
           },
         };
       } else {
-        console.log(currentData);
         this.tempData = currentData;
       }
       this.$refs.feedbackInfo.openModal();
@@ -238,8 +265,11 @@ export default {
       this.$router.go(-1);
     },
 
-    nextStep() {
-      this.$router.push('/launch/data');
+    async finishLaunch() {
+      this.showFullScreenLoading();
+      const state = await this.submitLaunch();
+      if (state) this.$router.push('/');
+      this.hideFullScreenLoading();
     },
   },
 
@@ -248,8 +278,10 @@ export default {
   },
 
   async mounted() {
+    this.showFullScreenLoading();
     await this.postCheckToken();
     await this.getFeedback();
+    this.hideFullScreenLoading();
   },
 
   components: {

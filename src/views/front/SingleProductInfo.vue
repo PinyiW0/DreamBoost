@@ -33,33 +33,8 @@
           </div>
         </div>
         <div class="p-6 border border-gray-400">
-          <img
-            class="img-fluid mb-7 w-100 object-fit-cover"
-            src="https://fakeimg.pl/600x450"
-            alt=""
-            style="width: 600px; height: 450px"
-          />
-          <h3 class="mb-5 text-gray-800 lh-md">
-            CodeGuardian - 工程師顧肝必備良品：LiverCare
-          </h3>
-          <p class="mb-7 lh-md">
-            讓 CodeGuardian
-            -肝心（LiverCare）來了解解解解解解解（解酒解肝解痛苦）你！我們希望能為前端工程師提供一個超酷的、有趣的、關心你肝臟的數字助手！
-            <br />
-            不只守護你的程式碼，更守護你的肝臟！從忙碌的工作間隙中，讓你的肝臟放個假！我們關注你工作時肝臟的健康，讓你在敲程式碼的同時感受到樂趣與關懷！
-          </p>
-          <img
-            class="img-fluid mb-7 w-100 object-fit-cover"
-            src="https://fakeimg.pl/600x450"
-            alt=""
-            style="width: 600px; height: 450px"
-          />
-          <img
-            class="img-fluid w-100 object-fit-cover"
-            src="https://fakeimg.pl/600x450"
-            alt=""
-            style="width: 600px; height: 450px"
-          />
+          <!-- {{ singleProposal }} -->
+          <div v-html="singleProposal?.proposalArticle" class="ck-content"></div>
         </div>
       </div>
       <div class="col-md-5">
@@ -80,7 +55,10 @@
             <div class="d-flex flex-column">
               <h3 class="mb-1 fs-4 text-primary">樂樂許願池</h3>
               <div class="d-flex">
-                <i class="me-1 text-gray-600" style="width: 20px; margin-top: -3px">
+                <i
+                  class="me-1 text-gray-600"
+                  style="width: 20px; margin-top: -3px"
+                >
                   <UserGroup />
                 </i>
                 <p class="mb-0 text-gray-600">團隊提案者</p>
@@ -92,7 +70,9 @@
           >
             <div class="mb-4 mb-lg-0">
               <p class="mb-2 fw-medium">提案者名稱</p>
-              <h4 class="mb-0 fs-6 fw-normal text-gray-600">樂樂許願池文化有限公司</h4>
+              <h4 class="mb-0 fs-6 fw-normal text-gray-600">
+                樂樂許願池文化有限公司
+              </h4>
             </div>
             <div>
               <p class="mb-2 fw-medium">統一編號</p>
@@ -112,9 +92,7 @@
                 <h3 class="card-title fs-5 mb-0">相信他，所以支持他</h3>
                 <p class="d-flex align-items-end column-gap-1 mb-0 fs-5 lh-md">
                   只要
-                  <span
-                    class="color-changing-text fs-3  fw-bold lterSpc-8 lh-1"
-                  >
+                  <span class="color-changing-text fs-3 fw-bold lterSpc-8 lh-1">
                     NT$666
                   </span>
                 </p>
@@ -353,6 +331,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'pinia';
+import exploreStore from '@/stores/exploreStore';
 import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import CheckIcon from '@/components/icons/CheckIcon.vue';
@@ -368,6 +348,30 @@ export default {
     RightArrow,
     UserGroup,
     PlanCard,
+  },
+  data() {
+    return {
+      productList: null,
+      productId: '',
+    };
+  },
+  computed: {
+    ...mapState(exploreStore, ['singleProposal']),
+  },
+  mounted() {
+    this.getProposals();
+    // this.productId = this.$route.params.id.trim();
+    // console.log(this.productId);
+    // console.log(this.$route.params.id);
+    // const { id } = this.$route.params;
+    // this.product = JSON.parse(this.$route.query.proposals);
+    // this.productList = this.proposals;
+    // console.log(this.proposals);
+    // this.product = this.productList.filter((proposal) => proposal.proposalID.trim() === this.productId);
+    // console.log(this.product);
+  },
+  methods: {
+    ...mapActions(exploreStore, ['getProposals']),
   },
 };
 </script>
