@@ -10,7 +10,7 @@ export default defineStore('adminStore', {
     denyProposalByUserID: '',
     denyProposalTitle: '',
     shouldLoading: false,
-    shouldClose: false,
+    // shouldClose: false,
   }),
   // 對應Computed
   getters: {
@@ -25,7 +25,7 @@ export default defineStore('adminStore', {
     },
     denyProposal() {
       this.shouldLoading = true;
-      setTimeout(() => { this.shouldLoading = false; this.shouldClose = true; }, 5000);
+      setTimeout(() => { this.shouldLoading = false; }, 5000);
       // this.$http.post(`${VITE_URL}/dreamboost/proposal/admin/changeToDraft`, { proposalID: this.denyProposalID });
 
       // this.$http.post(`${VITE_URL}/dreamboost/message/admin/message`, {
