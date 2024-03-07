@@ -3,7 +3,7 @@
     <VisitorHeaderAd />
     <nav class="navbar navbar-expand-md container-fluid border-bottom border-primary-light shadow-sm">
       <div class="container d-flex justify-content-between align-items-center">
-        <RouterLink to="/home">
+        <RouterLink to="/">
           <a href="">
             <img class="img-fluid" src="/images/header/mainLogo.svg" alt="首頁">
           </a>
@@ -133,6 +133,9 @@
 <script>
 import SearchIcon from '@/components/icons/SearchIcon.vue';
 import VisitorHeaderAd from '@/components/header/VisitorHeaderAd.vue';
+import MixinSwalToast from '@/mixins/mixinSwalToast';
+import MixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
+import Swal from 'sweetalert2';
 
 export default {
   data() {
@@ -147,11 +150,36 @@ export default {
   },
   methods: {
     logout() {
+      Swal.fire({
+        title: '確定要登出嗎？',
+        icon: 'question',
+        allowOutsideClick: false,
+        showCancelButton: true,
+        buttonsStyling: true,
+        confirmButtonText: '確認',
+        cancelButtonText: '取消',
+      })
+        .then((result) => {
+          if (result.isConfirmed) {
+            document.cookie = 'db=';
+            this.addToast({ content: '登出成功' });
+            this.showFullScreenLoading({ canCancel: false, opacity: 0.8 });
+            this.$router.push({ name: 'home' });
+            this.hideFullScreenLoading();
+          }
+          if (result.isDismissed) {
+            this.addToast({ content: '取消登出', style: 'info' });
+          }
+        })
+        .catch(() => {
+          this.addToast({ content: '登出過程出現錯誤', style: 'error' });
+        });
       document.cookie = ' db=';
       this.$emit('logout');
       this.$router.push({ name: 'home' });
     },
   },
+  mixins: [MixinFullScreenLoading, MixinSwalToast],
   mounted() {
     // 將 Collapse 實體化，設定一開始的 toggle 為 false，選單在一開始維持折疊狀態
     this.userHeader = new this.$bs.Collapse(this.$refs.userHeader, { toggle: false });

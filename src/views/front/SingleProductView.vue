@@ -3,20 +3,19 @@
     <!-- 產品信息 -->
     <section class="container mb-14 pt-23">
       <span class="badge px-3 mb-2 rounded-pill bg-primary fs-5 lh-md fw-normal">
-        {{ singleProposal.proposalCategory }}
+        {{ test.proposalCategory }}
       </span>
       <h2 class="mb-8 fs-3 text-primary-dark">
-        {{ singleProposal.proposalTitle }}
+        {{ test.proposalTitle }}
       </h2>
       <div class="row gy-8">
         <div class="col-lg-6">
-          <img :src="singleProposal.proposalMainImage" class="w-100 object-fit-cover rounded-2" alt=""
-            style="height: 360px" />
+          <img :src="test.proposalMainImage" class="w-100 object-fit-cover rounded-2" alt="" style="height: 360px" />
         </div>
         <div class="order-2 order-lg-1 col-lg-6 d-flex flex-column text-gray-600">
           <div class="d-flex justify-content-between mb-7">
             <div>
-              <p class="mb-3 text-primary lh-md">目標 NT$ {{ singleProposal.proposalTargetMoney }}</p>
+              <p class="mb-3 text-primary lh-md">目標 NT$ {{ test.proposalTargetMoney }}</p>
               <p class="mb-0 fs-4 text-danger fw-bold">NT $ 2,250,005</p>
             </div>
             <img class="d-none" src="https://fakeimg.pl/64x64" alt="" style="width: 64px" />
@@ -41,15 +40,15 @@
               </p>
             </div>
           </div>
-          <p>專案時間：{{ singleProposal.proposalStartTime }} ~ {{ singleProposal.proposalEndTime }}</p>
+          <p>專案時間：{{ test.proposalStartTime }} ~ {{ test.proposalEndTime }}</p>
           <p class="mb-4">
-            {{ singleProposal.proposalSummary }}
+            {{ test.proposalSummary }}
           </p>
           <div class="d-flex justify-content-between align-items-center mt-auto">
             <div class="d-flex align-items-center gap-2">
-              <img class="img-fluid rounded-circle object-fit-cover" :src="singleProposal.customizeProperty.userImage"
+              <!-- <img class="img-fluid rounded-circle object-fit-cover" :src="test.customizeProperty?.userImage"
                 style="height: 36px;width: 36px;" alt="" />
-              <p class="mb-0 text-gray-700 lh-md">發起人：{{ singleProposal.customizeProperty.userName }}</p>
+              <p class="mb-0 text-gray-700 lh-md">發起人：{{ test.customizeProperty?.displayName }}</p> -->
             </div>
             <ul class="d-flex align-items-center list-unstyled mb-0 column-gap-3">
               <li style="width: 28px">
@@ -131,13 +130,15 @@
               <StarFull />
             </i>
           </button>
-          <button type="button"
-            class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
-            贊助專案
-            <i style="width: 18px; margin-top: -3px">
-              <RightArrow />
-            </i>
-          </button>
+          <RouterLink to="/choose">
+            <button type="button"
+              class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
+              贊助專案
+              <i style="width: 18px; margin-top: -3px">
+                <RightArrow />
+              </i>
+            </button>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -147,17 +148,17 @@
       <nav class="container">
         <ul class="nav justify-content-between justify-content-md-start align-items-center gap-19">
           <li class="nav-item">
-            <RouterLink to="`/product/123/info`" class="custom-link">
+            <RouterLink to="info" class="custom-link">
               專案介紹
             </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="`/product/123/qa`" class="custom-link">
+            <RouterLink to="qa" class="custom-link">
               常見問答
             </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="`/product/123/commit`" class="custom-link">
+            <RouterLink to="commit" class="custom-link">
               留言區
             </RouterLink>
           </li>
@@ -189,8 +190,11 @@ import CheckIcon from '@/components/icons/CheckIcon.vue';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import StarHollow from '@/components/icons/StarHollow.vue';
 import StarFull from '@/components/icons/StarFull.vue';
-import { mapState, mapActions } from 'pinia';
+import { mapActions, mapWritableState } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
+import MixinSwalToast from '@/mixins/mixinSwalToast';
+
+const { VITE_URL } = import.meta.env;
 
 export default {
   props: {
@@ -202,16 +206,21 @@ export default {
   data() {
     return {
       showButton: false,
+      test: {},
     };
   },
   computed: {
-    ...mapState(exploreStore, ['singleProposal']),
+    ...mapWritableState(exploreStore, ['singleProposal']),
   },
+  mixins: [MixinSwalToast],
   mounted() {
     this.getProposals();
-    console.log(this.singleProposal);
+    // console.log(this.singleProposal);
     // 監聽滾動事件
     window.addEventListener('scroll', this.handleScroll);
+  },
+  async created() {
+    await this.getProposals();
   },
   beforeUnmount() {
     // 執行前移除滾動事件
@@ -230,10 +239,6 @@ export default {
       // 當所屬區塊元素距離視窗頂部小於0，置頂在最上方並顯示按鈕
       this.showButton = blockTop <= 0;
     },
-    handleButtonClick() {
-      // 按钮點擊事件
-      console.log('按钮被點擊了');
-    },
     copyURL() {
       // 賦予當前網址 value 屬性
       const textarea = document.createElement('textarea');
@@ -250,7 +255,19 @@ export default {
       document.body.removeChild(textarea);
 
       // 複製成功提示
-      alert('網址複製成功');
+      this.addToast({ content: '網址複製成功', timer: 1500 });
+    },
+    async getProposals() {
+      await this.$http
+        .get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)
+        .then((res) => {
+          if (res.data.success) {
+            this.test = res.data.data.result[this.$route.params.id];
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
   components: {
@@ -329,9 +346,9 @@ export default {
   }
 }
 .slide-in-enter-active {
-  transition: all 0.5s ease; /* 定义过渡的时间和动画效果 */
+  transition: all 0.5s ease;
 }
 .slide-in-enter {
-  transform: translateX(100%); /* 初始位置为右边界外 */
+  transform: translateX(100%);
 }
 </style>
