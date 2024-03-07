@@ -1,5 +1,5 @@
 <template>
-  <ProposalModal ref="proposalModal"></ProposalModal>
+  <ProposalModal ref="proposalModal" @update-proposal-datas="getDatas"></ProposalModal>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10">
@@ -10,6 +10,7 @@
         <div class="l-CardGapY">
           <ProposalCard v-for="item in reviewProposals" :proposal-data="item" :key="item.proposalID"
           @emit-active="activateProposal"
+          @emit-deny="showDenyProposalModal"
           >
           </ProposalCard>
         </div>
@@ -67,10 +68,10 @@ export default {
     };
   },
   methods: {
-    showProposalModal() {
+    showDenyProposalModal() {
       this.$refs.proposalModal.show();
     },
-    // 分開取得的兩個方法
+    // -------------分開取得的兩個方法-------------
     // getReviewProposals() {
     //   // const token = document.cookie.replace(/(?:(?:^|.*;\s*)dreamboostAdminToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     //   this.$http.get(`${VITE_URL}/dreamboost/proposal/admin/inReviewProposals`)
@@ -91,9 +92,10 @@ export default {
     //       console.log(err);
     //     });
     // },
-    // 合併成一起取得的方法
+
+    // -------------合併成一起取得的方法-------------
     getDatas() {
-      this.showFullScreenLoading();
+      this.showFullScreenLoading({ canCancel: false, loader: 'dots' });
       Promise.all([this.$http.get(`${VITE_URL}/dreamboost/proposal/admin/inReviewProposals`), this.$http.get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)])
         .then((res) => {
           this.reviewProposals = res[0].data.data.result;
@@ -108,7 +110,7 @@ export default {
     },
     activateProposal(proposalID, proposalTitle) {
       // console.log('activateProposal');
-      console.log(proposalID, proposalTitle);
+      // console.log(proposalID, proposalTitle);
       Swal.fire({
         title: '確認審核？',
         text: `${proposalTitle}`,
@@ -137,24 +139,21 @@ export default {
           return Promise.reject(new Error('其他錯誤狀況'));
         })
         .then(() => {
-          this.addToast({ content: `${proposalID} 已上架完成` });
+          this.hideFullScreenLoading();
+          this.addToast({ content: `${proposalTitle} 已上架完成` });
+          this.getDatas();
         })
         .catch((err) => {
+          this.hideFullScreenLoading();
           if (err.message !== 'User cancelled') {
             this.addToast({ content: '審核過程出現錯誤，請重新整理後再次操作。如果重複出現此提示請洽工程師。', style: 'error' });
           } else {
-            this.addToast({ content: '取消通過審核流程。提案並未上架。', style: 'info' });
+            // this.addToast({ content: '取消通過審核流程。提案並未上架。', style: 'info' });
           }
         });
-      // this.showFullScreenLoading();
-      // this.$http.post(`${VITE_URL}/dreamboost/proposal/admin/changeToActive`, { proposalID })
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
     },
+    // denyProposal(proposalID) {
+    // },
   },
   components: {
     ProposalCard,

@@ -38,7 +38,7 @@
 import UpdateBannerImgCard from '@/components/dashboard/UpdateBannerImgCard.vue';
 import CameraIcon from '@/components/icons/DashboardCameraIcon.vue';
 
-const { VITE_URL, VITE_WEIKEY } = import.meta.env;
+const { VITE_URL } = import.meta.env;
 
 export default {
   data() {
@@ -60,9 +60,7 @@ export default {
     },
     updateBannerData(data) {
       const bannerPostPath = `${VITE_URL}/dreamboost/banner/admin/banner`;
-      this.$http.post(bannerPostPath, { bannerUrlArray: data }, {
-        headers: { Authorization: VITE_WEIKEY },
-      })
+      this.$http.post(bannerPostPath, { bannerUrlArray: data })
         .then(() => {
           this.getBannerData();
         });
@@ -75,9 +73,7 @@ export default {
         }
       });
       const bannerPostPath = `${VITE_URL}/dreamboost/banner/admin/banner`;
-      this.$http.post(bannerPostPath, { bannerUrlArray: this.bannerAry }, {
-        headers: { Authorization: VITE_WEIKEY },
-      })
+      this.$http.post(bannerPostPath, { bannerUrlArray: this.bannerAry })
         .then(() => {
           this.getBannerData();
         });
@@ -123,18 +119,14 @@ export default {
 
         const formData = new FormData();
         formData.append('image', file);
-        this.$http.post(imageUploadPath, formData, {
-          headers: { Authorization: VITE_WEIKEY },
-        })
+        this.$http.post(imageUploadPath, formData)
           .then((res) => {
             // console.log(res.data.data.result);
             const uploadObj = {
               imgUrl: res.data.data.result,
               orderBy: this.bannerAry.length + 1,
             };
-            return this.$http.post(bannerPostPath, { bannerUrlArray: [...this.bannerAry, uploadObj] }, {
-              headers: { Authorization: VITE_WEIKEY },
-            });
+            return this.$http.post(bannerPostPath, { bannerUrlArray: [...this.bannerAry, uploadObj] });
           })
           .then(() => {
             this.getBannerData();
