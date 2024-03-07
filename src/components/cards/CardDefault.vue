@@ -55,7 +55,7 @@
               </span>
             </a>
           </div>
-          <router-link :to="{ name: 'product-info', params: { id: proposals.proposalID.trim() } }">
+          <router-link :to="`/product/${proposals.proposalID}/info`">
             <span class="share-hover">
               <i class="d-block" style="width: 20px; margin-top: -2px">
                 <ArrowUpRight />
@@ -76,7 +76,6 @@ import StarHollow from '@/components/icons/StarHollow.vue';
 import exploreStore from '@/stores/exploreStore';
 import { mapState } from 'pinia';
 
-// const { VITE_URL } = import.meta.env;
 export default {
   // props: ['proposals'],
   props: {

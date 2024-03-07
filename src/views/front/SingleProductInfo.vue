@@ -352,7 +352,6 @@ export default {
   data() {
     return {
       productList: null,
-      // product: null,
       productId: '',
     };
   },

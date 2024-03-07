@@ -112,7 +112,6 @@ export default {
   },
   data() {
     return {
-      filterProposals: null,
     };
   },
   computed: {
@@ -129,11 +128,11 @@ export default {
     ...mapActions(exploreStore, ['getProposals']),
 
     // 根據類別篩選提案
-    filterByCategory(category) {
-      this.filterProposals = [...this.proposals];
-      // console.log(this.filterProposals);
-      this.filterProposals = this.proposals.filter((proposal) => proposal.proposalCategory === category);
-    },
+    // filterByCategory(category) {
+    //   this.filterProposals = [...this.proposals];
+    //   console.log(this.filterProposals);
+    //   this.filterProposals = this.proposals.filter((proposal) => proposal.proposalCategory === category);
+    // },
     // getProposalsData() {
     //   this.$http.get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)
     //     .then((res) => {

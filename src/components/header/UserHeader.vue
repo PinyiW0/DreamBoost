@@ -147,7 +147,7 @@ export default {
   },
   methods: {
     logout() {
-      document.cookie = ' db = ""';
+      document.cookie = ' db=';
       this.$emit('logout');
       this.$router.push({ name: 'home' });
     },
