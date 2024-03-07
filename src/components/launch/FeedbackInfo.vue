@@ -176,7 +176,7 @@
                 class="d-none"
                 :class="{ 'is-invalid': errors['圖片上傳'] }"
                 @change="imageHandler"
-                :rules="checkFeedbackImage"
+                rules="image|required"
               ></VField>
               <label
                 for="feedbackImg"
@@ -314,14 +314,14 @@
 // mixins 載入
 import mixinUploadImage from '@/mixins/mixinUploadImage';
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
-import FullScreenLoading from '@/mixins/FullScreenLoading';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 
 // Icon 載入
 import CameraIcon from '../icons/CameraIcon.vue';
 
 export default {
   props: ['tempData'],
-  mixins: [mixinUploadImage, mixinVeeValidate, FullScreenLoading],
+  mixins: [mixinUploadImage, mixinVeeValidate, mixinFullScreenLoading],
 
   data() {
     return {

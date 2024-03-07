@@ -23,7 +23,6 @@ export default defineStore('memberStore', {
         const { token, expired } = res.data.data;
         document.cookie = `db=${token}; expires=${new Date(expired * 1000)};`;
         successAlert(res.data.message);
-        console.log(res);
         this.$router.go(-1);
       } catch (error) {
         errorAlert(error.response.data.message);
@@ -56,7 +55,7 @@ export default defineStore('memberStore', {
         const userEmail = res.data.data.result.username;
         setUserEmail(userEmail);
       } catch (error) {
-        this.$router.push('/member');
+        throw new Error(error);
       }
     },
   },
