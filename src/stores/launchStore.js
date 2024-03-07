@@ -4,40 +4,42 @@ import sweetAlert2Store from './sweetAlert2Store';
 const { successAlert, errorAlert } = sweetAlert2Store();
 const { VITE_URL } = import.meta.env;
 
+const initialData = {
+  proposalTitle: '',
+  proposalMainImage: '',
+  proposalCategory: '',
+  proposalTargetMoney: 5000,
+  proposalArticle: '',
+  proposalSummary: '',
+  proposalStartTime: '',
+  proposalEndTime: '',
+  proposalFAQs: [
+    {
+      question: '',
+      answer: '',
+    },
+  ],
+  proposalImages: ['temp'],
+  customizeProperty: {
+    userName: '',
+    userEmail: '',
+    userTel: '',
+    userLeader: '',
+    userIdentity: '',
+    userImage: '',
+    userRepresent: '',
+    registerName: '',
+    displayName: '',
+    introduction: '',
+    fanPage: '',
+    projectPage: '',
+  },
+};
+
 export default defineStore('launchStore', {
   state: () => ({
     // 定義提案格式
-    launchData: {
-      proposalTitle: '',
-      proposalMainImage: '',
-      proposalCategory: '',
-      proposalTargetMoney: 5000,
-      proposalArticle: '',
-      proposalSummary: '',
-      proposalStartTime: '',
-      proposalEndTime: '',
-      proposalFAQs: [
-        {
-          question: '',
-          answer: '',
-        },
-      ],
-      proposalImages: ['temp'],
-      customizeProperty: {
-        userName: '',
-        userEmail: '',
-        userTel: '',
-        userLeader: '',
-        userIdentity: '',
-        userImage: '',
-        userRepresent: '',
-        registerName: '',
-        displayName: '',
-        introduction: '',
-        fanPage: '',
-        projectPage: '',
-      },
-    },
+    launchData: JSON.parse(JSON.stringify(initialData)),
     launchState: '',
   }),
 
@@ -102,8 +104,9 @@ export default defineStore('launchStore', {
           },
         );
         state = res.data.success;
-        successAlert('專題已提交審核');
+        successAlert('提案已提交審核');
         sessionStorage.removeItem('launchID');
+        this.launchData = JSON.parse(JSON.stringify(initialData));
       } catch (error) {
         errorAlert(error.response.data.message);
       }

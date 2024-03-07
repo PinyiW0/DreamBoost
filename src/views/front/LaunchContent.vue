@@ -20,16 +20,24 @@
           id="content"
           name="專案內容"
           class="form-control py-3 d-none"
-          :class="{ 'is-invalid': errors['專案內容'] }"
           v-model="launchData.proposalArticle"
           rules="required"
         >
         </VField>
-        <Ckeditor
-          :editor="editor"
-          v-model="launchData.proposalArticle"
-          :config="editorConfig"
-        />
+        <div
+          class="rounded-1"
+          :class="{
+            'border': errors['專案內容'],
+            'border-danger': errors['專案內容'],
+            'is-invalid': errors['專案內容'],
+          }"
+        >
+          <Ckeditor
+            :editor="editor"
+            v-model="launchData.proposalArticle"
+            :config="editorConfig"
+          />
+        </div>
         <ErrorMessage class="invalid-feedback" name="專案內容"></ErrorMessage>
       </div>
       <div>

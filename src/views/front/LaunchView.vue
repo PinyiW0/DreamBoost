@@ -348,7 +348,7 @@
           <img
             src="/images/launch/launchDescription.png"
             class="img-fluid object-fit-cover"
-            alt="一張類似樹狀圖，上面描述著提交專案的流程"
+            alt="一張樹狀圖，上面描述著提交專案的流程"
           />
         </div>
       </div>
@@ -357,10 +357,10 @@
 </template>
 
 <script>
-// pinia 解構
-import { mapActions } from 'pinia';
-// Pinia Store 載入
-import memberStore from '@/stores/memberStore';
+// // pinia 解構
+// import { mapActions } from 'pinia';
+// // Pinia Store 載入
+// import memberStore from '@/stores/memberStore';
 // mixins 引入
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
 
@@ -368,15 +368,15 @@ export default {
   mixins: [mixinVeeValidate],
 
   methods: {
-    ...mapActions(memberStore, ['postCheckToken']),
+    // ...mapActions(memberStore, ['postCheckToken']),
 
     submit() {
       this.$router.push('/launch/outline');
     },
   },
 
-  mounted() {
-    this.postCheckToken();
-  },
+  // mounted() {
+  //   this.postCheckToken();
+  // },
 };
 </script>

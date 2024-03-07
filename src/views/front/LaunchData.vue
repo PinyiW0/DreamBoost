@@ -286,7 +286,7 @@ import launchStore from '@/stores/launchStore';
 // mixins 引入
 import mixinUploadImage from '@/mixins/mixinUploadImage';
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
-import FullScreenLoading from '@/mixins/FullScreenLoading';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 
 // 元件載入
 import LaunchNav from '@/components/launch/LaunchNav.vue';
@@ -294,7 +294,7 @@ import LaunchNav from '@/components/launch/LaunchNav.vue';
 import CameraIcon from '@/components/icons/CameraIcon.vue';
 
 export default {
-  mixins: [mixinUploadImage, mixinVeeValidate, FullScreenLoading],
+  mixins: [mixinUploadImage, mixinVeeValidate, mixinFullScreenLoading],
 
   methods: {
     ...mapActions(launchStore, ['postLaunch', 'putLaunch']),
