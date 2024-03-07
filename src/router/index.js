@@ -197,4 +197,17 @@ const router = createRouter({
   ],
 });
 
+// 新增路由守衛
+router.beforeEach((to) => {
+  const token = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('db'))
+    ?.split('=')[1];
+  if (to.path === '/launch/outline' && !token) {
+    return '/member';
+  }
+
+  return true;
+});
+
 export default router;
