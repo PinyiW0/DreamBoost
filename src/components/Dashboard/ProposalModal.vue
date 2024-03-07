@@ -1,13 +1,9 @@
 <template>
-  <div class="vl-parent">
-    <Loading v-model:active="shouldLoading" :can-cancel="false" :is-full-page="true" />
-  </div>
   <div class="modal fade" ref="modalInstance" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true" style="background-color:rgba(11, 17, 28, 0.6);">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content bg-gray-700 border border-light">
         <div class="modal-header border-bottom-0">
-          <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
           <button type="button" class="btn-close" aria-label="Close" @click="hide"></button>
         </div>
         <div class="modal-body">
@@ -15,14 +11,13 @@
             <h2 class="mb-4 text-white fw-nromal text-center">退回專案</h2>
             <p class="mb-8 text-dark-pr text-center fs-18">請輸入退回原因</p>
           </div>
-          <!-- 我覺得這段寬度很亂，看有沒有需要調整一下 -->
           <div class="mt-12 px-10">
             <div class="card bg-transparent border-0">
               <div
                 class="card-body bg-transparent pt-3 pb-6 ps-8 pe-3 border-gray-500 border-bottom d-flex justify-content-between">
                 <div class="d-flex align-items-stretch">
-                  <img src="https://picsum.photos/id/684/600/400" alt="" class="rounded-pill me-10" width="48"
-                    height="48">
+                  <!-- <img src="https://picsum.photos/id/684/600/400" alt="" class="rounded-pill me-10" width="48" height="48"> -->
+                  <img :src="denyProposalData.proposalMainImage" alt="主要圖片" class="rounded-pill me-10" width="48" height="48">
                   <div class="d-flex flex-column justify-content-center text-white">
                     <p class="mb-0  fs-12 lh-sm mb-1">2024.02.13</p>
                     <p class="mb-0  ">小智的 MIT 夢 - 台灣學生的教育之旅</p>
@@ -42,14 +37,15 @@
   </div>
 </template>
 <script>
-import Loading from 'vue-loading-overlay';
 import Swal from 'sweetalert2';
 
 import adminStore from '@/stores/adminStore';
-import { mapState, mapActions } from 'pinia';
+import { mapState } from 'pinia';
 
-import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import mixinSwalToast from '@/mixins/mixinSwalToast';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
+
+const { VITE_URL } = import.meta.env;
 
 export default {
   data() {
@@ -58,11 +54,9 @@ export default {
       denyMessages: '',
     };
   },
-  // 3/7代辦
-  // 改成直接在元件內就觸發API，這樣就可以在AJAX結束的時候關閉modal，也可以比較好的控制loading。
   methods: {
-    ...mapActions(adminStore, ['denyProposal']),
     show() {
+      // 每次打開的時候要清除訊息內容
       this.denyMessages = '';
       this.modalInstance.show();
     },
@@ -85,29 +79,54 @@ export default {
       })
         .then((result) => {
           if (result.isConfirmed) {
-            this.denyProposal(this.denyMessages);
+            this.denyProposal();
           }
           if (result.isDismissed) {
-            this.addToast({ content: '尚未退回提案', style: 'info' });
+            // this.addToast({ content: '尚未退回提案', style: 'info' });
           }
         })
         .catch(() => {
           this.addToast({ content: '退回提案過程出現錯誤', style: 'error' });
         });
     },
+    denyProposal() {
+      this.showFullScreenLoading();
+
+      Promise.all([
+        this.$http.post(`${VITE_URL}/dreamboost/proposal/admin/changeToDraft`, { proposalID: this.denyProposalData.proposalID }),
+        this.$http.post(`${VITE_URL}/dreamboost/message/admin/message`, {
+          messageToUserID: `${this.denyProposalData.proposalByUserID}`,
+          messageTitle: '提案審核失敗',
+          messageContent: `退回原因：${this.denyMessages}`,
+          messageTime: new Date().getTime(),
+        }),
+      ])
+        .then(() => {
+          this.hideFullScreenLoading();
+          this.addToast({ content: '已經提案退回', style: 'info' });
+          this.hide();
+          this.$emit('updateProposalDatas');
+        })
+        .catch((err) => {
+          this.hideFullScreenLoading();
+          this.addToast({ content: '退回提案過程出現錯誤，請聯繫工程師', style: 'error' });
+          console.log(err);
+        });
+    },
   },
   mounted() {
-    this.modalInstance = new this.$bs.Modal(this.$refs.modalInstance);
+    this.modalInstance = new this.$bs.Modal(this.$refs.modalInstance, {
+      focus: false,
+    });
   },
   computed: {
-    ...mapState(adminStore, ['shouldLoading']),
+    ...mapState(adminStore, ['denyProposalData']),
   },
   components: {
-    Loading,
   },
   watch: {
   },
-  mixins: [mixinFullScreenLoading, mixinSwalToast],
+  mixins: [mixinSwalToast, mixinFullScreenLoading],
 };
 </script>
 <style scoped lang="scss">
