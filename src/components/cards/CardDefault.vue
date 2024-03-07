@@ -3,7 +3,7 @@
     <div class="card py-8 px-7 mb-16 border-2 border-primary rounded-4 card-shadow">
       <div class="position-relative">
         <img :src="proposals.proposalMainImage" class="card-img-top rounded-3 mb-12 object-fit-cover" alt="提案主要照片"
-          style="min-height: 250px;" />
+          style="height: 250px;" />
         <button type="button"
           class="border-0 btn btn-empty d-flex align-items-center p-3 position-absolute top-0 end-0">
           <i class="" style="width: 24px;margin-top: -2px">
