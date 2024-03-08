@@ -1,39 +1,41 @@
 <template>
-  <div class="">
+  <div class="l-cardContainer">
     <div class="l-gridCard text-center">
       <!-- 專案狀態 -->
-      <div
-        class="l-gridCard--centerChild l-gridCard__status bg-primary text-white px-5 d-flex align-items-center justify-content-center">
-        創建中專案</div>
+      <div class="l-gridCard--centerChild l-gridCard__status  px-5 d-flex align-items-center justify-content-center border border-primary" :class="defineClass">
+        <span v-if="proposalData.proposalStatus==='draft'">創建中專案</span>
+        <span v-else-if="proposalData.proposalStatus==='review'">創建中專案</span>
+        <span v-else-if="proposalData.proposalStatus==='active'&& isActive">進行中專案</span>
+        <span v-else>已結束專案</span>
+      </div>
       <!-- 專案名稱 -->
       <div class="l-gridCard--centerChild l-gridCard__titleName border-top border-bottom border-primary bg-bgc-paper">
         專案名稱</div>
       <div class="l-gridCard__contentName border-bottom border-primary text-start">
         <div class="py-4 px-4 d-flex align-items-center">
           <img src="https://picsum.photos/id/684/600/400" alt="" width="120" height="90">
-          <p class="mb-0 ms-3">PetBreeze：給您心愛寵物的專屬舒適吹風機</p>
+          <p class="mb-0 ms-3">{{ proposalData.proposalTitle }}</p>
         </div>
       </div>
       <!-- 目標金額 -->
       <div class="l-gridCard--centerChild l-gridCard__titleTarget border-top border-bottom border-primary bg-bgc-paper">
         目標金額</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentTarget border-bottom border-primary">$2000</div>
+      <div class="l-gridCard--centerChild l-gridCard__contentTarget border-bottom border-primary">{{ proposalData.proposalTargetMoney }}</div>
       <!-- 創建日期 -->
       <div
         class="l-gridCard--centerChild l-gridCard__titleCreatedDate border-top border-bottom border-primary bg-bgc-paper">
         創建日期</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentCreatedDate border-bottom border-primary">2023.12.31
-      </div>
+      <div class="l-gridCard--centerChild l-gridCard__contentCreatedDate border-bottom border-primary">{{  proposalData.proposalStartTime.split('-').join('.')  }}</div>
       <!-- 提交日期 -->
       <div
         class="l-gridCard--centerChild l-gridCard__titleSubmitDate border-top border-bottom border-primary bg-bgc-paper">
         提交日期</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentSubmitDate border-bottom border-primary">2023.12.31</div>
+      <div class="l-gridCard--centerChild l-gridCard__contentSubmitDate border-bottom border-primary">{{ proposalData.proposalStartTime.split('-').join('.') }}</div>
       <!-- 上次修改日期 -->
       <div
         class="l-gridCard--centerChild l-gridCard__titleUpdateDate border-top border-bottom border-primary bg-bgc-paper">
         上次修改日期</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentUpdateDate border-bottom border-primary">2023.12.31</div>
+      <div class="l-gridCard--centerChild l-gridCard__contentUpdateDate border-bottom border-primary">{{ proposalData.proposalStartTime.split('-').join('.') }}</div>
       <!-- 按鈕區塊 -->
       <div class="l-gridCard--centerChild l-gridCard__btnDeleteProposal ">
         <button type="button"
@@ -74,10 +76,12 @@ import CloseButtonIcon from '@/components/icons/CloseButton.vue';
 import DoubleAngleDownIcon from '@/components/icons/DoubleAngleDown.vue';
 
 export default {
+  props: ['proposalData'],
   data() {
     return {
       collapseInstance: '',
       isShown: '',
+      defineClass: [],
     };
   },
   methods: {
@@ -89,6 +93,12 @@ export default {
     DoubleAngleDownIcon,
     CloseButtonIcon,
   },
+  computed: {
+    isActive() {
+      // 代表提案還在上架中（還沒到期）
+      return Date.parse(this.proposalData.proposalEndTime) > new Date().getTime();
+    },
+  },
   mounted() {
     this.collapseInstance = new this.$bs.Collapse(this.$refs.collapseContent, {
       toggle: false,
@@ -99,8 +109,15 @@ export default {
     this.$refs.collapseContent.addEventListener('hide.bs.collapse', () => {
       this.isShown = false;
     });
+
+    if (this.proposalData.proposalStatus === 'active' && !this.isActive) {
+      this.defineClass = ['bg-gray-600', 'text-dark-pr'];
+    } else {
+      this.defineClass = ['bg-primary', 'text-white'];
+    }
   },
 };
+
 </script>
 <style scope lang="scss">
 // 按鈕樣式
