@@ -6,8 +6,8 @@ export default defineStore('userStore', {
   state: () => ({
     userData: {
       userAvatarImage: '',
-      userBirthday: '1970/01/01',
-      userGender: 'male',
+      userBirthday: '',
+      userGender: '',
       userTelephone: '',
     },
   }),
@@ -19,8 +19,8 @@ export default defineStore('userStore', {
         .then((res) => {
           this.userData = res.data.data.result;
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
+          throw new Error('資料未新增');
         });
     },
 
