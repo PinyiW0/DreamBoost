@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import * as Swal from 'sweetalert2';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -205,7 +206,13 @@ router.beforeEach((to) => {
     .split('; ')
     .find((row) => row.startsWith('db'))
     ?.split('=')[1];
-  if (to.path === '/launch/outline' && !token) {
+  if ((to.path.startsWith('/launch/') || to.path.startsWith('/userboard')) && !token) {
+    Swal.fire({
+      icon: 'info',
+      title: '需先登入會員',
+      showConfirmButton: false,
+      timer: 1500,
+    });
     return '/member';
   }
 

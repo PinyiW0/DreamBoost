@@ -1,7 +1,7 @@
 <template>
   <div class="min-vh-100 d-flex flex-column">
     <div v-if="isLoggedIn">
-        <UserHeader  @logout="logout"/>
+        <UserHeader  @logout="logout" :user-id="userID"/>
     </div>
     <div v-else>
       <VisitorHeader />
@@ -24,6 +24,7 @@ export default {
   data() {
     return {
       isLoggedIn: false,
+      userID: '',
     };
   },
   methods: {
@@ -34,6 +35,8 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.isLoggedIn = true;
+            this.userID = res.data.data.result.userID;
+            localStorage.setItem('userID', res.data.data.result.userID);
           }
         })
         .catch(() => {
