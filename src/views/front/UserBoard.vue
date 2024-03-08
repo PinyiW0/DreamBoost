@@ -4,42 +4,27 @@
     <nav class="container">
       <ul class="nav justify-content-md-center gap-19">
         <li class="nav-item">
-          <RouterLink
-            to="/userboard/user/personal"
-            class="userbd-link"
-          >
+          <RouterLink :to="`/userboard/${userId}/personal`" class="userbd-link">
             個人頁面
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink
-            to="/userboard/user/favorite"
-            class="userbd-link"
-          >
+          <RouterLink :to="`/userboard/${userId}/favorite`" class="userbd-link">
             收藏專案
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink
-            to="/userboard/user/sponsorrecord"
-            class="userbd-link"
-          >
+          <RouterLink :to="`/userboard/${userId}/sponsorrecord`" class="userbd-link">
             贊助紀錄
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink
-            to="/userboard/user/proposalrecord"
-            class="userbd-link"
-          >
+          <RouterLink :to="`/userboard/${userId}/proposalrecord`" class="userbd-link">
             提案紀錄
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink
-            to="/userboard/user/news"
-            class="userbd-link"
-          >
+          <RouterLink :to="`/userboard/${userId}/news`" class="userbd-link">
             最新通知
           </RouterLink>
         </li>
@@ -86,13 +71,14 @@
     transform: scale(1, 1);
   }
 }
-
 </style>
 
 <script>
 export default {
-  components: {
+  data() {
+    return {
+      userId: localStorage.getItem('userID'),
+    };
   },
 };
-
 </script>

@@ -83,7 +83,7 @@
     <section class="container">
       <ul class="row gx-10 list-unstyled pt-5">
         <li class="col-12 col-md-6 col-lg-4" v-for="(proposal, proposalId) in proposals" :key="proposalId">
-          <CardDefault :proposals="proposal" />
+          <CardDefault :proposals="proposal" @favorite="favoriteHandler"/>
         </li>
       </ul>
     </section>
@@ -98,11 +98,13 @@
 </template>
 
 <script>
-import AnglesDown from '@/components/icons/AnglesDown.vue';
-import CouponCircle from '@/components/rotate/CuponCircle.vue';
-import CardDefault from '@/components/cards/CardDefault.vue';
-import exploreStore from '@/stores/exploreStore';
 import { mapState, mapActions } from 'pinia';
+import exploreStore from '@/stores/exploreStore';
+import userStore from '@/stores/userStore';
+import sweetAlert2Store from '@/stores/sweetAlert2Store';
+import CardDefault from '@/components/cards/CardDefault.vue';
+import CouponCircle from '@/components/rotate/CuponCircle.vue';
+import AnglesDown from '@/components/icons/AnglesDown.vue';
 
 export default {
   components: {
@@ -116,17 +118,34 @@ export default {
   },
   computed: {
     ...mapState(exploreStore, ['proposals']),
+    ...mapState(userStore, ['userData']),
   },
   created() {
   },
-  mounted() {
-    this.getProposals();
+  async mounted() {
+    await this.getProposals();
+    await this.getUserData();
     // console.log(this.proposals);
     // this.getProposalsData();
   },
   methods: {
     ...mapActions(exploreStore, ['getProposals']),
+    ...mapActions(userStore, ['getUserData']),
+    ...mapActions(sweetAlert2Store, ['errorAlert']),
 
+    favoriteHandler() {
+      const userValue = Object.values(this.userData);
+      if (userValue.includes('')) {
+        const userId = localStorage.getItem('userID');
+        this.$router.push(`userboard/${userId}/personal`);
+
+        setTimeout(() => {
+          if (this.$route.path.startsWith('/userboard')) {
+            this.errorAlert('需先完成會員資料');
+          }
+        }, 1500);
+      }
+    },
     // 根據類別篩選提案
     // filterByCategory(category) {
     //   this.filterProposals = [...this.proposals];

@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import * as Swal from 'sweetalert2';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -52,6 +53,7 @@ const router = createRouter({
         {
           // 探索/指定專案頁面/贊助方案列表
           path: 'choose',
+          name: 'choose',
           component: () => import('../views/front/DpProjectChoose.vue'),
         },
         {
@@ -196,6 +198,25 @@ const router = createRouter({
       component: () => import('../views/NotFound.vue'),
     },
   ],
+});
+
+// 新增路由守衛
+router.beforeEach((to) => {
+  const token = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('db'))
+    ?.split('=')[1];
+  if ((to.path.startsWith('/launch/') || to.path.startsWith('/userboard')) && !token) {
+    Swal.fire({
+      icon: 'info',
+      title: '需先登入會員',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    return '/member';
+  }
+
+  return true;
 });
 
 export default router;

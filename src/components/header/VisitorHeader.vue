@@ -3,7 +3,7 @@
     <VisitorHeaderAd />
     <nav class="navbar navbar-expand-md container-fluid border-bottom border-primary-light shadow-sm">
       <div class="container d-flex justify-content-between align-items-center">
-        <RouterLink to="/home">
+        <RouterLink to="/">
           <a href="">
             <img class="img-fluid" src="/images/header/mainLogo.svg" alt="首頁">
           </a>
