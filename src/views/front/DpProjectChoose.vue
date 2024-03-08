@@ -18,7 +18,7 @@
           :centered-slides="true" :pagination="{
           type: 'progressbar',
         }" :slidesPerView="1" :breakpoints="{
-         768: {
+          768: {
             slidesPerView: 1,
           },
           992: {
@@ -42,8 +42,10 @@
 .swiper {
   overflow: initial;
 }
+
 .swiper-pagination {
-  background-color:var(--bs-gray-200);
+  background-color: var(--bs-gray-200);
+
   &-progressbar-fill {
     background-color: var(--bs-primary) !important;
   }
@@ -71,6 +73,9 @@ export default {
   data() {
     return {
       modules: [Navigation, Pagination, Scrollbar],
+      test: { // 資料定義
+        proposalFeedbacks: {},
+      },
     };
   },
   components: {
@@ -97,7 +102,6 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.test = res.data.data.result[routeId];
-            console.log(res.data.data.result[routeId]);
           }
         })
         .catch((err) => {

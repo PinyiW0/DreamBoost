@@ -1,11 +1,11 @@
 <template>
   <main>
-    <DpInfo></DpInfo>
     <section class="container pt-14">
       <div class="row d-flex justify-content-center">
         <!-- 方案卡 -->
         <div class="col-12 col-lg-4">
           <!-- 方案卡 -->
+          <!-- <PlanCard /> -->
           <div class="card border-2 border-primary rounded-3 mb-8">
             <div class="card-body">
               <!-- 價錢 highlight -->
@@ -50,14 +50,18 @@
                 <!-- 方案優惠 -->
                 <div class="d-flex align-items-center border-top border-bottom border-primary-light py-4 mb-7">
                   <div class="d-flex align-items-center me-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-check-circle-fill text-primary me-1" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-check-circle-fill text-primary me-1" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                     </svg>
                     <p class="fs-12 text-gray-600 mb-0">台灣本島免運，可寄離島</p>
                   </div>
                   <div class="d-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-check-circle-fill text-primary me-1" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-check-circle-fill text-primary me-1" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                     </svg>
                     <p class="fs-12 text-gray-600 mb-0">信用卡享 3 期零利率</p>
                   </div>
@@ -122,7 +126,8 @@
             <div class="row d-flex mb-6">
               <div class="col d-flex flex-column">
                 <label for="sponsors" class="form-label fw-medium">加碼贊助<span class="text-gray-500">（選填）</span></label>
-                <input class="form-control fs-6 border-primary-light" list="datalistOptions" id="sponsors" placeholder="小小金額是大大的肯定">
+                <input class="form-control fs-6 border-primary-light" list="datalistOptions" id="sponsors"
+                  placeholder="小小金額是大大的肯定">
                 <datalist id="datalistOptions">
                   <option value="100"></option>
                   <option value="200"></option>
@@ -168,20 +173,11 @@
               <label for="addressee" class="form-label fw-medium position-relative">
                 收件人姓名
                 <span class="text-danger">*
-                  <button
-                    type="button"
-                    class="btn px-1 py-0 border-0"
-                    ref="name"
-                    data-bs-toggle="tooltip-name"
-                    data-bs-placement="right"
-                    data-bs-custom-class="customTooltip"
+                  <button type="button" class="btn px-1 py-0 border-0" ref="name" data-bs-toggle="tooltip-name"
+                    data-bs-placement="right" data-bs-custom-class="customTooltip"
                     data-bs-title="寄送贊助回饋使用，若不正確可能造成投遞失敗。">
                     <span class="" style="width: 20px;">
-                      <img
-                        src="/images/explore/info.svg"
-                        class="img-fluid"
-                        style="margin-top: -6px;"
-                        alt="">
+                      <img src="/images/explore/info.svg" class="img-fluid" style="margin-top: -6px;" alt="">
                     </span>
                   </button>
                 </span>
@@ -192,20 +188,11 @@
               <label for="phone" type="text" class="form-label fw-medium">
                 行動電話
                 <span class="text-danger">*
-                  <button
-                    type="button"
-                    class="btn px-1 py-0 border-0"
-                    ref="phone"
-                    data-bs-toggle="tooltip-phone"
-                    data-bs-placement="right"
-                    data-bs-custom-class="customTooltip"
+                  <button type="button" class="btn px-1 py-0 border-0" ref="phone" data-bs-toggle="tooltip-phone"
+                    data-bs-placement="right" data-bs-custom-class="customTooltip"
                     data-bs-title="寄送人聯絡及付款確認使用。請填寫全碼，如 0912123456">
                     <span class="" style="width: 20px;">
-                      <img
-                        src="/images/explore/info.svg"
-                        class="img-fluid"
-                        style="margin-top: -6px;"
-                        alt="">
+                      <img src="/images/explore/info.svg" class="img-fluid" style="margin-top: -6px;" alt="">
                     </span>
                   </button>
                 </span>
@@ -312,25 +299,52 @@
 </style>
 
 <script>
-import DpInfo from '@/components/designedproject/DpInfo.vue';
-// import InfoIcon from '@/components/icons/InfoIcon.vue';
+import { mapState, mapActions } from 'pinia';
+import exploreStore from '@/stores/exploreStore';
+// import PlanCard from '@/components/cards/PlanCard.vue';
 import MixinVeeValidate from '../../mixins/mixinVeeValidate';
 
+const { VITE_URL } = import.meta.env;
+
 export default {
+  components: {
+    // PlanCard,
+  },
   data() {
     return {
+      feedbacks: Object,
       tooltipName: '', // 賦予狀態然後用ref去監聽取
       tooltipPhone: '',
+      test: {
+        proposalFeedbacks: {},
+      },
     };
   },
+  computed: {
+    ...mapState(exploreStore, ['proposals']),
+  },
   mixins: [MixinVeeValidate],
-  mounted() {
+  async mounted() {
+    await this.getProposals();
     this.tooltipName = new this.$bs.Tooltip(this.$refs.name);
     this.tooltipPhone = new this.$bs.Tooltip(this.$refs.phone);
   },
-  components: {
-    DpInfo,
-    // InfoIcon,
+  methods: {
+    ...mapActions(exploreStore, ['getProposals']),
+    ...mapActions(exploreStore, ['getProposalID']),
+    async getProposals() {
+      const routeId = this.$route.params.id;
+      await this.$http
+        .get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)
+        .then((res) => {
+          if (res.data.success) {
+            this.test = res.data.data.result[routeId];
+          }
+        })
+        .catch((err) => {
+          throw new Error('資料未傳入', err);
+        });
+    },
   },
 };
 </script>

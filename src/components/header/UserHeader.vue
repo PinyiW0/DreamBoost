@@ -83,7 +83,7 @@
                 </li>
               </ul>
             </div>
-            <span class="mt-1">
+            <span class="mt-1 d-none">
               <button class="btn btn-outline-primary border-2 btn-search p-3">
                 <SearchIcon class="fs-3" style="width:24px"></SearchIcon>
               </button>
@@ -163,7 +163,6 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.userInfo = res.data.data.result;
-            console.log(this.userInfo.userAvatarImage);
           } else {
             console.error('更新使用者資料失敗：', res.data.message);
           }
@@ -183,12 +182,12 @@ export default {
       })
         .then((result) => {
           if (result.isConfirmed) {
-            document.cookie = 'db=';
-            this.addToast({ content: '登出成功' });
             this.showFullScreenLoading({ canCancel: false, opacity: 0.8 });
-            this.$router.push({ name: 'home' });
-            this.hideFullScreenLoading();
+            document.cookie = 'db=';
           }
+          this.addToast({ content: '登出成功', timer: 2000 });
+          this.$router.push({ name: 'home' });
+          this.hideFullScreenLoading();
           if (result.isDismissed) {
             this.addToast({ content: '取消登出', style: 'info' });
           }

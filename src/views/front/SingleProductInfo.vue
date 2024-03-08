@@ -297,7 +297,6 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.test = res.data.data.result[this.$route.params.id];
-            console.log(this.test);
           }
         })
         .catch((err) => {

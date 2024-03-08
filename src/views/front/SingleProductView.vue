@@ -1,181 +1,184 @@
 <template>
   <main>
     <!-- 產品信息 -->
-    <section v-if="showOrgin" class="container mb-14 pt-23">
-      <span class="badge px-3 mb-2 rounded-pill bg-primary fs-5 lh-md fw-normal">
-        {{ test.proposalCategory }}
-      </span>
-      <h2 class="mb-8 fs-3 text-primary-dark">
-        {{ test.proposalTitle }}
-      </h2>
-      <div class="row gy-8">
-        <div class="col-lg-6">
-          <img :src="test.proposalMainImage" class="w-100 object-fit-cover rounded-2" alt="" style="height: 360px" />
-        </div>
-        <div class="order-2 order-lg-1 col-lg-6 d-flex flex-column text-gray-600">
-          <div class="d-flex justify-content-between mb-7">
-            <div>
-              <p class="mb-3 text-primary lh-md">目標 NT$ {{ test.proposalTargetMoney }}</p>
-              <p class="mb-0 fs-4 text-danger fw-bold">NT $ 2,250,005</p>
-            </div>
-            <img class="d-none" src="https://fakeimg.pl/64x64" alt="" style="width: 64px" />
+    <section v-if="showOrgin">
+      <div class="container mb-14 pt-23">
+        <span class="badge px-3 mb-2 rounded-pill bg-primary fs-5 lh-md fw-normal">
+          {{ test.proposalCategory }}
+        </span>
+        <h2 class="mb-8 fs-3 text-primary-dark">
+          {{ test.proposalTitle }}
+        </h2>
+        <div class="row gy-8">
+          <div class="col-lg-6">
+            <img :src="test.proposalMainImage" class="w-100 object-fit-cover rounded-2" alt="" style="height: 360px" />
           </div>
-          <div class="mb-8 w-100 bg-primary rounded-pill" style="height: 6px"></div>
-          <div class="d-flex mb-10">
-            <div class="d-flex align-items-center gap-1 me-21">
-              <i style="width: 22px; margin-top: -2px">
-                <UserIcon />
-              </i>
-              <p class="mb-0 text-gray-600">
-                <span class="text-primary fw-bold">2,435</span>
-                人參與
-              </p>
+          <div class="order-2 order-lg-1 col-lg-6 d-flex flex-column text-gray-600">
+            <div class="d-flex justify-content-between mb-7">
+              <div>
+                <p class="mb-3 text-primary lh-md">目標 NT$ {{ test.proposalTargetMoney }}</p>
+                <p class="mb-0 fs-4 text-danger fw-bold">NT $ 2,250,005</p>
+              </div>
+              <img class="d-none" src="https://fakeimg.pl/64x64" alt="" style="width: 64px" />
             </div>
-            <div class="d-flex align-items-center gap-1">
-              <i style="width: 24px">
-                <ClockIcon />
-              </i>
-              <p class="mb-0 text-primary fw-bold">
-                3 <span class="text-gray-600">天</span> 09:29:19
-              </p>
+            <div class="mb-8 w-100 bg-primary rounded-pill" style="height: 6px"></div>
+            <div class="d-flex mb-10">
+              <div class="d-flex align-items-center gap-1 me-21">
+                <i style="width: 22px; margin-top: -2px">
+                  <UserIcon />
+                </i>
+                <p class="mb-0 text-gray-600">
+                  <span class="text-primary fw-bold">2,435</span>
+                  人參與
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-1">
+                <i style="width: 24px">
+                  <ClockIcon />
+                </i>
+                <p class="mb-0 text-primary fw-bold">
+                  3 <span class="text-gray-600">天</span> 09:29:19
+                </p>
+              </div>
             </div>
-          </div>
-          <p>專案時間：{{ test.proposalStartTime }} ~ {{ test.proposalEndTime }}</p>
-          <p class="mb-4">
-            {{ test.proposalSummary }}
-          </p>
-          <div class="d-flex justify-content-between align-items-center mt-auto">
-            <div class="d-flex align-items-center gap-2">
-              <!-- <img class="img-fluid rounded-circle object-fit-cover" :src="test.customizeProperty?.userImage"
+            <p>專案時間：{{ test.proposalStartTime }} ~ {{ test.proposalEndTime }}</p>
+            <p class="mb-4">
+              {{ test.proposalSummary }}
+            </p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <div class="d-flex align-items-center gap-2">
+                <!-- <img class="img-fluid rounded-circle object-fit-cover" :src="test.customizeProperty?.userImage"
                 style="height: 36px;width: 36px;" alt="" />
               <p class="mb-0 text-gray-700 lh-md">發起人：{{ test.customizeProperty?.displayName }}</p> -->
+              </div>
+              <ul class="d-flex align-items-center list-unstyled mb-0 column-gap-3">
+                <li style="width: 28px">
+                  <a href="https://zh-tw.facebook.com/login/device-based/regular/login/?login_attempt=1">
+                    <i>
+                      <FaceBook />
+                    </i>
+                  </a>
+                </li>
+                <li style="width: 28px">
+                  <a href="https://www.instagram.com/accounts/login/?next=%2Fchin_goods%2F&source=desktop_nav">
+                    <i>
+                      <InstaGram />
+                    </i>
+                  </a>
+                </li>
+                <li style="width: 28px">
+                  <a href="https://twitter.com/i/flow/login">
+                    <i>
+                      <TwitterIcon />
+                    </i>
+                  </a>
+                </li>
+                <li style="width: 28px">
+                  <a href="#" @click.prevent="copyURL">
+                    <i>
+                      <LinkIcon />
+                    </i>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <ul class="d-flex align-items-center list-unstyled mb-0 column-gap-3">
-              <li style="width: 28px">
-                <a href="https://zh-tw.facebook.com/login/device-based/regular/login/?login_attempt=1">
-                  <i>
-                    <FaceBook />
-                  </i>
-                </a>
-              </li>
-              <li style="width: 28px">
-                <a href="https://www.instagram.com/accounts/login/?next=%2Fchin_goods%2F&source=desktop_nav">
-                  <i>
-                    <InstaGram />
-                  </i>
-                </a>
-              </li>
-              <li style="width: 28px">
-                <a href="https://twitter.com/i/flow/login">
-                  <i>
-                    <TwitterIcon />
-                  </i>
-                </a>
-              </li>
-              <li style="width: 28px">
-                <a href="#" @click.prevent="copyURL">
-                  <i>
-                    <LinkIcon />
-                  </i>
-                </a>
-              </li>
-            </ul>
           </div>
-        </div>
-        <ol class="order-1 order-lg-2 col-lg-6 d-flex justify-content-center gap-20 mb-0 list-unstyled">
-          <li class="position-relative check-line">
-            <div class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
-              style="width: 32px; height: 32px">
-              <i class="d-block mx-auto text-secondary-light" style="width: 24px; height: 24px">
-                <CheckIcon />
-              </i>
-            </div>
-            <p class="mb-0 text-gray-500">企劃概念</p>
-          </li>
-          <li class="position-relative check-line">
-            <div class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
-              style="width: 32px; height: 32px">
-              <i class="d-block mx-auto text-secondary-light" style="width: 24px; height: 24px">
-                <CheckIcon />
-              </i>
-            </div>
-            <p class="mb-0 text-gray-500">樣品狀態</p>
-          </li>
-          <li class="position-relative no-check-line">
-            <div class="d-flex align-items-center mx-auto mb-1 border border-2 border-primary bg-primary rounded-circle"
-              style="
+          <ol class="order-1 order-lg-2 col-lg-6 d-flex justify-content-center gap-20 mb-0 list-unstyled">
+            <li class="position-relative check-line">
+              <div class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
+                style="width: 32px; height: 32px">
+                <i class="d-block mx-auto text-secondary-light" style="width: 24px; height: 24px">
+                  <CheckIcon />
+                </i>
+              </div>
+              <p class="mb-0 text-gray-500">企劃概念</p>
+            </li>
+            <li class="position-relative check-line">
+              <div class="d-flex align-items-center mx-auto mb-1 rounded-circle bg-primary-dark"
+                style="width: 32px; height: 32px">
+                <i class="d-block mx-auto text-secondary-light" style="width: 24px; height: 24px">
+                  <CheckIcon />
+                </i>
+              </div>
+              <p class="mb-0 text-gray-500">樣品狀態</p>
+            </li>
+            <li class="position-relative no-check-line">
+              <div
+                class="d-flex align-items-center mx-auto mb-1 border border-2 border-primary bg-primary rounded-circle"
+                style="
                 width: 32px;
                 height: 32px;
                 box-shadow: inset 0 0 0px 3px #ffff;
               "></div>
-            <p class="mb-0 text-gray-primary">生產階段</p>
-          </li>
-          <li>
-            <div
-              class="d-flex align-items-center mx-auto mb-1 border border-2 border-gray-300 bg-gray-300 rounded-circle"
-              style="
+              <p class="mb-0 text-gray-primary">生產階段</p>
+            </li>
+            <li>
+              <div
+                class="d-flex align-items-center mx-auto mb-1 border border-2 border-gray-300 bg-gray-300 rounded-circle"
+                style="
                 width: 32px;
                 height: 32px;
                 box-shadow: inset 0 0 0px 7px #ffff;
               "></div>
-            <p class="mb-0 text-gray-300">產品寄送</p>
-          </li>
-        </ol>
-        <div class="order-3 col-lg-6 d-flex justify-content-end align-items-center column-gap-4">
-          <button type="button" class="btn btn-empty d-flex align-items-center p-3">
-            <i style="width: 24px">
-              <StarHollow />
-            </i>
-            <i class="d-none" style="width: 24px">
-              <StarFull />
-            </i>
-          </button>
-          <RouterLink to="choose">
-            <button type="button" @click="navigateToChoose"
-              class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
-              贊助專案
-              <i style="width: 18px; margin-top: -3px">
-                <RightArrow />
+              <p class="mb-0 text-gray-300">產品寄送</p>
+            </li>
+          </ol>
+          <div class="order-3 col-lg-6 d-flex justify-content-end align-items-center column-gap-4">
+            <button type="button" class="btn btn-empty d-flex align-items-center p-3">
+              <i style="width: 24px">
+                <StarHollow />
+              </i>
+              <i class="d-none" style="width: 24px">
+                <StarFull />
               </i>
             </button>
-          </RouterLink>
+            <RouterLink to="choose">
+              <button type="button" @click="navigateToChoose"
+                class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
+                贊助專案
+                <i style="width: 18px; margin-top: -3px">
+                  <RightArrow />
+                </i>
+              </button>
+            </RouterLink>
+          </div>
         </div>
+      </div>
+      <!-- 頁面區塊 -->
+      <div class="position-sticky top-0 z-2 bg-primary py-7">
+        <nav class="container">
+          <ul class="nav justify-content-between justify-content-md-start align-items-center gap-19">
+            <li class="nav-item">
+              <RouterLink to="info" class="custom-link">
+                專案介紹
+              </RouterLink>
+            </li>
+            <li class="nav-item">
+              <RouterLink to="qa" class="custom-link">
+                常見問答
+              </RouterLink>
+            </li>
+            <li class="nav-item">
+              <RouterLink to="commit" class="custom-link">
+                留言區
+              </RouterLink>
+            </li>
+            <li v-show="showButton" @click="handleButtonClick" class="ms-auto">
+              <button type="button"
+                class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
+                贊助專案
+                <i style="width: 18px; margin-top: -3px">
+                  <RightArrow />
+                </i>
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </section>
     <section v-else>
       <DpInfo />
     </section>
-    <!-- 頁面區塊 -->
-    <div class="position-sticky top-0 z-2 bg-primary py-7">
-      <nav class="container">
-        <ul class="nav justify-content-between justify-content-md-start align-items-center gap-19">
-          <li class="nav-item">
-            <RouterLink to="info" class="custom-link">
-              專案介紹
-            </RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink to="qa" class="custom-link">
-              常見問答
-            </RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink to="commit" class="custom-link">
-              留言區
-            </RouterLink>
-          </li>
-          <li v-show="showButton" @click="handleButtonClick" class="ms-auto">
-            <button type="button"
-              class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
-              贊助專案
-              <i style="width: 18px; margin-top: -3px">
-                <RightArrow />
-              </i>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
 
     <RouterView />
   </main>
