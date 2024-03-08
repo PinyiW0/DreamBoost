@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- 產品信息 -->
-    <section class="container mb-14 pt-23">
+    <section v-if="showOrgin" class="container mb-14 pt-23">
       <span class="badge px-3 mb-2 rounded-pill bg-primary fs-5 lh-md fw-normal">
         {{ test.proposalCategory }}
       </span>
@@ -130,8 +130,8 @@
               <StarFull />
             </i>
           </button>
-          <RouterLink to="/choose">
-            <button type="button"
+          <RouterLink to="choose">
+            <button type="button" @click="navigateToChoose"
               class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
               贊助專案
               <i style="width: 18px; margin-top: -3px">
@@ -142,7 +142,9 @@
         </div>
       </div>
     </section>
-
+    <section v-else>
+      <DpInfo />
+    </section>
     <!-- 頁面區塊 -->
     <div class="position-sticky top-0 z-2 bg-primary py-7">
       <nav class="container">
@@ -180,6 +182,7 @@
 </template>
 
 <script>
+import DpInfo from '@/components/designedproject/DpInfo.vue';
 import UserIcon from '@/components/icons/UserIcon.vue';
 import ClockIcon from '@/components/icons/ClockIcon.vue';
 import TwitterIcon from '@/components/icons/TwitterIcon.vue';
@@ -206,6 +209,7 @@ export default {
   data() {
     return {
       showButton: false,
+      showOrgin: true,
       test: {},
     };
   },
@@ -269,6 +273,9 @@ export default {
           console.log(err);
         });
     },
+    navigateToChoose() {
+      this.showOrgin = !this.showOrgin;
+    },
   },
   components: {
     UserIcon,
@@ -281,6 +288,7 @@ export default {
     RightArrow,
     StarHollow,
     StarFull,
+    DpInfo,
   },
 };
 </script>
