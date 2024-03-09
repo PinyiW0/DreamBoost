@@ -48,25 +48,30 @@ const router = createRouter({
               path: 'commit',
               component: () => import('../views/front/SingleProductCommit.vue'),
             },
+          ],
+        },
+        {
+          path: 'product/:id/choose',
+          component: () => import('../views/front/DpView.vue'),
+          children: [
             {
-              // 探索/指定專案頁面/贊助方案列表
-              path: 'choose',
-              name: 'choose',
+              path: '',
               component: () => import('../views/front/DpProjectChoose.vue'),
             },
             {
               // 探索/指定專案頁面/付款頁面
-              path: 'payinfo',
+              path: ':item/payinfo',
               component: () => import('../views/front/DpPayInfo.vue'),
             },
             {
-              // 探索/指定專案頁面/信用卡付款頁面
-              path: 'cardpay',
+            // 探索/指定專案頁面/信用卡付款頁面
+              path: ':item/payinfo/cardpay',
               component: () => import('../views/front/DpCardPay.vue'),
             },
           ],
         },
-        { // 發起專案
+        {
+          // 發起專案
           path: 'launch',
           component: () => import('../views/front/LaunchView.vue'),
         },
@@ -206,7 +211,9 @@ router.beforeEach((to) => {
     .split('; ')
     .find((row) => row.startsWith('db'))
     ?.split('=')[1];
-  if ((to.path.startsWith('/launch/') || to.path.startsWith('/userboard')) && !token) {
+  if (
+    (to.path.startsWith('/launch/') || to.path.startsWith('/userboard') || to.path.includes('payinfo')) && !token
+  ) {
     Swal.fire({
       icon: 'info',
       title: '需先登入會員',

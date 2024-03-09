@@ -3,10 +3,7 @@
     <div class="row">
       <div class="col-12">
         <p class="text-white text-center fs-3 mb-0">即時預覽</p>
-        <div class="py-8 d-flex justify-content-center placeholder-glow">
-          <img src="https://picsum.photos/id/598/600/400" :class="{'d-none':!imgLoadStatus}" alt="" @load="onImageLoad">
-          <div class="placeholder bg-primary" :class="{'d-none':imgLoadStatus}" style="height: 400px; width:600px"></div>
-        </div>
+        <RealtimeBannerPreview :banner-data="bannerAry"></RealtimeBannerPreview>
       </div>
     </div>
     <div class="row justify-content-center mt-21">
@@ -37,6 +34,10 @@
 <script>
 import UpdateBannerImgCard from '@/components/dashboard/UpdateBannerImgCard.vue';
 import CameraIcon from '@/components/icons/DashboardCameraIcon.vue';
+import RealtimeBannerPreview from '@/components/dashboard/RealtimeBannerPreview.vue';
+
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
+import mixinSwalToast from '@/mixins/mixinSwalToast';
 
 const { VITE_URL } = import.meta.env;
 
@@ -50,12 +51,17 @@ export default {
   },
   methods: {
     getBannerData() {
+      this.showFullScreenLoading({ canCancel: false });
       const url = `${import.meta.env.VITE_URL}/dreamboost/banner/guest/banner`;
       this.$http.get(url)
         .then((response) => {
           this.bannerAry = response.data.data.result;
+          this.hideFullScreenLoading();
+          this.addToast({ content: '取得Banner圖片資料完成。' });
         })
         .catch(() => {
+          this.hideFullScreenLoading();
+          this.addToast({ content: '取得Banner圖片過程出現錯誤。', style: 'error' });
         });
     },
     updateBannerData(data) {
@@ -73,9 +79,15 @@ export default {
         }
       });
       const bannerPostPath = `${VITE_URL}/dreamboost/banner/admin/banner`;
+      this.showFullScreenLoading({ canCancel: false });
       this.$http.post(bannerPostPath, { bannerUrlArray: this.bannerAry })
         .then(() => {
+          this.hideFullScreenLoading();
           this.getBannerData();
+        })
+        .catch(() => {
+          this.hideFullScreenLoading();
+          this.addToast({ content: '刪除過程出現錯誤,請重新整理畫面再次操作。', style: 'error' });
         });
     },
     movePhotoUp(index) {
@@ -119,6 +131,7 @@ export default {
 
         const formData = new FormData();
         formData.append('image', file);
+        this.showFullScreenLoading({ canCancel: false, style: 'dots' });
         this.$http.post(imageUploadPath, formData)
           .then((res) => {
             // console.log(res.data.data.result);
@@ -129,11 +142,13 @@ export default {
             return this.$http.post(bannerPostPath, { bannerUrlArray: [...this.bannerAry, uploadObj] });
           })
           .then(() => {
+            this.hideFullScreenLoading();
+            this.addToast({ content: '上傳圖片完成。' });
             this.getBannerData();
           })
           .catch(() => {
-            // console.log('someting error');
-            // console.log(err);
+            this.hideFullScreenLoading();
+            this.addToast({ content: '過程出現錯誤，請重新整理', style: 'error' });
           });
       });
 
@@ -147,10 +162,12 @@ export default {
   components: {
     UpdateBannerImgCard,
     CameraIcon,
+    RealtimeBannerPreview,
   },
   mounted() {
     this.getBannerData();
   },
+  mixins: [mixinSwalToast, mixinFullScreenLoading],
 };
 </script>
 <style lang="scss">

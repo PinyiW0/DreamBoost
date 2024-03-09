@@ -138,8 +138,8 @@
                 <StarFull />
               </i>
             </button>
-            <RouterLink to="choose">
-              <button type="button" @click="navigateToChoose"
+            <RouterLink :to="`/product/${$route.params.id}/choose`">
+              <button type="button"
                 class="btn btn-secondary-light border border-2 border-primary d-flex align-items-center justify-content-center column-gap-1 px-14 btn-pr position-relative fw-bold">
                 贊助專案
                 <i style="width: 18px; margin-top: -3px">
@@ -182,12 +182,12 @@
         </nav>
       </div>
     </section>
-
     <RouterView />
   </main>
 </template>
 
 <script>
+
 import UserIcon from '@/components/icons/UserIcon.vue';
 import ClockIcon from '@/components/icons/ClockIcon.vue';
 import TwitterIcon from '@/components/icons/TwitterIcon.vue';

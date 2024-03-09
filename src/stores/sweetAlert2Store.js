@@ -26,8 +26,8 @@ export default defineStore('sweetAlert2', {
     confirmAlert(message) {
       const confirmAlertButton = Swal.mixin({
         customClass: {
-          confirmButton: 'btn btn-primary px-4',
-          cancelButton: 'btn btn-primary-light px-4 me-3',
+          confirmButton: 'btn btn-primary ',
+          cancelButton: 'btn btn-primary-light me-3',
         },
         buttonsStyling: false,
       });
