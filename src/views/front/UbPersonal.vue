@@ -90,6 +90,7 @@
 <script>
 import UpLoad from '@/components/icons/UpLoad.vue';
 import FullScreenLoading from '@/mixins/mixinFullScreenLoading';
+import mixinSwalToast from '@/mixins/mixinSwalToast';
 
 const { VITE_URL } = import.meta.env;
 
@@ -112,9 +113,9 @@ export default {
       },
     };
   },
-  mixins: [FullScreenLoading],
+  mixins: [FullScreenLoading, mixinSwalToast],
   mounted() {
-    this.showFullScreenLoading({ backgroundColor: '#258794' });
+    this.showFullScreenLoading();
     this.checkUser();
     this.getUserData();
     setTimeout(() => {
@@ -151,8 +152,8 @@ export default {
         this.$http.post(`${VITE_URL}/dreamboost/upload`, formData, { Authorization: token })
           .then((res) => {
             if (res.data.success) {
-              console.log(res.data.data.result);
               this.userInfo.userAvatarImage = res.data.data.result;
+              this.addToast({ content: '修改成功', timer: 2000 });
             }
           })
           .catch((err) => {
@@ -168,6 +169,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             console.log(res.data);
+            this.addToast({ content: '修改成功', timer: 2000 });
           } else {
             console.error('更新使用者資料失敗：', res.data.message);
           }

@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- 產品信息 -->
-    <section v-if="showOrgin">
+    <section>
       <div class="container mb-14 pt-23">
         <span class="badge px-3 mb-2 rounded-pill bg-primary fs-5 lh-md fw-normal">
           {{ test.proposalCategory }}
@@ -182,16 +182,12 @@
         </nav>
       </div>
     </section>
-    <section v-else>
-      <DpInfo />
-    </section>
 
     <RouterView />
   </main>
 </template>
 
 <script>
-import DpInfo from '@/components/designedproject/DpInfo.vue';
 import UserIcon from '@/components/icons/UserIcon.vue';
 import ClockIcon from '@/components/icons/ClockIcon.vue';
 import TwitterIcon from '@/components/icons/TwitterIcon.vue';
@@ -205,6 +201,7 @@ import StarFull from '@/components/icons/StarFull.vue';
 import { mapActions, mapWritableState } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
 import MixinSwalToast from '@/mixins/mixinSwalToast';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import { CountTo } from 'vue3-count-to';
 
 const { VITE_URL } = import.meta.env;
@@ -226,7 +223,7 @@ export default {
   computed: {
     ...mapWritableState(exploreStore, ['singleProposal']),
   },
-  mixins: [MixinSwalToast],
+  mixins: [MixinSwalToast, mixinFullScreenLoading],
   mounted() {
     this.getProposals();
     // console.log(this.singleProposal);
@@ -234,7 +231,11 @@ export default {
     window.addEventListener('scroll', this.handleScroll);
   },
   async created() {
+    await this.showFullScreenLoading();
     await this.getProposals();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 1000);
   },
   beforeUnmount() {
     // 執行前移除滾動事件
@@ -298,7 +299,6 @@ export default {
     RightArrow,
     StarHollow,
     StarFull,
-    DpInfo,
     CountTo,
   },
 };
