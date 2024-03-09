@@ -1,0 +1,1 @@
+.color-changing-text[data-v-56865cfd]{animation:changeColor-56865cfd 1s infinite}@keyframes changeColor-56865cfd{0%{color:var(--bs-secondary-light)}50%{color:var(--bs-secondary-light)}to{color:var(--bs-white)}}.card-shadow{transition:box-shadow .2s ease}.card-shadow:hover{box-shadow:2px 4px 6px #39578466;cursor:pointer}

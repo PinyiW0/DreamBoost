@@ -1,1 +1,0 @@
-import{_ as o,c as t,b as s,o as n,r as c}from"./index-2h2Iffh6.js";const r={components:{}},a={class:"bg-gray-800 min-vh-100 d-flex flex-column"};function _(p,i,d,l,m,f){const e=c("RouterView");return n(),t("div",a,[s(e)])}const x=o(r,[["render",_]]);export{x as default};
