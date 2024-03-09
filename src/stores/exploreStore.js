@@ -21,13 +21,8 @@ export default defineStore('prposalsStore', {
           }
         })
         .catch((err) => {
-          console.log(err);
+          throw new Error(err);
         });
-    },
-
-    // 取得路由 id
-    getProposalID() {
-      return this.$route.params.id;
     },
   },
 
@@ -35,9 +30,12 @@ export default defineStore('prposalsStore', {
     useProposals: ({ proposals }) => proposals,
 
     // 選出單一產品
-    singleProposal: ({ proposals, getProposalID }) => {
-      const id = getProposalID();
-      return proposals[id];
+    singleProposal: ({ proposals, $route }) => proposals[$route.params.id],
+
+    // 取出單一回饋
+    singleFeedback: ({ proposals, $route }) => {
+      const singleProposal = proposals[$route.params.id];
+      return singleProposal?.proposalFeedbacks[$route.params.item];
     },
   },
 });
