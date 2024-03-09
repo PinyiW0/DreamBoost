@@ -3,7 +3,7 @@
   <section class="container pt-19 mb-15 mb-md-21">
     <div class="row gx-0 gx-lg-8 d-flex align-items-center align-items-lg-stretch justify-content-center">
       <div class="col-12 col-lg-4 mb-8 mb-lg-0">
-        <img :src="singleProposal?.proposalMainImage" class="img-fluid w-100 rounded-3" alt=""
+        <img :src="singleProposal?.proposalMainImage" class="img-fluid w-100 rounded-3 object-fit-cover" alt=""
           style="min-height: 236px;">
       </div>
       <div class="col-12 col-lg-6 d-flex flex-column justify-content-lg-between mt-2 ps-2 ps-md-0 ms-lg-6">
@@ -13,7 +13,7 @@
           </span>
           <h1 class="fs-3 text-primary-dark">{{ singleProposal.proposalTitle }}</h1>
           <div class="d-flex align-items-center mt-3">
-            <img :src="singleProposal.customizeProperty?.userImage" class="img-fluid rounded-circle me-3" alt=""
+            <img :src="singleProposal.customizeProperty?.userImage" class="img-fluid rounded-circle me-3 object-fit-cover" alt=""
               style="height: 36px;">
             <p class="fs-lg-6 mb-0">發起人：{{ singleProposal.customizeProperty?.displayName }}</p>
           </div>

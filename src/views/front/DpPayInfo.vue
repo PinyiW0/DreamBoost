@@ -344,7 +344,7 @@
 import { mapState, mapActions } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
 // import PlanCard from '@/components/cards/PlanCard.vue';
-import MixinVeeValidate from '../../mixins/mixinVeeValidate';
+import mixinVeeValidate from '../../mixins/mixinVeeValidate';
 
 const { VITE_URL } = import.meta.env;
 
@@ -371,7 +371,7 @@ export default {
   computed: {
     ...mapState(exploreStore, ['proposals']),
   },
-  mixins: [MixinVeeValidate],
+  mixins: [mixinVeeValidate],
   async mounted() {
     await this.getProposals();
     this.tooltipName = new this.$bs.Tooltip(this.$refs.name);

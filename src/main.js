@@ -14,8 +14,7 @@ import { register } from 'swiper/element/bundle';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 import Vue3Marquee from 'vue3-marquee';
-
-import mitt from 'mitt';
+import countTo from 'vue3-count-to';
 
 import App from './App.vue';
 import router from './router';
@@ -38,7 +37,7 @@ app.use(register);
 app.component(Swiper, SwiperSlide);
 app.use(Vue3Marquee);
 app.use(Popper);
-app.config.globalProperties.$mitt = mitt();
+app.use(countTo);
 app.config.globalProperties.$bs = bootstrap;
 
 app.mount('#app');

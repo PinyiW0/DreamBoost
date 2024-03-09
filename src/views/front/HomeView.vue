@@ -26,14 +26,8 @@
             </div>
           </div>
           <ul class="list-unstyled px-0 px-lg-8 px-xl-0 mb-8">
-            <li>
-              <SuggestCard></SuggestCard>
-            </li>
-            <li>
-              <SuggestCard></SuggestCard>
-            </li>
-            <li>
-              <SuggestCard></SuggestCard>
+            <li v-for="(proposal, proposalId) in limitedProposals" :key="proposalId">
+              <SuggestCard :proposals="proposal"></SuggestCard>
             </li>
           </ul>
           <!-- 按鈕 -->
@@ -63,15 +57,13 @@
       <!-- 專案類別 -->
       <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-3">
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a
-            class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+          <a class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
             href="">
             挺好夢
           </a>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a
-            class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+          <a class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
             href="">
             科技設計
           </a>
@@ -83,22 +75,19 @@
           </a>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a
-            class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+          <a class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
             href="">
             時尚
           </a>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a
-            class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+          <a class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
             href="">
             公共在地
           </a>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a
-            class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
+          <a class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
             href="">
             美妝
           </a>
@@ -123,22 +112,16 @@
           <p class="fs-6 text-center text-primary-light mb-0">Coming Soon</p>
         </div>
         <!-- 背景大圓 -->
-        <span
-          class="position-absolute top-n100 end-n40 d-none d-md-block z-n1 bg-secondary-light rounded-circle z-n2"
-          style="width: 1045px; height: 1045px"
-        ></span>
+        <span class="position-absolute top-n100 end-n40 d-none d-md-block z-n1 bg-secondary-light rounded-circle z-n2"
+          style="width: 1045px; height: 1045px"></span>
         <!-- 背景Coming Soon -->
-        <p
-          class="position-absolute top-40 start-10 mb-0 d-none d-md-block fs-200 fw-light text-nowrap text-uppercase user-select-none z-n1"
-          style="color: rgba(157, 212, 209, 0.45); letter-spacing: 0.48px"
-        >
+        <p class="position-absolute top-40 start-10 mb-0 d-none d-md-block fs-200 fw-light text-nowrap text-uppercase user-select-none z-n1"
+          style="color: rgba(157, 212, 209, 0.45); letter-spacing: 0.48px">
           Coming Soon
         </p>
         <!-- 背景小圓 -->
-        <span
-          class="position-absolute top-180 end-80 z-n1 d-none d-md-block bg-secondary-light rounded-circle"
-          style="width: 425px; height: 425px"
-        ></span>
+        <span class="position-absolute top-180 end-80 z-n1 d-none d-md-block bg-secondary-light rounded-circle"
+          style="width: 425px; height: 425px"></span>
       </div>
       <!-- 即將推出專案區 -->
       <div class="container d-flex flex-column justify-content-center">
@@ -147,10 +130,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_01.png"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_01.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -158,10 +138,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_02.png"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_02.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -169,10 +146,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_03.png"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_03.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -180,10 +154,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_04.jpg"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_04.jpg" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -191,10 +162,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_05.jpg"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_05.jpg" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -202,10 +170,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_06.png"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_06.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -213,10 +178,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_07.png"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_07.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -224,10 +186,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <a class="position-relative" href="">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img
-                src="/images/home/cs_08.png"
-                alt=""
-                class="img-fluid object-fit-cover h-100 rounded-3">
+                <img src="/images/home/cs_08.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
               </a>
             </div>
           </div>
@@ -250,15 +209,23 @@
           <!-- 募資數據 -->
           <div class="row justify-content-center">
             <div class="col-11 col-md-5 col-lg-3 border border-white rounded-4 me-0 me-md-5 me-lg-10 mb-5 p-6">
-              <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">766</p>
+              <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">
+                <countTo :startVal='0' :endVal='20243' :dicimals="2" :duration='15000' :ref="refset">
+                </countTo>
+              </p>
               <p class="fs-5 fs-lg-12 text-white text-center mb-0">個專案已募資</p>
             </div>
             <div class="col-11 col-md-5 col-lg-3 border border-white rounded-4 me-0 me-md-5 me-lg-10 mb-5 p-6">
-              <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">1,766</p>
+              <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">
+                <countTo :startVal='-100' :endVal='1766' :duration='15000'></countTo>
+              </p>
               <p class="fs-5 fs-lg-12 text-white text-center mb-0">人已經參與募資計畫</p>
             </div>
             <div class="col-11 col-md-5 col-lg-3 border border-white rounded-4 me-0 me-md-5 py-6 h-100">
-              <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">123,766</p>
+              <p class="fs-1 fs-md-2 fs-lg-36 text-secondary-light text-center fw-bold mb-0">
+                <countTo :startVal='0' :endVal='23786' :dicimals="2" :duration='15000' :ref="refset">
+                </countTo>
+              </p>
               <p class="fs-5 fs-lg-12 text-white text-center mb-0">贊助計畫</p>
             </div>
           </div>
@@ -275,7 +242,8 @@
       <div class="pt-19 mb-3 d-none d-lg-block position-relative">
         <h2 class="fs-3 title position-relative">合作聯繫</h2>
         <p class="fs-6 text-primary-light mb-0">Cooperation Contact</p>
-        <div class="bg-primary position-absolute top-75 start-lg-12 start-xl-10" style="width: 200px;height: 2px;"></div>
+        <div class="bg-primary position-absolute top-75 start-lg-12 start-xl-10" style="width: 200px;height: 2px;">
+        </div>
       </div>
       <div class="d-flex justify-content-center pt-19 mb-6 d-block d-lg-none position-relative">
         <div class="mb-5 mb-lg-3">
@@ -291,19 +259,18 @@
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">活動邀約</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">媒體採訪</p>
               <div class="mx-5">
-                <img
-                 src="/images/home/cowork_01.png"
-                 class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
-                 style="max-width: 296px;"
-                 alt="活動邀約媒體採訪照片"
-                 >
+                <img src="/images/home/cowork_01.png"
+                  class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100" style="max-width: 296px;"
+                  alt="活動邀約媒體採訪照片">
               </div>
             </div>
             <div class="d-flex justify-content-center justify-content-lg-end pt-3 pb-6 px-9">
-              <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5" style="--bs-link-color-rgb:255, 244, 138;--bs-link-hover-color-rgb:25, 135, 84;">
+              <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5"
+                style="--bs-link-color-rgb:255, 244, 138;--bs-link-hover-color-rgb:25, 135, 84;">
                 聯繫我們
                 <svg width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                 </svg>
               </a>
             </div>
@@ -314,18 +281,17 @@
             <div class="d-flex flex-column align-items-center">
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">團隊提案</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">平台問題</p>
-              <img
-                src="/images/home/cowork_02.png"
-                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
-                style="max-width: 296px;"
-                alt="團隊提案平台問題照片"
-                >
+              <img src="/images/home/cowork_02.png"
+                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100" style="max-width: 296px;"
+                alt="團隊提案平台問題照片">
             </div>
             <div class="d-flex justify-content-center justify-content-lg-end pt-3 pb-6 px-9">
-              <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5" style="--bs-link-color-rgb:255, 244, 138;--bs-link-hover-color-rgb:25, 135, 84;">
+              <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5"
+                style="--bs-link-color-rgb:255, 244, 138;--bs-link-hover-color-rgb:25, 135, 84;">
                 聯繫我們
                 <svg width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                 </svg>
               </a>
             </div>
@@ -336,18 +302,17 @@
             <div class="d-flex flex-column align-items-center">
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">集資產業相關</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">報導聯繫</p>
-              <img
-                src="/images/home/cowork_03.png"
-                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100"
-                style="max-width: 296px;"
-                alt="集資產業相關報導聯繫照片"
-                >
+              <img src="/images/home/cowork_03.png"
+                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100" style="max-width: 296px;"
+                alt="集資產業相關報導聯繫照片">
             </div>
             <div class="d-flex justify-content-center justify-content-lg-end pt-3 pb-6 px-9">
-              <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5" style="--bs-link-color-rgb:255, 244, 138;--bs-link-hover-color-rgb:25, 135, 84;">
+              <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5"
+                style="--bs-link-color-rgb:255, 244, 138;--bs-link-hover-color-rgb:25, 135, 84;">
                 聯繫我們
                 <svg width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                 </svg>
               </a>
             </div>
@@ -360,6 +325,59 @@
     </section>
   </main>
 </template>
+
+<script>
+import { mapState, mapActions } from 'pinia';
+import exploreStore from '@/stores/exploreStore';
+import RightArrow from '@/components/icons/RightArrow.vue';
+import MarqueeLight from '@/components/decoration/MarqueeLight.vue';
+import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
+import MarqueeBiglogo from '@/components/decoration/MarqueeBiglogo.vue';
+import CouponCircle from '@/components/rotate/CuponCircle.vue';
+import HomeBn from '@/components/bn/HomeBn.vue';
+import PopularCard from '@/components/cards/PopularCard.vue';
+import SuggestCard from '@/components/cards/SuggestCard.vue';
+import { CountTo } from 'vue3-count-to';
+
+export default {
+  components: {
+    RightArrow,
+    MarqueeDark,
+    CouponCircle,
+    HomeBn,
+    MarqueeBiglogo,
+    MarqueeLight,
+    PopularCard,
+    SuggestCard,
+    CountTo,
+  },
+  data() {
+    return {
+      limitedProposals: [],
+    };
+  },
+  computed: {
+    ...mapState(exploreStore, ['proposals']),
+  },
+  async mounted() {
+    await this.getProposals();
+  },
+  watch: {
+    proposals: {
+      handler(newProposals) {
+        this.updateLimitedProposals(newProposals);
+      },
+      immediate: true,
+    },
+  },
+  methods: {
+    ...mapActions(exploreStore, ['getProposals']),
+    updateLimitedProposals(proposals) {
+      this.limitedProposals = Object.values(proposals).slice(0, 3);
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 //專案類別按鈕
@@ -379,30 +397,37 @@
     background-blend-mode: darken;
   }
 }
+
 // 挺好夢
 .categorylink1 {
   background-image: url('/images/home/categorie_01.png');
 }
+
 //科技設計
 .categorylink2 {
   background-image: url('/images/home/categorie_02.png');
 }
+
 //健康生活
 .categorylink3 {
   background-image: url('/images/home/categorie_03.png');
 }
+
 //時尚
 .categorylink4 {
   background-image: url('/images/home/categorie_04.png');
 }
+
 //公共在地
 .categorylink5 {
   background-image: url('/images/home/categorie_05.png');
 }
+
 //美妝
 .categorylink6 {
   background-image: url('/images/home/categorie_06.png');
 }
+
 //即將推出
 .csImage {
   .project-name1 {
@@ -413,6 +438,7 @@
     opacity: 0;
     transition: opacity 0.8s ease, transform 0.5s ease;
   }
+
   .project-name2 {
     position: absolute;
     bottom: -20%;
@@ -421,6 +447,7 @@
     opacity: 0;
     transition: opacity 0.8s ease, transform 0.5s ease;
   }
+
   &::before {
     content: '';
     position: absolute;
@@ -433,43 +460,21 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
+
   &:hover::before {
     opacity: 1;
     cursor: pointer;
     z-index: 1;
   }
+
   &:hover .project-name1 {
     opacity: 1;
     transform: translateY(0);
   }
+
   &:hover .project-name2 {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 </style>
-
-<script>
-import RightArrow from '@/components/icons/RightArrow.vue';
-import MarqueeLight from '@/components/decoration/MarqueeLight.vue';
-import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
-import MarqueeBiglogo from '@/components/decoration/MarqueeBiglogo.vue';
-import CouponCircle from '@/components/rotate/CuponCircle.vue';
-import HomeBn from '@/components/bn/HomeBn.vue';
-import PopularCard from '@/components/cards/PopularCard.vue';
-import SuggestCard from '@/components/cards/SuggestCard.vue';
-
-export default {
-  components: {
-    RightArrow,
-    MarqueeDark,
-    CouponCircle,
-    HomeBn,
-    MarqueeBiglogo,
-    MarqueeLight,
-    PopularCard,
-    SuggestCard,
-  },
-};
-</script>
