@@ -19,7 +19,9 @@
       <div class="row mt-13">
         <div class="col-12">
           <div class="l-proposalCardGapY">
-            <ProposalRecordCard v-for="item in userProposals" :key="item.proposalID" :proposal-data="item"></ProposalRecordCard>
+            <ProposalRecordCard v-for="item in userProposals" :key="item.proposalID" :proposal-data="item"
+            @update-proposal-record-data="getUserProposals"
+            ></ProposalRecordCard>
           </div>
           <button class="d-flex m-auto btn btn-primary px-13 mt-20 mb-30 align-items-center">
             <span class="lh-1">載入更多</span>
@@ -57,12 +59,10 @@ export default {
         .then((res) => {
           this.hideFullScreenLoading();
           this.userProposals = Object.values(res.data.data.result);
-          console.log(Object.values(res.data.data.result));
         })
-        .catch((err) => {
+        .catch(() => {
           this.hideFullScreenLoading();
-          this.addToast({ content: '取得提案失敗，請重新整理再次嘗試。如果持續出現相同錯誤請聯繫工程師', style: 'error' });
-          console.log(err);
+          this.addToast({ content: '取得提案失敗，請重新整理再次嘗試。', style: 'error' });
         });
     },
   },

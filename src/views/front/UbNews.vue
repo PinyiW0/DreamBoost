@@ -10,34 +10,8 @@
         <!-- 最新消息區 -->
         <div>
           <div class="accordion p-4 pb-11 border border-primary-light rounded-3" id="accordionExample">
-            <div class="accordion-item border-0 border-bottom border-primary-light rounded-0">
-              <h2 class="accordion-header">
-                <button class="accordion-button bg-transparent text-primary shadow-none" type="button"
-                  data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                  恭喜獲得 100 元優惠券！
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  恭喜成為 DreamBoost 的新會員，獲得 100 元優惠券，快去看看有甚麼新夢想吧！
-                  <p class="fs-6 text-gray-500 mt-6 mb-0">2024.03.10</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item border-0 border-bottom border-primary-light rounded-0">
-              <h2 class="accordion-header">
-                <button class="accordion-button bg-transparent text-primary shadow-none collapsed" type="button"
-                  data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                  DreamBoost 又推出了新夢想吧，一起來看看吧！
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  快來逛逛新夢想吧！
-                  <p class="fs-6 text-gray-500 mt-6 mb-0">2024.03.11</p>
-                </div>
-              </div>
-            </div>
+            <AccordionItem></AccordionItem>
+            <AccordionItem></AccordionItem>
           </div>
           <div class="d-flex flex-column mt-5">
             <button
@@ -65,10 +39,44 @@
 <script>
 import AnglesDown from '@/components/icons/AnglesDown.vue';
 
+import AccordionItem from '@/components/member/NewsAccordionItem.vue';
+
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
+import mixinSwalToast from '@/mixins/mixinSwalToast';
+
+const { VITE_URL } = import.meta.env;
+
 export default {
+  data() {
+    return {
+      apiUserMessages: '',
+    };
+  },
+  methods: {
+    getUserMessages() {
+      const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
+      this.showFullScreenLoading({ canCancel: false });
+      this.$http.get(`${VITE_URL}/dreamboost/message/normal/messages`, {
+        headers: {
+          Authorization: token,
+        },
+      })
+        .then((res) => {
+          this.apiUserMessages = Object.values(res.res.data.result);
+          this.hideFullScreenLoading();
+        })
+        .catch(() => {
+          this.hideFullScreenLoading();
+        });
+    },
+  },
   components: {
     AnglesDown,
+    AccordionItem,
   },
+  mounted() {
+    this.getUserMessages();
+  },
+  mixins: [mixinSwalToast, mixinFullScreenLoading],
 };
-
 </script>
