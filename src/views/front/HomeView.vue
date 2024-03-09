@@ -329,6 +329,7 @@
 <script>
 import { mapState, mapActions } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import RightArrow from '@/components/icons/RightArrow.vue';
 import MarqueeLight from '@/components/decoration/MarqueeLight.vue';
 import MarqueeDark from '@/components/decoration/MarqueeDark.vue';
@@ -356,11 +357,16 @@ export default {
       limitedProposals: [],
     };
   },
+  mixins: [mixinFullScreenLoading],
   computed: {
     ...mapState(exploreStore, ['proposals']),
   },
   async mounted() {
+    this.showFullScreenLoading();
     await this.getProposals();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 1800);
   },
   watch: {
     proposals: {

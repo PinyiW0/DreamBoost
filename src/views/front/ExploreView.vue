@@ -102,6 +102,7 @@ import { mapState, mapActions } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
 import userStore from '@/stores/userStore';
 import sweetAlert2Store from '@/stores/sweetAlert2Store';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import CardDefault from '@/components/cards/CardDefault.vue';
 import CouponCircle from '@/components/rotate/CuponCircle.vue';
 import AnglesDown from '@/components/icons/AnglesDown.vue';
@@ -118,6 +119,7 @@ export default {
       filteredProposals: [],
     };
   },
+  mixins: [mixinFullScreenLoading],
   computed: {
     ...mapState(exploreStore, ['proposals']),
     ...mapState(userStore, ['userData']),
@@ -132,9 +134,12 @@ export default {
     },
   },
   async mounted() {
+    await this.showFullScreenLoading();
     await this.getProposals();
     await this.getUserData();
-    console.log(this.proposals);
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 1500);
   },
   methods: {
     ...mapActions(exploreStore, ['getProposals']),

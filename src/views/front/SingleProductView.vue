@@ -201,6 +201,7 @@ import StarFull from '@/components/icons/StarFull.vue';
 import { mapActions, mapWritableState } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
 import MixinSwalToast from '@/mixins/mixinSwalToast';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import { CountTo } from 'vue3-count-to';
 
 const { VITE_URL } = import.meta.env;
@@ -222,7 +223,7 @@ export default {
   computed: {
     ...mapWritableState(exploreStore, ['singleProposal']),
   },
-  mixins: [MixinSwalToast],
+  mixins: [MixinSwalToast, mixinFullScreenLoading],
   mounted() {
     this.getProposals();
     // console.log(this.singleProposal);
@@ -230,7 +231,11 @@ export default {
     window.addEventListener('scroll', this.handleScroll);
   },
   async created() {
+    await this.showFullScreenLoading();
     await this.getProposals();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 1000);
   },
   beforeUnmount() {
     // 執行前移除滾動事件
