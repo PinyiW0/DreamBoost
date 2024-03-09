@@ -17,7 +17,10 @@
             <div class="d-flex justify-content-between mb-7">
               <div>
                 <p class="mb-3 text-primary lh-md">目標 NT$ {{ test.proposalTargetMoney }}</p>
-                <p class="mb-0 fs-4 text-danger fw-bold">NT $ 2,250,005</p>
+                <p class="mb-0 fs-4 text-danger fw-bold">NT $
+                  <countTo :startVal='0' :endVal='23786577' :dicimals="2" :duration='15000' :ref="refset">
+                  </countTo>
+                </p>
               </div>
               <img class="d-none" src="https://fakeimg.pl/64x64" alt="" style="width: 64px" />
             </div>
@@ -28,7 +31,10 @@
                   <UserIcon />
                 </i>
                 <p class="mb-0 text-gray-600">
-                  <span class="text-primary fw-bold">2,435</span>
+                  <span class="text-primary fw-bold">
+                    <countTo :startVal='0' :endVal='2345' :dicimals="2" :duration='5000' :ref="refset">
+                    </countTo>
+                  </span>
                   人參與
                 </p>
               </div>
@@ -195,6 +201,7 @@ import StarFull from '@/components/icons/StarFull.vue';
 import { mapActions, mapWritableState } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
 import MixinSwalToast from '@/mixins/mixinSwalToast';
+import { CountTo } from 'vue3-count-to';
 
 const { VITE_URL } = import.meta.env;
 
@@ -287,6 +294,11 @@ export default {
     RightArrow,
     StarHollow,
     StarFull,
+<<<<<<< HEAD
+=======
+    DpInfo,
+    CountTo,
+>>>>>>> origin/dev
   },
 };
 </script>
