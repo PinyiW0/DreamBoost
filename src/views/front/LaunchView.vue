@@ -114,8 +114,8 @@
                   </p>
                 </div>
                 <img
-                  src="/images/launch/launchWhyCircle.png"
-                  class="img-fluid position-absolute start-50 translate-middle"
+                  src="/images/home/circle_white.svg"
+                  class="img-fluid position-absolute start-50 translate-middle cuponcircle"
                   style="top: 140%"
                   alt=""
                 />

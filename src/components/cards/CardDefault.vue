@@ -127,9 +127,6 @@ export default {
   data() {
     return {};
   },
-  // computed: {
-  //   ...mapState(exploreStore, ['proposals']),
-  // },
   mounted() {},
   methods: {},
 };

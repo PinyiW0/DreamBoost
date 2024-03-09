@@ -48,23 +48,23 @@ const router = createRouter({
               path: 'commit',
               component: () => import('../views/front/SingleProductCommit.vue'),
             },
+            {
+              // 探索/指定專案頁面/贊助方案列表
+              path: 'choose',
+              name: 'choose',
+              component: () => import('../views/front/DpProjectChoose.vue'),
+            },
+            {
+              // 探索/指定專案頁面/付款頁面
+              path: 'payinfo',
+              component: () => import('../views/front/DpPayInfo.vue'),
+            },
+            {
+              // 探索/指定專案頁面/信用卡付款頁面
+              path: 'cardpay',
+              component: () => import('../views/front/DpCardPay.vue'),
+            },
           ],
-        },
-        {
-          // 探索/指定專案頁面/贊助方案列表
-          path: 'choose',
-          name: 'choose',
-          component: () => import('../views/front/DpProjectChoose.vue'),
-        },
-        {
-          // 探索/指定專案頁面/付款頁面
-          path: 'payinfo',
-          component: () => import('../views/front/DpPayInfo.vue'),
-        },
-        {
-          // 探索/指定專案頁面/信用卡付款頁面
-          path: 'cardpay',
-          component: () => import('../views/front/DpCardPay.vue'),
         },
         { // 發起專案
           path: 'launch',

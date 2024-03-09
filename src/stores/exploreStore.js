@@ -18,7 +18,6 @@ export default defineStore('prposalsStore', {
         .then((res) => {
           if (res.data.success) {
             this.proposals = res.data.data.result;
-            console.log(this.proposals);
           }
         })
         .catch((err) => {

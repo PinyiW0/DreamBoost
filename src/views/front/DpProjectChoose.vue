@@ -1,6 +1,5 @@
 <template>
   <main>
-    <DpInfo />
     <!-- 贊助方案列表 -->
     <section class="container mb6">
       <div class="bg-bgc-paper d-flex align-items-center justify-content-center mt-8">
@@ -19,7 +18,7 @@
           :centered-slides="true" :pagination="{
           type: 'progressbar',
         }" :slidesPerView="1" :breakpoints="{
-         768: {
+          768: {
             slidesPerView: 1,
           },
           992: {
@@ -43,8 +42,10 @@
 .swiper {
   overflow: initial;
 }
+
 .swiper-pagination {
-  background-color:var(--bs-gray-200);
+  background-color: var(--bs-gray-200);
+
   &-progressbar-fill {
     background-color: var(--bs-primary) !important;
   }
@@ -52,10 +53,10 @@
 </style>
 
 <script>
-import { mapState, mapActions } from 'pinia';
+import { mapState, mapActions, mapGetters } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
 import PlanCard from '@/components/cards/PlanCard.vue';
-import DpInfo from '@/components/designedproject/DpInfo.vue';
+// import DpInfo from '@/components/designedproject/DpInfo.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Scrollbar, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -72,16 +73,20 @@ export default {
   data() {
     return {
       modules: [Navigation, Pagination, Scrollbar],
+      test: { // 資料定義
+        proposalFeedbacks: {},
+      },
     };
   },
   components: {
-    DpInfo,
+    // DpInfo,
     PlanCard,
     Swiper,
     SwiperSlide,
   },
   computed: {
     ...mapState(exploreStore, ['singleProposal']),
+    ...mapGetters('exploreStore', ['getProposalID']),
   },
   async created() {
     await this.getProposals();
@@ -91,12 +96,12 @@ export default {
   methods: {
     ...mapActions(exploreStore, ['getProposals']),
     async getProposals() {
+      const routeId = this.$route.params.id;
       await this.$http
         .get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)
         .then((res) => {
           if (res.data.success) {
-            this.test = res.data.data.result[this.$route.params.id];
-            console.log(this.test);
+            this.test = res.data.data.result[routeId];
           }
         })
         .catch((err) => {
