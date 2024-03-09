@@ -294,11 +294,7 @@ export default {
     RightArrow,
     StarHollow,
     StarFull,
-<<<<<<< HEAD
-=======
-    DpInfo,
     CountTo,
->>>>>>> origin/dev
   },
 };
 </script>
