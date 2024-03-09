@@ -38,37 +38,37 @@
         <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-1">
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
             <a class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterByCategory('挺好夢')">
+              href="" @click.prevent="filterCategory('挺好夢')">
               挺好夢
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
             <a class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterByCategory('科技設計')">
+              href="" @click.prevent="filterCategory('科技設計')">
               科技設計
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3"><a
               class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterByCategory('健康生活')">
+              href="" @click.prevent="filterCategory('健康生活')">
               健康生活
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
             <a class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterByCategory('時尚')">
+              href="" @click.prevent="filterCategory('時尚')">
               時尚
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
             <a class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterByCategory('公共在地')">
+              href="" @click.prevent="filterCategory('公共在地')">
               公共在地
             </a>
           </div>
           <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
             <a class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterByCategory('美妝')">
+              href="" @click.prevent="filterCategory('美妝')">
               美妝
             </a>
           </div>
@@ -102,6 +102,7 @@ import { mapState, mapActions } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
 import userStore from '@/stores/userStore';
 import sweetAlert2Store from '@/stores/sweetAlert2Store';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import CardDefault from '@/components/cards/CardDefault.vue';
 import CouponCircle from '@/components/rotate/CuponCircle.vue';
 import AnglesDown from '@/components/icons/AnglesDown.vue';
@@ -114,19 +115,31 @@ export default {
   },
   data() {
     return {
+      selectedCategory: null,
+      filteredProposals: [],
     };
   },
+  mixins: [mixinFullScreenLoading],
   computed: {
     ...mapState(exploreStore, ['proposals']),
     ...mapState(userStore, ['userData']),
   },
-  created() {
+  watch: {
+    selectedCategory(newValue, oldValue) {
+      // selectedCategory 變化
+      console.log('selectedCategory changed from', oldValue, 'to', newValue);
+      // 篩選提案
+      this.filteredProposals = Object.values(this.proposals).filter((proposal) => proposal.proposalCategory === newValue);
+      console.log(this.filteredProposals);
+    },
   },
   async mounted() {
+    await this.showFullScreenLoading();
     await this.getProposals();
     await this.getUserData();
-    // console.log(this.proposals);
-    // this.getProposalsData();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 1500);
   },
   methods: {
     ...mapActions(exploreStore, ['getProposals']),
@@ -146,25 +159,12 @@ export default {
         }, 1500);
       }
     },
-    // 根據類別篩選提案
-    // filterByCategory(category) {
-    //   this.filterProposals = [...this.proposals];
-    //   console.log(this.filterProposals);
-    //   this.filterProposals = this.proposals.filter((proposal) => proposal.proposalCategory === category);
-    // },
-    // getProposalsData() {
-    //   this.$http.get(`${VITE_URL}/dreamboost/proposal/guest/inActiveProposals`)
-    //     .then((res) => {
-    //       if (res.data.success) {
-    //         this.proposals = res.data.data.result;
-    //         console.log(this.proposals);
-    //         console.log(res.data.data.result);
-    //       }
-    //     })
-    //     .catch((err) => {
-    //       console.log(err.message);
-    //     });
-    // },
+    filterCategory(category) {
+      if (this.selectedCategory !== category) {
+        this.selectedCategory = category;
+        this.getProposals(this.filteredProposals);
+      }
+    },
   },
 };
 </script>

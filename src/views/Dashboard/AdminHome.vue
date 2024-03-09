@@ -36,7 +36,8 @@
               </RouterLink>
             </li>
             <li>
-              <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/salesdata">銷售數據</RouterLink>
+              <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/salesdata">銷售數據
+              </RouterLink>
             </li>
             <li>
               <RouterLink class="py-2 d-block px-1 px-sm-4 px-lg-8 l-NavLink" to="/admin/home/updatebanner">更換BN
