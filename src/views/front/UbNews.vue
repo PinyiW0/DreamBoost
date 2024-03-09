@@ -11,7 +11,7 @@
         <template v-if="apiUserMessages">
           <div>
             <div class="accordion p-4 pb-11 border border-primary-light rounded-3" id="messageAccordion">
-              <AccordionItem v-for="(item,index) in apiUserMessages" :key="`${index}-AccordionList`" :message-data="item"></AccordionItem>
+              <AccordionItem v-for="(item,index) in messagesSorted" :key="`${index}-AccordionList`" :message-data="item"></AccordionItem>
             </div>
             <div class="d-flex flex-column mt-5">
               <button
@@ -57,8 +57,9 @@ export default {
     };
   },
   computed: {
-    // messagesSorted() {
-    // },
+    messagesSorted() {
+      return this.apiUserMessages.slice().sort((a, b) => b.messageTime - a.messageTime);
+    },
   },
   methods: {
     getUserMessages() {

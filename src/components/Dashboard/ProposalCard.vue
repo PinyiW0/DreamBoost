@@ -8,7 +8,7 @@
             <!-- <img src="https://picsum.photos/id/684/600/400" alt="" class="rounded-pill me-2 me-md-4 me-lg-8" width="48" height="48"> -->
             <img :src="proposalData.proposalMainImage" alt="" class="rounded-pill me-2 me-md-4 me-lg-8" width="48" height="48">
             <div class="flex-grow-1 text-white text-truncate">
-              <p class="mb-0 fs-12 lh-sm mb-1">2024.02.13</p>
+              <!-- <p class="mb-0 fs-12 lh-sm mb-1">2024.02.13</p> -->
               <p class="mb-0 fs-14 fs-md-5 text-truncate">{{proposalData.proposalTitle}}</p>
             </div>
           </div>
