@@ -8,21 +8,25 @@
           <p class="fs-6 text-primary-light mb-0">News for you</p>
         </div>
         <!-- 最新消息區 -->
-        <div>
-          <div class="accordion p-4 pb-11 border border-primary-light rounded-3" id="accordionExample">
-            <AccordionItem></AccordionItem>
-            <AccordionItem></AccordionItem>
+        <template v-if="apiUserMessages">
+          <div>
+            <div class="accordion p-4 pb-11 border border-primary-light rounded-3" id="messageAccordion">
+              <AccordionItem v-for="(item,index) in apiUserMessages" :key="`${index}-AccordionList`" :message-data="item"></AccordionItem>
+            </div>
+            <div class="d-flex flex-column mt-5">
+              <button
+                type="button"
+                class="btn border-0 angle-down">
+                <span class="d-flex flex-column align-items-center fs-5 fw-blod">載入更多
+                <AnglesDown class="mb-0" style="width: 18px;"></AnglesDown>
+                </span>
+              </button>
+            </div>
           </div>
-          <div class="d-flex flex-column mt-5">
-            <button
-              type="button"
-              class="btn border-0 angle-down">
-              <span class="d-flex flex-column align-items-center fs-5 fw-blod">載入更多
-              <AnglesDown class="mb-0" style="width: 18px;"></AnglesDown>
-              </span>
-            </button>
-          </div>
-        </div>
+        </template>
+        <template v-else>
+          <p>目前沒有任何通知</p>
+        </template>
       </div>
     </section>
   </main>
@@ -52,6 +56,10 @@ export default {
       apiUserMessages: '',
     };
   },
+  computed: {
+    // messagesSorted() {
+    // },
+  },
   methods: {
     getUserMessages() {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
@@ -62,7 +70,8 @@ export default {
         },
       })
         .then((res) => {
-          this.apiUserMessages = Object.values(res.res.data.result);
+          // console.log(Object.values(res.data.data.result));
+          this.apiUserMessages = Object.values(res.data.data.result);
           this.hideFullScreenLoading();
         })
         .catch(() => {
