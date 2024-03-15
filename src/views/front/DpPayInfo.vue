@@ -516,6 +516,10 @@ export default {
   },
 
   mounted() {
+    this.showFullScreenLoading();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 800);
     this.setDataId();
     this.tooltipName = new this.$bs.Tooltip(this.$refs.name);
     this.tooltipPhone = new this.$bs.Tooltip(this.$refs.phone);

@@ -1,7 +1,7 @@
-# ![db-logo](https://raw.githubusercontent.com/PinyiW0/DreamBoost/b9f75522c7091e2a7e1dae8c7cb7e818b6974727/public/images/home/userIcon36.svg) Dreamboost 募資夢想網
+# ![db-logo](https://raw.githubusercontent.com/PinyiW0/DreamBoost/b9f75522c7091e2a7e1dae8c7cb7e818b6974727/public/images/home/userIcon36.svg) Dreamboost 夢想家募資網
 
 * [GitHub repo](https://github.com/PinyiW0/DreamBoost/tree/main)
-* [gh-pages](https://pinyiw0.github.io/DreamBoost/#/home)
+* [gh-pages](https://pinyiw0.github.io/DreamBoost/#/)
 
 ---
 
@@ -15,14 +15,14 @@
 ---
 
 ##  🧑‍💻👩‍💻&ensp;前、後端
+![Vue](https://img.shields.io/badge/Vue3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=ESLint&logoColor=white)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Scss](https://img.shields.io/badge/sass-%23CC6699?style=for-the-badge&logo=sass&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
-![Vue](https://img.shields.io/badge/Vue3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Airbnb]()
 
 ---
 

@@ -125,13 +125,6 @@ export default {
     ...mapState(userStore, ['userData']),
   },
   watch: {
-    selectedCategory(newValue, oldValue) {
-      // selectedCategory 變化
-      console.log('selectedCategory changed from', oldValue, 'to', newValue);
-      // 篩選提案
-      this.filteredProposals = Object.values(this.proposals).filter((proposal) => proposal.proposalCategory === newValue);
-      console.log(this.filteredProposals);
-    },
   },
   async mounted() {
     await this.showFullScreenLoading();
@@ -157,12 +150,6 @@ export default {
             this.errorAlert('需先完成會員資料');
           }
         }, 1500);
-      }
-    },
-    filterCategory(category) {
-      if (this.selectedCategory !== category) {
-        this.selectedCategory = category;
-        this.getProposals(this.filteredProposals);
       }
     },
   },

@@ -38,7 +38,7 @@
             <div class="dropdown">
               <button class="btn border-0 dropdown-toggle d-flex align-items-center px-8" type="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                <img :src="userInfo.userAvatarImage" class="img-fluid me-3 rounded-5 border" style="max-width: 44px;"
+                <img :src="userInfo.userAvatarImage" class="img-fluid me-3 rounded-5 border" style="max-width: 44px;height: 44px;"
                   alt="會員頭貼">
                 <p class="mb-0">夢想家您好</p>
               </button>
