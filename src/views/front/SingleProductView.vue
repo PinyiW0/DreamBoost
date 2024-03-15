@@ -18,7 +18,7 @@
               <div>
                 <p class="mb-3 text-primary lh-md">目標 NT$ {{ test.proposalTargetMoney }}</p>
                 <p class="mb-0 fs-4 text-danger fw-bold">NT $
-                  <countTo :startVal='0' :endVal='23786577' :dicimals="2" :duration='15000' :ref="refset">
+                  <countTo :startVal='0' :endVal='moneyEndVal' :dicimals="2" :duration='10000' :ref="refset">
                   </countTo>
                 </p>
               </div>
@@ -32,7 +32,7 @@
                 </i>
                 <p class="mb-0 text-gray-600">
                   <span class="text-primary fw-bold">
-                    <countTo :startVal='0' :endVal='2345' :dicimals="2" :duration='5000' :ref="refset">
+                    <countTo :startVal='0' :endVal='randomEndVal' :dicimals="2" :duration='5000' :ref="refset">
                     </countTo>
                   </span>
                   人參與
@@ -151,8 +151,8 @@
         </div>
       </div>
       <!-- 頁面區塊 -->
-      <div class="position-sticky top-0 z-2 bg-primary py-7">
-        <nav class="container">
+      <div class="sticky-top top-0 z-2 bg-primary py-7">
+        <nav class="container bg-primary">
           <ul class="nav justify-content-between justify-content-md-start align-items-center gap-19">
             <li class="nav-item">
               <RouterLink to="info" class="custom-link">
@@ -218,6 +218,8 @@ export default {
       showButton: false,
       showOrgin: true,
       test: {},
+      randomEndVal: 0,
+      moneyEndVal: 0,
     };
   },
   computed: {
@@ -229,6 +231,8 @@ export default {
     // console.log(this.singleProposal);
     // 監聽滾動事件
     window.addEventListener('scroll', this.handleScroll);
+    this.randomEndVal = Math.floor(Math.random() * 5000);
+    this.moneyEndVal = Math.floor(Math.random() * 100000 + 130000);
   },
   async created() {
     await this.showFullScreenLoading();
@@ -245,14 +249,14 @@ export default {
     ...mapActions(exploreStore, ['getProposals']),
     handleScroll() {
       // 選取區塊元素
-      const blockElement = document.querySelector('.position-sticky');
+      const blockElement = document.querySelector('.sticky-top');
       if (!blockElement) return;
 
       // 選取區塊元素距視窗頂部的距離
       const blockTop = blockElement.getBoundingClientRect().top;
 
       // 當所屬區塊元素距離視窗頂部小於0，置頂在最上方並顯示按鈕
-      this.showButton = blockTop <= 0;
+      this.showButton = blockTop <= blockElement.clientHeight;
     },
     copyURL() {
       // 賦予當前網址 value 屬性

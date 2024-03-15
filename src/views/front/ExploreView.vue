@@ -10,7 +10,6 @@
         </div>
       </div>
       <!-- 篩選欄位 -->
-      <!-- <AngleDown class="text-primary" style="width: 16px;"></AngleDown> -->
       <div class="row col-12 col-lg-7 col-xl-6 mx-auto align-items-center gx-7">
         <div class="col-7 col-lg-6 mb-8 mx-auto">
           <label class="fw-medium mb-1" for="pr">專案狀態</label>
@@ -36,40 +35,11 @@
       <div class="container pt-8 pb-5">
         <!-- 專案類別 -->
         <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-1">
-          <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterCategory('挺好夢')">
-              挺好夢
-            </a>
-          </div>
-          <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterCategory('科技設計')">
-              科技設計
-            </a>
-          </div>
-          <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3"><a
-              class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterCategory('健康生活')">
-              健康生活
-            </a>
-          </div>
-          <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterCategory('時尚')">
-              時尚
-            </a>
-          </div>
-          <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterCategory('公共在地')">
-              公共在地
-            </a>
-          </div>
-          <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-            <a class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-              href="" @click.prevent="filterCategory('美妝')">
-              美妝
+          <div v-for="(category, index) in filteredProposals" :key="index"
+            class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
+            <a :class="'categorylink categorylink' + category.id + ' rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7'"
+              href="" @click.prevent="filterCategory(category.name)">
+              {{ category.name }}
             </a>
           </div>
         </div>
@@ -82,18 +52,14 @@
     <!-- 卡片渲染區 -->
     <section class="container">
       <ul class="row gx-10 list-unstyled pt-5">
-        <li class="col-12 col-md-6 col-lg-4" v-for="(proposal, proposalId) in proposals" :key="proposalId">
-          <CardDefault :proposals="proposal" @favorite="favoriteHandler"/>
+        <li v-if="filteredData.length === 0" class="col-12 text-center">
+          <p class="fs-4 text-gray-600">此類別尚未有專案唷～歡迎提案</p>
+        </li>
+        <li v-else class="col-12 col-md-6 col-lg-4" v-for="(proposal, proposalId) in filteredData" :key="proposalId">
+          <CardDefault :proposals="proposal" @favorite="favoriteHandler" />
         </li>
       </ul>
     </section>
-    <div class="container d-flex flex-column">
-      <button type="button" class="btn angle-down">
-        <span class=" d-flex flex-column align-items-center fs-18 fw-blod mb-1">載入更多
-          <AnglesDown class="pb-10" style="width: 18px;"></AnglesDown>
-        </span>
-      </button>
-    </div>
   </main>
 </template>
 
@@ -105,32 +71,34 @@ import sweetAlert2Store from '@/stores/sweetAlert2Store';
 import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import CardDefault from '@/components/cards/CardDefault.vue';
 import CouponCircle from '@/components/rotate/CuponCircle.vue';
-import AnglesDown from '@/components/icons/AnglesDown.vue';
 
 export default {
   components: {
-    AnglesDown,
     CouponCircle,
     CardDefault,
   },
   data() {
     return {
       selectedCategory: null,
-      filteredProposals: [],
+      filteredProposals: [
+        { id: 1, name: '挺好夢' },
+        { id: 2, name: '科技設計' },
+        { id: 3, name: '健康生活' },
+        { id: 4, name: '時尚' },
+        { id: 5, name: '公共在地' },
+        { id: 6, name: '美妝' },
+      ],
     };
   },
   mixins: [mixinFullScreenLoading],
   computed: {
     ...mapState(exploreStore, ['proposals']),
     ...mapState(userStore, ['userData']),
-  },
-  watch: {
-    selectedCategory(newValue, oldValue) {
-      // selectedCategory 變化
-      console.log('selectedCategory changed from', oldValue, 'to', newValue);
-      // 篩選提案
-      this.filteredProposals = Object.values(this.proposals).filter((proposal) => proposal.proposalCategory === newValue);
-      console.log(this.filteredProposals);
+    filteredData() {
+      if (!this.selectedCategory) {
+        return Object.values(this.proposals);
+      }
+      return Object.values(this.proposals).filter((proposal) => proposal.proposalCategory === this.selectedCategory);
     },
   },
   async mounted() {
@@ -159,11 +127,9 @@ export default {
         }, 1500);
       }
     },
-    filterCategory(category) {
-      if (this.selectedCategory !== category) {
-        this.selectedCategory = category;
-        this.getProposals(this.filteredProposals);
-      }
+
+    filterCategory(categoryName) {
+      this.selectedCategory = categoryName;
     },
   },
 };

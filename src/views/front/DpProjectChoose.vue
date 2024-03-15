@@ -63,6 +63,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 
 const { VITE_URL } = import.meta.env;
 
@@ -88,8 +89,13 @@ export default {
     ...mapState(exploreStore, ['singleProposal']),
     ...mapGetters('exploreStore', ['getProposalID']),
   },
+  mixins: [mixinFullScreenLoading],
   async created() {
+    await this.showFullScreenLoading();
     await this.getProposals();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 800);
   },
   mounted() {
   },

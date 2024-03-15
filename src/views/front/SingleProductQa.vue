@@ -22,6 +22,7 @@
 <script>
 import { mapState, mapActions } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 
 const { VITE_URL } = import.meta.env;
 
@@ -38,8 +39,13 @@ export default {
   computed: {
     ...mapState(exploreStore, ['singleProposal']),
   },
+  mixins: [mixinFullScreenLoading],
   async created() {
+    await this.showFullScreenLoading();
     await this.getProposals();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 300);
   },
   mounted() {
   },
