@@ -3,7 +3,7 @@
     @click.prevent="$router.push(`/product/${this.proposals.proposalID}/info`)">
     <div class="row g-2 align-items-stretch">
       <div class="col-md-4 pb-4">
-        <img :src="proposals.proposalMainImage" class="img-fluid object-fit-cover h-100 rounded-2" alt="">
+        <img :src="proposals.proposalMainImage" class="img-fluid object-fit-cover col-12 h-100 rounded-2" alt="">
       </div>
       <div class="col-md-8 pb-4 mt-0">
         <div class="card-body d-flex flex-column justify-items-between p-3">
@@ -15,7 +15,7 @@
           </div>
           <div>
             <div class="progress bg-secondary-light mb-4" style="height: 6px;">
-              <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" style="width: 65%;"
+              <div class="progress-bar bg-primary-dark rounded-pill" role="progressbar" :style="{ width: randomValue + 50 + '%' }"
                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
