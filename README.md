@@ -33,6 +33,12 @@
 
 ---
 
+##  🤝&ensp;溝通、協作
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)
+
+---
+
 ##  網站導覽
 ### 【 前台畫面 】
 ### 首頁
@@ -44,7 +50,7 @@
 
 ---
 
-###進入探索頁面
+### 進入探索頁面
 ![探索頁面閱覽所有方案](https://github.com/PinyiW0/picture/blob/main/images/01%202024-03-15%20noon6.22.42.png?raw=true)
 - 可以類別篩選有興趣的主題方案
 
@@ -113,12 +119,6 @@
 ![更換 BN](https://github.com/PinyiW0/picture/blob/main/images/01%202024-03-15%20noon6.21.13.png?raw=true)
 - 管理員可以更換或移除首頁BN的圖
 
-
----
-
-##  🤝&ensp;溝通、協作
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)
 
 ---
 
