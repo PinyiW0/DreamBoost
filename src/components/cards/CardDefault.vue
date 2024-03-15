@@ -30,7 +30,8 @@
         </h4>
         <div class="progress bg-secondary-light mb-7 rounded-pill" style="height: 10px; width: 100%" role="progressbar"
           aria-label="Basic example" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar text-white bg-primary-dark rounded-pill" style="width: 80%"></div>
+          <div class="progress-bar text-white bg-primary-dark rounded-pill" :style="{ width: randomValue + 66 + '%' }">
+          </div>
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex me-3">
@@ -72,11 +73,8 @@ import MessageIcon from '@/components/icons/MessageIcon.vue';
 import ArrowUpRight from '@/components/icons/ArrowUpRight.vue';
 import StarFull from '@/components/icons/StarFull.vue';
 import StarHollow from '@/components/icons/StarHollow.vue';
-// import exploreStore from '@/stores/exploreStore';
-// import { mapState } from 'pinia';
 
 export default {
-  // props: ['proposals'],
   props: {
     proposals: {
       type: Object,

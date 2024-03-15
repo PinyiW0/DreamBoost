@@ -11,7 +11,9 @@
             <h1 class="title position-relative">當前熱門專案</h1>
             <p class="fs-6 text-primary-light mb-0">Current Hot Projects</p>
           </div>
-          <PopularCard></PopularCard>
+          <div>
+            <PopularCard :popularProjects="popularProjects"></PopularCard>
+          </div>
         </div>
         <!-- 為您推薦 -->
         <div class="col-12 col-xl-5">
@@ -57,40 +59,40 @@
       <!-- 專案類別 -->
       <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-3">
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             挺好夢
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             科技設計
-          </a>
+          </router-link>
         </div>
-        <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3"><a
-            class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+        <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             健康生活
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             時尚
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             公共在地
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             美妝
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -128,66 +130,66 @@
         <div class="row g-10 mb-7 pb-27">
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore'}" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_01.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_01.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_02.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_02.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_03.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_03.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_04.jpg" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_04.jpg" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_05.jpg" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_05.jpg" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_06.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_06.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_07.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_07.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_08.png" alt="" class="img-fluid object-fit-cover h-100 rounded-3">
-              </a>
+                <img src="/images/home/cs_08.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+              </router-link>
             </div>
           </div>
         </div>
@@ -252,16 +254,16 @@
         </div>
       </div>
       <!-- 聯繫區域 -->
-      <ul class="row row-cols-1 row-cols-lg-3 g-xl-14 list-unstyled pb-14 pt-0 pt-lg-28 position-relative">
-        <li class="col card border-0 mb-12">
+      <ul class="row row-cols-1 row-cols-lg-3 g-xl-12 list-unstyled pb-14 pt-0 pt-lg-28 position-relative">
+        <li class="col card border-0 mb-12 mx-0">
           <div class="card-body border-bottom border-4 border-secondary-light rounded-top-pill bg-primary shadow">
             <div class="d-flex flex-column align-items-center">
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">活動邀約</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">媒體採訪</p>
               <div class="mx-5">
                 <img src="/images/home/cowork_01.png"
-                  class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100" style="max-width: 296px;"
-                  alt="活動邀約媒體採訪照片">
+                  class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100 col-12"
+                  style="max-width: 296px;" alt="活動邀約媒體採訪照片">
               </div>
             </div>
             <div class="d-flex justify-content-center justify-content-lg-end pt-3 pb-6 px-9">
@@ -276,14 +278,14 @@
             </div>
           </div>
         </li>
-        <li class="col card border-0 mb-12 position-lg-absolute start-lg-33 start-xl-35 bottom-0 bottom-lg-12">
+        <li class="col card border-0 mb-12 mx-0 position-lg-absolute start-lg-33 start-xl-33 bottom-0 bottom-lg-12">
           <div class="card-body border-bottom border-4 border-secondary-light rounded-top-pill bg-primary shadow">
             <div class="d-flex flex-column align-items-center">
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">團隊提案</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">平台問題</p>
               <img src="/images/home/cowork_02.png"
-                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100" style="max-width: 296px;"
-                alt="團隊提案平台問題照片">
+                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100 col-12"
+                style="max-width: 296px;" alt="團隊提案平台問題照片">
             </div>
             <div class="d-flex justify-content-center justify-content-lg-end pt-3 pb-6 px-9">
               <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5"
@@ -297,14 +299,14 @@
             </div>
           </div>
         </li>
-        <li class="col card border-0 mb-12 position-lg-absolute start-lg-66 start-xl-70 bottom-0 bottom-lg-24">
+        <li class="col card border-0 mb-12 mx-0 position-lg-absolute start-lg-66 start-xl-66 bottom-0 bottom-lg-24">
           <div class="card-body border-bottom border-4 border-secondary-light rounded-top-pill bg-primary shadow">
             <div class="d-flex flex-column align-items-center">
               <h3 class="card-title fs-28 fs-lg-3 text-white text-center mt-11 mb-0">集資產業相關</h3>
               <p class="fw-medium fs-28 fs-lg-3 text-white text-center mb-10">報導聯繫</p>
               <img src="/images/home/cowork_03.png"
-                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100" style="max-width: 296px;"
-                alt="集資產業相關報導聯繫照片">
+                class="img-fluid border border-1 border-white object-fit-cover mb-4 h-100 col-12"
+                style="max-width: 296px;" alt="集資產業相關報導聯繫照片">
             </div>
             <div class="d-flex justify-content-center justify-content-lg-end pt-3 pb-6 px-9">
               <a href="mailto:DreamBoost@mail.com" class="card-link icon-link icon-link-hover fs-4 fs-lg-5"
@@ -355,6 +357,7 @@ export default {
   data() {
     return {
       limitedProposals: [],
+      popularProjects: null,
     };
   },
   mixins: [mixinFullScreenLoading],
@@ -364,6 +367,7 @@ export default {
   async mounted() {
     this.showFullScreenLoading();
     await this.getProposals();
+    await this.updatePopularProjects();
     setTimeout(() => {
       this.hideFullScreenLoading();
     }, 1800);
@@ -372,6 +376,9 @@ export default {
     proposals: {
       handler(newProposals) {
         this.updateLimitedProposals(newProposals);
+        if (!this.popularProjects) {
+          this.updatePopularProjects();
+        }
       },
       immediate: true,
     },
@@ -380,6 +387,13 @@ export default {
     ...mapActions(exploreStore, ['getProposals']),
     updateLimitedProposals(proposals) {
       this.limitedProposals = Object.values(proposals).slice(0, 3);
+    },
+    async updatePopularProjects() {
+      if (!this.popularProjects) {
+        const proposalsArray = Object.values(this.proposals);
+        const randomIndex = Math.floor(Math.random() * proposalsArray.length);
+        this.popularProjects = proposalsArray[randomIndex];
+      }
     },
   },
 };

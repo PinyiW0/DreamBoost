@@ -175,10 +175,11 @@
 <script>
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
 import sweetAlert2Store from '@/stores/sweetAlert2Store';
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
 import { mapActions } from 'pinia';
 
 export default {
-  mixins: [mixinVeeValidate, sweetAlert2Store],
+  mixins: [mixinVeeValidate, sweetAlert2Store, mixinFullScreenLoading],
 
   data() {
     return {
@@ -243,9 +244,13 @@ export default {
   },
   components: {},
   mounted() {
+    this.showFullScreenLoading();
     this.getYear();
     this.getMonth();
     this.checkNum();
+    setTimeout(() => {
+      this.hideFullScreenLoading();
+    }, 1000);
   },
 };
 </script>
