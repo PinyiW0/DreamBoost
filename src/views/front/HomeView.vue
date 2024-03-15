@@ -59,40 +59,40 @@
       <!-- 專案類別 -->
       <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-3">
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             挺好夢
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             科技設計
-          </a>
+          </router-link>
         </div>
-        <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3"><a
-            class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+        <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             健康生活
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             時尚
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             公共在地
-          </a>
+          </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
-          <a class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5"
-            href="">
+          <router-link :to="{ name: 'explore' }"
+            class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
             美妝
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -130,66 +130,66 @@
         <div class="row g-10 mb-7 pb-27">
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore'}" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_01.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_02.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_03.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_04.jpg" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_05.jpg" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_06.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_07.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
             <div class="position-relative rounded-3 h-100 csImage">
-              <a class="position-relative" href="">
+              <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_08.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
