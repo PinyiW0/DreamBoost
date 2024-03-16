@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-10 col-xl-8">
+      <div class="col-12 col-lg-10">
         <button class="btn btn-outline-dark-pr px-9 d-block ms-auto mt-19 me-3 mb-4" type="button">新增</button>
         <div class="l-CardGapY">
           <div class="card bg-transparent">

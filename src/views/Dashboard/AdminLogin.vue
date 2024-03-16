@@ -12,7 +12,7 @@
         <div class="px-4 px-md-10 py-5 py-md-10 py-xxl-16  border border-white bg-gray-700 rounded rounded-3">
           <p class="mb-5 fs-3 text-white text-center text-md-start">管理員登入<span
               class="lh-1 fs-6 ms-2 text-dark-pr d-none d-md-inline-block">Sign In</span></p>
-          <form @submit="onSubmit">
+          <form @submit="login">
             <div class="mb-6">
               <label for="adminEmail" class="form-label text-gray-300">帳號</label>
               <input type="email" class="form-control borderl bg-white text-white" style="--bs-bg-opacity: .15;"
@@ -59,9 +59,6 @@ export default {
     DashboardFooter,
   },
   methods: {
-    onSubmit() {
-      this.login();
-    },
     login() {
       this.showFullScreenLoading({ canCancel: false, opacity: 0.2 });
       this.$http.post(`${VITE_URL}/dreamboost/administrator/login`, this.userdata)

@@ -22,7 +22,7 @@
           </div>
           <div class="d-flex justify-content-end align-items-center" v-else-if="proposalData.proposalStatus==='active'">
             <p class="mb-0 text-secondary-light">審查通過</p>
-            <button class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-6 ms-1 ms-sm-2 ms-md-4">查看</button>
+            <a class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-6 ms-1 ms-sm-2 ms-md-4" :href="`/#/product/${proposalData.proposalID}/info`" target="_blank">查看</a>
           </div>
         </div>
       </div>
