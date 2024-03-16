@@ -13,7 +13,7 @@
         專案名稱</div>
       <div class="l-gridCard__contentName border-bottom border-primary text-start">
         <div class="py-4 px-4 d-flex align-items-center">
-          <img src="https://picsum.photos/id/684/600/400" alt="" width="120" height="90">
+          <img :src="proposalData.proposalMainImage" alt="提案主圖" width="120" height="90">
           <p class="mb-0 ms-3">{{ proposalData.proposalTitle }}</p>
         </div>
       </div>
