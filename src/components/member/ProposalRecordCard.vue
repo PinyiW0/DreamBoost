@@ -15,7 +15,7 @@
       <div class="l-gridCard__contentName border-bottom border-primary ">
         <div class="h-100 px-1 py-1 d-flex align-items-center justify-content-center flex-wrap flex-xl-nowrap justify-content-xl-start">
           <img :src="proposalData.proposalMainImage" alt="提案主圖" width="120" height="90" class="">
-          <p class="w-100 w-xl-auto mb-0 ms-3 text-center text-xl-start">{{ proposalData.proposalTitle }}測試測試測試測試測試測試</p>
+          <p class="w-100 w-xl-auto mb-0 ms-3 text-center text-xl-start">{{ proposalData.proposalTitle }}</p>
         </div>
       </div>
       <!-- 目標金額 -->
