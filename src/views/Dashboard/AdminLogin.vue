@@ -28,8 +28,9 @@
             </div>
             <button type="submit" class="btn btn-dark-pr d-block mx-auto px-21 mb-6">登入
             </button>
-            <p class="fs-6 text-primary text-center user-select-none"><span
-                class="border-bottom border-primary">不可能忘記密碼吧！</span></p>
+            <p class="fs-6 text-primary text-center user-select-none">
+              <span class="border-bottom border-primary">不可能忘記密碼吧！</span>
+            </p>
           </form>
         </div>
       </div>
