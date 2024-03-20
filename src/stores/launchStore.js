@@ -3,7 +3,7 @@ import sweetAlert2Store from './sweetAlert2Store';
 
 const { successAlert, errorAlert } = sweetAlert2Store();
 const { VITE_URL } = import.meta.env;
-
+// 定義提案格式
 const initialData = {
   proposalTitle: '',
   proposalMainImage: '',
@@ -38,10 +38,14 @@ const initialData = {
 
 export default defineStore('launchStore', {
   state: () => ({
-    // 定義提案格式
-    launchData: JSON.parse(JSON.stringify(initialData)),
+    launchData: '',
     launchState: '',
   }),
+
+  persist: {
+    storage: sessionStorage,
+    paths: ['launchData'],
+  },
 
   actions: {
     // 新增提案
@@ -106,11 +110,15 @@ export default defineStore('launchStore', {
         state = res.data.success;
         successAlert('提案已提交審核');
         sessionStorage.removeItem('launchID');
-        this.launchData = JSON.parse(JSON.stringify(initialData));
+        this.resetLaunchData();
       } catch (error) {
         errorAlert(error.response.data.message);
       }
       return state;
+    },
+
+    resetLaunchData() {
+      this.launchData = JSON.parse(JSON.stringify(initialData));
     },
 
     // 設定 Email

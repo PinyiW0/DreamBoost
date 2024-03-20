@@ -1,4 +1,9 @@
-const uploadUrl = 'https://api-vercel-test-one.vercel.app/dreamboost/upload';
+import sweetAlert2Store from '@/stores/sweetAlert2Store';
+
+const { successAlert, errorAlert } = sweetAlert2Store();
+const { VITE_URL } = import.meta.env;
+const uploadUrl = `${VITE_URL}/dreamboost/upload`;
+
 // Custom adapter class
 class MyUploadAdapter {
   constructor(loader) {
@@ -29,7 +34,7 @@ class MyUploadAdapter {
       ?.split('=')[1];
     this.xhr = xhr;
 
-    xhr.open('POST', uploadUrl, true);
+    xhr.open('post', uploadUrl, true);
 
     xhr.setRequestHeader(
       'Authorization',
@@ -39,10 +44,10 @@ class MyUploadAdapter {
     xhr.responseType = 'json';
   }
 
-  initListeners(resolve, reject, file) {
+  initListeners(resolve, reject) {
     const { xhr } = this;
     const { loader } = this;
-    const genericErrorText = `Couldn't upload file: ${file.name}.`;
+    const genericErrorText = '圖片無法上傳，請稍後再試';
 
     xhr.addEventListener('error', () => reject(genericErrorText));
     xhr.addEventListener('abort', () => reject());
@@ -50,11 +55,11 @@ class MyUploadAdapter {
       const { response } = xhr;
 
       if (!response || response.error) {
-        return reject(
-          response && response.error ? response.error.message : genericErrorText,
-        );
+        errorAlert(genericErrorText);
+        return reject();
       }
 
+      successAlert('圖片上傳成功');
       return resolve({
         default: response.data.result,
       });
