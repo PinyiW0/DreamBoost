@@ -23,7 +23,9 @@ export default defineStore('memberStore', {
         const { token, expired } = res.data.data;
         document.cookie = `db=${token}; expires=${new Date(expired * 1000)};`;
         successAlert(res.data.message);
-        this.$router.go(-1);
+        setTimeout(() => {
+          this.$router.go(-1);
+        }, 1800);
       } catch (error) {
         errorAlert(error.response.data.message);
       }
