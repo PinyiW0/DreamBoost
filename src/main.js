@@ -4,6 +4,7 @@ import * as bootstrap from 'bootstrap';
 
 import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
@@ -28,6 +29,8 @@ pinia.use(({ store }) => {
   tempStore.$route = markRaw(router.currentRoute);
   tempStore.$http = markRaw(axios);
 });
+
+pinia.use(piniaPluginPersistedstate);
 
 app.use(pinia);
 app.use(router);
