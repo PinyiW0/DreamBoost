@@ -152,6 +152,9 @@ export default {
   &:hover{
     color:var(--bs-dark-pr) !important;
   }
+  &:active{
+    border-width:0px;
+  }
 }
 
 .l-NavLink{

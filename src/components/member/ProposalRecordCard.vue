@@ -1,6 +1,6 @@
 <template>
   <div class="l-cardContainer">
-    <div class="l-gridCard text-center">
+    <div class="l-gridCard">
       <!-- 專案狀態 -->
       <div class="l-gridCard--centerChild l-gridCard__status  px-5 d-flex align-items-center justify-content-center border border-primary" :class="defineClass">
         <span v-if="proposalData.proposalStatus==='draft'">創建中專案</span>
@@ -9,41 +9,50 @@
         <span v-else>已結束專案</span>
       </div>
       <!-- 專案名稱 -->
-      <div class="l-gridCard--centerChild l-gridCard__titleName border-top border-bottom border-primary bg-bgc-paper">
-        專案名稱</div>
-      <div class="l-gridCard__contentName border-bottom border-primary text-start">
-        <div class="py-4 px-4 d-flex align-items-center">
-          <img src="https://picsum.photos/id/684/600/400" alt="" width="120" height="90">
-          <p class="mb-0 ms-3">{{ proposalData.proposalTitle }}</p>
+      <div class="l-gridCard__titleName border-top border-bottom border-primary bg-bgc-paper d-flex justify-content-center align-items-center">
+        <span>專案名稱</span>
+      </div>
+      <div class="l-gridCard__contentName border-bottom border-primary ">
+        <div class="h-100 px-1 py-1 d-flex align-items-center justify-content-center flex-wrap flex-xl-nowrap justify-content-xl-start">
+          <img :src="proposalData.proposalMainImage" alt="提案主圖" width="120" height="90" class="">
+          <p class="w-100 w-xl-auto mb-0 ms-3 text-center text-xl-start">{{ proposalData.proposalTitle }}</p>
         </div>
       </div>
       <!-- 目標金額 -->
-      <div class="l-gridCard--centerChild l-gridCard__titleTarget border-top border-bottom border-primary bg-bgc-paper">
-        目標金額</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentTarget border-bottom border-primary">{{ proposalData.proposalTargetMoney }}</div>
+      <div class="l-gridCard__titleTarget border-top border-bottom border-primary bg-bgc-paper d-flex justify-content-center align-items-center">
+        <span>目標金額</span>
+      </div>
+      <div class="l-gridCard--centerChild l-gridCard__contentTarget border-bottom border-primary d-flex justify-content-center align-items-center"><span>{{ proposalData.proposalTargetMoney }}</span></div>
       <!-- 創建日期 -->
       <div
-        class="l-gridCard--centerChild l-gridCard__titleCreatedDate border-top border-bottom border-primary bg-bgc-paper">
-        創建日期</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentCreatedDate border-bottom border-primary">{{  proposalData.proposalStartTime.split('-').join('.')  }}</div>
+        class="l-gridCard__titleCreatedDate border-top border-bottom border-primary bg-bgc-paper d-none d-sm-flex align-items-sm-center justify-content-sm-center ">
+        <span>創建日期</span>
+      </div>
+      <div class="l-gridCard__contentCreatedDate border-bottom border-primary d-none d-sm-flex align-items-sm-center justify-content-sm-center">
+        <span>{{  proposalData.proposalStartTime.split('-').join('.')  }}</span>
+      </div>
       <!-- 提交日期 -->
-      <div
-        class="l-gridCard--centerChild l-gridCard__titleSubmitDate border-top border-bottom border-primary bg-bgc-paper">
-        提交日期</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentSubmitDate border-bottom border-primary">{{ proposalData.proposalStartTime.split('-').join('.') }}</div>
+      <div class=" l-gridCard__titleSubmitDate border-top border-bottom border-primary bg-bgc-paper d-none d-md-flex align-items-md-center justify-content-md-center">
+        <span>提交日期</span>
+      </div>
+      <div class=" l-gridCard__contentSubmitDate border-bottom border-primary d-none d-md-flex align-items-md-center justify-content-md-center">
+        <span>{{ proposalData.proposalStartTime.split('-').join('.') }}</span>
+      </div>
       <!-- 上次修改日期 -->
-      <div
-        class="l-gridCard--centerChild l-gridCard__titleUpdateDate border-top border-bottom border-primary bg-bgc-paper">
-        上次修改日期</div>
-      <div class="l-gridCard--centerChild l-gridCard__contentUpdateDate border-bottom border-primary">{{ proposalData.proposalStartTime.split('-').join('.') }}</div>
+      <div class=" l-gridCard__titleUpdateDate border-top border-bottom border-primary bg-bgc-paper d-none d-lg-flex justify-content-lg-center align-items-lg-center">
+        <span>上次修改日期</span>
+      </div>
+      <div class=" l-gridCard__contentUpdateDate border-bottom border-primary d-none d-lg-flex justify-content-lg-center align-items-lg-center">
+        <span>{{ proposalData.proposalStartTime.split('-').join('.') }}</span>
+      </div>
       <!-- 按鈕區塊 -->
-      <div class="l-gridCard--centerChild l-gridCard__btnDeleteProposal ">
+      <div class=" l-gridCard__btnDeleteProposal ">
         <button type="button"
           class="btn btn-light rounded-0 p-0 h-100 w-100 l-btn-close border border-primary  border-bottom-">
           <CloseButtonIcon></CloseButtonIcon>
         </button>
       </div>
-      <div class="l-gridCard--centerChild l-gridCard__btnViewDetail ">
+      <div class=" l-gridCard__btnViewDetail ">
         <button type="button"
           class="btn p-0 rounded-0 bg-primary-light w-100 h-100 l-btn-detail border border-primary border-top-0"
           :class="{ 'active': isShown }" @click="toggle">
@@ -53,17 +62,20 @@
     </div>
     <!-- collapse -->
     <div ref="collapseContent" class="collapse">
-      <div class="row justify-content-end pt-3">
+      <div class="row justify-content-end pt-3 g-1 g-sm-3">
         <template v-if="proposalData.proposalStatus==='draft'">
-          <div class="col-2">
+          <div class="col-3">
+            <!-- 功能來不及做完 -->
             <button class="w-100 btn btn-outline-primary px-0 l-btn-edit">編輯</button>
           </div>
-          <div class="col-2">
-            <button class="w-100 btn btn-primary px-0" @click="submitDoubleCheck">送出提案</button>
+          <div class="col-3">
+            <button class="w-100 btn btn-primary px-0" @click="submitDoubleCheck">
+              <span>送出<span class="d-none d-sm-inline">提案</span></span>
+            </button>
           </div>
         </template>
         <template v-else>
-          <div class="col-4">
+          <div class="col-3">
             <button class="w-100 btn btn-primary px-0">查看詳情</button>
           </div>
         </template>
@@ -212,19 +224,54 @@ export default {
 }
 
 // Grid樣式
+// .l-gridCard {
+//   display: grid;
+//   grid-template-columns: 54px 3fr repeat(4, 1fr) 54px;
+//   grid-template-rows: 48px minmax(124px, auto);
+//   grid-template-areas:
+//     "status titleName titleTarget titleCreatedDate titleSubmitDate titleUpdateDate btnDeleteProposal"
+//     "status contentName contentTarget contentCreatedDate contentSubmitDate contentUpdateDate btnViewDetail";
+// }
+
 .l-gridCard {
   display: grid;
-  grid-template-columns: 54px 4fr repeat(4, 1fr) 54px;
+  grid-template-columns: 40px 2fr repeat(1, 1fr) 40px;
   grid-template-rows: 48px minmax(124px, auto);
   grid-template-areas:
-    "status titleName titleTarget titleCreatedDate titleSubmitDate titleUpdateDate btnDeleteProposal"
-    "status contentName contentTarget contentCreatedDate contentSubmitDate contentUpdateDate btnViewDetail";
+    "status titleName titleTarget btnDeleteProposal"
+    "status contentName contentTarget btnViewDetail";
 }
-
-.l-gridCard--centerChild {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media(min-width: 576px){
+.l-gridCard {
+    grid-template-columns: 54px 2fr repeat(2, 1fr) 54px;
+    grid-template-rows: 48px minmax(124px, auto);
+    grid-template-areas:
+      "status titleName titleTarget titleCreatedDate  btnDeleteProposal"
+      "status contentName contentTarget contentCreatedDate  btnViewDetail";
+  }
+}
+@media(min-width: 768px) {
+  .l-gridCard {
+    grid-template-columns: 40px 2fr repeat(3, 1fr) 40px;
+    grid-template-rows: 48px minmax(124px, auto);
+    grid-template-areas:
+    "status titleName titleTarget titleCreatedDate titleSubmitDate  btnDeleteProposal"
+    "status contentName contentTarget contentCreatedDate contentSubmitDate  btnViewDetail";
+  }
+}
+@media(min-width: 992px) {
+  .l-gridCard {
+    grid-template-columns: 54px 2fr repeat(4, 1fr) 54px;
+    grid-template-rows: 48px minmax(124px, auto);
+    grid-template-areas:
+      "status titleName titleTarget titleCreatedDate titleSubmitDate titleUpdateDate btnDeleteProposal"
+      "status contentName contentTarget contentCreatedDate contentSubmitDate contentUpdateDate btnViewDetail";
+  }
+}
+@media(min-width: 1200px) {
+  .l-gridCard {
+    grid-template-columns: 54px 3fr repeat(4, 1fr) 54px;
+  }
 }
 
 .l-gridCard__status {

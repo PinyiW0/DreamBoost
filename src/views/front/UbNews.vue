@@ -9,19 +9,16 @@
         </div>
         <!-- 最新消息區 -->
         <template v-if="apiUserMessages">
-          <div>
-            <div class="accordion p-4 pb-11 border border-primary-light rounded-3" id="messageAccordion">
-              <AccordionItem v-for="(item,index) in messagesSorted" :key="`${index}-AccordionList`" :message-data="item"></AccordionItem>
-            </div>
-            <div class="d-flex flex-column mt-5">
-              <button
-                type="button"
-                class="btn border-0 angle-down">
-                <span class="d-flex flex-column align-items-center fs-5 fw-blod">載入更多
+          <div class="accordion p-4 pb-11 border border-primary-light rounded-3" id="messageAccordion">
+            <AccordionItem v-for="(item, index) in messagesSorted" :key="`${index}-AccordionList`" :message-data="item">
+            </AccordionItem>
+          </div>
+          <div class="d-flex flex-column mt-5">
+            <button type="button" class="btn border-0 angle-down">
+              <span class="d-flex flex-column align-items-center fs-5 fw-blod">載入更多
                 <AnglesDown class="mb-0" style="width: 18px;"></AnglesDown>
-                </span>
-              </button>
-            </div>
+              </span>
+            </button>
           </div>
         </template>
         <template v-else>

@@ -152,16 +152,12 @@ export default {
           }
         });
     },
-    // denyProposal(proposalID) {
-    // },
   },
   components: {
     ProposalCard,
     ProposalModal,
   },
   mounted() {
-    // this.getReviewProposals();
-    // this.getActiveProposals();
     this.getDatas();
   },
   watched: {

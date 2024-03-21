@@ -164,7 +164,7 @@ export default {
           if (res.data.success) {
             this.userInfo = res.data.data.result;
           } else {
-            throw new Error();
+            throw new Error('更新使用者資料失敗：', res.data.message);
           }
         })
         .catch(() => {
@@ -183,21 +183,16 @@ export default {
         .then((result) => {
           if (result.isConfirmed) {
             this.showFullScreenLoading({ canCancel: false, opacity: 0.8 });
+            this.addToast({ content: '登出成功', timer: 2000 });
             document.cookie = 'db=';
-          }
-          this.addToast({ content: '登出成功', timer: 2000 });
-          this.$router.push({ name: 'home' });
-          this.hideFullScreenLoading();
-          if (result.isDismissed) {
-            this.addToast({ content: '取消登出', style: 'info' });
+            this.$emit('logout');
+            this.$router.push({ name: 'home' });
+            this.hideFullScreenLoading();
           }
         })
         .catch(() => {
-          this.addToast({ content: '登出過程出現錯誤', style: 'error' });
+          this.addToast({ content: '取消登出', style: 'info' });
         });
-      this.$emit('logout');
-      this.$router.push({ name: 'home' });
-      document.cookie = ' db=';
     },
   },
   mixins: [MixinFullScreenLoading, MixinSwalToast],

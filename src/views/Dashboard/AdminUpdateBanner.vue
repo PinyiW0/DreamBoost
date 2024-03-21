@@ -13,6 +13,8 @@
           v-for="(item,index) in bannerAry"
           :key="`${index}-img`"
           :img-url="item.imgUrl"
+          :is-first="index===0"
+          :is-last="index===bannerAry.length-1"
           @remove="removePhoto(index)"
           @move-up="movePhotoUp(index)"
           @move-down="movePhotoDown(index)"
@@ -22,7 +24,7 @@
         <div class="px-10 text-end">
           <button type="button" href="#"
           class="btn btn-dark-pr mt-9 ms-auto py-5 px-11"
-          @click.prevent="uploadNewPicture">
+          @click.prevent="uploadNewPicture" >
             <CameraIcon width="28" height="28"></CameraIcon>
             <span class="ms-2">新增封面照片</span>
           </button>
@@ -32,12 +34,14 @@
   </div>
 </template>
 <script>
+import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
+import mixinSwalToast from '@/mixins/mixinSwalToast';
+import Swal from 'sweetalert2';
+import _ from 'lodash';
+
 import UpdateBannerImgCard from '@/components/dashboard/UpdateBannerImgCard.vue';
 import CameraIcon from '@/components/icons/DashboardCameraIcon.vue';
 import RealtimeBannerPreview from '@/components/dashboard/RealtimeBannerPreview.vue';
-
-import mixinFullScreenLoading from '@/mixins/mixinFullScreenLoading';
-import mixinSwalToast from '@/mixins/mixinSwalToast';
 
 const { VITE_URL } = import.meta.env;
 
@@ -45,13 +49,11 @@ export default {
   data() {
     return {
       bannerAry: [],
-      tempPic: '',
-      imgLoadStatus: false,
     };
   },
   methods: {
     getBannerData() {
-      this.showFullScreenLoading({ canCancel: false });
+      this.showFullScreenLoading({ canCancel: false, loader: 'dots' });
       const url = `${import.meta.env.VITE_URL}/dreamboost/banner/guest/banner`;
       this.$http.get(url)
         .then((response) => {
@@ -64,30 +66,39 @@ export default {
           this.addToast({ content: '取得Banner圖片過程出現錯誤。', style: 'error' });
         });
     },
-    updateBannerData(data) {
+    // 使用lodash調整觸發頻率,debounce內不可以使用箭頭函式否則無法抓到this.updateBannerDataImmediate
+    updateBannerDataDebounced: _.debounce(function foo() {
+      this.updateBannerDataImmediate();
+    }, 1000),
+    updateBannerDataImmediate() {
+      this.showFullScreenLoading({ canCancel: false, loader: 'dots' });
       const bannerPostPath = `${VITE_URL}/dreamboost/banner/admin/banner`;
-      this.$http.post(bannerPostPath, { bannerUrlArray: data })
-        .then(() => {
-          this.getBannerData();
-        });
-    },
-    removePhoto(removeindex) {
-      this.bannerAry.splice(removeindex, 1); // 移除指定索引位置的圖片
-      this.bannerAry.forEach((item, index) => {
-        if (index >= removeindex) {
-          this.bannerAry[index].orderBy -= 1;
-        }
-      });
-      const bannerPostPath = `${VITE_URL}/dreamboost/banner/admin/banner`;
-      this.showFullScreenLoading({ canCancel: false });
       this.$http.post(bannerPostPath, { bannerUrlArray: this.bannerAry })
         .then(() => {
           this.hideFullScreenLoading();
+          this.addToast({ content: '已更新首頁Banner圖片', style: 'success' });
           this.getBannerData();
         })
         .catch(() => {
           this.hideFullScreenLoading();
-          this.addToast({ content: '刪除過程出現錯誤,請重新整理畫面再次操作。', style: 'error' });
+          this.addToast({ content: '更新或上傳圖片過程出現錯誤', style: 'warning' });
+        });
+    },
+    removePhoto(removeindex) {
+      Swal.fire({
+        title: '確認移除？',
+        icon: 'warning',
+        allowOutsideClick: false,
+        showCancelButton: true,
+        buttonsStyling: true,
+        confirmButtonText: '確認',
+        cancelButtonText: '取消',
+      })
+        .then((result) => {
+          if (result.isConfirmed) {
+            this.bannerAry.splice(removeindex, 1); // 移除指定索引位置的圖片
+            this.updateBannerDataImmediate();
+          }
         });
     },
     movePhotoUp(index) {
@@ -95,16 +106,16 @@ export default {
         const temp = this.bannerAry[index];
         this.bannerAry.splice(index, 1); // 先將該圖片從陣列中移除
         this.bannerAry.splice(index - 1, 0, temp); // 在上一個位置插入該圖片
-        // 在這裡可能還需要向服務器端發送請求更新圖片排列順序
       }
+      this.updateBannerDataDebounced();
     },
     movePhotoDown(index) {
       if (index < this.bannerAry.length - 1) {
         const temp = this.bannerAry[index];
         this.bannerAry.splice(index, 1); // 先將該圖片從陣列中移除
         this.bannerAry.splice(index + 1, 0, temp); // 在下一個位置插入該圖片
-        // 在這裡可能還需要向服務器端發送請求更新圖片排列順序
       }
+      this.updateBannerDataDebounced();
     },
     uploadNewPicture() {
       const imageUploadPath = `${VITE_URL}/dreamboost/upload`;
