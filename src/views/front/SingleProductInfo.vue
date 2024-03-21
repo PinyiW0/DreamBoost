@@ -32,7 +32,7 @@
       <div class="col-md-5">
         <div class="mb-7 p-4 p-lg-12 pe-lg-23 border border-2 border-primary rounded-3">
           <div class="d-flex align-items-center gap-6 mb-9">
-            <div class="d-flex justify-content-center align-items-center bg-primary rounded-circle"
+            <div class="d-flex justify-content-center align-items-center rounded-circle"
               style="width: 112px; height: 112px">
               <img class="img-fluid object-fit-cover rounded-circle" :src="test?.customizeProperty?.userImage"
                 alt="" />
