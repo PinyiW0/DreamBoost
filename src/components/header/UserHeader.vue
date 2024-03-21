@@ -127,6 +127,8 @@
 </style>
 
 <script>
+import { mapActions } from 'pinia';
+import userStore from '@/stores/userStore';
 import SearchIcon from '@/components/icons/SearchIcon.vue';
 import VisitorHeaderAd from '@/components/header/VisitorHeaderAd.vue';
 import MixinSwalToast from '@/mixins/mixinSwalToast';
@@ -156,6 +158,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(userStore, ['changeUser']),
     getUserData() {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
       this.$http.defaults.headers.common.Authorization = token;
@@ -185,7 +188,9 @@ export default {
             this.showFullScreenLoading({ canCancel: false, opacity: 0.8 });
             this.addToast({ content: '登出成功', timer: 2000 });
             document.cookie = 'db=';
+            localStorage.removeItem('userID');
             this.$emit('logout');
+            this.changeUser();
             this.$router.push({ name: 'home' });
             this.hideFullScreenLoading();
           }
