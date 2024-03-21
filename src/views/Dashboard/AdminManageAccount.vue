@@ -102,7 +102,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 /* 在管理員card中間增加間隔 */
 .l-CardGapY{
   .card + .card {
