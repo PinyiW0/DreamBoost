@@ -22,10 +22,11 @@
           </h2>
           <p>啟動群眾力量，讓有價值的事物獲得更好的機會</p>
           <a
-            href="#last"
+            href="#"
             class="btn btn-primary btn-hover px-18 py-3 text-white border-secondary-light"
-            >開始提案</a
-          >
+            @click.prevent="$refs.description.scrollIntoView({ behavior: 'smooth' })"
+            >開始提案
+            </a>
         </div>
       </div>
     </section>
@@ -250,7 +251,7 @@
       </ul>
     </section>
     <!-- 流程說明區塊 -->
-    <section class="container pb-25" id="last">
+    <section class="container pb-25" ref="description">
       <h3 class="d-lg-none text-primary mb-6">
         流程說明
         <span class="d-block fs-6 text-primary-light">Flow Description</span>

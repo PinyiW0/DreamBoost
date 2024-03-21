@@ -4,10 +4,10 @@ import launchStore from './launchStore';
 
 export default defineStore('dateStore', {
   actions: {
-    minDay() {
+    minDay(startDate) {
       const { launchData } = launchStore();
       let date;
-      if (launchData.proposalStartTime) {
+      if (launchData.proposalStartTime && startDate !== 'startDate') {
         date = new Date(launchData.proposalStartTime);
       } else {
         date = new Date();
