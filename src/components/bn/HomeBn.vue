@@ -24,9 +24,9 @@
         v-for="(item, index) in bnData"
         :key="`${index}-bn`"
         >
-        <div class="rounded-5">
+        <div class="rounded-5" >
           <div class="d-flex flex-column justify-content-center align-items-center">
-            <RouterLink to="/member" class="position-relative col-12 rounded-5 shadow">
+            <RouterLink :to=" isUser ? '/explore' : '/member'" class="position-relative col-12 rounded-5 shadow">
               <img
                 :src="item.imgUrl"
                 class="img-fluid rounded-5 w-100 object-fit-cover"
@@ -34,7 +34,7 @@
                 alt="推動夢想不是夢概念圖">
               <div class="bg-primary-dark col-12 py-7 rounded-bottom-5 position-absolute bottom-0">
                 <h4 class="text-secondary-light text-center lterSpc-10 mb-0 mx-8 bn-hover">
-                  立刻加入會員，一起追夢去
+                  {{isUser ? '立即探索，發現新項目' : '立刻加入會員，一起追夢去'}}
                   <span>
                     <RightArrow style="width:24px;color: var(--bs-secondary-light);margin-top: -2 px;" ></RightArrow>
                   </span>
@@ -66,8 +66,10 @@
 </style>
 
 <script>
-/* eslint-disable no-unused-vars */
+import { mapState } from 'pinia';
+import userStore from '@/stores/userStore';
 
+/* eslint-disable no-unused-vars */
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectFade, Pagination, Navigation } from 'swiper/modules';
 import RightArrow from '@/components/icons/RightArrow.vue';
@@ -76,7 +78,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const { VITE_URL, VITE_PATH } = import.meta.env;
+const { VITE_URL } = import.meta.env;
 
 export default {
   data() {
@@ -97,17 +99,30 @@ export default {
         .catch(() => {
         });
     },
+    changeTokenState() {
+      this.isToken = !this.isToken;
+    },
   },
+
+  created() {
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)db\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    this.isToken = token;
+  },
+
+  mounted() {
+    this.getBnUrl();
+  },
+
+  computed: {
+    ...mapState(userStore, ['isUser']),
+  },
+
   components: {
     RightArrow,
     Swiper,
     SwiperSlide,
   },
-  mounted() {
-    this.getBnUrl();
-  },
-  created() {
-  },
+
 };
 </script>
 
