@@ -182,7 +182,4 @@ export default {
 };
 </script>
 <style lang="scss">
-*{
-  // outline: 1px solid red;
-}
 </style>

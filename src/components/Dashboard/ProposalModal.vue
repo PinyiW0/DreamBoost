@@ -110,7 +110,7 @@ export default {
         .catch((err) => {
           this.hideFullScreenLoading();
           this.addToast({ content: '退回提案過程出現錯誤，請聯繫工程師', style: 'error' });
-          console.log(err);
+          throw new Error(err);
         });
     },
   },

@@ -49,7 +49,6 @@ export default {
   },
   mounted() {
     this.getProposals();
-    // 先console.log(this.singleProposal);
   },
   methods: {
     ...mapActions(exploreStore, ['getProposals']),
