@@ -102,20 +102,22 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 /* 在管理員card中間增加間隔 */
-.l-CardGapY{
-  .card + .card {
-    margin-top:20px;
+.l-CardGapY {
+  .card+.card {
+    margin-top: 20px;
   }
 }
+
 /* 覆蓋bootstrap樣式 */
-.form-check-input:checked{
+.form-check-input:checked {
   background-color: var(--bs-dark-pr);
 }
-.form-check-input:checked[type=checkbox]{
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='71' height='54' fill='none' viewBox='0 0 71 54'%3e%3cpath fill='%23333' d='M23.002 42.8 6.202 26l-5.6 5.6 22.4 22.4 48-48-5.6-5.6-42.4 42.4Z'/%3e%3c/svg%3e");
-    background-position: center center;
-    background-size: 80%;
+
+.form-check-input:checked[type=checkbox] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='71' height='54' fill='none' viewBox='0 0 71 54'%3e%3cpath fill='%23333' d='M23.002 42.8 6.202 26l-5.6 5.6 22.4 22.4 48-48-5.6-5.6-42.4 42.4Z'/%3e%3c/svg%3e");
+  background-position: center center;
+  background-size: 80%;
 }
 </style>

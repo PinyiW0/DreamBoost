@@ -23,16 +23,5 @@ export default defineStore('userStore', {
           throw new Error('資料未新增');
         });
     },
-
-    postUserData() {
-      this.$http
-        .post(`${VITE_URL}/dreamboost/user/normal/userprofile`, this.userData)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          throw new Error(err);
-        });
-    },
   },
 });

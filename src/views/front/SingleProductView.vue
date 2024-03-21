@@ -207,6 +207,7 @@ import { CountTo } from 'vue3-count-to';
 const { VITE_URL } = import.meta.env;
 
 export default {
+  mixins: [MixinSwalToast, mixinFullScreenLoading],
   props: {
     proposals: {
       type: Object,
@@ -225,7 +226,6 @@ export default {
   computed: {
     ...mapWritableState(exploreStore, ['singleProposal']),
   },
-  mixins: [MixinSwalToast, mixinFullScreenLoading],
   mounted() {
     this.getProposals();
     // 監聽滾動事件

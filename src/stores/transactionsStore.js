@@ -18,13 +18,7 @@ export default defineStore('transactionsStore', {
       transactionrInvoice: 'personalticket',
       transactionCouponCode: '',
       customizeProperty: {
-        // transactionPayment: '',
-        // transactionBonus: '',
         transactionLocation: 'main-island',
-        // receiverAreaCode: '',
-        // receiverCity: '',
-        // receiverAddress: '',
-        // transactionNote: '',
       },
     },
   }),

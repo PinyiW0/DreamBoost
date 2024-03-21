@@ -321,7 +321,7 @@
           </div>
         </li>
       </ul>
-      <div class="postion-relative">
+      <div class="postion-relative d-none">
         <CouponCircle class=""></CouponCircle>
       </div>
     </section>
