@@ -55,9 +55,10 @@
                 name="開始時間"
                 class="form-control py-3"
                 :class="{ 'is-invalid': errors['開始時間'] }"
-                v-model="launchData.proposalStartTime"
+                :value="launchData.proposalStartTime"
+                @change="changeStartDate"
                 rules="required"
-                :min="minDay()"
+                :min="minDay('startDate')"
               ></VField>
               <ErrorMessage
                 class="invalid-feedback"
@@ -304,6 +305,13 @@ export default {
       const imageUrl = await this.uploadImage(e);
       if (imageUrl) this.launchData.proposalMainImage = imageUrl;
       this.hideFullScreenLoading();
+    },
+
+    changeStartDate(e) {
+      this.launchData.proposalStartTime = e.target.value;
+      if (this.launchData.proposalEndTime) {
+        this.launchData.proposalEndTime = '';
+      }
     },
   },
 
