@@ -114,8 +114,8 @@
                   </p>
                 </div>
                 <img
-                  src="/images/launch/launchWhyCircle.png"
-                  class="img-fluid position-absolute start-50 translate-middle"
+                  src="/images/home/circle_white.svg"
+                  class="img-fluid position-absolute start-50 translate-middle cuponcircle"
                   style="top: 140%"
                   alt=""
                 />
@@ -357,10 +357,10 @@
 </template>
 
 <script>
-// // pinia 解構
-// import { mapActions } from 'pinia';
-// // Pinia Store 載入
-// import memberStore from '@/stores/memberStore';
+// pinia 解構
+import { mapActions } from 'pinia';
+// Pinia Store 載入
+import launchStore from '@/stores/launchStore';
 // mixins 引入
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
 
@@ -368,15 +368,13 @@ export default {
   mixins: [mixinVeeValidate],
 
   methods: {
-    // ...mapActions(memberStore, ['postCheckToken']),
+    ...mapActions(launchStore, ['resetLaunchData']),
 
     submit() {
+      this.resetLaunchData();
       this.$router.push('/launch/outline');
     },
   },
 
-  // mounted() {
-  //   this.postCheckToken();
-  // },
 };
 </script>

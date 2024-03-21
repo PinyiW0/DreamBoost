@@ -48,7 +48,7 @@
                 </span>
               </button>
             </RouterLink>
-            <span class="mt-1">
+            <span class="mt-1 d-none">
               <button class="btn btn-outline-primary border-2 btn-search p-3">
                 <SearchIcon class="fs-3" style="width:24px"></SearchIcon>
               </button>

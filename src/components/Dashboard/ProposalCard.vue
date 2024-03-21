@@ -6,9 +6,9 @@
         <div class="col-12 col-sm-7">
           <div class="d-flex align-items-center">
             <!-- <img src="https://picsum.photos/id/684/600/400" alt="" class="rounded-pill me-2 me-md-4 me-lg-8" width="48" height="48"> -->
-            <img :src="proposalData.proposalMainImage" alt="" class="rounded-pill me-2 me-md-4 me-lg-8" width="48" height="48">
+            <img :src="proposalData.proposalMainImage" alt="" class="object-fit-cover rounded-pill me-2 me-md-4 me-lg-8" width="48" height="48">
             <div class="flex-grow-1 text-white text-truncate">
-              <p class="mb-0 fs-12 lh-sm mb-1">2024.02.13</p>
+              <!-- <p class="mb-0 fs-12 lh-sm mb-1">2024.02.13</p> -->
               <p class="mb-0 fs-14 fs-md-5 text-truncate">{{proposalData.proposalTitle}}</p>
             </div>
           </div>
@@ -22,7 +22,7 @@
           </div>
           <div class="d-flex justify-content-end align-items-center" v-else-if="proposalData.proposalStatus==='active'">
             <p class="mb-0 text-secondary-light">審查通過</p>
-            <button class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-6 ms-1 ms-sm-2 ms-md-4">查看</button>
+            <a class="btn btn-outline-dark-pr px-2 px-md-4 px-lg-6 ms-1 ms-sm-2 ms-md-4" :href="`/#/product/${proposalData.proposalID}/info`" target="_blank">查看</a>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import * as bootstrap from 'bootstrap';
 
 import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
@@ -14,8 +15,7 @@ import { register } from 'swiper/element/bundle';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 import Vue3Marquee from 'vue3-marquee';
-
-import mitt from 'mitt';
+import countTo from 'vue3-count-to';
 
 import App from './App.vue';
 import router from './router';
@@ -30,6 +30,8 @@ pinia.use(({ store }) => {
   tempStore.$http = markRaw(axios);
 });
 
+pinia.use(piniaPluginPersistedstate);
+
 app.use(pinia);
 app.use(router);
 app.use(VueAxios, axios);
@@ -38,7 +40,7 @@ app.use(register);
 app.component(Swiper, SwiperSlide);
 app.use(Vue3Marquee);
 app.use(Popper);
-app.config.globalProperties.$mitt = mitt();
+app.use(countTo);
 app.config.globalProperties.$bs = bootstrap;
 
 app.mount('#app');

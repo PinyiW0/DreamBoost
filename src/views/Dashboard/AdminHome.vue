@@ -98,7 +98,6 @@ export default {
           })
             .then((result) => {
               if (result.dismiss === Swal.DismissReason.timer) {
-                // console.log('計時器跳轉回登入頁面');
                 this.$router.push('/admin/login');
               }
               if (result.isConfirmed) {
@@ -152,6 +151,9 @@ export default {
   transition: color .3s ease-in-out;
   &:hover{
     color:var(--bs-dark-pr) !important;
+  }
+  &:active{
+    border-width:0px;
   }
 }
 

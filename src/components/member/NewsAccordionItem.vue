@@ -1,9 +1,9 @@
 <template>
   <div class="accordion-item border-0 border-bottom border-primary-light rounded-0">
     <h2 class="accordion-header">
-      <button class="accordion-button bg-transparent text-primary shadow-none" type="button" data-bs-toggle="collapse"
+      <button class="accordion-button bg-transparent text-primary shadow-none" type="button" data-bs-toggle="collapse" :class="{'collapsed':!isShown}"
       @click="toggle">
-        <span>{{ messageData.messageTitle }}</span>
+      <span>{{ messageData.messageTitle }}</span>
       </button>
     </h2>
     <div ref="collapseArea" class="accordion-collapse collapse" data-bs-parent="#messageAccordion">
@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       collapseInstance: '',
-      isShown: '',
+      isShown: false,
     };
   },
   methods: {
@@ -29,12 +29,12 @@ export default {
         toggle: false, // 設定初始為沒有開啟
       });
       // 設定一個狀態，去監聽目前的collapse是開啟還是關閉的
-      // this.$refs.collapseContent.addEventListener('show.bs.collapse', () => {
-      //   this.isShown = true;
-      // });
-      // this.$refs.collapseContent.addEventListener('hide.bs.collapse', () => {
-      //   this.isShown = false;
-      // });
+      this.$refs.collapseArea.addEventListener('show.bs.collapse', () => {
+        this.isShown = true;
+      });
+      this.$refs.collapseArea.addEventListener('hide.bs.collapse', () => {
+        this.isShown = false;
+      });
     },
     hide() {
       this.collapseInstance.hide();

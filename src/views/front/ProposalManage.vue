@@ -30,7 +30,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .nav-link{
   color:var(--bs-gray-600) !important;
   padding:13px 15px;

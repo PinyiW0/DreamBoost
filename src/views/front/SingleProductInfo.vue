@@ -277,18 +277,6 @@ export default {
   async created() {
     await this.getProposals();
   },
-  mounted() {
-    // this.getProposals();
-    // this.productId = this.$route.params.id.trim();
-    // console.log(this.productId);
-    // console.log(this.$route.params.id);
-    // const { id } = this.$route.params;
-    // this.product = JSON.parse(this.$route.query.proposals);
-    // this.productList = this.proposals;
-    // console.log(this.proposals);
-    // this.product = this.productList.filter((proposal) => proposal.proposalID.trim() === this.productId);
-    // console.log(this.product);
-  },
   methods: {
     ...mapActions(exploreStore, ['getProposals']),
     async getProposals() {
@@ -297,11 +285,10 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.test = res.data.data.result[this.$route.params.id];
-            console.log(this.test);
           }
         })
         .catch((err) => {
-          console.log(err);
+          throw new Error(err);
         });
     },
   },
