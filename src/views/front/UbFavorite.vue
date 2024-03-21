@@ -1,7 +1,8 @@
 <template>
   <main>
+    <h3 class="text-center pt-3">敬請期待</h3>
     <!-- 卡片渲染區 -->
-    <section class="container pt-20">
+    <!-- <section class="container pt-20"> -->
       <!-- <ul class="row g-10 list-unstyled pt-5">
         <li class="col-12 col-md-6 col-lg-4">
           <CardDefault />
@@ -23,7 +24,7 @@
           </li>
       </ul> -->
       <!-- pagination -->
-      <div class="container d-flex justify-content-center mb-21">
+      <!-- <div class="container d-flex justify-content-center mb-21">
         <nav aria-label="Page navigation">
           <ul class="pagination">
             <li class="page-item px-2">
@@ -70,7 +71,7 @@
           </ul>
         </nav>
       </div>
-    </section>
+    </section> -->
   </main>
 </template>
 
@@ -85,18 +86,18 @@
 
 <script>
 // import CardDefault from '@/components/cards/CardDefault.vue';
-import AngleLeft from '@/components/icons/AngleLeft.vue';
-import AnglesLeft from '@/components/icons/AnglesLeft.vue';
-import AngleRight from '@/components/icons/AngleRight.vue';
-import AnglesRight from '@/components/icons/AnglesRight.vue';
+// import AngleLeft from '@/components/icons/AngleLeft.vue';
+// import AnglesLeft from '@/components/icons/AnglesLeft.vue';
+// import AngleRight from '@/components/icons/AngleRight.vue';
+// import AnglesRight from '@/components/icons/AnglesRight.vue';
 
 export default {
   components: {
     // CardDefault,
-    AnglesLeft,
-    AngleLeft,
-    AngleRight,
-    AnglesRight,
+    // AnglesLeft,
+    // AngleLeft,
+    // AngleRight,
+    // AnglesRight,
   },
 };
 </script>

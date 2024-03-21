@@ -10,6 +10,7 @@ export default defineStore('userStore', {
       userGender: '',
       userTelephone: '',
     },
+    isUser: false,
   }),
 
   actions: {
@@ -23,5 +24,14 @@ export default defineStore('userStore', {
           throw new Error('資料未新增');
         });
     },
+
+    changeUser() {
+      this.isUser = !this.isUser;
+    },
+  },
+
+  persist: {
+    storage: localStorage,
+    paths: ['isUser'],
   },
 });

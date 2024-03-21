@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia';
 import sweetAlert2Store from './sweetAlert2Store';
 import launchStore from './launchStore';
+import userStore from './userStore';
 
 const { successAlert, errorAlert } = sweetAlert2Store();
 const { setUserEmail } = launchStore();
+const { changeUser } = userStore();
 const { VITE_URL } = import.meta.env;
 
 export default defineStore('memberStore', {
@@ -23,6 +25,7 @@ export default defineStore('memberStore', {
         const { token, expired } = res.data.data;
         document.cookie = `db=${token}; expires=${new Date(expired * 1000)};`;
         successAlert(res.data.message);
+        changeUser();
         setTimeout(() => {
           this.$router.go(-1);
         }, 1800);
