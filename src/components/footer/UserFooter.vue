@@ -36,7 +36,7 @@
       </div>
       </div>
       <!-- 右-社群聯繫 -->
-      <div class="border-start-lg border-primary-light d-flex justify-content-center align-items-center ps-0 ps-lg-16 py-6">
+      <div class="border-start-lg border-primary-light d-flex justify-content-center align-items-center ps-0 ps-lg-4 ps-xl-10 py-6">
         <a href="https://zh-tw.facebook.com/login/device-based/regular/login/?login_attempt=1"
           class="link-hover">
           <FaceBook class="fs-3 me-4 text-white" style="width:32px;"></FaceBook>

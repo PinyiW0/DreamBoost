@@ -1,5 +1,5 @@
 <template>
-  <RouterLink to="/member" class="cupon-hover position-absolute bottom-10 start-90 d-none d-md-block" style="width: 120px; height: 120px;display: block;">
+  <RouterLink to="/member" class="cupon-hover position-absolute bottom-10 start-80 d-none d-md-block" style="width: 120px; height: 120px;display: block;">
     <img
       src="/images/home/circle_color.svg"
       class="img-fluid cuponcircle position-absolute top-10 start-0"
