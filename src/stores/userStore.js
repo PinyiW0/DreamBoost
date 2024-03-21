@@ -27,8 +27,7 @@ export default defineStore('userStore', {
     postUserData() {
       this.$http
         .post(`${VITE_URL}/dreamboost/user/normal/userprofile`, this.userData)
-        .then((res) => {
-          console.log(res);
+        .then(() => {
         })
         .catch((err) => {
           throw new Error(err);

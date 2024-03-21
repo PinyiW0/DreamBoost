@@ -85,7 +85,4 @@ export default {
 .form-control::placeholder{
   color:#98A2B3;
 }
-*{
-  // outline: 1px solid red;
-}
 </style>
