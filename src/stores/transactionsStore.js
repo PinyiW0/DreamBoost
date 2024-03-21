@@ -34,7 +34,6 @@ export default defineStore('transactionsStore', {
       try {
         const res = await this.$http.post(`${VITE_URL}/dreamboost/transaction/normal/transaction`, this.transactionsData);
         successAlert(`${res.data.message},前往付款畫面`);
-        console.log(res);
       } catch (error) {
         throw new Error(error);
       }
