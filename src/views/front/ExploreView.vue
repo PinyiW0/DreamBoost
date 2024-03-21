@@ -10,7 +10,7 @@
         </div>
       </div>
       <!-- 篩選欄位 -->
-      <div class="row col-12 col-lg-7 col-xl-6 mx-auto align-items-center gx-7">
+      <div class="row col-12 col-lg-7 col-xl-6 mx-auto align-items-center">
         <div class="col-7 col-lg-6 mb-8 mx-auto">
           <label class="fw-medium mb-1" for="pr">專案狀態</label>
           <select class="form-select col-3 border-primary" aria-label="Default select example">
@@ -29,12 +29,12 @@
         </div>
       </div>
       <div class="postion-relative d-none d-xxl-block">
-        <CouponCircle class="top-24 start-20"></CouponCircle>
+        <CouponCircle class="top-24 start-n20 position-absolute"></CouponCircle>
       </div>
       <!-- 專案類別 -->
-      <div class="container pt-8 pb-5">
+      <div class="container position-relative pt-8 pb-5">
         <!-- 專案類別 -->
-        <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-1">
+        <div class="container row gy-8 gy-md-10 justify-content-center position-absolute z-1">
           <div v-for="(category, index) in filteredProposals" :key="index"
             class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
             <a :class="'categorylink categorylink' + category.id + ' rounded-pill border border-2 border-white fs-4 fw-medium text-white lterSpc-5 text-center pt-7'"
@@ -51,7 +51,7 @@
     </div>
     <!-- 卡片渲染區 -->
     <section class="container">
-      <ul class="row gx-10 list-unstyled pt-5">
+      <ul class="row gx-4 gx-xl-10 list-unstyled pt-5">
         <li v-if="filteredData.length === 0" class="col-12 text-center">
           <p class="fs-4 text-gray-600">此類別尚未有專案唷～歡迎提案</p>
         </li>
