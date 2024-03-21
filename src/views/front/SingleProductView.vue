@@ -207,6 +207,7 @@ import { CountTo } from 'vue3-count-to';
 const { VITE_URL } = import.meta.env;
 
 export default {
+  mixins: [MixinSwalToast, mixinFullScreenLoading],
   props: {
     proposals: {
       type: Object,
@@ -225,10 +226,8 @@ export default {
   computed: {
     ...mapWritableState(exploreStore, ['singleProposal']),
   },
-  mixins: [MixinSwalToast, mixinFullScreenLoading],
   mounted() {
     this.getProposals();
-    // console.log(this.singleProposal);
     // 監聽滾動事件
     window.addEventListener('scroll', this.handleScroll);
     this.randomEndVal = Math.floor(Math.random() * 5000);

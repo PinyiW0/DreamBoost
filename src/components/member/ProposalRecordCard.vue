@@ -171,8 +171,7 @@ export default {
           // this.hide(); // 在送交審查之後因為需要更新畫面，可以選擇性關閉collpase
           this.$emit('updateProposalRecordData');
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
           // loading end
           this.hideFullScreenLoading();
           this.addToast({ content: '送交提案過程出現錯誤', style: 'error' });
