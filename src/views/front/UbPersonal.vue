@@ -157,7 +157,7 @@ export default {
             }
           })
           .catch((err) => {
-            console.log(err, '沒有上傳成功');
+            throw new Error(err);
           });
       });
       input.click();
@@ -168,14 +168,13 @@ export default {
       this.$http.post(`${VITE_URL}/dreamboost/user/normal/userprofile`, this.userInfo)
         .then((res) => {
           if (res.data.success) {
-            console.log(res.data);
             this.addToast({ content: '修改成功', timer: 2000 });
           } else {
-            console.error('更新使用者資料失敗：', res.data.message);
+            this.addToast({ content: '更新使用者資料失敗', timer: 2000 });
           }
         })
         .catch((err) => {
-          console.error('更新使用者資料失敗：', err);
+          throw new Error(err);
         });
     },
     getUserData() {
@@ -189,14 +188,14 @@ export default {
               this.userInfo.customizeProperty = { contactEmail: '' };
               this.placeholderText = this.userInfo.customizeProperty.contactEmail;
             } else {
-              console.warn('取得既有的使用者資料失敗：', res);
+              this.addToast({ content: '取得使用者資料失敗', timer: 2000 });
             }
           } else {
-            console.error('更新使用者資料失敗：', res.data.message);
+            this.addToast({ content: '更新使用者資料失敗', timer: 2000 });
           }
         })
         .catch((err) => {
-          console.error('更新使用者資料失敗：', err);
+          throw new Error(err);
         });
     },
   },

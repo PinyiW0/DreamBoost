@@ -171,6 +171,5 @@ export default {
   .card+.card {
     margin-top: 20px;
   }
-
 }
 </style>
