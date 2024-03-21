@@ -188,7 +188,7 @@ export default {
               this.userInfo.customizeProperty = { contactEmail: '' };
               this.placeholderText = this.userInfo.customizeProperty.contactEmail;
             } else {
-              this.addToast({ content: '取得使用者資料失敗', timer: 2000 });
+              this.addToast({ content: '取得使用者資料成功', timer: 2000 });
             }
           } else {
             this.addToast({ content: '更新使用者資料失敗', timer: 2000 });
