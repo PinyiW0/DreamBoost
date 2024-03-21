@@ -71,7 +71,6 @@ export default {
         },
       })
         .then((res) => {
-          // console.log(Object.values(res.data.data.result));
           this.apiUserMessages = Object.values(res.data.data.result);
           this.hideFullScreenLoading();
         })

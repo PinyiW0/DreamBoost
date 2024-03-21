@@ -164,7 +164,7 @@ export default {
           if (res.data.success) {
             this.userInfo = res.data.data.result;
           } else {
-            console.error('更新使用者資料失敗：', res.data.message);
+            throw new Error();
           }
         })
         .catch(() => {

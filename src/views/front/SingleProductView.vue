@@ -228,7 +228,6 @@ export default {
   mixins: [MixinSwalToast, mixinFullScreenLoading],
   mounted() {
     this.getProposals();
-    // console.log(this.singleProposal);
     // 監聽滾動事件
     window.addEventListener('scroll', this.handleScroll);
     this.randomEndVal = Math.floor(Math.random() * 5000);
@@ -285,7 +284,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.log(err);
+          throw new Error(err);
         });
     },
     navigateToChoose() {
