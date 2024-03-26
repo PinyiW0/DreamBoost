@@ -15,12 +15,10 @@
             <div class="card bg-transparent border-0">
               <div
                 class="card-body bg-transparent pt-3 pb-6 ps-8 pe-3 border-gray-500 border-bottom d-flex justify-content-between">
-                <div class="d-flex align-items-stretch">
-                  <!-- <img src="https://picsum.photos/id/684/600/400" alt="" class="rounded-pill me-10" width="48" height="48"> -->
+                <div class="d-flex">
                   <img :src="denyProposalData.proposalMainImage" alt="主要圖片" class="rounded-pill me-10" width="48" height="48">
                   <div class="d-flex flex-column justify-content-center text-white">
-                    <p class="mb-0  fs-12 lh-sm mb-1">2024.02.13</p>
-                    <p class="mb-0  ">小智的 MIT 夢 - 台灣學生的教育之旅</p>
+                    <p class="mb-0  ">{{ denyProposalData.proposalTitle }}</p>
                   </div>
                 </div>
               </div>
