@@ -1,0 +1,1 @@
+import{_ as e,c as t,o,a as s}from"./index-oVBGm4bI.js";const c={components:{}},n=s("h3",{class:"text-center pt-3"},"敬請期待",-1),a=[n];function r(_,p,d,i,l,f){return o(),t("main",null,a)}const u=e(c,[["render",r]]);export{u as default};
