@@ -75,15 +75,6 @@
   </main>
 </template>
 
-<style lang="scss" scoped>
-.arrow-hover {
-  color: var(--bs-gray-500);
-  &:hover {
-    color: var(--bs-primary);
-  }
-}
-</style>
-
 <script>
 // import CardDefault from '@/components/cards/CardDefault.vue';
 // import AngleLeft from '@/components/icons/AngleLeft.vue';
@@ -101,3 +92,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.arrow-hover {
+  color: var(--bs-gray-500);
+  &:hover {
+    color: var(--bs-primary);
+  }
+}
+</style>

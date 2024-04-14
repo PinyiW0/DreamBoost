@@ -2,7 +2,7 @@
   <section class="container py-17">
     <div
       class="accordion p-4 border border-primary rounded-3"
-      id="accordionExample"
+      id="qaAccordion"
     >
       <div
         v-for="faq in test.proposalFAQs"
@@ -22,7 +22,7 @@
         <div
           id="collapseOne"
           class="accordion-collapse collapse show"
-          data-bs-parent="#accordionExample"
+          data-bs-parent="#qaAccordion"
         >
           <div class="accordion-body">
             {{ faq.answer }}

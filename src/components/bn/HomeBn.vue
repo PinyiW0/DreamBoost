@@ -45,7 +45,7 @@
               <img
                 src="/images/home/w-biglogo.svg"
                 class="img-fluid mb-5 col-12"
-                alt="">
+                alt="DREAM BOOST">
               <p class="fs-3 fw-light text-white mb-0 lterSpc-10">推動夢想不是夢 !</p>
             </div>
           </div>
