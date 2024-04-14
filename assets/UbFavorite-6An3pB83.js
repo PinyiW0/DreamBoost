@@ -1,0 +1,1 @@
+import{_ as t,c as o,o as c,p as s,k as a,a as p}from"./index-sOBgWgdw.js";const n={components:{}},_=e=>(s("data-v-0f8d8c47"),e=e(),a(),e),d=_(()=>p("h3",{class:"text-center pt-3"},"敬請期待",-1)),r=[d];function i(e,f,l,h,m,u){return c(),o("main",null,r)}const I=t(n,[["render",i],["__scopeId","data-v-0f8d8c47"]]);export{I as default};

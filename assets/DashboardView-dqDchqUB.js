@@ -1,0 +1,1 @@
+import{_ as o,c as t,b as s,o as n,d as c}from"./index-sOBgWgdw.js";const r={components:{}},a={class:"bg-gray-800 min-vh-100 d-flex flex-column"};function _(p,d,i,l,m,f){const e=c("RouterView");return n(),t("div",a,[s(e)])}const x=o(r,[["render",_]]);export{x as default};
