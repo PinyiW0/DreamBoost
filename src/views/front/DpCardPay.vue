@@ -170,8 +170,6 @@
   </main>
 </template>
 
-<style lang="scss"></style>
-
 <script>
 import mixinVeeValidate from '@/mixins/mixinVeeValidate';
 import sweetAlert2Store from '@/stores/sweetAlert2Store';

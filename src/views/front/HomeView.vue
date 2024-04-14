@@ -132,7 +132,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore'}" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_01.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_01.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>
@@ -140,7 +140,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_02.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_02.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>
@@ -148,7 +148,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_03.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_03.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>
@@ -156,7 +156,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_04.jpg" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_04.jpg" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>
@@ -164,7 +164,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_05.jpg" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_05.jpg" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>
@@ -172,7 +172,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_06.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_06.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>
@@ -180,7 +180,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_07.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_07.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>
@@ -188,7 +188,7 @@
             <div class="position-relative rounded-3 h-100 csImage">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_08.png" alt="" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_08.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
               </router-link>
             </div>
           </div>

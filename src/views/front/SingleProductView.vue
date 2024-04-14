@@ -11,7 +11,7 @@
         </h2>
         <div class="row gy-8">
           <div class="col-lg-6">
-            <img :src="test.proposalMainImage" class="w-100 object-fit-cover rounded-2" alt="" style="height: 360px" />
+            <img :src="test.proposalMainImage" class="w-100 object-fit-cover rounded-2" alt="提案主圖" style="height: 360px" />
           </div>
           <div class="order-2 order-lg-1 col-lg-6 d-flex flex-column text-gray-600">
             <div class="d-flex justify-content-between mb-7">
@@ -22,7 +22,7 @@
                   </countTo>
                 </p>
               </div>
-              <img class="d-none" src="https://fakeimg.pl/64x64" alt="" style="width: 64px" />
+              <img class="d-none" src="https://fakeimg.pl/64x64" alt="使用者頭貼" style="width: 64px" />
             </div>
             <div class="mb-8 w-100 bg-primary rounded-pill" style="height: 6px"></div>
             <div class="d-flex mb-10">

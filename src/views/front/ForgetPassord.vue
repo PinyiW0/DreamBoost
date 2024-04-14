@@ -11,7 +11,7 @@
             <input type="email" placeholder="電子郵件" class="w-100 mb-12 mb-lg-12 p-3 rounded-3 border border-primary-light">
             <div class="d-flex flex-column-reverse flex-md-row align-items-center justify-content-end">
               <router-link to="member" class="me-6 text-gray-600">返回登入頁面</router-link>
-              <button class="btn btn-primary py-lg-3 px-lg-9 mb-6 mb-md-0 col-12 col-md-8 col-lg-7">發送重設連結</button>
+              <button type="button" class="btn btn-primary py-lg-3 px-lg-9 mb-6 mb-md-0 col-12 col-md-8 col-lg-7">發送重設連結</button>
             </div>
           </div>
         </div>
@@ -19,18 +19,6 @@
     </section>
   </main>
 </template>
-
-<style scope>
-/* .wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-.main {
-  flex-grow: 1;
-} */
-
-</style>
 
 <script>
 

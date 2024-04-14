@@ -8,7 +8,7 @@
         <img
           :src="singleProposal?.proposalMainImage"
           class="img-fluid w-100 rounded-3"
-          alt=""
+          alt="專案主圖"
           style="min-height: 236px"
         />
       </div>
@@ -28,7 +28,7 @@
             <img
               :src="singleProposal?.customizeProperty?.userImage"
               class="img-fluid rounded-circle me-3"
-              alt=""
+              alt="使用者頭貼"
               style="height: 36px"
             />
             <p class="fs-lg-6 mb-0">
