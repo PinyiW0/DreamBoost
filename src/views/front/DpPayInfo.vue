@@ -239,7 +239,7 @@
                           src="/images/explore/info.svg"
                           class="img-fluid"
                           style="margin-top: -6px"
-                          alt=""
+                          alt="驚嘆號提示"
                         />
                       </span>
                     </button>
@@ -279,7 +279,7 @@
                           src="/images/explore/info.svg"
                           class="img-fluid"
                           style="margin-top: -6px"
-                          alt=""
+                          alt="驚嘆號提示"
                         />
                       </span>
                     </button>

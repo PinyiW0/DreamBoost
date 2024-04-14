@@ -35,7 +35,7 @@
             <div class="d-flex justify-content-center align-items-center rounded-circle"
               style="width: 112px; height: 112px">
               <img class="img-fluid object-fit-cover rounded-circle" :src="test?.customizeProperty?.userImage"
-                alt="" />
+                alt="提案者頭貼" />
             </div>
             <div class="d-flex flex-column">
               <h3 class="mb-1 fs-4 text-primary">{{ test?.customizeProperty?.displayName }}</h3>

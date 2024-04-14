@@ -38,20 +38,6 @@
   </main>
 </template>
 
-<style lang="scss">
-.swiper {
-  overflow: initial;
-}
-
-.swiper-pagination {
-  background-color: var(--bs-gray-200);
-
-  &-progressbar-fill {
-    background-color: var(--bs-primary) !important;
-  }
-}
-</style>
-
 <script>
 import { mapState, mapActions, mapGetters } from 'pinia';
 import exploreStore from '@/stores/exploreStore';
@@ -117,3 +103,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.swiper {
+  overflow: initial;
+}
+
+.swiper-pagination {
+  background-color: var(--bs-gray-200);
+
+  &-progressbar-fill {
+    background-color: var(--bs-primary) !important;
+  }
+}
+</style>

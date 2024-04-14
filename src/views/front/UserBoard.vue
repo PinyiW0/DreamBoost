@@ -34,6 +34,16 @@
   <RouterView />
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      userId: localStorage.getItem('userID'),
+    };
+  },
+};
+</script>
+
 <style lang="scss">
 .userbd-link {
   position: relative;
@@ -72,13 +82,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      userId: localStorage.getItem('userID'),
-    };
-  },
-};
-</script>

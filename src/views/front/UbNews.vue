@@ -29,14 +29,6 @@
   </main>
 </template>
 
-<style lang="scss">
-.angle-down {
-  :hover {
-    color: var(--bs-primary);
-  }
-}
-</style>
-
 <script>
 import AnglesDown from '@/components/icons/AnglesDown.vue';
 
@@ -86,3 +78,11 @@ export default {
   mixins: [mixinSwalToast, mixinFullScreenLoading],
 };
 </script>
+
+<style lang="scss">
+.angle-down {
+  :hover {
+    color: var(--bs-primary);
+  }
+}
+</style>

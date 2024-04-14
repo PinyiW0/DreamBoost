@@ -7,7 +7,7 @@
           <img
             src="https://fakeimg.pl/416x234/"
             class="img-fluid h-100 rounded-3"
-            alt="">
+            alt="頭貼">
         </div>
         <div class="col-12 col-lg-6 d-flex flex-column justify-content-lg-between mt-2">
           <div class="mb-4 mb-lg-0">
@@ -17,7 +17,7 @@
               <img
                 src="https://fakeimg.pl/36x36/"
                 class="img-fluid rounded-circle me-3"
-                alt="">
+                alt="頭貼">
               <p class="fs-lg-6 mb-0">發起人：樂樂許願池</p>
             </div>
           </div>
@@ -76,8 +76,6 @@
     </section>
   </main>
 </template>
-
-<style lang="scss"></style>
 
 <script>
 const faqButton = document.querySelectorAll('.faq__button');
