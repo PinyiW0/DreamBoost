@@ -1,0 +1,1 @@
+import{S as a}from"./index-2e5bzb_o.js";const n={data(){return{SwalToastInstance:""}},methods:{addToast({style:t="success",content:s,timer:o=3e3}){this.SwalToastInstance.fire({icon:t,title:s,timer:o})}},mounted(){this.SwalToastInstance=a.mixin({toast:!0,position:"top-end",animation:!0,showConfirmButton:!1,timer:3e3,timerProgressBar:!0,showCloseButton:!0})}};export{n as m};
