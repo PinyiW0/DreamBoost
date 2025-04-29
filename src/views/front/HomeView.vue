@@ -60,37 +60,37 @@
       <div class="container row gy-8 gy-md-10 justify-content-center position-absolute translate-middle-null z-3">
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <router-link :to="{ name: 'explore' }"
-            class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
+            class="categorylink categorylink1 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center py-6 py-xxl-5">
             挺好夢
           </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <router-link :to="{ name: 'explore' }"
-            class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
+            class="categorylink categorylink2 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center py-6 py-xxl-5">
             科技設計
           </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <router-link :to="{ name: 'explore' }"
-            class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
+            class="categorylink categorylink3 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center py-6 py-xxl-5">
             健康生活
           </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <router-link :to="{ name: 'explore' }"
-            class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
+            class="categorylink categorylink4 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center py-6 py-xxl-5">
             時尚
           </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <router-link :to="{ name: 'explore' }"
-            class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
+            class="categorylink categorylink5 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center py-6 py-xxl-5">
             公共在地
           </router-link>
         </div>
         <div class="col-10 col-lg-3 col-xxl me-0 me-lg-10 me-xl-6 me-xxl-3">
           <router-link :to="{ name: 'explore' }"
-            class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center pt-7 pt-xxl-5">
+            class="categorylink categorylink6 rounded-pill border border-2 border-white fs-4 fs-lg-4 fs-xxl-3 fw-medium text-white lterSpc-5 text-center py-6 py-xxl-5">
             美妝
           </router-link>
         </div>
@@ -129,15 +129,15 @@
       <div class="container d-flex flex-column justify-content-center">
         <div class="row g-10 mb-7 pb-27">
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore'}" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
-                <img src="/images/home/cs_01.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
+                <img src="/images/home/cs_01.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12">
               </router-link>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_02.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
@@ -145,7 +145,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_03.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
@@ -153,7 +153,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_04.jpg" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
@@ -161,7 +161,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_05.jpg" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
@@ -169,7 +169,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-4 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name2 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_06.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
@@ -177,7 +177,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_07.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
@@ -185,7 +185,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-2 g-4 g-sm-3 g-md-2">
-            <div class="position-relative rounded-3 h-100 csImage">
+            <div class="position-relative rounded-3 h-100 csImage rounded-3 overflow-hidden">
               <router-link :to="{ name: 'explore' }" class="position-relative">
                 <h4 class="project-name1 text-center text-white mx-auto z-2 lterSpc-5">查看更多</h4>
                 <img src="/images/home/cs_08.png" alt="專案推播圖" class="img-fluid object-fit-cover h-100 col-12 rounded-3">
@@ -408,7 +408,6 @@ export default {
   background-position: center;
   box-shadow: 0px 4px 6px rgba(14, 87, 106, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s, background-size 0.5s ease;
-  min-height: 78px;
 
   &:hover {
     box-shadow: 0px 8px 12px rgba(12, 42, 29, 0.3);
@@ -476,7 +475,6 @@ export default {
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.5);
-    border-radius: 6%;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
